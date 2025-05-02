@@ -1,0 +1,10 @@
+render <- function(x, width = NULL, height = NULL, elementId = NULL) {
+  htmlwidgets::createWidget(
+    x = x,
+    name = 'render',
+    width = width,
+    height = height,
+    package = 'rgeoviz',
+    elementId = elementId
+  )
+}

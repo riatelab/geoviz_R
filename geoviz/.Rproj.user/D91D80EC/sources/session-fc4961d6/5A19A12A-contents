@@ -1,0 +1,12 @@
+HTMLWidgets.widget({
+  name: 'create',
+  type: 'output',
+  factory: function(el, width, height) {
+    return {
+      renderValue: function(projection = "NaturalEarth1") {
+          let svg = geoviz.create({ projection:projection});
+          return svg
+      },
+    };
+  }
+});

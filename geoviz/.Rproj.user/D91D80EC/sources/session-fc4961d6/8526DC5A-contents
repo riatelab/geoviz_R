@@ -1,0 +1,15 @@
+HTMLWidgets.widget({
+  name: 'test',
+  type: 'output',
+  factory: function(el) {
+    return {
+      renderValue: function(svg) {
+          svg.graticule();
+          const rendered = svg.render();
+          el.appendChild(rendered);
+      },
+
+
+    };
+  }
+});

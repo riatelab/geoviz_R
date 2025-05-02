@@ -1,0 +1,24 @@
+{
+    "id": "10244AD7",
+    "path": "~/Github/rgeoviz/geoviz/inst/htmlwidgets/geo_widget.yaml",
+    "project_path": "inst/htmlwidgets/geo_widget.yaml",
+    "type": "yaml",
+    "hash": "1880419577",
+    "contents": "",
+    "dirty": false,
+    "created": 1746191405862.0,
+    "source_on_save": false,
+    "relative_order": 17,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1746189069,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1746189069,
+    "read_only": false,
+    "read_only_alternatives": []
+}
