@@ -1,10 +1,13 @@
 
 convert_sf_to_geojson <- function(x) {
-  if (inherits(x, "sf")) {
-    geojsonsf::sf_geojson(x)
-  } else {
-    x
+  if (inherits(x, "sf") || inherits(x, "sfc")) {
+    return(geojsonsf::sf_geojson(x))
   }
+  if (is.data.frame(x) && any(sapply(x, inherits, "sfc"))) {
+    x <- sf::st_as_sf(x)
+    return(geojsonsf::sf_geojson(x))
+  }
+  return(x)
 }
 
 save_geojson <- function(geojson, filename) {
@@ -15,17 +18,13 @@ save_geojson <- function(geojson, filename) {
 r2json <- function(map) {
   params_converted <- lapply(map$params, convert_sf_to_geojson)
   layers_converted <- lapply(map$layers, function(layer) {
-    if ("data" %in% names(layer)) {
-      layer$data <- convert_sf_to_geojson(layer$data)  # Conversion spécifique pour les objets spatiaux
-    }
-    return(layer)
+    lapply(layer, convert_sf_to_geojson)
   })
   map_combined <- list(
     params = params_converted,
     layers = layers_converted
   )
-
-  return(jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE))
+  jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
 }
 
 
@@ -55,4 +54,15 @@ path   <- function(map, ...) add_layer(map, "path", ...)
 simple   <- function(map, ...) add_layer(map, "simple", ...)
 layer   <- function(map, ...) add_layer(map, "layer", ...)
 tile   <- function(map, ...) add_layer(map, "tile", ...)
+text   <- function(map, ...) add_layer(map, "text", ...)
+label   <- function(map, ...) add_layer(map, "label", ...)
+footer   <- function(map, ...) add_layer(map, "footer", ...)
+scalebar   <- function(map, ...) add_layer(map, "scalebar", ...)
+north   <- function(map, ...) add_layer(map, "north", ...)
 
+prop   <- function(map, ...) add_layer(map, "prop", ...)
+choro   <- function(map, ...) add_layer(map, "choro", ...)
+typo   <- function(map, ...) add_layer(map, "typo", ...)
+symbol   <- function(map, ...) add_layer(map, "symbol", ...)
+propchoro   <- function(map, ...) add_layer(map, "propchoro", ...)
+proptypo   <- function(map, ...) add_layer(map, "proptypo", ...)
