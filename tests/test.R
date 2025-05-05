@@ -1,12 +1,15 @@
 library(sf)
+library(d3carto)
+
 world <- st_read("tests/world.json")
 
 
-library(d3carto)
 
-map <- create(projection="Bertin1953") |>
-  outline(fill = "#CCC") |>
-  graticule() |>
+create(zoomable = "true") |>
+  tile()|>
+  # outline() |>
+  # graticule() |>
+  # layer(data = world) |>
+  header(text = "Bonjour") |>
   render()
 
-map

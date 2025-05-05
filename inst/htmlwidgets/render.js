@@ -1,6 +1,7 @@
 HTMLWidgets.widget({
   name: "render",
-  factory: function(el,width, height) {
+  type: "output",
+  factory: function(el) {
     return {
       renderValue: function(x) {
          console.log(x);

@@ -49,4 +49,10 @@ add_layer <- function(map, type, ...) {
 graticule <- function(map, ...) add_layer(map, "graticule", ...)
 outline   <- function(map, ...) add_layer(map, "outline", ...)
 header   <- function(map, ...) add_layer(map, "header", ...)
+path   <- function(map, ...) add_layer(map, "path", ...)
+base   <- function(map, ...) add_layer(map, "base", ...)
+path   <- function(map, ...) add_layer(map, "path", ...)
+simple   <- function(map, ...) add_layer(map, "simple", ...)
+layer   <- function(map, ...) add_layer(map, "layer", ...)
+tile   <- function(map, ...) add_layer(map, "tile", ...)
 
