@@ -4,13 +4,28 @@
 \alias{graticule}
 \title{Graticule}
 \usage{
-graticule(map, ...)
+graticule(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...)
 }
 \arguments{
-\item{step}{stepp ssss}
+\item{map}{a d3carto object create with the create() function. Use |> to chain instructions.}
 
-\item{stroke}{stroke wsmlùmslùms}
+\item{step}{step}
+
+\item{stroke}{stroke}
+
+\item{strokeDasharray}{strokeDasharray}
+
+\item{...}{Additional parameters. See geoviz.js documentation.}
+}
+\value{
+Graticule layer
 }
 \description{
 Graticule
+}
+\examples{
+create() |>
+graticule(step = 10, strokeDasharray = c(2, 4)) |>
+render()
+
 }

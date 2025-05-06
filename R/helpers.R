@@ -10,10 +10,10 @@ convert_sf_to_geojson <- function(x) {
   return(x)
 }
 
-save_geojson <- function(geojson, filename) {
-  writeLines(geojson, con = filename)
-  cat("GeoJSON file saved as:", filename, "\n")
-}
+# save_geojson <- function(geojson, filename) {
+#   writeLines(geojson, con = filename)
+#   cat("GeoJSON file saved as:", filename, "\n")
+# }
 
 r2json <- function(map) {
   params_converted <- lapply(map$params, convert_sf_to_geojson)
@@ -27,13 +27,6 @@ r2json <- function(map) {
   jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
 }
 
-
-create <- function(...) {
-structure(
-    list(params = list(...), layers = list()),
-    class = "d3carto"
-  )
-}
 
 add_layer <- function(map, type, ...) {
   if (!inherits(map, "d3carto")) {

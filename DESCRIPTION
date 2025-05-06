@@ -1,15 +1,19 @@
 Package: d3carto
 Type: Package
 Title: SVG interactive maps (d3 ecosystem)
-Version: 0.1.0
+Version: 0.7.11
 Authors@R: person("Nicolas", "Lambert", email = "nicolas.lambert@cnrs.fr", role = c("aut", "cre"))
 Maintainer: Nicolas Lambert <nicolas.lambert@cnrs.fr>
-Description: xxx
-License: MIT
+Description: `d3carto` is an R package for thematic mapping. As its name suggests, it's an htmlwidget based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. More specifically, it is an implementation of the [geoviz](https://riatelab.github.io/geoviz/) JavaScript library developed by [RiateLab](https://riate.cnrs.fr/riatelab.html). The package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. 
+License: MIT + file LICENSE
+URL: https://neocarto.github.io/d3carto/
+BugReports: https://github.com/neocarto/d3carto/issues/
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.3.2
 Imports:
     htmlwidgets,
     geojsonsf,
     jsonlite
+Suggests: 
+    sf
+Language: en-US

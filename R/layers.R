@@ -1,12 +1,20 @@
-# Layer types
-
-
 #' Graticule
-#' @param step stepp ssss
-#' @param stroke stroke wsmlùmslùms
-graticule <- function(map, ...) add_layer(map, "graticule", step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...)
-
-
+#'
+#' @param map a d3carto object create with the create() function. Use |> to chain instructions.
+#' @param step step
+#' @param stroke stroke
+#' @param strokeDasharray strokeDasharray
+#' @param ... Additional parameters. See geoviz.js documentation.
+#' @return Graticule layer
+#' @export
+#' @examples
+#' create() |>
+#' graticule(step = 10, strokeDasharray = c(2, 4)) |>
+#' render()
+#'
+graticule <- function(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...) {
+  add_layer(map, "graticule", step = step, stroke = stroke, strokeDasharray = strokeDasharray, ...)
+}
 
 outline   <- function(map, ...) add_layer(map, "outline", ...)
 header   <- function(map, ...) add_layer(map, "header", ...)
