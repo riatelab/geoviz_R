@@ -1,6 +1,6 @@
-# ************************
 # WORK IN PROGRESS !!!!!!!
-# ************************
+
+<hr/>
 
 # d3carto
 
@@ -34,7 +34,7 @@ todo
 
 ```R
 install.packages("devtools")
-devtools::install_github("ton-utilisateur/nom-du-depot")
+devtools::install_github("neocarto/d3carto")
 ```
 
 # Example
