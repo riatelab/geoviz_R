@@ -1,5 +1,5 @@
 dependencies:
  - name: render
-   version: 0.7.10
+   version: 0.7.11
    src: htmlwidgets/geoviz
-   script: geoviz.0.7.10.js
+   script: geoviz.0.7.11.js
