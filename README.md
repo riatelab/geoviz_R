@@ -22,12 +22,18 @@
 
 - Many different types of card are available. The types can be combined with each other and are highly customizable. 
 
+
+
 # Install
 
 ``` r
 install.packages("devtools")
 devtools::install_github("neocarto/d3carto")
 ```
+
+## Syntax
+
+There are several steps involved in creating a map. First, create the map container using the create() function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. The render() function then displays the result. The various functions can be chained together with a pipe (|>)
 
 # Usage
 

@@ -1,5 +1,6 @@
 devtools::check()
 devtools::document()
+devtools::build_vignettes()
 
 devtools::load_all()
 library(sf)
