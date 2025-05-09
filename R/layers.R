@@ -16,23 +16,38 @@ graticule <- function(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, .
   add_layer(map, "graticule", step = step, stroke = stroke, strokeDasharray = strokeDasharray, ...)
 }
 
+#' Outline
+#' @export
 outline   <- function(map, ...) add_layer(map, "outline", ...)
+
+#' Outline
+#' @export
 header   <- function(map, ...) add_layer(map, "header", ...)
+
+#' Path
+#' @export
 path   <- function(map, ...) add_layer(map, "path", ...)
+
+#' Text
+#' @export
+text   <- function(map, ...) add_layer(map, "text", ...)
+
 base   <- function(map, ...) add_layer(map, "base", ...)
-path   <- function(map, ...) add_layer(map, "path", ...)
 simple   <- function(map, ...) add_layer(map, "simple", ...)
 layer   <- function(map, ...) add_layer(map, "layer", ...)
 tile   <- function(map, ...) add_layer(map, "tile", ...)
-text   <- function(map, ...) add_layer(map, "text", ...)
 label   <- function(map, ...) add_layer(map, "label", ...)
 footer   <- function(map, ...) add_layer(map, "footer", ...)
 scalebar   <- function(map, ...) add_layer(map, "scalebar", ...)
 north   <- function(map, ...) add_layer(map, "north", ...)
 
+#' Prop
+#' @export
 prop   <- function(map, ...) add_layer(map, "prop", ...)
+
 choro   <- function(map, ...) add_layer(map, "choro", ...)
 typo   <- function(map, ...) add_layer(map, "typo", ...)
 symbol   <- function(map, ...) add_layer(map, "symbol", ...)
 propchoro   <- function(map, ...) add_layer(map, "propchoro", ...)
 proptypo   <- function(map, ...) add_layer(map, "proptypo", ...)
+

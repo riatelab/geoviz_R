@@ -1,24 +1,3 @@
-HTMLWidgets.widget({
-  name: "render",
-  type: "output",
-  factory: function(el) {
-    return {
-      renderValue: function(x) {
-       //console.log(deepDeserializeGeoJSON(x))
-        el.innerHTML = "";
-        //let svg = geoviz.draw(x);
-        let svg = geoviz.draw(deepDeserializeGeoJSON(x));
-        el.appendChild(svg);
-      },
-
-
-
-    };
-  }
-});
-
-
-
 // Helpers to deserliaze geoJSONs
 function isGeoJSON(obj) {
   if (typeof obj !== 'object' || obj === null) return false;

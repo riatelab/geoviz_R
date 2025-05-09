@@ -1,3 +1,18 @@
+#' #' Create
+#' #'
+#' #' @param ... Additional parameters passed to other functions or layers.
+#' #' @return Graticule layer
+#' #' @export
+#' create <- function(map, ...) {
+#'   structure(
+#'     list(
+#'       params = list(...),
+#'       layers = list()
+#'     ),
+#'     class = "d3carto"
+#'   )
+#' }
+
 #' Create
 #'
 #' @param projection The projection (d3) to use for the visualization.
@@ -6,15 +21,10 @@
 #' @param ... Additional parameters passed to other functions or layers.
 #' @return Graticule layer
 #' @export
-create <- function(projection = NULL, domain = NULL, zoomable = FALSE, ...) {
+create <- function(...) {
   structure(
     list(
-      params = list(
-        projection = projection,
-        domain = domain,
-        zoomable = zoomable,
-        ...
-      ),
+      params = list(...),
       layers = list()
     ),
     class = "d3carto"

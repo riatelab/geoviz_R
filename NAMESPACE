@@ -2,4 +2,9 @@
 
 export(create)
 export(graticule)
+export(header)
+export(outline)
+export(path)
+export(prop)
 export(render)
+export(text)

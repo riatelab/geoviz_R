@@ -1,5 +1,0 @@
-dependencies:
- - name: geoviz
-   version: 0.7.10
-   src: htmlwidgets/geoviz
-   script: geoviz.0.7.10.js
