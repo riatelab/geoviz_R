@@ -2,22 +2,50 @@
 % Please edit documentation in R/create.R
 \name{create}
 \alias{create}
-\title{Create}
+\title{#' Create
+#'
+#' @param ... Additional parameters passed to other functions or layers.
+#' @return Graticule layer
+#' @export
+create <- function(map, ...) {
+  structure(
+    list(
+      params = list(...),
+      layers = list()
+    ),
+    class = "d3carto"
+  )
+}
+Create}
 \usage{
-create(projection = NULL, domain = NULL, zoomable = FALSE, ...)
+create(...)
 }
 \arguments{
+\item{...}{Additional parameters passed to other functions or layers.}
+
 \item{projection}{The projection (d3) to use for the visualization.}
 
 \item{domain}{The domain for the visualization. c(top, right, bottom, left)}
 
 \item{zoomable}{boolean or "versor" to made the map zoomable}
-
-\item{...}{Additional parameters passed to other functions or layers.}
 }
 \value{
 Graticule layer
 }
 \description{
+#' Create
+#'
+#' @param ... Additional parameters passed to other functions or layers.
+#' @return Graticule layer
+#' @export
+create <- function(map, ...) {
+  structure(
+    list(
+      params = list(...),
+      layers = list()
+    ),
+    class = "d3carto"
+  )
+}
 Create
 }

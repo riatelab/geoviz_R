@@ -3,10 +3,8 @@ HTMLWidgets.widget({
   type: "output",
   factory: function(el) {
     return {
-      renderValue: function(x, file = 'image.svg') {
-       //console.log(deepDeserializeGeoJSON(x))
+      renderValue: function(x, file = 'map.svg') {
         el.innerHTML = "";
-        //let svg = geoviz.draw(x);
         let svg = geoviz.draw(deepDeserializeGeoJSON(x));
         el.appendChild(svg);
 

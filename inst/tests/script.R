@@ -1,3 +1,6 @@
+devtools::check()
+devtools::document()
+
 devtools::load_all()
 library(sf)
 # library(d3carto)
