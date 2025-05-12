@@ -15,5 +15,8 @@ Imports:
     geojsonsf,
     jsonlite
 Suggests: 
-    sf
+    sf,
+    knitr,
+    rmarkdown
 Language: en-US
+VignetteBuilder: knitr

@@ -4,8 +4,10 @@ HTMLWidgets.widget({
   factory: function(el) {
     return {
       renderValue: function(x, file = 'map.svg') {
+        x = deepDeserializeGeoJSON(x)
+        if(!x.params.width){x.params.width = el.getBoundingClientRect().width}
         el.innerHTML = "";
-        let svg = geoviz.draw(deepDeserializeGeoJSON(x));
+        let svg = geoviz.draw(x);
         el.appendChild(svg);
 
  const serializer = new XMLSerializer();

@@ -28,3 +28,42 @@ To install the package, just write
 ## Syntax
 
 There are several steps involved in creating a map. First, create the map container using the create() function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. The render() function then displays the result. The various functions can be chained together with a pipe (|>)
+
+## XXX
+
+```{r}
+library(sf)
+library(d3carto)
+```
+
+xxx
+
+```{r}
+world <- st_read(system.file("gpkg/world.gpkg", package = "d3carto"), quiet = TRUE)
+```
+
+xxx
+
+```{r}
+create(width = 700) |>
+  outline() |>
+  graticule(step = 60, stroke = "red") |>
+  path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  prop(data = world, var = "pop", fill = "red", tip = T) |>
+  header(text = "Bonjour") |>
+  render()
+```
+
+xxx
+
+
+```{r}
+create() |>
+  outline() |>
+  graticule(step = 60, stroke = "red") |>
+  path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  prop(data = world, var = "pop", fill = "red", tip = T) |>
+  header(text = "Bonjour") |>
+  render()
+```
+

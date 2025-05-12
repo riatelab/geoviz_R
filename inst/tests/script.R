@@ -17,7 +17,12 @@ create() |>
   path(datum = world, fill = "white", fillOpacity = 0.3) |>
   prop(data = world, var = "pop", fill = "red", tip = T) |>
   header(text = "Bonjour") |>
-  save()
+  render()
+
+create() |>
+  tile(url = "worldimagery") |>
+  path(datum = world, fill = "none", stroke = "red") |>
+  render()
 
 
 create(zoomable = T) |>
