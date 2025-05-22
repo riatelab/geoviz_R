@@ -1,4 +1,4 @@
-#' #' Create
+#' #' create
 #' #'
 #' #' @param ... Additional parameters passed to other functions or layers.
 #' #' @return Graticule layer
@@ -9,7 +9,7 @@
 #'       params = list(...),
 #'       layers = list()
 #'     ),
-#'     class = "d3carto"
+#'     class = "d3geoviz"
 #'   )
 #' }
 
@@ -27,6 +27,6 @@ create <- function(...) {
       params = list(...),
       layers = list()
     ),
-    class = "d3carto"
+    class = "d3geoviz"
   )
 }

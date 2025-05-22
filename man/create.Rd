@@ -2,7 +2,7 @@
 % Please edit documentation in R/create.R
 \name{create}
 \alias{create}
-\title{#' Create
+\title{#' vz_create
 #'
 #' @param ... Additional parameters passed to other functions or layers.
 #' @return Graticule layer
@@ -33,7 +33,7 @@ create(...)
 Graticule layer
 }
 \description{
-#' Create
+#' vz_create
 #'
 #' @param ... Additional parameters passed to other functions or layers.
 #' @return Graticule layer

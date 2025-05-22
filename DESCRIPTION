@@ -1,4 +1,4 @@
-Package: d3carto
+Package: d3geoviz
 Type: Package
 Title: SVG interactive maps (d3 ecosystem)
 Version: 0.7.11

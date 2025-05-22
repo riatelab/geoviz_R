@@ -11,16 +11,18 @@ library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "d3carto"), quiet = TRUE)
 
 
-create() |>
+create(zoomable = "versor") |>
+  shadow(id = "ombre") |>
   outline() |>
   graticule(step = 60, stroke = "red") |>
   path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", tip = T) |>
+  prop(data = world, var = "pop", fill = "red", tip = T, filter = "url(#ombre)") |>
   header(text = "Bonjour") |>
   render()
 
 create() |>
-  tile(url = "worldimagery") |>
+  clipPath(id = "clip", datum = world) |>
+  tile(url = "worldimagery", clipPath="url(#clip)") |>
   path(datum = world, fill = "none", stroke = "red") |>
   render()
 

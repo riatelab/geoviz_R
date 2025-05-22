@@ -29,7 +29,7 @@ r2json <- function(map) {
 
 
 add_layer <- function(map, type, ...) {
-  if (!inherits(map, "d3carto")) {
+  if (!inherits(map, "d3geoviz")) {
     stop("d3carto class needed")
   }
   layer <- c(list(type = type), list(...))

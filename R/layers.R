@@ -1,6 +1,6 @@
 #' Graticule
 #'
-#' @param map a d3carto object create with the create() function. Use |> to chain instructions.
+#' @param map a d3geoviz object create with the create() function. Use |> to chain instructions.
 #' @param step step
 #' @param stroke stroke
 #' @param strokeDasharray strokeDasharray
@@ -51,3 +51,6 @@ symbol   <- function(map, ...) add_layer(map, "symbol", ...)
 propchoro   <- function(map, ...) add_layer(map, "propchoro", ...)
 proptypo   <- function(map, ...) add_layer(map, "proptypo", ...)
 
+# Effects
+shadow   <- function(map, ...) add_layer(map, "shadow", ...)
+clipPath <- function(map, ...) add_layer(map, "clipPath", ...)

@@ -32,38 +32,38 @@ There are several steps involved in creating a map. First, create the map contai
 ## XXX
 
 ```{r}
-library(sf)
-library(d3carto)
+# library(sf)
+# library(d3geoviz)
 ```
 
 xxx
 
 ```{r}
-world <- st_read(system.file("gpkg/world.gpkg", package = "d3carto"), quiet = TRUE)
+# world <- st_read(system.file("gpkg/world.gpkg", package = "d3carto"), quiet = TRUE)
 ```
 
 xxx
 
 ```{r}
-create(width = 700) |>
-  outline() |>
-  graticule(step = 60, stroke = "red") |>
-  path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", tip = T) |>
-  header(text = "Bonjour") |>
-  render()
+# create(width = 700) |>
+#   outline() |>
+#   graticule(step = 60, stroke = "red") |>
+#   path(datum = world, fill = "white", fillOpacity = 0.3) |>
+#   prop(data = world, var = "pop", fill = "red", tip = T) |>
+#   header(text = "Bonjour") |>
+#   render()
 ```
 
 xxx
 
 
 ```{r}
-create() |>
-  outline() |>
-  graticule(step = 60, stroke = "red") |>
-  path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", tip = T) |>
-  header(text = "Bonjour") |>
-  render()
+# create() |>
+#   outline() |>
+#   graticule(step = 60, stroke = "red") |>
+#   path(datum = world, fill = "white", fillOpacity = 0.3) |>
+#   prop(data = world, var = "pop", fill = "red", tip = T) |>
+#   header(text = "Bonjour") |>
+#   render()
 ```
 
