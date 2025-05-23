@@ -26,28 +26,43 @@ Now let's see how it works.
 
 To install the package, just write
 
-
-## Syntax
-
-There are several steps involved in creating a map. First, create the map container using the create() function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. The render() function then displays the result. The various functions can be chained together with a pipe (|>)
-
-## XXX
-
 ```{r}
-library(sf)
 library(d3geoviz)
 ```
 
-xxx
+## Syntax
+
+There are several steps involved in creating a map. First, create the map container using the **`create()`** function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. Then, the **`render()`** function then displays the result. The various functions can be chained together with a pipe (**`|>`**).
+
+Let's build a simple example.
 
 ```{r}
+# Data Loading
+library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "d3geoviz"), quiet = TRUE)
 ```
 
-xxx
+```{r}
+# A simple map
+create(width = 800) |>
+  outline() |>
+  graticule(step = 60, stroke = "white") |>
+  path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  header(text = "Map Title") |>
+  footer(text = "Source, author, year, etc.") |>
+  render()
+```
+
+As you can see, the name of the parameters don't look like classical R parameters. Since it's based on d3.js, map parameters use svg attributes rather than the usual R parameters. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc. 
+
+
+
+-------------------------------
+
+
 
 ```{r}
-create(width = 700) |>
+create(width = 800) |>
   outline() |>
   graticule(step = 60, stroke = "red") |>
   path(datum = world, fill = "white", fillOpacity = 0.3) |>
@@ -59,7 +74,7 @@ create(width = 700) |>
 xxx
 
 ```{r}
-create(zoomable = "versor") |>
+create(zoomable = "versor", width = 800) |>
   #shadow(id = "ombre") |>
   outline() |>
   graticule(step = 60, stroke = "red") |>
@@ -73,10 +88,18 @@ create(zoomable = "versor") |>
 xxx
 
 ```{r}
-create() |>
-# clipPath(id = "clip", datum = world) |>
+create(width = 800) |>
+clipPath(id = "clip", datum = world) |>
 tile(url = "worldimagery", clipPath="url(#clip)") |>
 path(datum = world, fill = "none", stroke = "red") |>
+render()
+```
+
+## choro
+
+```{r}
+create(projection = "Bertin1953", width = 800) |>
+choro(data = world, var = "gdppc") |>
 render()
 ```
 
@@ -87,7 +110,7 @@ render()
 - **d3-geo-polygon** : https://github.com/d3/d3-geo-polygon
 
 ```{r}
-create(projection = "Dodecahedral") |>
+create(projection = "Dodecahedral",  width = 800) |>
   outline() |>
   graticule(step = 60, stroke = "red") |>
   path(datum = world, fill = "white", fillOpacity = 0.3) |>

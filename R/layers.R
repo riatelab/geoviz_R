@@ -24,6 +24,11 @@ outline   <- function(map, ...) add_layer(map, "outline", ...)
 #' @export
 header   <- function(map, ...) add_layer(map, "header", ...)
 
+#' Outline
+#' @export
+footer   <- function(map, ...) add_layer(map, "footer", ...)
+
+
 #' Path
 #' @export
 path   <- function(map, ...) add_layer(map, "path", ...)
@@ -42,23 +47,48 @@ simple   <- function(map, ...) add_layer(map, "simple", ...)
 layer   <- function(map, ...) add_layer(map, "layer", ...)
 
 label   <- function(map, ...) add_layer(map, "label", ...)
-footer   <- function(map, ...) add_layer(map, "footer", ...)
 scalebar   <- function(map, ...) add_layer(map, "scalebar", ...)
 north   <- function(map, ...) add_layer(map, "north", ...)
+symbol   <- function(map, ...) add_layer(map, "symbol", ...)
 
 #' Prop
 #' @export
 prop   <- function(map, ...) add_layer(map, "prop", ...)
 
+#' choro
+#' @export
 choro   <- function(map, ...) add_layer(map, "choro", ...)
+
+#' typo
+#' @export
 typo   <- function(map, ...) add_layer(map, "typo", ...)
+
+#' picto
+#' @export
 picto   <- function(map, ...) add_layer(map, "picto", ...)
-symbol   <- function(map, ...) add_layer(map, "symbol", ...)
+
+#' propchoro
+#' @export
 propchoro   <- function(map, ...) add_layer(map, "propchoro", ...)
+
+#' proptypo
+#' @export
 proptypo   <- function(map, ...) add_layer(map, "proptypo", ...)
 
 # Effects
+
+#' shadow
+#' @export
 shadow   <- function(map, ...) add_layer(map, "shadow", ...)
+
+#' radialGradient
+#' @export
 radialGradient   <- function(map, ...) add_layer(map, "radialGradient", ...)
+
+#' blur
+#' @export
 blur   <- function(map, ...) add_layer(map, "blur", ...)
+
+#' clipPath
+#' @export
 clipPath <- function(map, ...) add_layer(map, "clipPath", ...)
