@@ -2,7 +2,7 @@
 % Please edit documentation in R/create.R
 \name{create}
 \alias{create}
-\title{#' vz_create
+\title{#' create
 #'
 #' @param ... Additional parameters passed to other functions or layers.
 #' @return Graticule layer
@@ -13,7 +13,7 @@ create <- function(map, ...) {
       params = list(...),
       layers = list()
     ),
-    class = "d3carto"
+    class = "d3geoviz"
   )
 }
 Create}
@@ -33,7 +33,7 @@ create(...)
 Graticule layer
 }
 \description{
-#' vz_create
+#' create
 #'
 #' @param ... Additional parameters passed to other functions or layers.
 #' @return Graticule layer
@@ -44,7 +44,7 @@ create <- function(map, ...) {
       params = list(...),
       layers = list()
     ),
-    class = "d3carto"
+    class = "d3geoviz"
   )
 }
 Create

@@ -1,23 +1,45 @@
 devtools::check()
+
 devtools::document()
+devtools::install()
 devtools::build_vignettes()
 
+devtools::build()
 devtools::load_all()
 library(sf)
 # library(d3carto)
 
 # devtools::install_github("neocarto/d3carto")
 
-world <- st_read(system.file("gpkg/world.gpkg", package = "d3carto"), quiet = TRUE)
+world <- st_read(system.file("gpkg/world.gpkg", package = "d3geoviz"), quiet = TRUE)
 
 
 create(zoomable = "versor") |>
+  # filtres
   shadow(id = "ombre") |>
+  radialGradient(id ="gradiant") |>
+  # Affichage
   outline() |>
   graticule(step = 60, stroke = "red") |>
-  path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", tip = T, filter = "url(#ombre)") |>
+  path(datum = world, fill = "url(#gradiant)", stroke = "none") |>
+  prop(data = world, var = "pop", fill = "red", tip = T, filter = "url(#ombre)", k = 30,  dodge = T) |>
   header(text = "Bonjour") |>
+  render()
+
+
+create(projection = "HoaXiaoguang", zoomable = "versor", width = 400) |>
+  outline() |>
+  graticule(stroke = "black", strokeWidth = 0.5) |>
+  path(datum = world, fill = "black", fillOpacity = 0.6) |>
+  outline(fill = "none", stroke = "black", strokeWidth = 1.2) |>
+  render()
+
+
+
+create() |>
+  path(datum = world, fill = "#CCC") |>
+  picto(data = world, var = "region", r = 7, fill = "black", dodge = T,
+        symbols =  c("human", "heart", "fist", "clover", "rocket", "plane")) |>
   render()
 
 create() |>

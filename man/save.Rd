@@ -7,7 +7,7 @@
 save(map, elementId = NULL)
 }
 \arguments{
-\item{map}{a d3carto object create with the create() function. Use |> to chain instructions.}
+\item{map}{a d3geoviz object create with the create() function. Use |> to chain instructions.}
 
 \item{elementId}{The HTML element ID (id) of the <div> container in which the widget will be rendered.}
 }

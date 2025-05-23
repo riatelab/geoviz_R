@@ -7,7 +7,7 @@
 graticule(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...)
 }
 \arguments{
-\item{map}{a d3carto object create with the create() function. Use |> to chain instructions.}
+\item{map}{a d3geoviz object create with the create() function. Use |> to chain instructions.}
 
 \item{step}{step}
 
