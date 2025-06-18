@@ -1,6 +1,6 @@
-#' Graticule
+#' viz_graticule
 #'
-#' @param map a d3geoviz object create with the create() function. Use |> to chain instructions.
+#' @param map a geoviz object create with the create() function. Use |> to chain instructions.
 #' @param step step
 #' @param stroke stroke
 #' @param strokeDasharray strokeDasharray
@@ -8,87 +8,87 @@
 #' @return Graticule layer
 #' @export
 #' @examples
-#' create() |>
-#' graticule(step = 10, strokeDasharray = c(2, 4)) |>
-#' render()
+#' viz_create() |>
+#' viz_graticule(step = 10, strokeDasharray = c(2, 4)) |>
+#' viz_render()
 #'
-graticule <- function(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...) {
+viz_graticule <- function(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...) {
   add_layer(map, "graticule", step = step, stroke = stroke, strokeDasharray = strokeDasharray, ...)
 }
 
-#' Outline
+#' viz_outline
 #' @export
-outline   <- function(map, ...) add_layer(map, "outline", ...)
+viz_outline   <- function(map, ...) add_layer(map, "outline", ...)
 
-#' Outline
+#' viz_header
 #' @export
-header   <- function(map, ...) add_layer(map, "header", ...)
+viz_header   <- function(map, ...) add_layer(map, "header", ...)
 
-#' Outline
+#' viz_footer
 #' @export
-footer   <- function(map, ...) add_layer(map, "footer", ...)
+viz_footer   <- function(map, ...) add_layer(map, "footer", ...)
 
 
-#' Path
+#' piz_path
 #' @export
-path   <- function(map, ...) add_layer(map, "path", ...)
+viz_path   <- function(map, ...) add_layer(map, "path", ...)
 
-#' Text
+#' viz_ext
 #' @export
-text   <- function(map, ...) add_layer(map, "text", ...)
+viz_text   <- function(map, ...) add_layer(map, "text", ...)
 
-#' Tile
+#' viz_tile
 #' @export
-tile   <- function(map, ...) add_layer(map, "tile", ...)
+viz_tile   <- function(map, ...) add_layer(map, "tile", ...)
 
 
-base   <- function(map, ...) add_layer(map, "base", ...)
-simple   <- function(map, ...) add_layer(map, "simple", ...)
-layer   <- function(map, ...) add_layer(map, "layer", ...)
+viz_base   <- function(map, ...) add_layer(map, "base", ...)
+viz_simple   <- function(map, ...) add_layer(map, "simple", ...)
+viz_layer   <- function(map, ...) add_layer(map, "layer", ...)
 
-label   <- function(map, ...) add_layer(map, "label", ...)
-scalebar   <- function(map, ...) add_layer(map, "scalebar", ...)
-north   <- function(map, ...) add_layer(map, "north", ...)
-symbol   <- function(map, ...) add_layer(map, "symbol", ...)
+viz_label   <- function(map, ...) add_layer(map, "label", ...)
+viz_scalebar   <- function(map, ...) add_layer(map, "scalebar", ...)
+viz_north   <- function(map, ...) add_layer(map, "north", ...)
+viz_symbol   <- function(map, ...) add_layer(map, "symbol", ...)
 
-#' Prop
+#' viz_prop
 #' @export
-prop   <- function(map, ...) add_layer(map, "prop", ...)
+viz_prop   <- function(map, ...) add_layer(map, "prop", ...)
 
-#' choro
+#' viz_choro
 #' @export
-choro   <- function(map, ...) add_layer(map, "choro", ...)
+viz_choro   <- function(map, ...) add_layer(map, "choro", ...)
 
-#' typo
+#' viz_typo
 #' @export
-typo   <- function(map, ...) add_layer(map, "typo", ...)
+viz_typo   <- function(map, ...) add_layer(map, "typo", ...)
 
-#' picto
+#' viz_picto
 #' @export
-picto   <- function(map, ...) add_layer(map, "picto", ...)
+viz_picto   <- function(map, ...) add_layer(map, "picto", ...)
 
-#' propchoro
+#' viz_propchoro
 #' @export
-propchoro   <- function(map, ...) add_layer(map, "propchoro", ...)
+viz_propchoro   <- function(map, ...) add_layer(map, "propchoro", ...)
 
-#' proptypo
+#' viz_proptypo
 #' @export
-proptypo   <- function(map, ...) add_layer(map, "proptypo", ...)
+viz_proptypo   <- function(map, ...) add_layer(map, "proptypo", ...)
 
 # Effects
 
-#' shadow
+#' viz_shadow
 #' @export
-shadow   <- function(map, ...) add_layer(map, "shadow", ...)
+viz_shadow   <- function(map, ...) add_layer(map, "shadow", ...)
 
-#' radialGradient
+#' viz_radialGradient
 #' @export
-radialGradient   <- function(map, ...) add_layer(map, "radialGradient", ...)
+viz_radialGradient   <- function(map, ...) add_layer(map, "radialGradient", ...)
 
-#' blur
+#' viz_blur
 #' @export
-blur   <- function(map, ...) add_layer(map, "blur", ...)
+viz_blur   <- function(map, ...) add_layer(map, "blur", ...)
 
-#' clipPath
+#' viz_clipPath
 #' @export
-clipPath <- function(map, ...) add_layer(map, "clipPath", ...)
+viz_clipPath <- function(map, ...) add_layer(map, "clipPath", ...)

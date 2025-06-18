@@ -2,13 +2,13 @@
 
 <hr/>
 
-# d3geoviz
+# geoviz
 
-`d3geoviz` is an R package for thematic mapping. As its name suggests, it's an htmlwidget based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. The package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
+`geoviz` is an R package for thematic mapping. As its name suggests, it's an implementation of the [geoviz](https://github.com/riatelab/geoviz) javascript library, itself based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
 
 # Principles
 
-- The `d3geoviz` package is an R implementation of the `geoviz` JavaScript library via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the geoviz documentation [here](https://riatelab.github.io/geoviz/). Therefore, d3geoviz is not intended to compete with other mapping packages in R, such as [mapsf](https://cran.r-project.org/web/packages/mapsf/index.html) or [tmap](https://cran.r-project.org/web/packages/tmap/index.html).
+- The `geoviz` package is an R implementation of the `geoviz` JavaScript library via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the geoviz documentation [here](https://riatelab.github.io/geoviz/). Therefore, d3geoviz is not intended to compete with other mapping packages in R, such as [mapsf](https://cran.r-project.org/web/packages/mapsf/index.html) or [tmap](https://cran.r-project.org/web/packages/tmap/index.html).
 
 - Since it's based on d3.js, the philosophy behind this package is completely different. Map parameters use svg attributes rather than the usual R parameters. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc.
 
@@ -28,7 +28,7 @@
 
 ``` r
 install.packages("devtools")
-devtools::install_github("neocarto/d3geoviz")
+devtools::install_github("neocarto/geoviz_R")
 ```
 
 ## Syntax

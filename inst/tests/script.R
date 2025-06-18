@@ -7,92 +7,81 @@ devtools::build_vignettes()
 devtools::build()
 devtools::load_all()
 library(sf)
-# library(d3carto)
+# library(geoviz)
+# devtools::install_github("neocarto/geoviz_R")
 
-# devtools::install_github("neocarto/d3carto")
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
 
-world <- st_read(system.file("gpkg/world.gpkg", package = "d3geoviz"), quiet = TRUE)
 
-
-create(zoomable = "versor") |>
+viz_create(zoomable = "versor") |>
   # filtres
-  shadow(id = "ombre") |>
-  radialGradient(id ="gradiant") |>
+  viz_shadow(id = "ombre") |>
+  viz_radialGradient(id ="gradiant") |>
   # Affichage
-  outline() |>
-  graticule(step = 60, stroke = "red") |>
-  path(datum = world, fill = "url(#gradiant)", stroke = "none") |>
-  prop(data = world, var = "pop", fill = "red", tip = T, filter = "url(#ombre)", k = 30,  dodge = T) |>
-  header(text = "Bonjour") |>
-  render()
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_path(datum = world, fill = "url(#gradiant)", stroke = "none") |>
+  viz_prop(data = world, var = "pop", fill = "red", tip = T, filter = "url(#ombre)", k = 30,  dodge = T) |>
+  viz_header(text = "Bonjour") |>
+  viz_render()
 
 
-create(projection = "HoaXiaoguang", zoomable = "versor", width = 400) |>
-  outline() |>
-  graticule(stroke = "black", strokeWidth = 0.5) |>
-  path(datum = world, fill = "black", fillOpacity = 0.6) |>
-  outline(fill = "none", stroke = "black", strokeWidth = 1.2) |>
-  render()
+viz_create(projection = "HoaXiaoguang", zoomable = "versor", width = 400) |>
+  viz_outline() |>
+  viz_graticule(stroke = "black", strokeWidth = 0.5) |>
+  viz_path(datum = world, fill = "black", fillOpacity = 0.6) |>
+  viz_outline(fill = "none", stroke = "black", strokeWidth = 1.2) |>
+  viz_render()
 
 
 
-create() |>
-  path(datum = world, fill = "#CCC") |>
-  picto(data = world, var = "region", r = 7, fill = "black", dodge = T,
+viz_create() |>
+  viz_path(datum = world, fill = "#CCC") |>
+  viz_picto(data = world, var = "region", r = 7, fill = "black", dodge = T,
         symbols =  c("human", "heart", "fist", "clover", "rocket", "plane")) |>
-  render()
+  viz_render()
 
-create() |>
-  clipPath(id = "clip", datum = world) |>
-  tile(url = "worldimagery", clipPath="url(#clip)") |>
-  path(datum = world, fill = "none", stroke = "red") |>
-  render()
-
-
-create(zoomable = T) |>
-  outline() |>
-  graticule(step = 60, stroke = "red") |>
-  path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", tip = T) |>
-  header(text = "Bonjour") |>
-  render() |>
-  save("toto.svg")
-
-create() |>
-  tile() |>
-  render()
-
-create(zoomable = T ) |>
-  tile() |>
-  graticule(step = 60, stroke = "red") |>
-  layer(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", dodge =F, tip=T, symbol = "circle") |>
-  header(text = "Bonjour") |>
-  render()
+viz_create() |>
+  viz_clipPath(id = "clip", datum = world) |>
+  viz_tile(url = "worldimagery", clipPath="url(#clip)") |>
+  viz_path(datum = world, fill = "none", stroke = "red") |>
+  viz_render()
 
 
-  create(zoomable = "versor", projection = "orthographic", width = 500) |>
-  outline() |>
-  graticule(step = 60, stroke = "red") |>
-  layer(datum = world, fill = "white", fillOpacity = 0.3) |>
-  prop(data = world, var = "pop", fill = "red", fillOpacity = 0.8) |>
-  header(text = "Bonjour") |>
-  render()
+viz_create(zoomable = T) |>
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_prop(data = world, var = "pop", fill = "red", tip = T) |>
+  viz_header(text = "Bonjour") |>
+  # viz_render() |>
+  viz_save("toto.svg")
+
+viz_create() |>
+  viz_tile() |>
+  viz_render()
+
+viz_create(zoomable = T ) |>
+  viz_tile() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_layer(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_prop(data = world, var = "pop", fill = "red", dodge =F, tip=T, symbol = "circle") |>
+  viz_header(text = "Bonjour") |>
+  viz_render()
+
+
+viz_create(zoomable = "versor", projection = "orthographic.rotate([30,-30])", width = 500) |>
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_layer(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_prop(data = world, var = "pop", fill = "red", fillOpacity = 0.8) |>
+  viz_header(text = "Bonjour") |>
+  viz_render()
 
 library("htmlwidgets")
 saveWidget(map0, "ma_carte.html", selfcontained = TRUE)
 
-getwd()
 
-create(zoomable = T, projection = "NaturalEarth1") |>
-  outline() |>
-  graticule()
-
-
-create(projection = "NaturalEarth1", background = "#CCC", margin = list(100,00,20,20)) |>
-  outline() |>
-  graticule(step = 60, stroke = "red") |>
-  layer(datum = world, fill = "white", fillOpacity = 0.3) |>
-  render()
 
 

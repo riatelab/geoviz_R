@@ -1,0 +1,121 @@
+---
+title: "Hello geoviz"
+author: "Nicolas Lambert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Hello d3geoviz}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Hello geoviz
+
+Before getting started, a few words about this package. geoviz is an R implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library, itself based on [d3.js](https://d3js.org/). Don't hesitate to have a look at the documentation of these libraries to understand what's under the hood. 
+
+As you would have already understood, the aim of this package is to design maps. These maps are:
+
+🌳 Thematic ✒️ Vectorial 👆 Interactive ♻️ Interoperable 🔎 Zoomable
+
+Now let's see how it works.
+
+## Installation
+
+To install the package, just write
+
+```{r}
+library(geoviz)
+```
+
+## Syntax
+
+There are several steps involved in creating a map. First, create the map container using the **`create()`** function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. Then, the **`render()`** function then displays the result. The various functions can be chained together with a pipe (**`|>`**).
+
+Let's build a simple example.
+
+```{r}
+# Data Loading
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+```
+
+```{r}
+# A simple map
+viz_create() |>
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "white") |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_header(text = "Map Title") |>
+  viz_footer(text = "Source, author, year, etc.") |>
+  viz_render()
+```
+
+As you can see, the name of the parameters don't look like classical R parameters. Since it's based on d3.js, map parameters use svg attributes rather than the usual R parameters. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc. 
+
+
+
+-------------------------------
+
+
+
+```{r}
+viz_create(width = 800) |>
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_prop(data = world, var = "pop", fill = "red", tip = T) |>
+  viz_header(text = "Bonjour") |>
+  viz_render()
+```
+
+xxx
+
+```{r}
+viz_create(zoomable = "versor", width = 800) |>
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_path(datum = world, fill = "url(#gradiant)", stroke = "none") |>
+  viz_prop(data = world, var = "pop", fill = "red", tip = T,
+       filter = "url(#ombre)", k = 30,  dodge = T) |>
+  viz_header(text = "Bonjour") |>
+  viz_render()
+```
+
+xxx
+
+```{r}
+viz_create(width = 800) |>
+viz_clipPath(id = "clip", datum = world) |>
+viz_tile(url = "worldimagery", clipPath="url(#clip)") |>
+viz_path(datum = world, fill = "none", stroke = "red") |>
+viz_render()
+```
+
+## choro
+
+```{r}
+viz_create(projection = "Bertin1953", width = 800) |>
+viz_choro(data = world, var = "gdppc") |>
+viz_render()
+```
+
+## Les projections
+
+- **d3.geo** : https://d3js.org/d3-geo/projection
+- **d3-geo-projection** : https://github.com/d3/d3-geo-projection
+- **d3-geo-polygon** : https://github.com/d3/d3-geo-polygon
+
+```{r}
+viz_create(projection = "Dodecahedral",  width = 800) |>
+  viz_outline() |>
+  viz_graticule(step = 60, stroke = "red") |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_prop(data = world, var = "pop", fill = "red", tip = T) |>
+  viz_header(text = "Bonjour") |>
+  viz_render()
+```
+
+
