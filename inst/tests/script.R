@@ -6,12 +6,25 @@ devtools::build_vignettes()
 
 devtools::build()
 devtools::load_all()
-library(sf)
+
 # library(geoviz)
 # devtools::install_github("neocarto/geoviz_R")
 
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+
+
+viz_create(zoomable = T) |>
+  viz_tile() |>
+  viz_render()
+
+viz_create(zoomable = "versor", projection = "Bertin1953") |>
+  viz_sketch(data = world) |>
+  viz_render()
+
+
+
+
 
 
 viz_create(zoomable = "versor") |>

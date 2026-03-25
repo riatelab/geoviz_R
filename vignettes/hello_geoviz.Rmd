@@ -4,25 +4,18 @@ author: "Nicolas Lambert"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Hello d3geoviz}
+  %\VignetteIndexEntry{Hello geoviz}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
 ---
 
+The geoviz package is an R implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It allows users to create vector-based, interactive, and zoomable thematic maps. The package is therefore built on the web ecosystem, relying on SVG and the [D3.js](https://d3js.org/) library. As a result, some argument names may be slightly confusing for R users. In addition, the package is designed for relatively lightweight basemaps and is not intended for handling large datasets.
 
-# Hello geoviz
+Don't hesitate to have a look at the documentation of these libraries to understand what's under the hood. 
 
-Before getting started, a few words about this package. geoviz is an R implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library, itself based on [d3.js](https://d3js.org/). Don't hesitate to have a look at the documentation of these libraries to understand what's under the hood. 
-
-As you would have already understood, the aim of this package is to design maps. These maps are:
-
-🌳 Thematic ✒️ Vectorial 👆 Interactive ♻️ Interoperable 🔎 Zoomable
-
-Now let's see how it works.
-
-## Installation
+# Installation
 
 To install the package, just write
 
@@ -30,92 +23,51 @@ To install the package, just write
 library(geoviz)
 ```
 
-## Syntax
+# Syntax
 
 There are several steps involved in creating a map. First, create the map container using the **`create()`** function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. Then, the **`render()`** function then displays the result. The various functions can be chained together with a pipe (**`|>`**).
 
 Let's build a simple example.
 
-```{r}
+
+```{r, message=FALSE}
 # Data Loading
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
 ```
 
+*⚠️ The geometries must be in latitude and longitude coordinates, not projected. Use WGS84.*
+
 ```{r}
 # A simple map
 viz_create() |>
-  viz_outline() |>
-  viz_graticule(step = 60, stroke = "white") |>
-  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  viz_header(text = "Map Title") |>
-  viz_footer(text = "Source, author, year, etc.") |>
+  viz_path(data = world) |>
   viz_render()
 ```
+
+## Styling
 
 As you can see, the name of the parameters don't look like classical R parameters. Since it's based on d3.js, map parameters use svg attributes rather than the usual R parameters. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc. 
 
+All layers have default parameters, but you can modify them. Here is a list of parameters you can use on most layers:
 
+- `fill`: Sets the fill color of the element. Can be a fixed color (e.g., "steelblue") or a function mapping a data variable to colors.
+- `stroke`: Sets the color of the element’s outline (border). Example: "#000" for black.
+- `strokeWidth`: Width of the outline in pixels. Controls how thick the border appears.
+- `opacity`: Overall opacity of the element, from 0 (fully transparent) to 1 (fully opaque).
+- `fillOpacity`: Opacity of the fill only, separate from the stroke.
+- `strokeOpacity`: Opacity of the stroke only.
+- `strokeDasharray`: Defines a dash pattern for the stroke. Example: "5,5" creates dashed lines of 5px segments with 5px gaps.
+- `strokeLinecap`: Defines the shape of the ends of lines. Values: "butt", "round", "square".
+- `strokeLinejoin`: Defines the shape of joints between connected lines. Values: "miter", "round", "bevel".
 
--------------------------------
+*⚠️ Be careful: pay attention to uppercase and lowercase letters.*
 
-
+Let’s take the previous map and customize it to our liking.
 
 ```{r}
-viz_create(width = 800) |>
-  viz_outline() |>
-  viz_graticule(step = 60, stroke = "red") |>
-  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  viz_prop(data = world, var = "pop", fill = "red", tip = T) |>
-  viz_header(text = "Bonjour") |>
+# A simple map
+viz_create() |>
+  viz_path(data = world, fill = "red", stroke = "none", fillOpacity = 0.3) |>
   viz_render()
 ```
-
-xxx
-
-```{r}
-viz_create(zoomable = "versor", width = 800) |>
-  viz_outline() |>
-  viz_graticule(step = 60, stroke = "red") |>
-  viz_path(datum = world, fill = "url(#gradiant)", stroke = "none") |>
-  viz_prop(data = world, var = "pop", fill = "red", tip = T,
-       filter = "url(#ombre)", k = 30,  dodge = T) |>
-  viz_header(text = "Bonjour") |>
-  viz_render()
-```
-
-xxx
-
-```{r}
-viz_create(width = 800) |>
-viz_clipPath(id = "clip", datum = world) |>
-viz_tile(url = "worldimagery", clipPath="url(#clip)") |>
-viz_path(datum = world, fill = "none", stroke = "red") |>
-viz_render()
-```
-
-## choro
-
-```{r}
-viz_create(projection = "Bertin1953", width = 800) |>
-viz_choro(data = world, var = "gdppc") |>
-viz_render()
-```
-
-## Les projections
-
-- **d3.geo** : https://d3js.org/d3-geo/projection
-- **d3-geo-projection** : https://github.com/d3/d3-geo-projection
-- **d3-geo-polygon** : https://github.com/d3/d3-geo-polygon
-
-```{r}
-viz_create(projection = "Dodecahedral",  width = 800) |>
-  viz_outline() |>
-  viz_graticule(step = 60, stroke = "red") |>
-  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
-  viz_prop(data = world, var = "pop", fill = "red", tip = T) |>
-  viz_header(text = "Bonjour") |>
-  viz_render()
-```
-
-

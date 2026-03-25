@@ -3,18 +3,18 @@ HTMLWidgets.widget({
   type: "output",
   factory: function(el, width, height) {
     return {
-      renderValue: function(x) {
+      renderValue: async function(x) {
+        //console.log(x)
         x = deepDeserializeGeoJSON(x)
-        if(!x.params.width){x.params.width = el.getBoundingClientRect().width}
+        if(!x.params.width){x.params.width = el.parentElement.clientWidth}
         el.innerHTML = "";
-        let svg = geoviz.draw(x);
+        let svg = await geoviz.draw(x);
         el.style.height = svg.getAttribute('height') + "px";
         el.appendChild(svg);
     }
   };
 }
 });
-
 
 
 // Helpers to deserliaze geoJSONs

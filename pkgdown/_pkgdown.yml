@@ -1,0 +1,85 @@
+home:
+  title: "geoviz: thematic cartography"
+  description: >
+    This package helps...
+
+url: https://neocarto.github.io/geoviz_R/
+
+template:
+  bootstrap: 5
+  bslib:
+    base_font: {google: "Atkinson Hyperlegible"}
+    heading_font: {google: "Atkinson Hyperlegible"}
+    code_font: {google: "Fira Code"}
+  opengraph:
+    image:
+      src: man/figures/logo.png
+      alt: "geoviz: thematic cartography"
+navbar:
+  structure:
+    left: [home, documentation, reference]
+
+  components:
+    documentation:
+      text: Documentation
+      menu:
+        - text: "Let's get started"
+          href: articles/hello_geoviz.html
+        - text: "Projections"
+          href: articles/projections.
+        - text: "Interactivity"
+          href: articles/interactivity.html
+        - text: "Layout layers"
+          href: articles/layout.html
+        - text: "Symbology"
+          href: articles/symbology.html
+        - text: "Effects"
+          href: articles/effects.html
+
+reference:
+  - title: "Create & render"
+    desc: sss
+    contents:
+    - viz_create
+    - viz_render
+    - viz_save
+  - title: "Map Layout"
+    desc: These functions are dedicated to the map layout design.
+    contents:
+    - viz_header
+    - viz_footer
+    - viz_outline
+    - viz_graticule
+    - viz_earth
+    - viz_blur
+    - viz_clipPath
+    - viz_radialGradient
+    - viz_shadow
+    - viz_text
+  - title: "Layers"
+    desc: Some layers.
+    contents:
+    - viz_path
+    - viz_sketch
+    - viz_tile
+  - title: "Thematic"
+    desc: Thematic cartography.
+    contents:
+    - viz_picto
+    - viz_prop
+    - viz_choro
+    - viz_typo
+    - viz_propchoro
+    - viz_proptypo
+
+figures:
+  dev: grDevices::png
+  fig.asp: 1
+  fig.width: 6
+  dpi: 96
+
+footer:
+  structure:
+    left: developed_by
+    right: package
+

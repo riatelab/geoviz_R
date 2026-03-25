@@ -24,6 +24,14 @@ viz_outline   <- function(map, ...) add_layer(map, "outline", ...)
 #' @export
 viz_header   <- function(map, ...) add_layer(map, "header", ...)
 
+#' viz_sketch
+#' @export
+viz_sketch   <- function(map, ...) add_layer(map, "sketch", ...)
+
+#' viz_earth
+#' @export
+viz_earth   <- function(map, ...) add_layer(map, "earth", ...)
+
 #' viz_footer
 #' @export
 viz_footer   <- function(map, ...) add_layer(map, "footer", ...)

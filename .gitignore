@@ -1,6 +1,29 @@
-.Rproj.user
+Meta
+doc
+# History files
 .Rhistory
-.RData
-.Ruserdata
+.Rapp.history
+
+# Example code in package build process
+*-Ex.R
+# RStudio files
+.Rproj.user/
+# produced vignettes & R code
+vignettes/*.html
+vignettes/*.R
+# vignettes/*.pdf
+.Rproj.user
+inst/doc
+
+test.R
+test.png
+map.png
+
+docs
 /doc/
 /Meta/
+
+note.md
+altdoc/freeze.rds
+_quarto/*
+!_quarto/_freeze/

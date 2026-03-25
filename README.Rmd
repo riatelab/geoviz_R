@@ -1,6 +1,8 @@
-`geoviz` is an R package for thematic mapping. As its name suggests, it's an implementation of the [geoviz](https://github.com/riatelab/geoviz) javascript library, itself based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
+# GEOVIZ
 
-<img src="man/figures/rgeoviz.svg" style="width:170px; display:block; border:none;" alt="Logo">
+<img src="img/rgeoviz.svg" style="width:150px; display:block; border:none;" alt="Logo">
+
+`geoviz` is an R package for thematic mapping. As its name suggests, it's an implementation of the [geoviz](https://github.com/riatelab/geoviz) javascript library, itself based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
 
 # Principles
 
@@ -17,3 +19,22 @@
 - Maps created with `geoviz` are interactive. It is therefore possible to create tooltips to access information contained in geographic objects.
 
 - Many different types of maps are available. The types can be combined with each other and are highly customizable. 
+
+
+# Here an example
+
+
+```{r, message=FALSE}
+library("sf")
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+```
+
+```{r, message=FALSE}
+viz_create() |>
+  viz_outline() |>
+  viz_graticule() |>
+  viz_path(data = world) |>
+  viz_header(text = "Map Title") |>
+  viz_footer(text = "Source, author, year, etc.") |>
+  viz_render()
+  ```

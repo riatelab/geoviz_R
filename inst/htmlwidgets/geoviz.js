@@ -4,7 +4,7 @@ HTMLWidgets.widget({
   factory: function(el) {
     return {
       renderValue: function(x) {
-       //console.log(deepDeserializeGeoJSON(x))
+       console.log(deepDeserializeGeoJSON(x))
         el.innerHTML = "";
         //let svg = geoviz.draw(x);
         let svg = geoviz.draw(deepDeserializeGeoJSON(x));

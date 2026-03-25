@@ -1,7 +1,7 @@
 Package: geoviz
 Type: Package
 Title: An implementation of the geoviz JavaScript library (d3 ecosystem)
-Version: 0.7.11
+Version: 0.9.19
 Authors@R: person("Nicolas", "Lambert", email = "nicolas.lambert@cnrs.fr", role = c("aut", "cre"))
 Maintainer: Nicolas Lambert <nicolas.lambert@cnrs.fr>
 Description: `geoviz` is an R package for thematic mapping. As its name suggests, it's an implementation of the [geoviz](https://github.com/riatelab/geoviz) javascript library, itself based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
