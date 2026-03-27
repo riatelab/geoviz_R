@@ -1,0 +1,23 @@
+---
+title: "legends"
+author: "Nicolas Lambert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{legends}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE, message=FALSE}
+library(geoviz)
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+```
+
+Legends
+
+# Legends

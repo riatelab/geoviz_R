@@ -17,7 +17,7 @@ template:
       alt: "geoviz: thematic cartography"
 navbar:
   structure:
-    left: [home, documentation, reference]
+    left: [home, get started, documentation, reference]
 
   components:
     documentation:
@@ -25,14 +25,20 @@ navbar:
       menu:
         - text: "Let's get started"
           href: articles/hello_geoviz.html
+        - text: "Create and render"
+          href: articles/create_render.html
+        - text: "Display geometries"
+          href: articles/display_geom.html
         - text: "Projections"
-          href: articles/projections.
+          href: articles/projections.html
         - text: "Interactivity"
           href: articles/interactivity.html
         - text: "Layout layers"
           href: articles/layout.html
         - text: "Symbology"
           href: articles/symbology.html
+        - text: "Legends"
+          href: articles/legends.html
         - text: "Effects"
           href: articles/effects.html
 
@@ -51,11 +57,9 @@ reference:
     - viz_outline
     - viz_graticule
     - viz_earth
-    - viz_blur
-    - viz_clipPath
-    - viz_radialGradient
-    - viz_shadow
     - viz_text
+    - viz_north
+    - viz_scalebar
   - title: "Layers"
     desc: Some layers.
     contents:
@@ -71,7 +75,14 @@ reference:
     - viz_typo
     - viz_propchoro
     - viz_proptypo
-
+    - viz_smooth
+  - title: "effects"
+    desc: Effects.
+    contents:
+    - viz_shadow
+    - viz_blur
+    - viz_clipPath
+    - viz_radialGradient
 figures:
   dev: grDevices::png
   fig.asp: 1

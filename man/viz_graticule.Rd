@@ -2,30 +2,46 @@
 % Please edit documentation in R/layers.R
 \name{viz_graticule}
 \alias{viz_graticule}
-\title{viz_graticule}
+\title{Add a graticule}
 \usage{
-viz_graticule(map, step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...)
+viz_graticule(
+  map,
+  projection = "none",
+  step = 10,
+  stroke = "#9ad5e6",
+  strokeDasharray = 2,
+  ...
+)
 }
 \arguments{
-\item{map}{a geoviz object create with the create() function. Use |> to chain instructions.}
+\item{map}{A geoviz object created with viz_create. Use the |> operator to chain instructions.}
 
-\item{step}{step}
+\item{step}{Numeric or numeric vector. Gap between graticules. Default is 10. Can be a single number or two numbers for different spacing.}
 
-\item{stroke}{stroke}
+\item{stroke}{Character. Stroke color of graticule lines. Default is "#9ad5e6".}
 
-\item{strokeDasharray}{strokeDasharray}
+\item{strokeDasharray}{Numeric or numeric vector. Dash pattern for lines. Default is 2.}
 
-\item{...}{Additional parameters. See geoviz.js documentation.}
+\item{fill}{Character. Fill color. Default is "none".}
+
+\item{strokeWidth}{Numeric. Width of the stroke. Default is 0.8.}
+
+\item{strokeLinecap}{Character. Line cap style. Default is "square".}
+
+\item{strokeLinejoin}{Character. Line join style. Default is "round".}
 }
 \value{
-Graticule layer
+A geoviz layer representing the graticule.
 }
 \description{
-viz_graticule
+The viz_graticule function adds a latitude/longitude grid to a geoviz map.
 }
 \examples{
 viz_create() |>
-viz_graticule(step = 10, strokeDasharray = c(2, 4)) |>
-viz_render()
-
+  viz_graticule(step = 10, strokeDasharray = c(2, 4), stroke = "#0000FF") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the documentation of the underlying JS library:
+  \href{https://riatelab.github.io/geoviz/global.html#graticule}{here},
 }

@@ -3,12 +3,13 @@ HTMLWidgets.widget({
   type: "output",
   factory: function(el) {
     return {
-      renderValue: function(x, file = 'map.svg') {
+      renderValue: async function(x, file = 'map.svg') {
         x = deepDeserializeGeoJSON(x)
         if(!x.params.width){x.params.width = el.getBoundingClientRect().width}
         el.innerHTML = "";
-        let svg = geoviz.draw(x);
-        el.appendChild(svg);
+        let svg = await geoviz.draw(x);
+        console.log(svg)
+       el.appendChild(svg);
 
  const serializer = new XMLSerializer();
   let source = serializer.serializeToString(svg);

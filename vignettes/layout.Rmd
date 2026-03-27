@@ -122,6 +122,6 @@ viz_create(projection = "Mercator", domain = africa) |>
 
 ```{r}
 viz_create(projection = "EqualEarth") |>
-  viz_sketch(data = world, stroke = "#38896F") |>
+  # viz_sketch(data = world, stroke = "#38896F") |>
   viz_render()
 ```

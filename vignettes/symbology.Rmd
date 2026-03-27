@@ -11,6 +11,91 @@ editor_options:
   chunk_output_type: console
 ---
 
-# www
+```{r, echo=FALSE, message=FALSE}
+library(geoviz)
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+```
 
-xxx
+The geoviz package is designed for creating thematic maps. Here are some functions for that purpose.
+
+# Proportional symbols
+
+With the `viz_prop` function, you can quickly draw a map with proportionnal symbols.
+
+```{r}
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, fill = "#CCC") |>
+  viz_prop(data = world, var = "pop", fill = "#38896F") |>
+  viz_render()
+```
+
+With the `k` attribute, you can change the size of the circles. And with `symbol`, it is possible to change the type of symbol—for example: `"circle"`, `"square"`, `"spike"`, `"halfcircle"`. The legend can be configured using the prefixes `leg`.
+
+```{r}
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, fill = "#CCC") |>
+  viz_prop(data = world, var = "pop", fill = "#38896F", symbol = "square") |>
+  viz_render()
+```
+
+<div style="border:1.5px solid #38896F; border-radius:6px; padding:3px 6px; color:#38896F; font-style:italic; font-size:1em; "><b><ins>viz_prop()</ins></b> function: To learn about the different parameters and their default values, you can refer to the JavaScript library <b>documentation</b> <a href = "https://riatelab.github.io/geoviz/global.html#plot/prop" target = "_BLANK"><img src="../man/figures/logo_doc.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a> and/or this Observable <b>notebook</b> <a href = "https://observablehq.com/@neocartocnrs/prop" target = "_BLANK"><img src="../man/figures/logo_exemple.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a></div>
+
+# Choropleth
+
+In thematic cartography, according to the rules of graphic semiology, relative quantitative data (percentages, indices, ratios) must be represented using visual order variables. The most classic representation is the choropleth map. The simplest way to create a chropleth map with the geoviz library is to use `viz_choro`. The legend can be configured using the prefixes `leg`.
+
+```{r}
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_choro(data = world, var = "gdppc") |>
+  viz_render()
+```
+
+As with all geoviz functions, there are many default parameters. However, you can customize everything—for example, the color palette and the classification method.
+
+```{r}
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_choro(data = world, var = "gdppc",  colors = "Reds", method = "geometric" ) |>
+  viz_render()
+```
+
+
+<div style="border:1.5px solid #38896F; border-radius:6px; padding:3px 6px; color:#38896F; font-style:italic; font-size:1em; "><b><ins>viz_choro()</ins></b> function: To learn about the different parameters and their default values, you can refer to the JavaScript library <b>documentation</b> <a href = "https://riatelab.github.io/geoviz/global.html#plot/choro" target = "_BLANK"><img src="../man/figures/logo_doc.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a> and/or this Observable <b>notebook</b> <a href = "https://observablehq.com/@neocartocnrs/choropleth" target = "_BLANK"><img src="../man/figures/logo_exemple.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a></div>
+
+
+# typo
+
+To create a typology map, you can use the `viz_typo` function.
+
+<div style="border:1.5px solid #38896F; border-radius:6px; padding:3px 6px; color:#38896F; font-style:italic; font-size:1em; "><b><ins>viz_typo()</ins></b> function: To learn about the different parameters and their default values, you can refer to the JavaScript library <b>documentation</b> <a href = "https://riatelab.github.io/geoviz/global.html#plot/typo" target = "_BLANK"><img src="../man/figures/logo_doc.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a> and/or this Observable <b>notebook</b> <a href = "https://observablehq.com/@neocartocnrs/typo" target = "_BLANK"><img src="../man/figures/logo_exemple.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a></div>
+
+# prochoro
+
+<div style="border:1.5px solid #38896F; border-radius:6px; padding:3px 6px; color:#38896F; font-style:italic; font-size:1em; "><b><ins>viz_propchoro()</ins></b> function: To learn about the different parameters and their default values, you can refer to the JavaScript library <b>documentation</b> <a href = "https://riatelab.github.io/geoviz/global.html#plot/propchoro" target = "_BLANK"><img src="../man/figures/logo_doc.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a> and/or this Observable <b>notebook</b> <a href = "https://observablehq.com/@neocartocnrs/prop" target = "_BLANK"><img src="../man/figures/logo_exemple.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a></div>
+
+
+# proptypo
+
+The function `viz_proptypo` allows you to simply draw a map with proportional symbols colored by a qualitative color gradation. To use this function, you need two variables (`var1` and `var2`). The legends can be configured using the prefixes `leg1` and `leg2`.
+
+<div style="border:1.5px solid #38896F; border-radius:6px; padding:3px 6px; color:#38896F; font-style:italic; font-size:1em; "><b><ins>viz_proptypo()</ins></b> function: To learn about the different parameters and their default values, you can refer to the JavaScript library <b>documentation</b> <a href = "https://riatelab.github.io/geoviz/global.html#plot/proptypo" target = "_BLANK"><img src="../man/figures/logo_doc.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a> and/or this Observable <b>notebook</b> <a href = "https://observablehq.com/@neocartocnrs/prop" target = "_BLANK"><img src="../man/figures/logo_exemple.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a></div>
+
+# Heatmaps
+
+When using type = `viz_smooth`, geoviz allows you to create a map with colored isobands and an associated legend. 
+
+```{r}
+viz_create(projection = "equalEarth", domain = world[world$region == "Asia",], zoomable = T) |>
+  viz_outline() |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>  
+  viz_smooth(data = cities, var = "population", bandwidth = 15 ) |>
+  viz_render()  
+```
+
+# picto
+
+
+
+
+# Legends

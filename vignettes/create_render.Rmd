@@ -1,0 +1,106 @@
+---
+title: "create and render"
+author: "Nicolas Lambert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{create and render}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE, message=FALSE}
+library(geoviz)
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+```
+
+# Create
+
+Every map starts with the `viz_create` function. It initializes the map and defines a number of general parameters, such as the size (`width`), the margins (`margins`), the projection (`projection`), or the background color (`background`). This is also where you determine whether the map is zoomable or not, using the `zoomable` parameter.
+
+From a technical perspective, the function produces a list containing the map parameters and an initially empty list of layers to be displayed.
+
+```{r}
+map <- viz_create(projection = "EqualEarth", margin = c(20,0,0,0), background = "#55bee0")
+str(map)
+```
+
+At this stage, the function does not draw anything.
+
+# Add layers
+
+Once the map has been initialized with the `viz_create` function, the geoviz package provides many functions to display layers. Each function has its own specific parameters and is designed to display a particular type of layer. For example, you can use `viz_path` to add gemeotries, `viz_graticule` to add graticules, or `viz_header` to add a title, etc. 
+
+So you can write this
+
+```{r}
+map <- viz_create(projection = "EqualEarth")
+map <- viz_outline(map)
+map <- viz_graticule(map, stroke = "white", step =20)
+map <- viz_path(map, data = world)
+map <- viz_header(map, text = "Hello World")
+str(map)
+```
+
+Or that (recomended)
+
+```{r}
+map <- viz_create(projection = "EqualEarth") |>
+ viz_outline() |>
+ viz_graticule(stroke = "white", step =20) |>
+ viz_path(data = world) |>
+ viz_header(text = "Hello World")
+str(map)
+```
+
+At this stage, you still do not draw anything. You have created a configuration file containing the data and parameters needed to build the map.
+
+# Render
+
+This configuration file will be rendered using the `viz_render()` function.
+
+```{r}
+viz_render(map)
+```
+
+Thus, creating a complete map with geoviz could be written as follows.
+
+```{r, eval = FALSE}
+map <- viz_create(projection = "EqualEarth") |>
+ viz_outline() |>
+ viz_graticule(stroke = "white", step =20) |>
+ viz_path(data = world) |>
+ viz_header(text = "Hello World") |>
+ viz_render()
+```
+
+From a technical perspective, the viz_render function returns an HTML block (+ JavaScript for interactivity) containing a map in SVG format.
+
+# Save maps
+
+The maps created with the geoviz package thus generate a web page. You can save this web page with the `htmlwidgets` package:
+
+```{r, eval = FALSE}
+library("htmlwidgets")
+```
+
+```{r, eval = FALSE}
+viz_create(zoomable = T) |>
+  viz_path(data = world, tip = T) |>
+  viz_render() |>
+  saveWidget("mymap.html", selfcontained = TRUE)
+```
+
+You can also directly save the map in SVG format to edit it with a drawing software like Inkscape. For this, you just need to use the `viz_save` command instead of `viz_render`.
+
+```{r, eval = FALSE}
+viz_create() |>
+  viz_path(data = world) |>
+  viz_save("mymap.svg")
+```
+
+By doing this, the map is returned and a window opens, prompting you to download it. Thus, the geoviz package can be a way to create draft maps before refining them in a CAD environment.
+

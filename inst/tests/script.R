@@ -7,11 +7,45 @@ devtools::build_vignettes()
 devtools::build()
 devtools::load_all()
 
+devtools::install()
+devtools::load_all()
+
+pkgdown::build_site()
+
 # library(geoviz)
 # devtools::install_github("neocarto/geoviz_R")
 
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+# getwd()
+# viz_create(projection = "EqualEarth", zoomable = T) |>
+#   viz_path(data = world) |>
+#   viz_exportSVG("test.svg")
+
+
+library("htmlwidgets")
+
+viz_create(margin=20, zoomable = T) |>
+  viz_path(data = world, tip = T) |>
+  viz_render() |>
+  saveWidget("mymap2.html", selfcontained = TRUE)
+
+widget <- viz_grid(data = world, step = 20)
+# Récupérer le JSON préparé côté R
+geojson_input <- widget$x$opts$data
+str(geojson_input)
+
+plot(geojson_input)
+# plot(grid)
+
+
+
+
+
+
+
+
+
 
 
 viz_create(zoomable = T) |>

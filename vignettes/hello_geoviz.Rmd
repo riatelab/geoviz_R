@@ -11,9 +11,34 @@ editor_options:
   chunk_output_type: console
 ---
 
-The geoviz package is an R implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It allows users to create vector-based, interactive, and zoomable thematic maps. The package is therefore built on the web ecosystem, relying on SVG and the [D3.js](https://d3js.org/) library. As a result, some argument names may be slightly confusing for R users. In addition, the package is designed for relatively lightweight basemaps and is not intended for handling large datasets.
+The geoviz package is a partial R implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It allows users to create vector-based, interactive, and zoomable thematic maps. The package is therefore built on the web ecosystem, relying on SVG and the [D3.js](https://d3js.org/) library. As a result, some argument names may be slightly confusing for R users. In addition, the package is designed for relatively lightweight basemaps and is not intended for handling large datasets.
 
-Don't hesitate to have a look at the documentation of these libraries to understand what's under the hood. 
+Don't hesitate to have a look at the documentation of the JS library to understand what's under the hood. 
+
+👉 **Documentation of geoviz** (JavaScript): https://riatelab.github.io/geoviz/
+
+👉 **Observable notebooks** (live examples): https://observablehq.com/@neocartocnrs/geoviz
+
+Here an example of a map designed with the package:
+
+```{r, message=FALSE, echo=FALSE}
+library(geoviz)
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+africa <- world[world$region == "Africa",]
+viz_create(zoomable = TRUE, projection = "mercator", domain = africa, margin = 20) |>
+  viz_shadow(id = "ombre") |>
+  viz_tile(url = "worldphysical") |>
+  viz_header(text = "Hello Geoviz", background_fill = "#38896F", fill = "white", fontSize =  30) |>
+  viz_graticule(stroke = "black", strokeWidth =  1.5, strokeOpacity =  0.3, strokeDasharray =  5, transform =  "translate(1,1)") |>
+    viz_graticule(stroke ="white", strokeWidth = 1.5, strokeOpacity = 0.5, strokeDasharray =  5) |>
+   viz_choro(data = africa, var = "gdppc", tip = "$NAMEen\n\nGDP per capita: $gdppc\nPopulation:$pop", fillOpacity = 0.8, stroke = "none", leg_pos =  c(40, 390), leg_title =  "GDP per Capita", leg_frame =  TRUE, leg_frame_stroke = "none", filter =  "url(#ombre)") |>
+    viz_prop(data = africa, var = "pop", stroke = "white", strokeWidth = 1.3, fill = "none", leg_pos =  c(40, 577), leg_title = "Population", leg_frame =  TRUE, leg_frame_stroke = "none") |>
+    viz_scalebar() |>
+  viz_north( scale = 1.5, pos = c(663, 155), fill = "#38896F" )|>
+   viz_render()
+
+```
 
 # Installation
 
@@ -25,15 +50,23 @@ library(geoviz)
 
 # Syntax
 
-There are several steps involved in creating a map. First, create the map container using the **`create()`** function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map. The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later. Then, the **`render()`** function then displays the result. The various functions can be chained together with a pipe (**`|>`**).
+There are several steps involved in creating a map. 
 
-Let's build a simple example.
+**1** - First, create the map container using the **`create()`** function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map.
 
+**2** - The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later.
+
+**3** - Then, the **`render()`** function then displays the result.
+
+The various functions can be chained together with a pipe (**`|>`**).
+
+Now, let's build a world map.
 
 ```{r, message=FALSE}
 # Data Loading
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
 ```
 
 *⚠️ The geometries must be in latitude and longitude coordinates, not projected. Use WGS84.*
@@ -41,11 +74,15 @@ world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRU
 ```{r}
 # A simple map
 viz_create() |>
+  viz_outline() |>
+  viz_graticule() |>
   viz_path(data = world) |>
+  viz_path(data = cities) |>
+  viz_header(text = "Hello World") |>
   viz_render()
 ```
 
-## Styling
+# Styling
 
 As you can see, the name of the parameters don't look like classical R parameters. Since it's based on d3.js, map parameters use svg attributes rather than the usual R parameters. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc. 
 
@@ -68,6 +105,51 @@ Let’s take the previous map and customize it to our liking.
 ```{r}
 # A simple map
 viz_create() |>
-  viz_path(data = world, fill = "red", stroke = "none", fillOpacity = 0.3) |>
+  viz_outline(fill = "#38896F", fillOpacity = 0.3) |>
+  viz_graticule(stroke = "white", step = 20) |>
+  viz_path(data = world, fill = "white", stroke = "none", fillOpacity = 0.3) |>
+  viz_path(data = cities, pointRadius = 2, stroke = "none", fill = "#38896F") |>
+  viz_header(text = "Hello World", fill = "white", background_fill = "#38896F") |>
   viz_render()
 ```
+
+# Symbology
+
+Specialized functions are available for representing statistical data, whether qualitative or quantitative. For example:
+
+- `viz_choro`: for relative quantitative data
+- `viz_prop`: for absolute quantitative data
+- `viz_typo`: for qualitative data
+
+These functions take two main parameters: `data` for the base map and `var` for the variable to be mapped. Additional parameters allow for fine customization of both the map and its legend.
+
+Here is a simple example of a proportional symbol map
+
+```{r}
+viz_create() |>
+  viz_path(datum = world, fill = "#CCC") |>
+  viz_prop(data = world, var = "pop", fill = "#38896F") |>
+  viz_render()
+```
+
+A choropleth map
+
+```{r}
+viz_create() |>
+  viz_choro(data = world, var = "gdppc", fill = "#38896F") |>
+  viz_render()
+```
+
+And a typology
+
+```{r}
+viz_create() |>
+  viz_typo(data = world, var = "region") |>
+  viz_render()
+```
+
+For more details, see the “symbology” page.
+
+
+
+

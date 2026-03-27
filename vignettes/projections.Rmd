@@ -15,7 +15,7 @@ editor_options:
 
 The projections in geoviz are based on the ecosystem of D3.js. More specifically, they rely on the geographic projection functions implemented in D3, which are originally designed to be used in JavaScript.
 
-These projection methods assume a spherical model of the Earth, rather than an ellipsoidal one. In other words, the Earth is treated as a perfect sphere, which simplifies the mathematical transformations required to project geographic coordinates (longitude and latitude) onto a 2D plane.
+These projection methods assume a spherical model of the Earth, rather than an ellipsoidal one. In other words, the Earth is treated as a perfect sphere, which simplifies the mathematical transformations required to project geographic coordinates (longitude and latitude) onto a 2D basemap.
 
 Under the hood, three JavaScript libraries are used. Feel free to visit their respective pages to explore the available projections and learn their names.
 
