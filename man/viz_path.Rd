@@ -2,10 +2,53 @@
 % Please edit documentation in R/layers.R
 \name{viz_path}
 \alias{viz_path}
-\title{piz_path}
+\title{Add a path layer from spatial data}
 \usage{
 viz_path(map, ...)
 }
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{data}{sf object. Spatial dataframe. Use \code{data} to iterate over features.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{coords}{character. Optional. Coordinate system to use (default "geo").
+Use "svg" if coordinates are already in the SVG plane.}
+
+\item{clip}{logical. Optional. Whether to clip paths with the outline (default TRUE).}
+
+\item{fill}{character or function. Optional. Fill color.}
+
+\item{stroke}{character or function. Optional. Stroke color.}
+
+\item{strokeWidth}{numeric or function. Optional. Stroke width (default 1).}
+
+\item{tip}{logical or function. Optional. Tooltip display (default FALSE).}
+
+\item{simplify}{logical, numeric, vector, or FALSE. Optional. Geometry simplification.
+TRUE = automatic, numeric = fixed tolerance, vector of length 2 = dynamic simplification.}
+
+\item{rewind}{logical. Optional. Rewind polygon rings (default FALSE).}
+
+\item{rewindPole}{logical. Optional. Special rewinding for geometries crossing poles or dateline.}
+
+\item{pointRadius}{numeric. Optional. Radius for point geometries (default 3).}
+}
+\value{
+The identifier of the created layer.
+}
 \description{
-piz_path
+The \code{viz_path} function generates SVG paths from spatial data.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+
+viz_create(projection = "EqualEarth", width = 750, zoomable =T) |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#path}{documentation} of the underlying JS library.
 }

@@ -13,17 +13,13 @@
 #'   Can also be "versor" to use versor zoom (vector geometries only). If numeric
 #'   vector of length 2, sets scale extent (default c(1, 8)).
 #' @param width numeric. Width of the map in pixels (default the width of the container).
-#' @param responsive logical. If TRUE, the SVG map resizes with the container
-#'   (default FALSE).
 #' @param id character. ID of the SVG container (default "map").
 #' @param background character. Background color of the SVG.
 #' @param margin numeric or numeric vector. Margins around the map. Either a
 #'   single value or a vector c(top, right, bottom, left) (default 0).
-#' @param warning logical. Whether to display warnings (default TRUE).
 #'
 #' @return An object of class geoviz, containing the map parameters
-#' @seealso See all parameters in the documentation of the underlying JS library:
-#'   \href{https://riatelab.github.io/geoviz/global.html#create}{here},
+#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#create}{documentation} of the underlying JS library:
 #
 #' @export
 #'

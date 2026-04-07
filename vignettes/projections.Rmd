@@ -11,7 +11,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Some remarks
+# Preliminary remarks
 
 The projections in geoviz are based on the ecosystem of D3.js. More specifically, they rely on the geographic projection functions implemented in D3, which are originally designed to be used in JavaScript.
 

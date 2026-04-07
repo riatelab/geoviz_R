@@ -2,10 +2,40 @@
 % Please edit documentation in R/layers.R
 \name{viz_tile}
 \alias{viz_tile}
-\title{viz_tile}
+\title{Add a raster tile layer}
 \usage{
 viz_tile(map, ...)
 }
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{tileSize}{numeric. Optional. Tile size (default 512).}
+
+\item{zoomDelta}{numeric. Optional. Zoom offset (default 1).}
+
+\item{opacity}{numeric. Optional. Tile opacity (default 1).}
+
+\item{url}{character or function. Optional. Tile source. Can be a string
+(e.g. "openstreetmap", "cartodbvoyager", "stamentoner")}
+}
+\value{
+The identifier of the created layer.
+}
 \description{
-viz_tile
+The \code{viz_tile} function displays raster tiles from online providers.
+This function requires the use of a Mercator projection ("mercator").
+}
+\details{
+This function requires a Mercator projection. For example:
+  \code{viz_create(projection = "mercator")}.
+}
+\examples{
+viz_create(projection = "mercator", width =750) |>
+  viz_tile(url = "worldimagery") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#tile}{documentation} of the underlying JS library.
 }

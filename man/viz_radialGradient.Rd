@@ -2,10 +2,49 @@
 % Please edit documentation in R/layers.R
 \name{viz_radialGradient}
 \alias{viz_radialGradient}
-\title{viz_radialGradient}
+\title{Add a radial gradient}
 \usage{
 viz_radialGradient(map, ...)
 }
+\arguments{
+\item{id}{string (optional)
+An identifier for the gradient.}
+
+\item{color1}{character (optional, default = "#63b0af")
+First color of the gradient.}
+
+\item{color2}{character (optional, default = "#428c8b")
+Second color of the gradient.}
+
+\item{offset1}{numeric (optional, default = 50)
+Offset for the first color (percentage).}
+
+\item{offset2}{numeric (optional, default = 100)
+Offset for the second color (percentage).}
+
+\item{fx}{numeric (optional, default = 50)
+X-coordinate of the focal point (percentage).}
+
+\item{fy}{numeric (optional, default = 50)
+Y-coordinate of the focal point (percentage).}
+}
+\value{
+The identifier of the created radial gradient (e.g. \code{"url(#id)"}).
+}
 \description{
-viz_radialGradient
+The \code{viz_radialGradient} function allows to create an SVG radial gradient.
+  The function adds a gradient to the defs and returns the identifier,
+  e.g. \code{"url(#id)"}.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+
+viz_create(margin = 5, width = 750) |>
+  viz_radialGradient(id = "my_gradient", color1 = "#63b0af", color2 = "#428c8b") |>
+  viz_path(datum = world, fill = "url(#my_gradient)") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/radialGradient}{documentation} of the underlying JS library.
 }

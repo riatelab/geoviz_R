@@ -2,18 +2,37 @@
 % Please edit documentation in R/render.R
 \name{viz_render}
 \alias{viz_render}
-\title{viz_render}
+\title{Add an Earth outline layer}
 \usage{
 viz_render(map, elementId = NULL)
 }
 \arguments{
-\item{map}{a geoviz object create with the create() function. Use |> to chain instructions.}
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
 
-\item{elementId}{The HTML element ID (id) of the <div> container in which the widget will be rendered.}
+\item{id}{character. Optional. ID of the layer.}
+
+\item{stroke}{character. Optional. Stroke color (default "none").}
+
+\item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
+
+\item{fill}{character. Optional. Fill color (default "#B5DFFD").}
 }
 \value{
-a geoviz html widget
+The identifier of the created layer.
 }
 \description{
-viz_render
+The \code{viz_outline} function creates a layer representing the Earth outline
+according to the current projection.
+}
+\examples{
+# Create a map
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create() |>
+  viz_outline() |>
+  viz_path(data = world) |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#outline}{documentation} of the underlying JS library.
 }

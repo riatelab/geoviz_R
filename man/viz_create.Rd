@@ -4,25 +4,13 @@
 \alias{viz_create}
 \title{Create a geoviz map object}
 \usage{
-viz_create(
-  id = "map",
-  width = 1000,
-  margin = c(0, 0, 0, 0),
-  zoomable = false,
-  ...
-)
+viz_create(id = "map", margin = c(0, 0, 0, 0), ...)
 }
 \arguments{
 \item{id}{character. ID of the SVG container (default "map").}
 
-\item{width}{numeric. Width of the map in pixels (default the width of the container).}
-
 \item{margin}{numeric or numeric vector. Margins around the map. Either a
 single value or a vector c(top, right, bottom, left) (default 0).}
-
-\item{zoomable}{logical, numeric, or character. If TRUE, enables zoom.
-Can also be "versor" to use versor zoom (vector geometries only). If numeric
-vector of length 2, sets scale extent (default c(1, 8)).}
 
 \item{projection}{character. The projection to use for the map.
 You can provide a d3 projection function as a string
@@ -32,12 +20,13 @@ you must specify the domain.}
 \item{domain}{numeric vector of length 4 or sf object. The geographic area
 to display, either as a bounding box c(top, right, bottom, left) or as an spatial dataframe.}
 
-\item{responsive}{logical. If TRUE, the SVG map resizes with the container
-(default FALSE).}
+\item{zoomable}{logical, numeric, or character. If TRUE, enables zoom.
+Can also be "versor" to use versor zoom (vector geometries only). If numeric
+vector of length 2, sets scale extent (default c(1, 8)).}
+
+\item{width}{numeric. Width of the map in pixels (default the width of the container).}
 
 \item{background}{character. Background color of the SVG.}
-
-\item{warning}{logical. Whether to display warnings (default TRUE).}
 }
 \value{
 An object of class geoviz, containing the map parameters
@@ -55,6 +44,5 @@ map <- viz_create(
 )
 }
 \seealso{
-See all parameters in the documentation of the underlying JS library:
-  \href{https://riatelab.github.io/geoviz/global.html#create}{here},
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#create}{documentation} of the underlying JS library:
 }

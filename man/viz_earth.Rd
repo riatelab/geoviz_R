@@ -2,10 +2,32 @@
 % Please edit documentation in R/layers.R
 \name{viz_earth}
 \alias{viz_earth}
-\title{viz_earth}
+\title{Add an Earth raster layer}
 \usage{
 viz_earth(map, ...)
 }
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{url}{character. Optional. URL of the image to display. You can use one
+of the provided Natural Earth styles (e.g. "NE2_50M_SR_W").}
+
+\item{opacity}{numeric. Optional. Opacity (default 1).}
+}
+\value{
+The identifier of the created layer.
+}
 \description{
-viz_earth
+The \code{viz_earth} function displays PNG images representing the Earth's
+surface. Images comes from Natural Earth (naturalearthdata.com).
+}
+\examples{
+viz_create(projection = "EqualEarth", width = 750) |>
+  viz_earth() |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#earth}{documentation} of the underlying JS library.
 }

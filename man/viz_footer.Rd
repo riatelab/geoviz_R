@@ -2,10 +2,68 @@
 % Please edit documentation in R/layers.R
 \name{viz_footer}
 \alias{viz_footer}
-\title{viz_footer}
+\title{Add a map footer}
 \usage{
 viz_footer(map, ...)
 }
+\arguments{
+\item{id}{string (optional)
+An identifier for the footer layer.}
+
+\item{text}{string (optional, default = "Author, source...")
+Text to be displayed.}
+
+\item{fill}{character (optional, default = "#9e9696")
+Text fill color.}
+
+\item{background_fill}{character (optional, default = "white")
+Background fill color.}
+
+\item{background_stroke}{character (optional, default = "white")
+Background stroke color.}
+
+\item{background_strokeWidth}{numeric (optional, default = 1)
+Background stroke width.}
+
+\item{dominantBaseline}{character (optional, default = "central")
+Text dominant-baseline ("hanging", "middle", "central", "bottom").}
+
+\item{textAnchor}{character (optional, default = "middle")
+Text anchor ("start", "middle", "end").}
+
+\item{lineSpacing}{numeric (optional, default = 0)
+Space between lines.}
+
+\item{margin}{numeric (optional, default = 1)
+Margin around the text.}
+
+\item{fontSize}{numeric (optional, default = 10)
+Text font size.}
+
+\item{fontFamily}{character (optional)
+Font family defined in the container.}
+
+\item{dx}{numeric (optional, default = 0)
+Horizontal shift.}
+
+\item{dy}{numeric (optional, default = 0)
+Vertical shift.}
+}
+\value{
+The identifier of the created footer layer.
+}
 \description{
-viz_footer
+The \code{viz_footer} function allows to add a source or text below the map.
+  The function creates a layer in the SVG container.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(width = 750, background = "white", projection = "EqualEarth") |>
+  viz_path(data = world, fill = "#f1f3f5") |>
+  viz_footer(text = "Source: Geoviz R package, 2022\nMap design: Nicolas Lambert, 2026", fontSize = 12, fill = "#38896F") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#footer}{documentation} of the underlying JS library.
 }

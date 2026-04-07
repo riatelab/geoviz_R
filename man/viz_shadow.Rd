@@ -2,10 +2,44 @@
 % Please edit documentation in R/layers.R
 \name{viz_shadow}
 \alias{viz_shadow}
-\title{viz_shadow}
+\title{Add a shadow effect}
 \usage{
 viz_shadow(map, ...)
 }
+\arguments{
+\item{id}{string (optional)
+An identifier for the element.}
+
+\item{dx}{string (optional, default = "4")
+Horizontal shift in the x-direction.}
+
+\item{dy}{string (optional, default = "4")
+Vertical shift in the y-direction.}
+
+\item{fill}{string (optional, default = "black")
+Fill color for the element.}
+
+\item{fillOpacity}{number (optional, default = 0.5)
+Fill opacity of the element (can also use `opacity`).}
+
+\item{stdDeviation}{number (optional, default = 1.5)
+Standard deviation, typically used for blur or shadow effects.}
+
+\item{opacity}{number (optional, default = 1)
+Overall opacity of the element.}
+}
 \description{
-viz_shadow
+The \code{viz_shadow} function allows to create a svg filter. It can be use to add a shadow effect. The function adds a filter to the defs. Then, you can use it with the viz_path function via the filter attribute.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+aus <- world[world$ISO3 == "AUS",]
+viz_create(margin = 5, width = 750) |>
+  viz_shadow(id = "my_shadow_effect", stdDeviation =  2.5, dx = 5, dy = 5) |>
+  viz_path(datum = aus, fill =  "#38896F", filter =  "url(#my_shadow_effect)") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/shadow}{documentation} of the underlying JS library:
 }

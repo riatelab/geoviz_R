@@ -2,10 +2,44 @@
 % Please edit documentation in R/layers.R
 \name{viz_north}
 \alias{viz_north}
-\title{viz_north}
+\title{Add a North arrow}
 \usage{
 viz_north(map, ...)
 }
+\arguments{
+\item{id}{string (optional)
+An identifier for the North arrow layer.}
+
+\item{pos}{numeric vector of length 2 (optional, default = c(svg.width - 30, 30))
+Position [x, y] on the page. The scale value is relevant for this location on the map.}
+
+\item{scale}{numeric (optional, default = 1)
+Scale factor to resize the arrow.}
+
+\item{rotate}{numeric (optional, default = NULL)
+Angle to rotate the arrow. By default, it is automatically calculated.}
+
+\item{fill}{character (optional, default = "black")
+Fill color of the arrow.}
+
+\item{fillOpacity}{numeric (optional, default = 1)
+Fill opacity of the arrow.}
+}
+\value{
+The identifier of the created North arrow layer.
+}
 \description{
-viz_north
+The \code{viz_north} function allows to add a North arrow to the map.
+  The function creates a layer in the SVG container.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(width = 750, background = "white", projection = "EqualEarth") |>
+  viz_path(data = world, fill = "#f1f3f5") |>
+  viz_north(pos = c(280, 120), scale = 1.5, fill = "#38896F") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#north}{documentation} of the underlying JS library.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/layers.R
 \name{viz_graticule}
 \alias{viz_graticule}
-\title{Add a graticule}
+\title{Add a graticule layer}
 \usage{
 viz_graticule(
   map,
@@ -14,34 +14,37 @@ viz_graticule(
 )
 }
 \arguments{
-\item{map}{A geoviz object created with viz_create. Use the |> operator to chain instructions.}
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
 
-\item{step}{Numeric or numeric vector. Gap between graticules. Default is 10. Can be a single number or two numbers for different spacing.}
+\item{step}{numeric or numeric vector of length 2. Optional. Gap between
+graticules (default 10).}
 
-\item{stroke}{Character. Stroke color of graticule lines. Default is "#9ad5e6".}
+\item{stroke}{character. Optional. Stroke color (default "#9ad5e6").}
 
-\item{strokeDasharray}{Numeric or numeric vector. Dash pattern for lines. Default is 2.}
+\item{strokeDasharray}{numeric or numeric vector. Optional. Stroke dash pattern (default 2).}
 
-\item{fill}{Character. Fill color. Default is "none".}
+\item{id}{character. Optional. ID of the layer.}
 
-\item{strokeWidth}{Numeric. Width of the stroke. Default is 0.8.}
+\item{fill}{character. Optional. Fill color (default "none").}
 
-\item{strokeLinecap}{Character. Line cap style. Default is "square".}
+\item{strokeWidth}{numeric. Optional. Stroke width (default 0.8).}
 
-\item{strokeLinejoin}{Character. Line join style. Default is "round".}
+\item{strokeLinecap}{character. Optional. Line cap style (default "square").}
+
+\item{strokeLinejoin}{character. Optional. Line join style (default "round").}
 }
 \value{
-A geoviz layer representing the graticule.
+The identifier of the created layer.
 }
 \description{
-The viz_graticule function adds a latitude/longitude grid to a geoviz map.
+The \code{viz_graticule} function creates a layer representing latitude and
+longitude lines according to the current projection.
 }
 \examples{
-viz_create() |>
-  viz_graticule(step = 10, strokeDasharray = c(2, 4), stroke = "#0000FF") |>
+viz_create(projection = "EqualEarth", width = 750) |>
+  viz_graticule(stroke = "#38896F", strokeDasharray = 4, step = 20) |>
   viz_render()
 }
 \seealso{
-See all parameters in the documentation of the underlying JS library:
-  \href{https://riatelab.github.io/geoviz/global.html#graticule}{here},
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#graticule}{documentation} of the underlying JS library.
 }

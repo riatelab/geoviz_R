@@ -45,18 +45,25 @@ viz_create(zoomable = TRUE, projection = "mercator", domain = africa, margin = 2
 To install the package, just write
 
 ```{r}
+# install.packages(geoviz)
+```
+
+then
+
+```{r}
 library(geoviz)
 ```
 
 # Syntax
 
-There are several steps involved in creating a map. 
+There are several steps involved in creating a map with `geoviz`. 
 
 **1** - First, create the map container using the **`create()`** function. This is where you define the projection, margins, background color, etc. - in short, all the general parameters of the map.
 
-**2** - The next step is to add layers one after the other. Various functions are available for this purpose. We'll see them later.
+**2** The next step is to progressively add layers. A set of dedicated functions is available for this purpose. For instance, `viz_path` adds a spatial dataframe, `viz_graticule` draws latitude and longitude lines, `viz_header` inserts a title, and `viz_footer` adds a source note. All available functions are documented in the Reference section.
 
-**3** - Then, the **`render()`** function then displays the result.
+
+**3** - Then, the **`render()`** function displays the map
 
 The various functions can be chained together with a pipe (**`|>`**).
 

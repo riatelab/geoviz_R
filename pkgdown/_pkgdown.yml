@@ -33,41 +33,42 @@ navbar:
           href: articles/projections.html
         - text: "Interactivity"
           href: articles/interactivity.html
-        - text: "Layout layers"
-          href: articles/layout.html
+        - text: "Layers"
+          href: articles/layers.html
         - text: "Symbology"
           href: articles/symbology.html
         - text: "Legends"
           href: articles/legends.html
+        - text: "Marks"
+          href: articles/marks.html
         - text: "Effects"
           href: articles/effects.html
 
 reference:
   - title: "Create & render"
-    desc: sss
+    desc: The functions `viz_create` and `viz_render` are essential for initializing a map, visualizing its content, and exporting it. They form the core workflow for creating maps with the `geoviz` R package.
     contents:
     - viz_create
     - viz_render
     - viz_save
-  - title: "Map Layout"
-    desc: These functions are dedicated to the map layout design.
+  - title: "Base Map and Structure"
+    desc: Functions that define the map’s geographic content, including outlines, tiles, and graticules.
     contents:
-    - viz_header
-    - viz_footer
+    - viz_path
     - viz_outline
     - viz_graticule
     - viz_earth
-    - viz_text
+    - viz_tile
+  - title: "Map Decorations and Annotations"
+    desc: Functions for styling and annotating the map, such as titles, scale bars, and north arrows.
+    contents:
+    - viz_header
+    - viz_footer
     - viz_north
     - viz_scalebar
-  - title: "Layers"
-    desc: Some layers.
-    contents:
-    - viz_path
-    - viz_sketch
-    - viz_tile
+    - viz_text
   - title: "Thematic"
-    desc: Thematic cartography.
+    desc: These functions allow the creation of thematic maps based on statistical data, complete with their associated legends.
     contents:
     - viz_picto
     - viz_prop
@@ -76,13 +77,23 @@ reference:
     - viz_propchoro
     - viz_proptypo
     - viz_smooth
+  - title: "marks"
+    desc: xxx
+    contents:
+    - viz_circle
+    - viz_square
+    - viz_spike
+    - viz_halfcircle
+    - viz_symbol
   - title: "effects"
-    desc: Effects.
+    desc: Since the maps created are in SVG format, it is possible to apply filters to them. These functions offer four different options for doing so.
     contents:
     - viz_shadow
     - viz_blur
     - viz_clipPath
     - viz_radialGradient
+    - viz_pattern
+    - viz_sketch
 figures:
   dev: grDevices::png
   fig.asp: 1

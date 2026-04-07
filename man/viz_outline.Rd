@@ -2,10 +2,34 @@
 % Please edit documentation in R/layers.R
 \name{viz_outline}
 \alias{viz_outline}
-\title{viz_outline}
+\title{Add an Earth outline layer}
 \usage{
 viz_outline(map, ...)
 }
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{stroke}{character. Optional. Stroke color (default "none").}
+
+\item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
+
+\item{fill}{character. Optional. Fill color (default "#B5DFFD").}
+}
+\value{
+The identifier of the created layer.
+}
 \description{
-viz_outline
+The \code{viz_outline} function creates a layer representing the Earth outline
+according to the current projection.
+}
+\examples{
+viz_create(projection = "EqualEarth", width = 750) |>
+viz_outline(stroke = "#38896F") |>
+viz_render()
+
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#outline}{documentation} of the underlying JS library.
 }

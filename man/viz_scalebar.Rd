@@ -2,10 +2,59 @@
 % Please edit documentation in R/layers.R
 \name{viz_scalebar}
 \alias{viz_scalebar}
-\title{viz_scalebar}
+\title{Add a scalebar}
 \usage{
 viz_scalebar(map, ...)
 }
+\arguments{
+\item{id}{string (optional)
+An identifier for the scalebar layer.}
+
+\item{pos}{numeric vector of length 2 (optional, default = c(10, svg.height - 20))
+Position [x, y] on the page. The scale value is relevant for this location on the map.}
+
+\item{translate}{numeric vector of length 2 (optional, default = NULL)
+Offset to move the scalebar without changing its size.}
+
+\item{units}{character (optional, default = "km")
+Units for the scalebar: "ft" (feet), "km" (kilometers), "m" (meters), or "mi" (miles).}
+
+\item{label}{string (optional)
+Label to display next to the scalebar.}
+
+\item{tickSize}{numeric (optional, default = 5)
+Length of tick marks.}
+
+\item{tickPadding}{numeric (optional, default = 0.2)
+Space between ticks and labels.}
+
+\item{distance}{numeric (optional)
+Distance represented by the scalebar.}
+
+\item{tickFormat}{function (optional, default = \code{d => d})
+Function to format tick labels.}
+
+\item{tickValues}{numeric vector (optional)
+Specific values to display on the scalebar.}
+
+\item{labelAnchor}{character (optional, default = "start")
+Position of the label: "start", "middle", or "end".}
+}
+\value{
+The identifier of the created scalebar layer.
+}
 \description{
-viz_scalebar
+The \code{viz_scalebar} function allows to add a scalebar to the map.
+  The function creates a layer in the SVG container.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(width = 750, background = "white", projection = "EqualEarth") |>
+  viz_path(data = world, fill = "#f1f3f5") |>
+  viz_scalebar(units = "km", distance = 1000, tickSize = 5) |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#scalebar}{documentation} of the underlying JS library.
 }

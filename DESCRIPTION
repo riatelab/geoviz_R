@@ -9,7 +9,7 @@ License: GPL (>= 3)
 URL: https://neocarto.github.io/geoviz_R/
 BugReports: https://github.com/neocarto/geoviz_R/issues/
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports:
     htmlwidgets,
     geojsonsf,

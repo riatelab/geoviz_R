@@ -48,8 +48,6 @@ viz_create() |>
   viz_render()
 ```
 
-Ewpliquer les différentes parametres. StrokeWidth, pointRadius.....
-
 # Simplification
 
 Geoviz renders geometries as SVG. If there are many points, rendering can be slow. You can automatically lighten the base map by setting the attribute `simplify = TRUE`. This simplifies automaticaly the base map, making it lighter without significantly altering its appearance, and zooming becomes much faster.

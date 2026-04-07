@@ -70,3 +70,25 @@ viz_create() |>
   viz_tile(url = "worldimagery", clipPath = "url(#my_clip_path)") |>
   viz_render()
 ```
+
+# pattern
+
+The `viz_pattern` function allows you to create patterns and apply them to any geometry. It supports multiple textures: `"lines"`, `"crosshatch"`, `"dots"`, `"waves"`, `"triangles"`, and `"zigzag"`.
+
+```{r}
+# A simple map
+viz_create() |>
+  viz_pattern(data = aus, pattern = "cross", stroke = "#38896F", strokeOpacity = 2, angle = 45) |>
+  viz_render()
+```
+
+# sketch
+
+The `viz_sketch` function generates a hand-drawn (sketchy) SVG representation of a spatial dataframe. It applies SVG filters (*feTurbulence* and *feDisplacementMap*) to create a pencil-like effect. 
+
+```{r}
+# A simple map
+viz_create() |>
+  viz_sketch(data = aus, stroke = "#38896F") |>
+  viz_render()
+```

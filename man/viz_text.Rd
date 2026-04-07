@@ -2,10 +2,81 @@
 % Please edit documentation in R/layers.R
 \name{viz_text}
 \alias{viz_text}
-\title{viz_ext}
+\title{Add text or labels}
 \usage{
 viz_text(map, ...)
 }
+\arguments{
+\item{data}{object
+A spatial dataframe (e.g., sf object) to use for generating labels.}
+
+\item{id}{string (optional)
+An identifier for the text layer.}
+
+\item{text}{character or function (optional, default = "text")
+Text to be displayed, or a function returning text from the data.}
+
+\item{textAnchor}{character or function (optional)
+Text anchor: "start", "middle", or "end".}
+
+\item{dominantBaseline}{character or function (optional)
+Text dominant-baseline: "auto", "middle", "central", "hanging".}
+
+\item{fontFamily}{character (optional)
+Font family defined in the SVG container.}
+
+\item{fontSize}{numeric (optional, default = 12)
+Font size.}
+
+\item{lineSpacing}{numeric (optional, default = 0)
+Space between lines.}
+
+\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
+Position to display a single text element.}
+
+\item{dx}{numeric (optional, default = 0)
+Horizontal shift.}
+
+\item{dy}{numeric (optional, default = 0)
+Vertical shift.}
+
+\item{sort}{character or function (optional)
+Field to sort labels or a function to define sort order.}
+
+\item{descending}{logical (optional)
+Sorting order.}
+
+\item{coords}{character (optional, default = "geo")
+Use "svg" if the coordinates are already in the SVG plane.}
+
+\item{fill}{character or function (optional)
+Fill color for the text.}
+
+\item{stroke}{character or function (optional)
+Stroke color for the text.}
+
+\item{strokeWidth}{numeric (optional, default = 1)
+Stroke width.}
+
+\item{strokeLinejoin}{character or function (optional, default = "round")
+Stroke line join style.}
+}
+\value{
+The identifier of the created text layer.
+}
 \description{
-viz_ext
+The \code{viz_text} function allows to add text on the map.
+  It can also create a layer with labels from a spatial dataframe.
+  The function creates a layer in the SVG container.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(width = 750, background = "white", projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, fill = "#f1f3f5") |>
+  viz_text(data = world, text = "ISO3", fontSize = 10, fill = "#38896F") |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#text}{documentation} of the underlying JS library.
 }
