@@ -120,6 +120,37 @@ viz_create() |>
   viz_render()
 ```
 
+# Positioning of elements
+
+To position symbols or text on the map, we most often use the coordinates from a spatial dataframe. However, it is also possible to place specific elements at precise coordinates. For this, two coordinate systems coexist in geoviz:
+
+- **Geographical coordinates**
+
+By specifying `coords = "geo"`, you can position an element at precise geographic coordinates. The object is then linked to the map and stays in the correct location according to the zoom level.
+
+```{r}
+# A simple map
+mumbai <- c(72.88, 19.07)
+viz_create(zoomable = T) |>
+  viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
+  viz_circle(pos = mumbai, coords = "geo", fill = "#38896F", r = 10) |>
+  viz_render()
+```
+
+- **SVG coordinates**
+
+By specifying `coords = "svg"`, you can also position an element statically directly on the map plane. This is very useful for decorative elements, such as the legend or text labels.
+
+**⚠️ <ins>The origin of the coordinate system used to express coordinates in an SVG document is located at the top left.</ins>**
+
+```{r}
+# A simple map
+viz_create(zoomable = T) |>
+  viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
+  viz_circle(pos = c(300, 100), coords = "svg", fill = "#38896F", r = 10) |>
+  viz_render()
+```
+
 # Symbology
 
 Specialized functions are available for representing statistical data, whether qualitative or quantitative. For example:

@@ -72,7 +72,7 @@ The \code{viz_text} function allows to add text on the map.
 \examples{
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth", zoomable = T) |>
+viz_create(width = 750, background = "white", projection = "EqualEarth", zoomable = TRUE) |>
   viz_path(data = world, fill = "#f1f3f5") |>
   viz_text(data = world, text = "ISO3", fontSize = 10, fill = "#38896F") |>
   viz_render()

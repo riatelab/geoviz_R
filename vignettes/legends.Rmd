@@ -20,4 +20,11 @@ cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = T
 
 Legends
 
-# Legends
+# leg_typo
+
+
+```{r}
+viz_create(projection = "equalEarth", zoomable = T) |>
+  viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_render()
+```

@@ -48,6 +48,28 @@ viz_create() |>
   viz_render()
 ```
 
+# Data or datum?
+
+In the `viz_path` function (and more generally in `geoviz`), there are two parameters that allow you to add a spatial dataframe.
+
+The `data` parameter lets you add geometries and iterate over each element. You should use data whenever you want to differentiate between individual elements (e.g., for a choropleth map, proportional symbols, etc.).
+
+In contrast, the `datum` parameter draws the entire layer at once without iterating over each element. You can use `datum` to add a simple base map with the same fill and stroke colors everywhere.
+
+Using `data` versus `datum` also changes the default parameters. For example, with `datum`, polygons do not have strokes by default, which allows for shorter code.
+
+```{r}
+viz_create() |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
+```
+
+```{r}
+viz_create() |>
+  viz_path(datum = world, fill = "#38896F") |>
+  viz_render()
+```
+
 # Simplification
 
 Geoviz renders geometries as SVG. If there are many points, rendering can be slow. You can automatically lighten the base map by setting the attribute `simplify = TRUE`. This simplifies automaticaly the base map, making it lighter without significantly altering its appearance, and zooming becomes much faster.

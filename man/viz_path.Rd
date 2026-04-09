@@ -45,7 +45,7 @@ The \code{viz_path} function generates SVG paths from spatial data.
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
 
-viz_create(projection = "EqualEarth", width = 750, zoomable =T) |>
+viz_create(projection = "EqualEarth", width = 750, zoomable = TRUE) |>
   viz_path(data = world, fill = "#38896F") |>
   viz_render()
 }

@@ -81,21 +81,5 @@ The function `viz_proptypo` allows you to simply draw a map with proportional sy
 
 <div style="border:1.5px solid #38896F; border-radius:6px; padding:3px 6px; color:#38896F; font-style:italic; font-size:1em; "><b><ins>viz_proptypo()</ins></b> function: To learn about the different parameters and their default values, you can refer to the JavaScript library <b>documentation</b> <a href = "https://riatelab.github.io/geoviz/global.html#plot/proptypo" target = "_BLANK"><img src="../man/figures/logo_doc.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a> and/or this Observable <b>notebook</b> <a href = "https://observablehq.com/@neocartocnrs/prop" target = "_BLANK"><img src="../man/figures/logo_exemple.png" style="width:22px; height:auto; vertical-align:middle; margin:0 2px;"></a></div>
 
-# Heatmaps
-
-When using type = `viz_smooth`, geoviz allows you to create a map with colored isobands and an associated legend. 
-
-```{r}
-viz_create(projection = "equalEarth", domain = world[world$region == "Asia",], zoomable = T) |>
-  viz_outline() |>
-  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>  
-  viz_smooth(data = cities, var = "population", bandwidth = 15 ) |>
-  viz_render()  
-```
-
 # picto
 
-
-
-
-# Legends

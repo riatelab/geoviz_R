@@ -37,12 +37,16 @@ navbar:
           href: articles/layers.html
         - text: "Symbology"
           href: articles/symbology.html
+        - text: "Symbology (advanced)"
+          href: articles/symbology2.html
         - text: "Legends"
           href: articles/legends.html
         - text: "Marks"
           href: articles/marks.html
         - text: "Effects"
           href: articles/effects.html
+        - text: "About the JS library"
+          href: articles/about.html
 
 reference:
   - title: "Create & render"
@@ -57,6 +61,8 @@ reference:
     - viz_path
     - viz_outline
     - viz_graticule
+    - viz_rhumbs
+    - viz_tissot
     - viz_earth
     - viz_tile
   - title: "Map Decorations and Annotations"
@@ -76,9 +82,15 @@ reference:
     - viz_typo
     - viz_propchoro
     - viz_proptypo
+  - title: "Thematic (advanced)"
+    desc: These functions allow the creation of advanced thematic maps based on statistical data, complete with their associated legends.
+    contents:
+    - viz_gridprop
+    - viz_gridchoro
     - viz_smooth
+    - viz_dotdensity
   - title: "marks"
-    desc: xxx
+    desc: Behind the symbolization functions, there are elementary graphical marks. In geoviz, it is possible to use them directly.
     contents:
     - viz_circle
     - viz_square
@@ -94,6 +106,23 @@ reference:
     - viz_radialGradient
     - viz_pattern
     - viz_sketch
+  - title: "legend"
+    desc: functions to design map legends
+    contents:
+    - viz_leg_box
+    - viz_leg_typo_vertical
+    - viz_leg_typo_horizontal
+    - viz_leg_choro_horizontal
+    - viz_leg_choro_vertical
+    - viz_leg_gradient_vertical
+    - viz_leg_spikes
+    - viz_leg_circles
+    - viz_leg_circles_nested
+    - viz_leg_squares
+    - viz_leg_squares_nested
+    - viz_leg_mushrooms
+    - viz_leg_symbol_vertical
+    - viz_leg_symbol_horizontal
 figures:
   dev: grDevices::png
   fig.asp: 1

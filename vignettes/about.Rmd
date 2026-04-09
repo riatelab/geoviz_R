@@ -1,0 +1,68 @@
+---
+title: "About the JS library"
+author: "Nicolas Lambert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{About the JS library}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+<img src="../man/figures/js.png" 
+     style="width:170px; margin: 0 auto; border:none;" 
+     alt="Logo">
+
+The R package geoviz is a partial implementation of the JavaScript geoviz library. To understand how it works under the hood, we invite you to take a look at this JS library.
+
+# Source code
+
+The source code is hosted on GitHub. Development is active.
+
+👉 https://github.com/riatelab/geoviz
+
+# API Documentation
+
+The library documentation is available here. It allows you to see all the parameters.
+
+👉 https://riatelab.github.io/geoviz/
+
+# Live documentation
+
+The documentation is also available through live examples on the Observable platform. Click on the thumbnails to access the desired technical sheet.
+
+```{=html}
+<div id="observablehq-documentation-1d5d505b"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/@neocartocnrs/geoviz-appendix.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "documentation") return new Inspector(document.querySelector("#observablehq-documentation-1d5d505b"));
+});
+</script>
+```
+
+# Examples
+
+You will also find numerous map examples along with their associated code.
+
+```{=html}
+<div id="observablehq-gallery-28e37508"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/@neocartocnrs/geoviz-appendix.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "gallery") return new Inspector(document.querySelector("#observablehq-gallery-28e37508"));
+});
+</script>
+```
+
+# The "regard de cartographe"
+
+This `geoviz` JavaScript library is used to produce an interactive map every month in the French newspaper l'Humanité. The section can be found here:
+
+👉 https://www.humanite.fr/serie/le-regard-du-cartographe
