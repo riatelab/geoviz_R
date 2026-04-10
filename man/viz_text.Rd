@@ -2,81 +2,88 @@
 % Please edit documentation in R/layers.R
 \name{viz_text}
 \alias{viz_text}
-\title{Add text or labels}
+\title{Texts and labels}
 \usage{
-viz_text(map, ...)
+viz_text(
+  map,
+  id = NULL,
+  data = NULL,
+  text = "text",
+  textAnchor = NULL,
+  dominantBaseline = NULL,
+  fontFamily = NULL,
+  fontSize = 12,
+  lineSpacing = 0,
+  pos = c(0, 0),
+  dx = 0,
+  dy = 0,
+  sort = NULL,
+  descending = FALSE,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  strokeWidth = 1,
+  strokeLinejoin = "round",
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A spatial dataframe (e.g., sf object) to use for generating labels.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the text layer.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{text}{character or function (optional, default = "text")
-Text to be displayed, or a function returning text from the data.}
+\item{data}{a spatial dataframe.}
 
-\item{textAnchor}{character or function (optional)
-Text anchor: "start", "middle", or "end".}
+\item{text}{character or function. Optional. Text to display (default "text").}
 
-\item{dominantBaseline}{character or function (optional)
-Text dominant-baseline: "auto", "middle", "central", "hanging".}
+\item{textAnchor}{character or function. Optional. Text anchor ("start","middle","end").}
 
-\item{fontFamily}{character (optional)
-Font family defined in the SVG container.}
+\item{dominantBaseline}{character or function. Optional. Baseline alignment ("auto","middle","central","hanging").}
 
-\item{fontSize}{numeric (optional, default = 12)
-Font size.}
+\item{fontFamily}{character. Optional. Font family from SVG container.}
 
-\item{lineSpacing}{numeric (optional, default = 0)
-Space between lines.}
+\item{fontSize}{numeric. Optional. Font size (default 12).}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position to display a single text element.}
+\item{lineSpacing}{numeric. Optional. Line spacing (default 0).}
 
-\item{dx}{numeric (optional, default = 0)
-Horizontal shift.}
+\item{pos}{numeric vector of length 2. Optional. Position for single text element (default c(0,0)).}
 
-\item{dy}{numeric (optional, default = 0)
-Vertical shift.}
+\item{dx}{numeric. Optional. X shift (default 0).}
 
-\item{sort}{character or function (optional)
-Field to sort labels or a function to define sort order.}
+\item{dy}{numeric. Optional. Y shift (default 0).}
 
-\item{descending}{logical (optional)
-Sorting order.}
+\item{sort}{character or function. Optional. Field or function used to sort labels.}
 
-\item{coords}{character (optional, default = "geo")
-Use "svg" if the coordinates are already in the SVG plane.}
+\item{descending}{logical. Optional. Sorting order (default FALSE).}
 
-\item{fill}{character or function (optional)
-Fill color for the text.}
+\item{coords}{character. Optional. Coordinate system ("geo" or "svg") (default "geo").}
 
-\item{stroke}{character or function (optional)
-Stroke color for the text.}
+\item{fill}{character or function. Optional. Fill color.}
 
-\item{strokeWidth}{numeric (optional, default = 1)
-Stroke width.}
+\item{stroke}{character or function. Optional. Stroke color.}
 
-\item{strokeLinejoin}{character or function (optional, default = "round")
-Stroke line join style.}
-}
-\value{
-The identifier of the created text layer.
+\item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
+
+\item{strokeLinejoin}{character or function. Optional. Stroke line join (default "round").}
+
+\item{...}{Additional SVG attributes applied to text elements.}
 }
 \description{
-The \code{viz_text} function allows to add text on the map.
-  It can also create a layer with labels from a spatial dataframe.
-  The function creates a layer in the SVG container.
+The \code{viz_text} function adds a text on a geoviz map
+and can also generate labels from a spatial dataframe.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth", zoomable = TRUE) |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_text(data = world, text = "ISO3", fontSize = 10, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+# Example 1
+viz_create(projection = "EqualEarth", width = 750, background = "white") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_text(pos = c(100, 200), coords = "svg", text = "All maps are lies,\nbut some are useful lies", fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#text}{documentation} of the underlying JS library.
+# Example 2
+viz_create(projection = "EqualEarth", background = "white") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_text(data = world, text = "ISO3", fill = "#38896F") |>
+  viz_render()
 }

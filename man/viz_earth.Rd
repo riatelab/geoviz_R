@@ -2,32 +2,53 @@
 % Please edit documentation in R/layers.R
 \name{viz_earth}
 \alias{viz_earth}
-\title{Add an Earth raster layer}
+\title{Earth raster layer}
 \usage{
-viz_earth(map, ...)
+viz_earth(
+  map,
+  id = NULL,
+  url = "NE2_50M_SR_W",
+  resolution = 1,
+  tileSize = 1024,
+  opacity = 1,
+  dx = 0,
+  dy = 0,
+  clipPath = NULL,
+  max_canvas_size = NULL
+)
 }
 \arguments{
-\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{character. Optional. ID of the layer.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{url}{character. Optional. URL of the image to display. You can use one
-of the provided Natural Earth styles (e.g. "NE2_50M_SR_W").}
+\item{url}{character. Optional. Image source. Can be one of
+("GRAY_50M_SR","GRAY_50M_SR_OB","GRAY_50M_SR_W","HYP_50M_SR","HYP_50M_SR_W","MSR_50M",
+"NE1_50M_SR_W","NE2_50M_SR","NE2_50M_SR_W","OB_50M","PRIMSA_SR_50M","SR_50M")
+or a custom URL. Default is "NE2_50M_SR_W".}
 
-\item{opacity}{numeric. Optional. Opacity (default 1).}
-}
-\value{
-The identifier of the created layer.
+\item{resolution}{numeric. Optional. Resolution factor (default 1).
+Increase for sharper rendering (e.g. 2 for Retina, 3 for high-quality export).}
+
+\item{tileSize}{numeric. Optional. Tile size (default 1024).}
+
+\item{opacity}{numeric. Optional. Layer opacity (default 1).}
+
+\item{dx}{numeric. Optional. Horizontal shift (default 0).}
+
+\item{dy}{numeric. Optional. Vertical shift (default 0).}
+
+\item{clipPath}{object. Optional. GeoJSON used to clip the image (default uses map outline).}
+
+\item{max_canvas_size}{numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).}
 }
 \description{
-The \code{viz_earth} function displays PNG images representing the Earth's
-surface. Images comes from Natural Earth (naturalearthdata.com).
+The \code{viz_earth} function displays PNG images representing the Earth's surface
+(Natural Earth dataset or custom source). The image is projected on-the-fly. The images are hosted on GitHub. You will need an internet connection.
+This function is only relevant at the world scale.
 }
 \examples{
-viz_create(projection = "EqualEarth", width = 750) |>
-  viz_earth() |>
+viz_create(projection = "EqualEarth", background = "white") |>
+  viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#earth}{documentation} of the underlying JS library.
 }

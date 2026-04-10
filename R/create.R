@@ -1,39 +1,58 @@
-#' Create a geoviz map object
+#' @title Create a geoviz map
+#' @description The \code{viz_create} function initializes a geoviz SVG map container.
+#' It defines global map parameters such as size, projection, margins, and interaction options,
+#' and prepares an empty layer stack for subsequent visual elements.
 #'
-#' The \code{viz_create} function initializes a map.
-#' It produces a list containing the map parameters and an initially empty list of layers.
-#'
-#' @param projection character. The projection to use for the map.
-#'   You can provide a d3 projection function as a string
-#'   (e.g., "mercator"). Set "none" to use geometries as-is, in which case
-#'   you must specify the domain.
-#' @param domain numeric vector of length 4 or sf object. The geographic area
-#'   to display, either as a bounding box c(top, right, bottom, left) or as an spatial dataframe.
-#' @param zoomable logical, numeric, or character. If TRUE, enables zoom.
-#'   Can also be "versor" to use versor zoom (vector geometries only). If numeric
-#'   vector of length 2, sets scale extent (default c(1, 8)).
-#' @param width numeric. Width of the map in pixels (default the width of the container).
-#' @param id character. ID of the SVG container (default "map").
-#' @param background character. Background color of the SVG.
-#' @param margin numeric or numeric vector. Margins around the map. Either a
-#'   single value or a vector c(top, right, bottom, left) (default 0).
-#'
-#' @return An object of class geoviz, containing the map parameters
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#create}{documentation} of the underlying JS library:
-#
+#' @param id character. Optional. SVG container id (default "map").
+#' @param width numeric. Optional. Map width (default the width of the device).
+#' @param responsive logical. Optional. Whether the SVG resizes with the container (default FALSE).
+#' @param domain object | list. Optional. Geographic domain (GeoJSON or list of GeoJSON objects).
+#' @param projection function | character. Optional. Map projection (default "mercator").
+#' @param background character. Optional. Background color.
+#' @param fontFamily character. Optional. Global font family for the map.
+#' @param margin numeric vector or numeric. Optional. Map margins (default c(0,0,0,0)).
+#' @param zoomable logical | numeric | character. Optional. Enable zoom (default FALSE).
+#' @param control logical | numeric vector. Optional. Zoom control buttons (default FALSE).
+#' @param warning logical. Optional. Display warnings (default TRUE).
+#' @param ... Additional internal parameters passed to the map container.
 #' @export
 #'
 #' @examples
-#' # Basic map with Mercator projection
-#' map <- viz_create(
-#'   projection = "EqualEarth",
-#'   width = 800,
-#'   zoomable = TRUE
-#' )
-viz_create <- function(id = "map", margin = c(0,0,0,0), ...) {
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+#' viz_create(projection = "EqualEarth", zoomable = TRUE) |>
+#'   viz_path(data = world, fill = "#38896F") |>
+#'   viz_render()
+viz_create <- function(
+    id = "map",
+    width = NULL,
+    domain = NULL,
+    responsive = FALSE,
+    projection = NULL,
+    background = NULL,
+    fontFamily = NULL,
+    margin = c(0, 0, 0, 0),
+    zoomable = FALSE,
+    control = FALSE,
+    warning = TRUE,
+    ...
+) {
   structure(
     list(
-      params = list(id = id, margin = margin, ...),
+      params = list(
+        id = id,
+        width = NULL,
+        domain = NULL,
+        responsive = responsive,
+        projection = projection,
+        background = background,
+        fontFamily = fontFamily,
+        margin = margin,
+        zoomable = zoomable,
+        control = control,
+        warning = warning,
+        ...
+      ),
       layers = list()
     ),
     class = "geoviz"

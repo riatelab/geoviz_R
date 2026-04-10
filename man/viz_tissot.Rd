@@ -2,10 +2,42 @@
 % Please edit documentation in R/layers.R
 \name{viz_tissot}
 \alias{viz_tissot}
-\title{viz_tissot}
+\title{Tissot indicatrices}
 \usage{
-viz_tissot(map, ...)
+viz_tissot(
+  map,
+  id = NULL,
+  step = 20,
+  fill = "red",
+  stroke = "white",
+  strokeOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{id}{character. Optional. Unique layer id.}
+
+\item{step}{numeric. Optional. Step between circles (default 20).}
+
+\item{fill}{character. Optional. Fill color (default "red").}
+
+\item{stroke}{character. Optional. Stroke color (default "white").}
+
+\item{strokeOpacity}{numeric. Optional. Stroke opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes (strokeDasharray, strokeWidth, opacity, strokeLinecap...).}
 }
 \description{
-viz_tissot
+The \code{viz_tissot} function draws Tissot circles to visualize projection distortions on a map.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+viz_create(projection = "Polar", background = "white") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_tissot(fill = "#38896F", fillOpacity = 1 ) |>
+  viz_render()
 }

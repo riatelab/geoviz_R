@@ -16,6 +16,40 @@ HTMLWidgets.widget({
 }
 });
 
+/*
+HTMLWidgets.widget({
+  name: "render",
+  type: "output",
+  factory: function(el, width, height) {
+    return {
+      renderValue: async function(x) {
+
+        x = deepDeserializeGeoJSON(x);
+
+        if (!x.params.width) {
+          x.params.width = el.parentElement.clientWidth;
+        }
+
+        el.innerHTML = "";
+
+        let svg = await geoviz.draw(x);
+
+        el.appendChild(svg);
+        let h = svg.getAttribute("height");
+        if (!h || h === "0") {
+          h = svg.getBoundingClientRect().height;
+        }
+        if (!h || h === 0) {
+          h = 750;
+        }
+        console.log(h);
+        el.style.height = h + "px";
+      },
+      resize: function(width, height) {
+      }
+    };
+  }
+});*/
 
 // Helpers to deserliaze geoJSONs
 function isGeoJSON(obj) {

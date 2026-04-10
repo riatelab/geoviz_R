@@ -2,68 +2,69 @@
 % Please edit documentation in R/layers.R
 \name{viz_footer}
 \alias{viz_footer}
-\title{Add a map footer}
+\title{Source of the map}
 \usage{
-viz_footer(map, ...)
+viz_footer(
+  map,
+  id = NULL,
+  text = "Author, source...",
+  fill = "#9e9696",
+  background_fill = "white",
+  background_stroke = "white",
+  background_strokeWidth = 1,
+  dominantBaseline = "central",
+  textAnchor = "middle",
+  lineSpacing = 0,
+  margin = 1,
+  fontSize = 10,
+  fontFamily = NULL,
+  dx = 0,
+  dy = 0,
+  ...
+)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the footer layer.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{text}{string (optional, default = "Author, source...")
-Text to be displayed.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{fill}{character (optional, default = "#9e9696")
-Text fill color.}
+\item{text}{character. Optional. Footer text to display (default "Author, source...").}
 
-\item{background_fill}{character (optional, default = "white")
-Background fill color.}
+\item{fill}{character. Optional. Text color (default "#9e9696").}
 
-\item{background_stroke}{character (optional, default = "white")
-Background stroke color.}
+\item{background_fill}{character. Optional. Background fill color (default "white").}
 
-\item{background_strokeWidth}{numeric (optional, default = 1)
-Background stroke width.}
+\item{background_stroke}{character. Optional. Background stroke color (default "white").}
 
-\item{dominantBaseline}{character (optional, default = "central")
-Text dominant-baseline ("hanging", "middle", "central", "bottom").}
+\item{background_strokeWidth}{numeric. Optional. Background stroke width (default 1).}
 
-\item{textAnchor}{character (optional, default = "middle")
-Text anchor ("start", "middle", "end").}
+\item{dominantBaseline}{character. Optional. Vertical text alignment (default "central", values "hanging","middle","central","bottom").}
 
-\item{lineSpacing}{numeric (optional, default = 0)
-Space between lines.}
+\item{textAnchor}{character. Optional. Horizontal text alignment (default "middle", values "start","middle","end").}
 
-\item{margin}{numeric (optional, default = 1)
-Margin around the text.}
+\item{lineSpacing}{numeric. Optional. Line spacing (default 0).}
 
-\item{fontSize}{numeric (optional, default = 10)
-Text font size.}
+\item{margin}{numeric. Optional. Margin (default 1).}
 
-\item{fontFamily}{character (optional)
-Font family defined in the container.}
+\item{fontSize}{numeric. Optional. Font size (default 10).}
 
-\item{dx}{numeric (optional, default = 0)
-Horizontal shift.}
+\item{fontFamily}{character. Optional. Font family (default container font).}
 
-\item{dy}{numeric (optional, default = 0)
-Vertical shift.}
-}
-\value{
-The identifier of the created footer layer.
+\item{dx}{numeric. Optional. X shift (default 0).}
+
+\item{dy}{numeric. Optional. Y shift (default 0).}
+
+\item{...}{Additional SVG attributes applied to text and background elements.}
 }
 \description{
-The \code{viz_footer} function allows to add a source or text below the map.
-  The function creates a layer in the SVG container.
+The \code{viz_footer} function adds a text below a geoviz map.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_footer(text = "Source: Geoviz R package, 2022\nMap design: Nicolas Lambert, 2026", fontSize = 12, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+viz_create(projection = "EqualEarth", background = "white") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_footer(text = "Source, author, note, etc.", fill = "#38896F" ) |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#footer}{documentation} of the underlying JS library.
 }

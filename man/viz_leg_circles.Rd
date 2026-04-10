@@ -2,152 +2,139 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_circles}
 \alias{viz_leg_circles}
-\title{Add a proportional circles legend to the map}
+\title{Add a proportional circles legend}
 \usage{
-viz_leg_circles(map, ...)
+viz_leg_circles(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  data = c(1, 1000),
+  k = 50,
+  fixmax = NULL,
+  nb = 4,
+  circle_fill = "none",
+  circle_stroke = "#363636",
+  circle_spacing = 5,
+  line_stroke = "#363636",
+  line_strokeDasharray = "1",
+  line_strokeWidth = 0.7,
+  line_length = 10,
+  values_textAnchor = "start",
+  values_dx = 5,
+  values_dy = 0,
+  values_fill = "#363636",
+  values_fontSize = 10,
+  values_factor = 1,
+  values_decimal = ".",
+  values_thousands = " ",
+  title = "",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the legend layer.}
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position [x, y] of the legend.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{gap}{numeric (optional, default = 2)
-Gap between elements.}
+\item{pos}{numeric vector of length 2. Optional. Legend position (default c(0, 0)).}
 
-\item{data}{numeric vector
-Input values used to build the legend.}
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
 
-\item{k}{numeric (optional, default = 50)
-Radius of the largest circle (or corresponding to the value defined by \code{fixmax}).}
+\item{data}{numeric vector. Required. Input values.}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the circle with radius \code{k}. Useful to ensure comparability between maps.}
+\item{k}{numeric. Optional. Radius of largest circle (default 50).}
 
-\item{nb}{numeric (optional, default = 4)
-Number of circles.}
+\item{fixmax}{numeric. Optional. Value mapped to radius k.}
 
-\item{circle_fill}{string (optional, default = "none")
-Fill color of circles.}
+\item{nb}{numeric. Optional. Number of circles (default 4).}
 
-\item{circle_stroke}{string (optional, default = "#363636")
-Stroke color of circles.}
+\item{circle_fill}{character. Optional. Circle fill (default "none").}
 
-\item{circle_spacing}{numeric (optional, default = 5)
-Spacing between circles.}
+\item{circle_stroke}{character. Optional. Circle stroke (default "#363636").}
 
-\item{circle_*}{additional parameters (optional)
-Additional SVG attributes applied to circles.}
+\item{circle_spacing}{numeric. Optional. Spacing between circles (default 5).}
 
-\item{line_stroke}{string (optional, default = "#363636")
-Stroke color of lines.}
+\item{line_stroke}{character. Optional. Line stroke color (default "#363636").}
 
-\item{line_strokeDasharray}{string (optional, default = "1")
-Stroke dash pattern.}
+\item{line_strokeDasharray}{character. Optional. Line dash style (default "1").}
 
-\item{line_strokeWidth}{numeric (optional, default = 0.7)
-Stroke width.}
+\item{line_strokeWidth}{numeric. Optional. Line width (default 0.7).}
 
-\item{line_length}{numeric (optional, default = 10)
-Length of the lines.}
+\item{line_length}{numeric. Optional. Line length (default 10).}
 
-\item{line_*}{additional parameters (optional)
-Additional SVG attributes applied to lines.}
+\item{values_textAnchor}{character. Optional. Text anchor (default "start").}
 
-\item{values_textAnchor}{string (optional, default = "start")
-Text anchor for values.}
+\item{values_dx}{numeric. Optional. X shift (default 5).}
 
-\item{values_dx}{numeric (optional, default = 0)
-Horizontal offset for values.}
+\item{values_dy}{numeric. Optional. Y shift (default 0).}
 
-\item{values_dy}{numeric (optional, default = 5)
-Vertical offset for values.}
+\item{values_fill}{character. Optional. Label color (default "#363636").}
 
-\item{values_fill}{string (optional, default = "#363636")
-Text color.}
+\item{values_fontSize}{numeric. Optional. Font size (default 10).}
 
-\item{values_fontSize}{numeric (optional, default = 10)
-Font size.}
+\item{values_factor}{numeric. Optional. Scaling factor (default 1).}
 
-\item{values_factor}{numeric (optional, default = 1)
-Multiplication factor applied to values (e.g. 0.001 for thousands).}
+\item{values_decimal}{character. Optional. Decimal separator (default ".").}
 
-\item{values_decimal}{string (optional, default = ".")
-Decimal separator.}
+\item{values_thousands}{character. Optional. Thousands separator (default " ").}
 
-\item{values_thousands}{string (optional, default = " ")
-Thousands separator.}
+\item{title}{character. Optional. Title (default "").}
 
-\item{title}{string (optional, default = "Legend")
-Legend title.}
+\item{title_fill}{character. Optional. Title color (default "#363636").}
 
-\item{title_fill}{string (optional, default = "#363636")
-Title color.}
+\item{title_fontSize}{numeric. Optional. Title size (default 16).}
 
-\item{title_fontSize}{numeric (optional, default = 16)
-Title font size.}
+\item{subtitle}{character. Optional. Subtitle (default "").}
 
-\item{title_*}{additional parameters (optional)
-Additional SVG attributes applied to the title.}
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
 
-\item{subtitle}{string (optional)
-Legend subtitle.}
+\item{subtitle_fontSize}{numeric. Optional. Subtitle size (default 12).}
 
-\item{subtitle_fill}{string (optional, default = "#363636")
-Subtitle color.}
+\item{note}{character. Optional. Note (default "").}
 
-\item{subtitle_fontSize}{numeric (optional, default = 12)
-Subtitle font size.}
+\item{note_fill}{character. Optional. Note color (default "#363636").}
 
-\item{subtitle_*}{additional parameters (optional)
-Additional SVG attributes applied to the subtitle.}
+\item{note_fontSize}{numeric. Optional. Note size (default 10).}
 
-\item{note}{string (optional)
-Note displayed above the legend.}
+\item{frame}{logical. Optional. Draw frame (default FALSE).}
 
-\item{note_fill}{string (optional, default = "#363636")
-Note color.}
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
 
-\item{note_fontSize}{numeric (optional, default = 10)
-Note font size.}
+\item{frame_fill}{character. Optional. Frame fill (default "white").}
 
-\item{note_*}{additional parameters (optional)
-Additional SVG attributes applied to the note.}
+\item{frame_stroke}{character. Optional. Frame stroke (default "black").}
 
-\item{frame}{logical (optional, default = FALSE)
-Whether to display a frame around the legend.}
+\item{frame_fillOpacity}{numeric. Optional. Frame opacity (default 0.5).}
 
-\item{frame_margin}{numeric (optional, default = 15)
-Frame margin.}
-
-\item{frame_fill}{string (optional, default = "white")
-Frame fill color.}
-
-\item{frame_stroke}{string (optional, default = "black")
-Frame stroke color.}
-
-\item{frame_fillOpacity}{numeric (optional, default = 0.5)
-Frame fill opacity.}
-
-\item{frame_*}{additional parameters (optional)
-Additional SVG attributes applied to the frame.}
-
-\item{text_*}{additional parameters (optional)
-SVG attributes applied to all text elements of the legend.}
+\item{...}{Additional SVG attributes.}
 }
 \value{
-The identifier of the created legend layer.
+The identifier of the created layer.
 }
 \description{
-The \code{viz_leg_circles} function allows to add a legend for proportional circles.
-  The function creates a legend layer in the SVG container.
+The \code{viz_leg_circles} function adds a legend for proportional circles.
+It draws circles scaled by values, with optional reference lines and labels.
+The function adds a legend layer to the SVG container.
 }
 \examples{
-library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_leg_circles(data = c(10, 50, 100, 500), k = 50) |>
+viz_create() |>
+  viz_leg_circles(
+    data = c(10, 100, 1000),
+    title = "Population"
+  ) |>
   viz_render()
 }

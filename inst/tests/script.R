@@ -5,11 +5,14 @@ devtools::install()
 devtools::build_vignettes()
 
 devtools::build()
+
 devtools::load_all()
 
 devtools::install()
 devtools::load_all()
 
+devtools::document()
+devtools::load_all()
 pkgdown::build_site()
 
 # library(geoviz)
@@ -21,6 +24,18 @@ world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRU
 # viz_create(projection = "EqualEarth", zoomable = T) |>
 #   viz_path(data = world) |>
 #   viz_exportSVG("test.svg")
+
+viz_create(projection = "Polar",background = "white") |>
+  # viz_outline() |>
+  viz_earth() |>
+  viz_path(datum = world, fill = "#38896F") |>
+  viz_render()
+
+
+viz_create(margin=20, zoomable = T, projection = "Polar") |>
+  viz_path(data = world, tip = T) |>
+  viz_header() |>
+  viz_render()
 
 
 library("htmlwidgets")

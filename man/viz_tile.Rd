@@ -2,14 +2,22 @@
 % Please edit documentation in R/layers.R
 \name{viz_tile}
 \alias{viz_tile}
-\title{Add a raster tile layer}
+\title{Mercator tiles}
 \usage{
-viz_tile(map, ...)
+viz_tile(
+  map,
+  id = NULL,
+  tileSize = 512,
+  zoomDelta = 1,
+  opacity = 1,
+  url = "openstreetmap",
+  clipPath = NULL
+)
 }
 \arguments{
-\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{character. Optional. ID of the layer.}
+\item{id}{character. Optional. Unique layer id.}
 
 \item{tileSize}{numeric. Optional. Tile size (default 512).}
 
@@ -17,25 +25,16 @@ viz_tile(map, ...)
 
 \item{opacity}{numeric. Optional. Tile opacity (default 1).}
 
-\item{url}{character or function. Optional. Tile source. Can be a string
-(e.g. "openstreetmap", "cartodbvoyager", "stamentoner")}
-}
-\value{
-The identifier of the created layer.
+\item{url}{function or character. Optional. Tile source URL or preset ("openstreetmap","opentopomap","worldterrain","worldimagery","worldStreet","worldphysical","shadedrelief","stamenterrain","cartodbvoyager","stamentoner","stamentonerbackground","stamentonerlite","stamenwatercolor","hillshade","worldocean","natgeo").}
+
+\item{clipPath}{character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").}
 }
 \description{
-The \code{viz_tile} function displays raster tiles from online providers.
-This function requires the use of a Mercator projection ("mercator").
-}
-\details{
-This function requires a Mercator projection. For example:
-  \code{viz_create(projection = "mercator")}.
+The \code{viz_tile} function adds raster zoomable tiles to a map
+It requires a Mercator projection.
 }
 \examples{
-viz_create(projection = "mercator", width =750) |>
-  viz_tile(url = "worldimagery") |>
+viz_create(projection = "mercator") |>
+  viz_tile(url = "worldphysical") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#tile}{documentation} of the underlying JS library.
 }

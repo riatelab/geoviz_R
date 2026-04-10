@@ -2,59 +2,57 @@
 % Please edit documentation in R/layers.R
 \name{viz_scalebar}
 \alias{viz_scalebar}
-\title{Add a scalebar}
+\title{Scale bar}
 \usage{
-viz_scalebar(map, ...)
+viz_scalebar(
+  map,
+  id = NULL,
+  pos = NULL,
+  translate = "",
+  units = "km",
+  label = "",
+  tickSize = 0.2,
+  tickPadding = 5,
+  distance = "",
+  tickValues = "",
+  labelAnchor = "start",
+  ...
+)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the scalebar layer.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(10, svg.height - 20))
-Position [x, y] on the page. The scale value is relevant for this location on the map.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{translate}{numeric vector of length 2 (optional, default = NULL)
-Offset to move the scalebar without changing its size.}
+\item{pos}{numeric vector of length 2. Optional. Position [x, y] (default c(10, svg.height - 20)).}
 
-\item{units}{character (optional, default = "km")
-Units for the scalebar: "ft" (feet), "km" (kilometers), "m" (meters), or "mi" (miles).}
+\item{translate}{numeric vector of length 2. Optional. Translation without changing size (default NA).}
 
-\item{label}{string (optional)
-Label to display next to the scalebar.}
+\item{units}{character. Optional. Units ("m","km","mi","ft") (default "km").}
 
-\item{tickSize}{numeric (optional, default = 5)
-Length of tick marks.}
+\item{label}{character. Optional. Label to display.}
 
-\item{tickPadding}{numeric (optional, default = 0.2)
-Space between ticks and labels.}
+\item{tickSize}{numeric. Optional. Tick size (default 0.2).}
 
-\item{distance}{numeric (optional)
-Distance represented by the scalebar.}
+\item{tickPadding}{numeric. Optional. Tick padding (default 5).}
 
-\item{tickFormat}{function (optional, default = \code{d => d})
-Function to format tick labels.}
+\item{distance}{numeric. Optional. Distance represented by the scalebar.}
 
-\item{tickValues}{numeric vector (optional)
-Specific values to display on the scalebar.}
+\item{tickValues}{numeric vector. Optional. Custom tick values.}
 
-\item{labelAnchor}{character (optional, default = "start")
-Position of the label: "start", "middle", or "end".}
-}
-\value{
-The identifier of the created scalebar layer.
+\item{labelAnchor}{character. Optional. Label anchor ("start","middle","end") (default "start").}
+
+\item{...}{Additional SVG attributes applied to the scalebar.}
 }
 \description{
-The \code{viz_scalebar} function allows to add a scalebar to the map.
-  The function creates a layer in the SVG container.
+The \code{viz_scalebar} function adds a scalebar on the map.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_scalebar(units = "km", distance = 1000, tickSize = 5) |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+viz_create(projection = "Mercator", background = "white") |>
+  viz_path(datum = world[world$region == "Africa",], fill = "#f1f3f5") |>
+  viz_scalebar() |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#scalebar}{documentation} of the underlying JS library.
 }

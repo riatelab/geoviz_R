@@ -50,120 +50,132 @@ viz_graticule <- function(map, projection = "none", step = 10, stroke = "#9ad5e6
 #'
 viz_outline   <- function(map, ...) add_layer(map, "outline", ...)
 
-  #' @title Add a map header
-  #' @description The \code{viz_header} function allows to add a title above the map.
-  #'   The function creates a layer in the SVG container.
-  #' @name viz_header
-  #' @param id string (optional)
-  #'   An identifier for the header layer.
-  #' @param text string (optional, default = "Map title")
-  #'   Text to be displayed.
-  #' @param fill character (optional, default = "#9e9696")
-  #'   Text fill color.
-  #' @param background_fill character (optional, default = "white")
-  #'   Background fill color.
-  #' @param background_stroke character (optional, default = "white")
-  #'   Background stroke color.
-  #' @param background_strokeWidth numeric (optional, default = 1)
-  #'   Background stroke width.
-  #' @param dominantBaseline character (optional, default = "central")
-  #'   Text dominant-baseline ("hanging", "middle", "central", "bottom").
-  #' @param textAnchor character (optional, default = "middle")
-  #'   Text anchor ("start", "middle", "end").
-  #' @param lineSpacing numeric (optional, default = 0)
-  #'   Space between lines.
-  #' @param margin numeric (optional, default = 8)
-  #'   Margin around the text.
-  #' @param fontSize numeric (optional, default = 26)
-  #'   Text font size.
-  #' @param fontFamily character (optional)
-  #'   Font family defined in the container.
-  #' @param dx numeric (optional, default = 0)
-  #'   Horizontal shift.
-  #' @param dy numeric (optional, default = 0)
-  #'   Vertical shift.
-  #'
-  #' @return The identifier of the created header layer.
-  #' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#header}{documentation} of the underlying JS library.
-  #' @export
-  #'
-  #' @examples
-  #' library(sf)
-  #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-  #' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  #'   viz_header(text = "Hello World 👋", fontSize = 28, fill = "#38896F") |>
-  #'   viz_path(data = world, fill = "#f1f3f5") |>
-  #'   viz_render()
-  #'
-viz_header   <- function(map, ...) add_layer(map, "header", ...)
-
-  #' Add an Earth raster layer
-  #'
-  #' The \code{viz_earth} function displays PNG images representing the Earth's
-  #' surface. Images comes from Natural Earth (naturalearthdata.com).
-  #'
-  #' @param map A \code{geoviz} object created with \code{viz_create}.
-  #' @param id character. Optional. ID of the layer.
-  #' @param url character. Optional. URL of the image to display. You can use one
-  #'   of the provided Natural Earth styles (e.g. "NE2_50M_SR_W").
-  #' @param opacity numeric. Optional. Opacity (default 1).
-  #'
-  #' @return The identifier of the created layer.
-  #' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#earth}{documentation} of the underlying JS library.
-  #'
-  #' @export
-  #'
-  #' @examples
-  #' viz_create(projection = "EqualEarth", width = 750) |>
-  #'   viz_earth() |>
-  #'   viz_render()
-viz_earth   <- function(map, ...) add_layer(map, "earth", ...)
-
-#' @title Add a map footer
-#' @description The \code{viz_footer} function allows to add a source or text below the map.
-#'   The function creates a layer in the SVG container.
-#' @name viz_footer
-#' @param id string (optional)
-#'   An identifier for the footer layer.
-#' @param text string (optional, default = "Author, source...")
-#'   Text to be displayed.
-#' @param fill character (optional, default = "#9e9696")
-#'   Text fill color.
-#' @param background_fill character (optional, default = "white")
-#'   Background fill color.
-#' @param background_stroke character (optional, default = "white")
-#'   Background stroke color.
-#' @param background_strokeWidth numeric (optional, default = 1)
-#'   Background stroke width.
-#' @param dominantBaseline character (optional, default = "central")
-#'   Text dominant-baseline ("hanging", "middle", "central", "bottom").
-#' @param textAnchor character (optional, default = "middle")
-#'   Text anchor ("start", "middle", "end").
-#' @param lineSpacing numeric (optional, default = 0)
-#'   Space between lines.
-#' @param margin numeric (optional, default = 1)
-#'   Margin around the text.
-#' @param fontSize numeric (optional, default = 10)
-#'   Text font size.
-#' @param fontFamily character (optional)
-#'   Font family defined in the container.
-#' @param dx numeric (optional, default = 0)
-#'   Horizontal shift.
-#' @param dy numeric (optional, default = 0)
-#'   Vertical shift.
-#'
-#' @return The identifier of the created footer layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#footer}{documentation} of the underlying JS library.
+#' @title Map title
+#' @description The \code{viz_header} function adds a title above a geoviz map.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param text character. Optional. Title text to display (default "Map title").
+#' @param fill character. Optional. Text color (default "#9e9696").
+#' @param background_fill character. Optional. Background fill color (default "white").
+#' @param background_stroke character. Optional. Background stroke color (default "white").
+#' @param background_strokeWidth numeric. Optional. Background stroke width (default 1).
+#' @param dominantBaseline character. Optional. Vertical text alignment.
+#' One of "hanging", "middle", "central", "bottom" (default "central").
+#' @param textAnchor character. Optional. Horizontal text alignment.
+#' One of "start", "middle", "end" (default "middle").
+#' @param lineSpacing numeric. Optional. Space between lines (default 0).
+#' @param margin numeric. Optional. Margin around header (default 8).
+#' @param fontSize numeric. Optional. Font size (default 26).
+#' @param fontFamily character. Optional. Font family (default container font).
+#' @param dx numeric. Optional. X offset (default 0).
+#' @param dy numeric. Optional. Y offset (default 0).
+#' @param ... Additional SVG attributes applied to the text or background elements.
 #' @export
 #'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_footer(text = "Source: Geoviz R package, 2022\nMap design: Nicolas Lambert, 2026", fontSize = 12, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_header(text = "Hello World", fill = "#38896F" ) |>
 #'   viz_render()
-viz_footer   <- function(map, ...) add_layer(map, "footer", ...)
+viz_header <- function(
+    map,
+    id = NULL,
+    text = "Map title",
+    fill = "#9e9696",
+    background_fill = "white",
+    background_stroke = "white",
+    background_strokeWidth = 1,
+    dominantBaseline = "central",
+    textAnchor = "middle",
+    lineSpacing = 0,
+    margin = 8,
+    fontSize = 26,
+    fontFamily = NULL,
+    dx = 0,
+    dy = 0,
+    ...
+) {
+  add_layer(
+    map,
+    "header",
+    id = id,
+    text = text,
+    fill = fill,
+    background_fill = background_fill,
+    background_stroke = background_stroke,
+    background_strokeWidth = background_strokeWidth,
+    dominantBaseline = dominantBaseline,
+    textAnchor = textAnchor,
+    lineSpacing = lineSpacing,
+    margin = margin,
+    fontSize = fontSize,
+    fontFamily = fontFamily,
+    dx = dx,
+    dy = dy,
+    ...
+  )
+}
+
+#' @title Earth raster layer
+#' @description The \code{viz_earth} function displays PNG images representing the Earth's surface
+#' (Natural Earth dataset or custom source). The image is projected on-the-fly. The images are hosted on GitHub. You will need an internet connection.
+#' This function is only relevant at the world scale.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param url character. Optional. Image source. Can be one of
+#' ("GRAY_50M_SR","GRAY_50M_SR_OB","GRAY_50M_SR_W","HYP_50M_SR","HYP_50M_SR_W","MSR_50M",
+#' "NE1_50M_SR_W","NE2_50M_SR","NE2_50M_SR_W","OB_50M","PRIMSA_SR_50M","SR_50M")
+#' or a custom URL. Default is "NE2_50M_SR_W".
+#' @param resolution numeric. Optional. Resolution factor (default 1).
+#' Increase for sharper rendering (e.g. 2 for Retina, 3 for high-quality export).
+#' @param tileSize numeric. Optional. Tile size (default 1024).
+#' @param opacity numeric. Optional. Layer opacity (default 1).
+#' @param dx numeric. Optional. Horizontal shift (default 0).
+#' @param dy numeric. Optional. Vertical shift (default 0).
+#' @param clipPath object. Optional. GeoJSON used to clip the image (default uses map outline).
+#' @param max_canvas_size numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).
+#' @export
+#' @examples
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
+#'   viz_render()
+viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tileSize = 1024, opacity = 1, dx = 0, dy = 0, clipPath = NULL, max_canvas_size = NULL) {
+  add_layer(map, "earth", id = id, url = url, resolution = resolution, tileSize = tileSize, opacity = opacity, dx = dx, dy = dy, clipPath = clipPath, max_canvas_size = max_canvas_size)
+}
+
+#' @title Source of the map
+#' @description The \code{viz_footer} function adds a text below a geoviz map.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param text character. Optional. Footer text to display (default "Author, source...").
+#' @param fill character. Optional. Text color (default "#9e9696").
+#' @param background_fill character. Optional. Background fill color (default "white").
+#' @param background_stroke character. Optional. Background stroke color (default "white").
+#' @param background_strokeWidth numeric. Optional. Background stroke width (default 1).
+#' @param dominantBaseline character. Optional. Vertical text alignment (default "central", values "hanging","middle","central","bottom").
+#' @param textAnchor character. Optional. Horizontal text alignment (default "middle", values "start","middle","end").
+#' @param lineSpacing numeric. Optional. Line spacing (default 0).
+#' @param margin numeric. Optional. Margin (default 1).
+#' @param fontSize numeric. Optional. Font size (default 10).
+#' @param fontFamily character. Optional. Font family (default container font).
+#' @param dx numeric. Optional. X shift (default 0).
+#' @param dy numeric. Optional. Y shift (default 0).
+#' @param ... Additional SVG attributes applied to text and background elements.
+#' @export
+#' @examples
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_footer(text = "Source, author, note, etc.", fill = "#38896F" ) |>
+#'   viz_render()
+viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e9696", background_fill = "white", background_stroke = "white", background_strokeWidth = 1, dominantBaseline = "central", textAnchor = "middle", lineSpacing = 0, margin = 1, fontSize = 10, fontFamily = NULL, dx = 0, dy = 0, ...) {
+  add_layer(map, "footer", id = id, text = text, fill = fill, background_fill = background_fill, background_stroke = background_stroke, background_strokeWidth = background_strokeWidth, dominantBaseline = dominantBaseline, textAnchor = textAnchor, lineSpacing = lineSpacing, margin = margin, fontSize = fontSize, fontFamily = fontFamily, dx = dx, dy = dy, ...)
+}
 
   #' Add a path layer from spatial data
   #'
@@ -199,168 +211,141 @@ viz_footer   <- function(map, ...) add_layer(map, "footer", ...)
   #'   viz_render()
 viz_path   <- function(map, ...) add_layer(map, "path", ...)
 
-#' @title Add text or labels
-#' @description The \code{viz_text} function allows to add text on the map.
-#'   It can also create a layer with labels from a spatial dataframe.
-#'   The function creates a layer in the SVG container.
-#' @name viz_text
-#' @param data object
-#'   A spatial dataframe (e.g., sf object) to use for generating labels.
-#' @param id string (optional)
-#'   An identifier for the text layer.
-#' @param text character or function (optional, default = "text")
-#'   Text to be displayed, or a function returning text from the data.
-#' @param textAnchor character or function (optional)
-#'   Text anchor: "start", "middle", or "end".
-#' @param dominantBaseline character or function (optional)
-#'   Text dominant-baseline: "auto", "middle", "central", "hanging".
-#' @param fontFamily character (optional)
-#'   Font family defined in the SVG container.
-#' @param fontSize numeric (optional, default = 12)
-#'   Font size.
-#' @param lineSpacing numeric (optional, default = 0)
-#'   Space between lines.
-#' @param pos numeric vector of length 2 (optional, default = c(0, 0))
-#'   Position to display a single text element.
-#' @param dx numeric (optional, default = 0)
-#'   Horizontal shift.
-#' @param dy numeric (optional, default = 0)
-#'   Vertical shift.
-#' @param sort character or function (optional)
-#'   Field to sort labels or a function to define sort order.
-#' @param descending logical (optional)
-#'   Sorting order.
-#' @param coords character (optional, default = "geo")
-#'   Use "svg" if the coordinates are already in the SVG plane.
-#' @param fill character or function (optional)
-#'   Fill color for the text.
-#' @param stroke character or function (optional)
-#'   Stroke color for the text.
-#' @param strokeWidth numeric (optional, default = 1)
-#'   Stroke width.
-#' @param strokeLinejoin character or function (optional, default = "round")
-#'   Stroke line join style.
-#'
-#' @return The identifier of the created text layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#text}{documentation} of the underlying JS library.
-#' @export
-#'
-#' @examples
-#' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth", zoomable = TRUE) |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_text(data = world, text = "ISO3", fontSize = 10, fill = "#38896F") |>
-#'   viz_render()
-viz_text   <- function(map, ...) add_layer(map, "text", ...)
 
-#' Add a raster tile layer
-#'
-#' The \code{viz_tile} function displays raster tiles from online providers.
-#' This function requires the use of a Mercator projection ("mercator").
-#'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
-#' @param id character. Optional. ID of the layer.
+#' @title Mercator tiles
+#' @description The \code{viz_tile} function adds raster zoomable tiles to a map
+#' It requires a Mercator projection.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
 #' @param tileSize numeric. Optional. Tile size (default 512).
 #' @param zoomDelta numeric. Optional. Zoom offset (default 1).
 #' @param opacity numeric. Optional. Tile opacity (default 1).
-#' @param url character or function. Optional. Tile source. Can be a string
-#'   (e.g. "openstreetmap", "cartodbvoyager", "stamentoner")
-#'
-#' @return The identifier of the created layer.
-#' @details This function requires a Mercator projection. For example:
-#'   \code{viz_create(projection = "mercator")}.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#tile}{documentation} of the underlying JS library.
-#'
+#' @param url function or character. Optional. Tile source URL or preset ("openstreetmap","opentopomap","worldterrain","worldimagery","worldStreet","worldphysical","shadedrelief","stamenterrain","cartodbvoyager","stamentoner","stamentonerbackground","stamentonerlite","stamenwatercolor","hillshade","worldocean","natgeo").
+#' @param clipPath character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").
 #' @export
-#'
 #' @examples
-#' viz_create(projection = "mercator", width =750) |>
-#'   viz_tile(url = "worldimagery") |>
+#' viz_create(projection = "mercator") |>
+#'   viz_tile(url = "worldphysical") |>
 #'   viz_render()
-viz_tile   <- function(map, ...) add_layer(map, "tile", ...)
+viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1, url = "openstreetmap", clipPath = NULL) {
+  add_layer(map, "tile", id = id, tileSize = tileSize, zoomDelta = zoomDelta, opacity = opacity, url = url, clipPath = clipPath)
+}
 
-
-
-
-
-
-
-
-#' @title Add a North arrow
-#' @description The \code{viz_north} function allows to add a North arrow to the map.
-#'   The function creates a layer in the SVG container.
-#' @name viz_north
-#' @param id string (optional)
-#'   An identifier for the North arrow layer.
-#' @param pos numeric vector of length 2 (optional, default = c(svg.width - 30, 30))
-#'   Position [x, y] on the page. The scale value is relevant for this location on the map.
-#' @param scale numeric (optional, default = 1)
-#'   Scale factor to resize the arrow.
-#' @param rotate numeric (optional, default = NULL)
-#'   Angle to rotate the arrow. By default, it is automatically calculated.
-#' @param fill character (optional, default = "black")
-#'   Fill color of the arrow.
-#' @param fillOpacity numeric (optional, default = 1)
-#'   Fill opacity of the arrow.
-#'
-#' @return The identifier of the created North arrow layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#north}{documentation} of the underlying JS library.
+#' @title Texts and labels
+#' @description The \code{viz_text} function adds a text on a geoviz map
+#' and can also generate labels from a spatial dataframe.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data a spatial dataframe.
+#' @param id character. Optional. Unique layer id.
+#' @param text character or function. Optional. Text to display (default "text").
+#' @param textAnchor character or function. Optional. Text anchor ("start","middle","end").
+#' @param dominantBaseline character or function. Optional. Baseline alignment ("auto","middle","central","hanging").
+#' @param fontFamily character. Optional. Font family from SVG container.
+#' @param fontSize numeric. Optional. Font size (default 12).
+#' @param lineSpacing numeric. Optional. Line spacing (default 0).
+#' @param pos numeric vector of length 2. Optional. Position for single text element (default c(0,0)).
+#' @param dx numeric. Optional. X shift (default 0).
+#' @param dy numeric. Optional. Y shift (default 0).
+#' @param sort character or function. Optional. Field or function used to sort labels.
+#' @param descending logical. Optional. Sorting order (default FALSE).
+#' @param coords character. Optional. Coordinate system ("geo" or "svg") (default "geo").
+#' @param fill character or function. Optional. Fill color.
+#' @param stroke character or function. Optional. Stroke color.
+#' @param strokeWidth numeric. Optional. Stroke width (default 1).
+#' @param strokeLinejoin character or function. Optional. Stroke line join (default "round").
+#' @param ... Additional SVG attributes applied to text elements.
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_north(pos = c(280, 120), scale = 1.5, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' # Example 1
+#' viz_create(projection = "EqualEarth", width = 750, background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_text(pos = c(100, 200), coords = "svg", text = "All maps are lies,\nbut some are useful lies", fill = "#38896F") |>
 #'   viz_render()
-viz_north   <- function(map, ...) add_layer(map, "north", ...)
+#' # Example 2
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_text(data = world, text = "ISO3", fill = "#38896F") |>
+#'   viz_render()
+viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NULL, dominantBaseline = NULL, fontFamily = NULL, fontSize = 12, lineSpacing = 0, pos = c(0, 0), dx = 0, dy = 0, sort = NULL, descending = FALSE, coords = "geo", fill = NULL, stroke = NULL, strokeWidth = 1, strokeLinejoin = "round", ...) {
+  add_layer(map, "text", id = id, data = data, text = text, textAnchor = textAnchor, dominantBaseline = dominantBaseline, fontFamily = fontFamily, fontSize = fontSize, lineSpacing = lineSpacing, pos = pos, dx = dx, dy = dy, sort = sort, descending = descending, coords = coords, fill = fill, stroke = stroke, strokeWidth = strokeWidth, strokeLinejoin = strokeLinejoin, ...)
+}
 
-#' @title Add a scalebar
-#' @description The \code{viz_scalebar} function allows to add a scalebar to the map.
-#'   The function creates a layer in the SVG container.
-#' @name viz_scalebar
-#' @param id string (optional)
-#'   An identifier for the scalebar layer.
-#' @param pos numeric vector of length 2 (optional, default = c(10, svg.height - 20))
-#'   Position [x, y] on the page. The scale value is relevant for this location on the map.
-#' @param translate numeric vector of length 2 (optional, default = NULL)
-#'   Offset to move the scalebar without changing its size.
-#' @param units character (optional, default = "km")
-#'   Units for the scalebar: "ft" (feet), "km" (kilometers), "m" (meters), or "mi" (miles).
-#' @param label string (optional)
-#'   Label to display next to the scalebar.
-#' @param tickSize numeric (optional, default = 5)
-#'   Length of tick marks.
-#' @param tickPadding numeric (optional, default = 0.2)
-#'   Space between ticks and labels.
-#' @param distance numeric (optional)
-#'   Distance represented by the scalebar.
-#' @param tickFormat function (optional, default = \code{d => d})
-#'   Function to format tick labels.
-#' @param tickValues numeric vector (optional)
-#'   Specific values to display on the scalebar.
-#' @param labelAnchor character (optional, default = "start")
-#'   Position of the label: "start", "middle", or "end".
-#'
-#' @return The identifier of the created scalebar layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#scalebar}{documentation} of the underlying JS library.
+
+#' @title North arrow
+#' @description The \code{viz_north} function adds a north arrow a geoviz map.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector of length 2. Optional. Position [x, y] on the page (default c(svg.width - 30, 30)).
+#' @param scale numeric. Optional. Scaling factor for the arrow (default 1).
+#' @param rotate numeric. Optional. Rotation angle. If NA, it is automatically calculated.
+#' @param fill character. Optional. Fill color (default "black").
+#' @param fillOpacity numeric. Optional. Fill opacity (default 1).
+#' @param ... Additional SVG attributes applied to the arrow.
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_scalebar(units = "km", distance = 1000, tickSize = 5) |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "Mercator", background = "white") |>
+#'   viz_path(datum = world[world$region == "Africa",], fill = "#f1f3f5") |>
+#'   viz_north(fill = "#38896F" ) |>
 #'   viz_render()
-viz_scalebar   <- function(map, ...) add_layer(map, "scalebar", ...)
+viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill = "black", fillOpacity = 1, ...) {
+  add_layer(map, "north", id = id, pos = pos, scale = scale, rotate = rotate, fill = fill, fillOpacity = fillOpacity, ...)
+}
 
-#' @title viz_tissot
+#' @title Scale bar
+#' @description The \code{viz_scalebar} function adds a scalebar on the map.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector of length 2. Optional. Position [x, y] (default c(10, svg.height - 20)).
+#' @param translate numeric vector of length 2. Optional. Translation without changing size (default NA).
+#' @param units character. Optional. Units ("m","km","mi","ft") (default "km").
+#' @param label character. Optional. Label to display.
+#' @param tickSize numeric. Optional. Tick size (default 0.2).
+#' @param tickPadding numeric. Optional. Tick padding (default 5).
+#' @param distance numeric. Optional. Distance represented by the scalebar.
+#' @param tickValues numeric vector. Optional. Custom tick values.
+#' @param labelAnchor character. Optional. Label anchor ("start","middle","end") (default "start").
+#' @param ... Additional SVG attributes applied to the scalebar.
 #' @export
-#'
-viz_tissot   <- function(map, ...) add_layer(map, "tissot", ...)
+#' @examples
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "Mercator", background = "white") |>
+#'   viz_path(datum = world[world$region == "Africa",], fill = "#f1f3f5") |>
+#'   viz_scalebar() |>
+#'   viz_render()
+viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km", label = "", tickSize = 0.2, tickPadding = 5, distance = "", tickValues ="", labelAnchor = "start", ...) {
+  add_layer(map, "scalebar", id = id, pos = pos, translate = translate, units = units, label = label, tickSize = tickSize, tickPadding = tickPadding, distance = distance, tickValues = tickValues, labelAnchor = labelAnchor, ...)
+}
+
+
+#' @title Tissot indicatrices
+#' @description The \code{viz_tissot} function draws Tissot circles to visualize projection distortions on a map.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param step numeric. Optional. Step between circles (default 20).
+#' @param fill character. Optional. Fill color (default "red").
+#' @param stroke character. Optional. Stroke color (default "white").
+#' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.5).
+#' @param ... Additional SVG attributes (strokeDasharray, strokeWidth, opacity, strokeLinecap...).
+#' @export
+#' @examples
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "Polar", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_tissot(fill = "#38896F", fillOpacity = 1 ) |>
+#'   viz_render()
+viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white", strokeOpacity = 0.5, ...) {
+  add_layer(map, "tissot", id = id, step = step, fill = fill, stroke = stroke, strokeOpacity = strokeOpacity, ...)
+}
 
 #' @title viz_rhumbs
 #' @export

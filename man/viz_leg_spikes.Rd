@@ -2,10 +2,133 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_spikes}
 \alias{viz_leg_spikes}
-\title{viz_leg_spikes}
+\title{Add a spike legend}
 \usage{
-viz_leg_spikes(map, ...)
+viz_leg_spikes(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  data = c(1, 1000),
+  k = 50,
+  fixmax = NULL,
+  nb = 4,
+  spike_width = 30,
+  spike_straight = 0,
+  spike_spacing = 3,
+  spike_fill = "none",
+  spike_stroke = "black",
+  values_textAnchor = "start",
+  values_dx = 5,
+  values_dy = 0,
+  values_fill = "#363636",
+  values_fontSize = 10,
+  values_factor = 1,
+  values_decimal = ".",
+  values_thousands = " ",
+  title = "",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{pos}{numeric vector of length 2. Optional. Position (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
+
+\item{data}{numeric vector. Optional. Input values (default c(1, 200, 500, 1000)).}
+
+\item{k}{numeric. Optional. Height of the highest spike (default 50).}
+
+\item{fixmax}{numeric. Optional. Value mapped to height k.}
+
+\item{nb}{numeric. Optional. Number of spikes (default 4).}
+
+\item{spike_width}{numeric. Optional. Width of spikes (default 30).}
+
+\item{spike_straight}{numeric. Optional. Shape of spikes (0 = curved, 1 = straight, default 0).}
+
+\item{spike_spacing}{numeric. Optional. Spacing between spikes (default 3).}
+
+\item{spike_fill}{character. Optional. Fill color (default "none").}
+
+\item{spike_stroke}{character. Optional. Stroke color (default "black").}
+
+\item{values_textAnchor}{character. Optional. Text anchor (default "start").}
+
+\item{values_dx}{numeric. Optional. Shift in x (default 0).}
+
+\item{values_dy}{numeric. Optional. Shift in y (default 5).}
+
+\item{values_fill}{character. Optional. Label color (default "#363636").}
+
+\item{values_fontSize}{numeric. Optional. Font size (default 10).}
+
+\item{values_factor}{numeric. Optional. Multiplicative factor (default 1).}
+
+\item{values_decimal}{character. Optional. Decimal separator (default ".").}
+
+\item{values_thousands}{character. Optional. Thousands separator (default " ").}
+
+\item{title}{character. Optional. Title (default "").}
+
+\item{title_fill}{character. Optional. Title color (default "#363636").}
+
+\item{title_fontSize}{numeric. Optional. Title size (default 16).}
+
+\item{subtitle}{character. Optional. Subtitle (default "").}
+
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
+
+\item{subtitle_fontSize}{numeric. Optional. Subtitle size (default 12).}
+
+\item{note}{character. Optional. Note (default "").}
+
+\item{note_fill}{character. Optional. Note color (default "#363636").}
+
+\item{note_fontSize}{numeric. Optional. Note size (default 10).}
+
+\item{frame}{logical. Optional. Draw frame (default FALSE).}
+
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
+
+\item{frame_fill}{character. Optional. Frame fill (default "white").}
+
+\item{frame_stroke}{character. Optional. Frame stroke (default "black").}
+
+\item{frame_fillOpacity}{numeric. Optional. Frame opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes.}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_spikes
+The \code{viz_leg_spikes} function adds a legend for spike marks.
+It draws a series of spikes with heights proportional to values.
+The function adds a legend layer to the SVG container.
+}
+\examples{
+viz_create() |>
+  viz_leg_spikes(
+    data = c(10, 100, 1000),
+    title = "Population"
+  ) |>
+  viz_render()
 }

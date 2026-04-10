@@ -2,10 +2,115 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_box}
 \alias{viz_leg_box}
-\title{viz_leg_box}
+\title{Add a box legend}
 \usage{
-viz_leg_box(map, ...)
+viz_leg_box(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  rect_width = 25,
+  rect_height = 17,
+  rect_fill = "#5d6266",
+  rect_stroke = "#303030",
+  rect_strokeWidth = 0.1,
+  label = "",
+  label_fill = "#363636",
+  label_fontSize = 10,
+  label_dx = 5,
+  label_dominantBaseline = "central",
+  title = "Legend",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{pos}{numeric vector of length 2. Optional. Legend position (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
+
+\item{rect_width}{numeric. Optional. Width of the box (default 25).}
+
+\item{rect_height}{numeric. Optional. Height of the box (default 17).}
+
+\item{rect_fill}{character. Optional. Box fill color (default "#5d6266").}
+
+\item{rect_stroke}{character. Optional. Stroke color (default "#303030").}
+
+\item{rect_strokeWidth}{numeric. Optional. Stroke width (default 0.1).}
+
+\item{label}{character. Optional. Text displayed (default "").}
+
+\item{label_fill}{character. Optional. Text color (default "#363636").}
+
+\item{label_fontSize}{numeric. Optional. Text size (default 10).}
+
+\item{label_dx}{numeric. Optional. Horizontal shift (default 5).}
+
+\item{label_dominantBaseline}{character. Optional. Dominant baseline (default "central").}
+
+\item{title}{character. Optional. Legend title (default "Legend").}
+
+\item{title_fill}{character. Optional. Title color (default "#363636").}
+
+\item{title_fontSize}{numeric. Optional. Title font size (default 16).}
+
+\item{subtitle}{character. Optional. Subtitle of the legend (default "").}
+
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
+
+\item{subtitle_fontSize}{numeric. Optional. Subtitle font size (default 12).}
+
+\item{note}{character. Optional. Note displayed above the legend (default "").}
+
+\item{note_fill}{character. Optional. Note color (default "#363636").}
+
+\item{note_fontSize}{numeric. Optional. Note font size (default 10).}
+
+\item{frame}{logical. Optional. Draw a frame around the legend (default FALSE).}
+
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
+
+\item{frame_fill}{character. Optional. Frame fill color (default "white").}
+
+\item{frame_stroke}{character. Optional. Frame stroke color (default "black").}
+
+\item{frame_fillOpacity}{numeric. Optional. Frame fill opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes passed to elements (e.g. rect_*, label_*,
+title_*, subtitle_*, note_*, frame_*, text_*).}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_box
+The \code{viz_leg_box} function creates a box legend. The function adds a
+legend layer to the map.
+}
+\examples{
+viz_create() |>
+  viz_leg_box(
+    label = "My category",
+    rect_fill = "#377eb8"
+  ) |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-box}{documentation} of the underlying JS library.
 }

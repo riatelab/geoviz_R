@@ -2,10 +2,179 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_mushrooms}
 \alias{viz_leg_mushrooms}
-\title{viz_leg_mushrooms}
+\title{Add a proportional half-circles (mushrooms) legend}
 \usage{
-viz_leg_mushrooms(map, ...)
+viz_leg_mushrooms(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  line_stroke = "#363636",
+  line_strokeDasharray = "1",
+  line_strokeWidth = 0.7,
+  line_length = 10,
+  top_data = NULL,
+  top_k = 50,
+  top_fixmax = NULL,
+  top_nb = 4,
+  top_circle_fill = "none",
+  top_circle_stroke = "black",
+  top_circle_cornerRadius = 5,
+  top_values_textAnchor = "middle",
+  top_values_dx = 5,
+  top_values_dy = 0,
+  top_values_factor = 1,
+  top_values_decimal = ".",
+  top_values_thousands = " ",
+  top_title = "top_title",
+  bottom_data = NULL,
+  bottom_k = 50,
+  bottom_fixmax = NULL,
+  bottom_nb = 4,
+  bottom_circle_fill = "none",
+  bottom_circle_stroke = "black",
+  bottom_circle_cornerRadius = 5,
+  bottom_values_textAnchor = "middle",
+  bottom_values_dx = 5,
+  bottom_values_dy = 0,
+  bottom_values_factor = 1,
+  bottom_values_decimal = ".",
+  bottom_values_thousands = " ",
+  bottom_title = "bottom_title",
+  title = "Legend",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. Unique layer id.}
+
+\item{pos}{numeric vector of length 2. Optional. Legend position (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
+
+\item{line_stroke}{character. Optional. Line stroke color (default "#363636").}
+
+\item{line_strokeDasharray}{character. Optional. Dash pattern (default "1").}
+
+\item{line_strokeWidth}{numeric. Optional. Line width (default 0.7).}
+
+\item{line_length}{numeric. Optional. Line length (default 10).}
+
+\item{top_data}{numeric vector. Optional. Input values for top half-circles.}
+
+\item{top_k}{numeric. Optional. Radius of largest top half-circle (default 50).}
+
+\item{top_fixmax}{numeric. Optional. Value mapped to radius k.}
+
+\item{top_nb}{numeric. Optional. Number of top half-circles (default 4).}
+
+\item{top_circle_fill}{character. Optional. Fill color (default "none").}
+
+\item{top_circle_stroke}{character. Optional. Stroke color (default "black").}
+
+\item{top_circle_cornerRadius}{numeric. Optional. Corner radius (default 5).}
+
+\item{top_values_textAnchor}{character. Optional. Text anchor (default "middle").}
+
+\item{top_values_dx}{numeric. Optional. X shift (default 5).}
+
+\item{top_values_dy}{numeric. Optional. Y shift (default 0).}
+
+\item{top_values_factor}{numeric. Optional. Scaling factor (default 1).}
+
+\item{top_values_decimal}{character. Optional. Decimal separator (default ".").}
+
+\item{top_values_thousands}{character. Optional. Thousands separator (default " ").}
+
+\item{top_title}{character. Optional. Title of top legend part (default "top_title").}
+
+\item{bottom_data}{numeric vector. Optional. Input values for bottom half-circles.}
+
+\item{bottom_k}{numeric. Optional. Radius of largest bottom half-circle (default 50).}
+
+\item{bottom_fixmax}{numeric. Optional. Value mapped to radius k.}
+
+\item{bottom_nb}{numeric. Optional. Number of bottom half-circles (default 4).}
+
+\item{bottom_circle_fill}{character. Optional. Fill color (default "none").}
+
+\item{bottom_circle_stroke}{character. Optional. Stroke color (default "black").}
+
+\item{bottom_circle_cornerRadius}{numeric. Optional. Corner radius (default 5).}
+
+\item{bottom_values_textAnchor}{character. Optional. Text anchor (default "middle").}
+
+\item{bottom_values_dx}{numeric. Optional. X shift (default 5).}
+
+\item{bottom_values_dy}{numeric. Optional. Y shift (default 0).}
+
+\item{bottom_values_factor}{numeric. Optional. Scaling factor (default 1).}
+
+\item{bottom_values_decimal}{character. Optional. Decimal separator (default ".").}
+
+\item{bottom_values_thousands}{character. Optional. Thousands separator (default " ").}
+
+\item{bottom_title}{character. Optional. Title of bottom legend part (default "bottom_title").}
+
+\item{title}{character. Optional. Legend title (default "Legend").}
+
+\item{title_fill}{character. Optional. Title color (default "#363636").}
+
+\item{title_fontSize}{numeric. Optional. Title size (default 16).}
+
+\item{subtitle}{character. Optional. Subtitle (default "").}
+
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
+
+\item{subtitle_fontSize}{numeric. Optional. Subtitle size (default 12).}
+
+\item{note}{character. Optional. Note (default "").}
+
+\item{note_fill}{character. Optional. Note color (default "#363636").}
+
+\item{note_fontSize}{numeric. Optional. Note size (default 10).}
+
+\item{frame}{logical. Optional. Draw frame (default FALSE).}
+
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
+
+\item{frame_fill}{character. Optional. Frame fill (default "white").}
+
+\item{frame_stroke}{character. Optional. Frame stroke (default "black").}
+
+\item{frame_fillOpacity}{numeric. Optional. Frame opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes.}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_mushrooms
+The \code{viz_leg_mushrooms} function adds a legend for proportional half-circles.
+It displays two sets of nested half-circles (top and bottom), each scaled according to input values.
+The function adds a legend layer to the SVG container and returns the layer identifier.
+}
+\examples{
+viz_create() |>
+  viz_leg_mushrooms(
+    top_data = c(10, 100, 1000),
+    bottom_data = c(5, 50, 500),
+    title = "Mushroom legend"
+  ) |>
+  viz_render()
 }

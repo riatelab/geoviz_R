@@ -2,10 +2,128 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_symbol_horizontal}
 \alias{viz_leg_symbol_horizontal}
-\title{viz_leg_symbol_horizontal}
+\title{Add a symbol horizontal legend}
 \usage{
-viz_leg_symbol_horizontal(map, ...)
+viz_leg_symbol_horizontal(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  types = c("A", "B", "C", "D"),
+  symbols = c("circle", "square", "triangle", "pentagon"),
+  alphabetical = TRUE,
+  symbol_size = 10,
+  symbol_rotate = 0,
+  symbol_spacing = 4,
+  symbol_fill = "#2e2e2e",
+  symbol_stroke = "#303030",
+  symbol_strokeWidth = 0.5,
+  symbol_background = FALSE,
+  values_textAnchor = "middle",
+  values_dx = 0,
+  values_dy = 5,
+  values_fill = "#363636",
+  values_fontSize = 10,
+  title = "Legend",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. Unique layer id.}
+
+\item{pos}{numeric vector of length 2. Optional. Legend position (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
+
+\item{types}{character vector. Optional. Category labels (default c("A","B","C","D")).}
+
+\item{symbols}{character vector. Optional. Symbol shapes (default c("circle","square","triangle","pentagon")).}
+
+\item{alphabetical}{logical. Optional. Sort types alphabetically (default TRUE).}
+
+\item{symbol_size}{numeric. Optional. Symbol size (default 10).}
+
+\item{symbol_rotate}{numeric. Optional. Rotation angle (default 0).}
+
+\item{symbol_spacing}{numeric. Optional. Spacing between symbols (default 4).}
+
+\item{symbol_fill}{character. Optional. Symbol fill color (default "#2e2e2e").}
+
+\item{symbol_stroke}{character. Optional. Symbol stroke color (default "#303030").}
+
+\item{symbol_strokeWidth}{numeric. Optional. Symbol stroke width (default 0.5).}
+
+\item{symbol_background}{logical. Optional. Add background circle (default FALSE).}
+
+\item{values_textAnchor}{character. Optional. Text anchor (default "middle").}
+
+\item{values_dx}{numeric. Optional. X shift (default 0).}
+
+\item{values_dy}{numeric. Optional. Y shift (default 5).}
+
+\item{values_fill}{character. Optional. Text color (default "#363636").}
+
+\item{values_fontSize}{numeric. Optional. Font size (default 10).}
+
+\item{title}{character. Optional. Legend title (default "Legend").}
+
+\item{title_fill}{character. Optional. Title color (default "#363636").}
+
+\item{title_fontSize}{numeric. Optional. Title size (default 16).}
+
+\item{subtitle}{character. Optional. Subtitle (default "").}
+
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
+
+\item{subtitle_fontSize}{numeric. Optional. Subtitle size (default 12).}
+
+\item{note}{character. Optional. Note (default "").}
+
+\item{note_fill}{character. Optional. Note color (default "#363636").}
+
+\item{note_fontSize}{numeric. Optional. Note size (default 10).}
+
+\item{frame}{logical. Optional. Draw frame (default FALSE).}
+
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
+
+\item{frame_fill}{character. Optional. Frame fill (default "white").}
+
+\item{frame_stroke}{character. Optional. Frame stroke (default "black").}
+
+\item{frame_fillOpacity}{numeric. Optional. Frame opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes.}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_symbol_horizontal
+The \code{viz_leg_symbol_horizontal} function adds a horizontal legend for symbol layers.
+It displays a set of categorized symbols with optional shapes and ordering.
+The function creates a legend layer in the SVG container and returns the layer identifier.
+}
+\examples{
+viz_create() |>
+  viz_leg_symbol_horizontal(
+    types = c("A", "B", "C"),
+    symbols = c("circle", "square", "triangle"),
+    title = "Symbol legend"
+  ) |>
+  viz_render()
 }

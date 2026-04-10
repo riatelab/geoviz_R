@@ -65,7 +65,7 @@ reference:
     - viz_tissot
     - viz_earth
     - viz_tile
-  - title: "Map Decorations and Annotations"
+  - title: "Map Decorations and Annotations (OK)"
     desc: Functions for styling and annotating the map, such as titles, scale bars, and north arrows.
     contents:
     - viz_header
@@ -106,8 +106,8 @@ reference:
     - viz_radialGradient
     - viz_pattern
     - viz_sketch
-  - title: "legend"
-    desc: functions to design map legends
+  - title: "Legends (OK except examples)"
+    desc: Functions to design map legends
     contents:
     - viz_leg_box
     - viz_leg_typo_vertical

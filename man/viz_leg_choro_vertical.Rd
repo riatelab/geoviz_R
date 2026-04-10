@@ -2,10 +2,134 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_choro_vertical}
 \alias{viz_leg_choro_vertical}
-\title{viz_leg_choro_vertical}
+\title{Add a vertical choropleth legend}
 \usage{
-viz_leg_choro_vertical(map, ...)
+viz_leg_choro_vertical(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  breaks = c(1, 2, 3, 4, 5),
+  colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
+  rect_width = 25,
+  rect_height = 17,
+  rect_spacing = 0,
+  rect_fill = "#5d6266",
+  rect_stroke = "#303030",
+  rect_strokeWidth = 0.1,
+  values_textAnchor = "middle",
+  values_dx = 5,
+  values_dy = 0,
+  values_fill = "#363636",
+  values_fontSize = 10,
+  values_factor = 1,
+  values_decimal = ".",
+  values_thousands = " ",
+  title = "Legend",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{pos}{numeric vector of length 2. Optional. Legend position (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
+
+\item{breaks}{numeric vector. Optional. Break values (default c(1, 2, 3, 4, 5)).}
+
+\item{colors}{character vector. Optional. Colors (default c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d")).}
+
+\item{rect_width}{numeric. Optional. Width of the boxes (default 25).}
+
+\item{rect_height}{numeric. Optional. Height of the boxes (default 17).}
+
+\item{rect_spacing}{numeric. Optional. Spacing between boxes (default 0).}
+
+\item{rect_fill}{character. Optional. Box fill color (default "#5d6266").}
+
+\item{rect_stroke}{character. Optional. Stroke color (default "#303030").}
+
+\item{rect_strokeWidth}{numeric. Optional. Stroke width (default 0.1).}
+
+\item{values_textAnchor}{character. Optional. Text anchor (default "middle").}
+
+\item{values_dx}{numeric. Optional. Horizontal shift (default 5).}
+
+\item{values_dy}{numeric. Optional. Vertical shift (default 0).}
+
+\item{values_fill}{character. Optional. Text color (default "#363636").}
+
+\item{values_fontSize}{numeric. Optional. Font size (default 10).}
+
+\item{values_factor}{numeric. Optional. Multiplication factor for displayed values (default 1).}
+
+\item{values_decimal}{character. Optional. Decimal separator (default ".").}
+
+\item{values_thousands}{character. Optional. Thousands separator (default " ").}
+
+\item{title}{character. Optional. Legend title (default "Legend").}
+
+\item{title_fill}{character. Optional. Title color (default "#363636").}
+
+\item{title_fontSize}{numeric. Optional. Title font size (default 16).}
+
+\item{subtitle}{character. Optional. Subtitle of the legend (default "").}
+
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
+
+\item{subtitle_fontSize}{numeric. Optional. Subtitle font size (default 12).}
+
+\item{note}{character. Optional. Note displayed above the legend (default "").}
+
+\item{note_fill}{character. Optional. Note color (default "#363636").}
+
+\item{note_fontSize}{numeric. Optional. Note font size (default 10).}
+
+\item{frame}{logical. Optional. Draw a frame around the legend (default FALSE).}
+
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
+
+\item{frame_fill}{character. Optional. Frame fill color (default "white").}
+
+\item{frame_stroke}{character. Optional. Frame stroke color (default "black").}
+
+\item{frame_fillOpacity}{numeric. Optional. Frame fill opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes passed to elements (e.g. rect_*, values_*,
+title_*, subtitle_*, note_*, frame_*, text_*).}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_choro_vertical
+The \code{viz_leg_choro_vertical} function creates a vertical legend for
+choropleth layers. The function adds a legend layer to the map.
+}
+\examples{
+viz_create() |>
+  viz_leg_choro_vertical(
+    breaks = c(0, 10, 20, 50, 100),
+    colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
+    title = "Population"
+  ) |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-choro-vertical}{documentation} of the underlying JS library.
 }

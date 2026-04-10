@@ -15,16 +15,33 @@ convert_sf_to_geojson <- function(x) {
 #   cat("GeoJSON file saved as:", filename, "\n")
 # }
 
+# r2json <- function(map) {
+#   params_converted <- lapply(map$params, convert_sf_to_geojson)
+#   layers_converted <- lapply(map$layers, function(layer) {
+#     lapply(layer, convert_sf_to_geojson)
+#   })
+#   map_combined <- list(
+#     params = params_converted,
+#     layers = layers_converted
+#   )
+#   jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
+# }
+
 r2json <- function(map) {
+  drop_nulls <- function(x) {
+    x[!vapply(x, is.null, logical(1))]
+  }
   params_converted <- lapply(map$params, convert_sf_to_geojson)
+  params_converted <- drop_nulls(params_converted)
   layers_converted <- lapply(map$layers, function(layer) {
-    lapply(layer, convert_sf_to_geojson)
+    layer <- lapply(layer, convert_sf_to_geojson)
+    drop_nulls(layer)
   })
-  map_combined <- list(
+    map_combined <- list(
     params = params_converted,
     layers = layers_converted
   )
-  jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
+    jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
 }
 
 
@@ -32,7 +49,9 @@ add_layer <- function(map, type, ...) {
   if (!inherits(map, "geoviz")) {
     stop("geoviz class needed")
   }
-  layer <- c(list(type = type), list(...))
+  args <- list(...)
+  args <- args[!vapply(args, is.null, logical(1))]
+  layer <- c(list(type = type), args)
   map$layers <- append(map$layers, list(layer))
   return(map)
 }

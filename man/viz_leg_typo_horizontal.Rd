@@ -2,10 +2,128 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_typo_horizontal}
 \alias{viz_leg_typo_horizontal}
-\title{viz_leg_typo_horizontal}
+\title{Add a horizontal typology legend}
 \usage{
-viz_leg_typo_horizontal(map, ...)
+viz_leg_typo_horizontal(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 2,
+  types = c("A", "B", "C", "D"),
+  colors = c("#e41a1c", "#377eb8", "#4daf4a", "#984ea3"),
+  alphabetical = TRUE,
+  rect_width = 50,
+  rect_height = 14,
+  rect_spacing = 0,
+  rect_fill = "#5d6266",
+  rect_stroke = "#303030",
+  rect_strokeWidth = 0.1,
+  values_textAnchor = "middle",
+  values_dx = 0,
+  values_dy = 5,
+  values_fill = "#363636",
+  values_fontSize = 10,
+  title = "Legend",
+  title_fill = "#363636",
+  title_fontSize = 16,
+  subtitle = "",
+  subtitle_fill = "#363636",
+  subtitle_fontSize = 12,
+  note = "",
+  note_fill = "#363636",
+  note_fontSize = 10,
+  frame = FALSE,
+  frame_margin = 15,
+  frame_fill = "white",
+  frame_stroke = "black",
+  frame_fillOpacity = 0.5,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{pos}{numeric vector of length 2. Optional. Legend position (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between elements (default 2).}
+
+\item{types}{character vector. Optional. Types (default c("A", "B", "C", "D")).}
+
+\item{colors}{character vector. Optional. Colors (default c("#e41a1c", "#377eb8", "#4daf4a", "#984ea3")).}
+
+\item{alphabetical}{logical. Optional. Alphabetical order (default TRUE).}
+
+\item{rect_width}{numeric. Optional. Width of the boxes (default 50).}
+
+\item{rect_height}{numeric. Optional. Height of the boxes (default 14).}
+
+\item{rect_spacing}{numeric. Optional. Spacing between boxes (default 0).}
+
+\item{rect_fill}{character. Optional. Box fill color (default "#5d6266").}
+
+\item{rect_stroke}{character. Optional. Stroke color (default "#303030").}
+
+\item{rect_strokeWidth}{numeric. Optional. Stroke width (default 0.1).}
+
+\item{values_textAnchor}{character. Optional. Text anchor (default "middle").}
+
+\item{values_dx}{numeric. Optional. Horizontal shift (default 0).}
+
+\item{values_dy}{numeric. Optional. Vertical shift (default 5).}
+
+\item{values_fill}{character. Optional. Text color (default "#363636").}
+
+\item{values_fontSize}{numeric. Optional. Font size (default 10).}
+
+\item{title}{character. Optional. Legend title (default "Legend").}
+
+\item{title_fill}{character. Optional. Title color (default "#363636").}
+
+\item{title_fontSize}{numeric. Optional. Title font size (default 16).}
+
+\item{subtitle}{character. Optional. Subtitle of the legend.}
+
+\item{subtitle_fill}{character. Optional. Subtitle color (default "#363636").}
+
+\item{subtitle_fontSize}{numeric. Optional. Subtitle font size (default 12).}
+
+\item{note}{character. Optional. Note displayed above the legend.}
+
+\item{note_fill}{character. Optional. Note color (default "#363636").}
+
+\item{note_fontSize}{numeric. Optional. Note font size (default 10).}
+
+\item{frame}{logical. Optional. Draw a frame around the legend (default FALSE).}
+
+\item{frame_margin}{numeric. Optional. Frame margin (default 15).}
+
+\item{frame_fill}{character. Optional. Frame fill color (default "white").}
+
+\item{frame_stroke}{character. Optional. Frame stroke color (default "black").}
+
+\item{frame_fillOpacity}{numeric. Optional. Frame fill opacity (default 0.5).}
+
+\item{...}{Additional SVG attributes passed to elements (e.g. rect_*, title_*,
+subtitle_*, note_*, frame_*, text_*).}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_typo_horizontal
+The \code{viz_leg_typo_horizontal} function creates a horizontal legend for
+typology layers. The function adds a legend layer to the map.
+}
+\examples{
+viz_create() |>
+  viz_leg_typo_horizontal(
+    types = c("A", "B", "C"),
+    colors = c("#e41a1c", "#377eb8", "#4daf4a"),
+    title = "My legend"
+  ) |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-typo-horizontal}{documentation} of the underlying JS library.
 }

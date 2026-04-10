@@ -2,10 +2,80 @@
 % Please edit documentation in R/legend.R
 \name{viz_leg_gradient_vertical}
 \alias{viz_leg_gradient_vertical}
-\title{viz_leg_gradient_vertical}
+\title{Add a vertical gradient legend}
 \usage{
-viz_leg_gradient_vertical(map, ...)
+viz_leg_gradient_vertical(
+  map,
+  id = NULL,
+  pos = c(0, 0),
+  gap = 5,
+  colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
+  rect_width = 8,
+  rect_height = 25,
+  rect_spacing = 0,
+  rect_stroke = "white",
+  values_fontSize = 12,
+  values_fill = "black",
+  text_high = "High",
+  text_intermediate = "Intermediate",
+  text_low = "Low",
+  reverse = FALSE,
+  frame = FALSE,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+
+\item{id}{character. Optional. ID of the layer.}
+
+\item{pos}{numeric vector of length 2. Optional. Position of the legend (default c(0, 0)).}
+
+\item{gap}{numeric. Optional. Gap between title/subtitle and rectangles (default 5).}
+
+\item{colors}{character vector. Optional. Colors of the gradient (default c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d")).}
+
+\item{rect_width}{numeric. Optional. Rectangle width (default 8).}
+
+\item{rect_height}{numeric. Optional. Rectangle height (default 25).}
+
+\item{rect_spacing}{numeric. Optional. Spacing between rectangles (default 0).}
+
+\item{rect_stroke}{character. Optional. Stroke color of rectangles (default "white").}
+
+\item{values_fontSize}{numeric. Optional. Font size of labels (default 12).}
+
+\item{values_fill}{character. Optional. Label color (default "black").}
+
+\item{text_high}{character. Optional. Label at top (default "High").}
+
+\item{text_intermediate}{character. Optional. Label at middle (default "Intermediate").}
+
+\item{text_low}{character. Optional. Label at bottom (default "Low").}
+
+\item{reverse}{logical. Optional. Reverse the order of colors (default FALSE).}
+
+\item{frame}{logical. Optional. Draw a frame around the legend (default FALSE).}
+
+\item{...}{Additional SVG attributes passed to elements.}
+}
+\value{
+The identifier of the created layer.
 }
 \description{
-viz_leg_gradient_vertical
+The \code{viz_leg_gradient_vertical} function creates a vertical gradient legend.
+It draws a series of colored rectangles with three labels aligned at top,
+middle, and bottom. The function adds a legend layer to the map.
+}
+\examples{
+viz_create() |>
+  viz_leg_gradient_vertical(
+    colors = c("#fee5d9", "#fb6a4a", "#cb181d"),
+    text_low = "Low",
+    text_high = "High"
+  ) |>
+  viz_render()
+}
+\seealso{
+See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-gradient-vertical}{documentation} of the underlying JS library.
 }
