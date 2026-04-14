@@ -2,19 +2,59 @@ HTMLWidgets.widget({
   name: "render",
   type: "output",
   factory: function(el, width, height) {
+
+    let lastX = null;
+
     return {
       renderValue: async function(x) {
-        //console.log(x)
-        x = deepDeserializeGeoJSON(x)
-        if(!x.params.width){x.params.width = el.parentElement.clientWidth}
+
+        lastX = x;
+        x = deepDeserializeGeoJSON(x);
+
+        if (!x.params.width) {
+          x.params.width = getRealWidth(el);
+        }
         el.innerHTML = "";
+
         let svg = await geoviz.draw(x);
-        el.style.height = svg.getAttribute('height') + "px";
+
+     const vb = svg.getAttribute("viewBox").split(",");
+    // const h = (+vb[3]) + (+vb[1])
+      const h = +vb[3]
+
+     console.log(vb)
+     console.log(h)
+
+        el.style.height = h + "px";
+
         el.appendChild(svg);
-    }
-  };
-}
+      },
+
+      resize: function(width, height) {
+        if (!lastX?.params?.resize) return;
+        lastX.params.width = width;
+        this.renderValue(lastX);
+      }
+    };
+  }
 });
+
+
+// Helpers
+
+function getRealWidth(el) {
+  const w = el.getBoundingClientRect().width;
+  if (w && w > 0) return w;
+
+  let current = el.parentElement;
+  while (current) {
+    const w = current.getBoundingClientRect().width;
+    if (w && w > 0) return w;
+    current = current.parentElement;
+  }
+
+  return 0;
+}
 
 /*
 HTMLWidgets.widget({

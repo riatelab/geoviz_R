@@ -2,39 +2,40 @@
 % Please edit documentation in R/effects.R
 \name{viz_radialGradient}
 \alias{viz_radialGradient}
-\title{Add a radial gradient}
+\title{Radial gradient}
 \usage{
-viz_radialGradient(map, ...)
+viz_radialGradient(
+  map,
+  id = NULL,
+  color1 = "#63b0af",
+  color2 = "#428c8b",
+  offset1 = 50,
+  offset2 = 100,
+  fx = 50,
+  fy = 50
+)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the gradient.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{color1}{character (optional, default = "#63b0af")
-First color of the gradient.}
+\item{id}{character. Optional. Unique gradient id.}
 
-\item{color2}{character (optional, default = "#428c8b")
-Second color of the gradient.}
+\item{color1}{character. Optional. First color of the gradient (default "#63b0af").}
 
-\item{offset1}{numeric (optional, default = 50)
-Offset for the first color (percentage).}
+\item{color2}{character. Optional. Second color of the gradient (default "#428c8b").}
 
-\item{offset2}{numeric (optional, default = 100)
-Offset for the second color (percentage).}
+\item{offset1}{numeric. Optional. Offset of the first color stop (default 50).}
 
-\item{fx}{numeric (optional, default = 50)
-X-coordinate of the focal point (percentage).}
+\item{offset2}{numeric. Optional. Offset of the second color stop (default 100).}
 
-\item{fy}{numeric (optional, default = 50)
-Y-coordinate of the focal point (percentage).}
-}
-\value{
-The identifier of the created radial gradient (e.g. \code{"url(#id)"}).
+\item{fx}{numeric. Optional. Focal point x-position (default 50).}
+
+\item{fy}{numeric. Optional. Focal point y-position (default 50).}
 }
 \description{
-The \code{viz_radialGradient} function allows to create an SVG radial gradient.
-  The function adds a gradient to the defs and returns the identifier,
-  e.g. \code{"url(#id)"}.
+The \code{viz_radialGradient} function creates an SVG radialGradient
+definition and adds it to the SVG defs. It returns a reference usable in SVG styling
+(e.g. \code{url(#id)}). It is typically used to create smooth radial color transitions.
 }
 \examples{
 library(sf)
@@ -44,7 +45,4 @@ viz_create(margin = 5, width = 750) |>
   viz_radialGradient(id = "my_gradient", color1 = "#63b0af", color2 = "#428c8b") |>
   viz_path(datum = world, fill = "url(#my_gradient)") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/radialGradient}{documentation} of the underlying JS library.
 }

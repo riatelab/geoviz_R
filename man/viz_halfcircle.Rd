@@ -2,73 +2,85 @@
 % Please edit documentation in R/marks.R
 \name{viz_halfcircle}
 \alias{viz_halfcircle}
-\title{Add half-circles to the map}
+\title{Half-circle layer}
 \usage{
-viz_halfcircle(map, ...)
+viz_halfcircle(
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  dx = 0,
+  dy = 0,
+  angle = 0,
+  r = 10,
+  innerRadius = 10,
+  cornerRadius = 2,
+  k = 50,
+  fixmax = NULL,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  tip = FALSE,
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A GeoJSON FeatureCollection.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the half-circle layer.}
+\item{data}{object. Optional. A spatial data frame.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position [x, y] to display a single half-circle.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{dx}{numeric (optional, default = 0)
-Shift in x.}
+\item{pos}{numeric vector. Optional. Position of a single half-circle (default c(0, 0)).}
 
-\item{dy}{numeric (optional, default = 0)
-Shift in y.}
+\item{dx}{numeric. Optional. Horizontal shift (default 0).}
 
-\item{angle}{numeric (optional, default = 0)
-Rotation angle of the half-circle.}
+\item{dy}{numeric. Optional. Vertical shift (default 0).}
 
-\item{r}{numeric or string (optional, default = 10)
-Radius of the half-circles, or the name of a property containing numerical values.}
+\item{angle}{numeric. Optional. Rotation angle in degrees (default 0).}
 
-\item{innerRadius}{numeric (optional, default = 10)
-Inner radius.}
+\item{r}{numeric or character. Optional. Outer radius (default 10).
+Can be a fixed value or the name of a field containing numerical values.}
 
-\item{cornerRadius}{numeric (optional, default = 2)
-Corner radius.}
+\item{innerRadius}{numeric. Optional. Inner radius (default 10).}
 
-\item{k}{numeric (optional, default = 50)
-Radius of the largest half-circle (or corresponding to the value defined by \code{fixmax}).}
+\item{cornerRadius}{numeric. Optional. Corner radius (default 2).}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the half-circle with radius \code{k}. Useful to ensure comparability between maps.}
+\item{k}{numeric. Optional. Radius of the largest half-circle (default 50).}
 
-\item{sort}{string or function (optional)
-Field name or function used to sort half-circles.}
+\item{fixmax}{numeric. Optional. Value corresponding to the half-circle of radius \code{k}.
+Useful to ensure comparability between maps.}
 
-\item{descending}{logical (optional)
-Sorting order of half-circles.}
+\item{sort}{character or function. Optional. Field name or function to sort half-circles.}
 
-\item{coords}{string (optional, default = "geo")
-Use "svg" if coordinates are already expressed in the SVG coordinate system.}
+\item{descending}{logical. Optional. Sorting order.}
 
-\item{fill}{string or function (optional)
-Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.}
 
-\item{stroke}{string or function (optional)
-Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{fill}{character or function. Optional. Fill color.}
 
-\item{tip}{logical or function (optional, default = FALSE)
-A function to display the tooltip. Use \code{TRUE} to display all fields.}
+\item{stroke}{character or function. Optional. Stroke color.}
+
+\item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
+Use TRUE to display all fields.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+\code{opacity}, \code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_halfcircle} function allows to add half-circles on a map.
+The \code{viz_halfcircle} function draws rotatable half-circles on the map
+from a spatial data frame or from a single position. It can be used to represent values
+with semi-circular proportional symbols.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_halfcircle(data = world, r = 10, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+                 quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#halfcircle}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/half-circle-mark}{live demo} on ObservableHQ.
 }

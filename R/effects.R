@@ -1,24 +1,21 @@
-#' @title Add a shadow effect
-#' @description The \code{viz_shadow} function allows to create a svg filter. It can be use to add a shadow effect. The function adds a filter to the defs. Then, you can use it with the viz_path function via the filter attribute.
-#' @name viz_shadow
-#' @param id string (optional)
-#'   An identifier for the element.
-#' @param dx string (optional, default = "4")
-#'   Horizontal shift in the x-direction.
-#' @param dy string (optional, default = "4")
-#'   Vertical shift in the y-direction.
-#' @param fill string (optional, default = "black")
-#'   Fill color for the element.
-#' @param fillOpacity number (optional, default = 0.5)
-#'   Fill opacity of the element (can also use `opacity`).
-#' @param stdDeviation number (optional, default = 1.5)
-#'   Standard deviation, typically used for blur or shadow effects.
-#' @param opacity number (optional, default = 1)
-#'   Overall opacity of the element.
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/shadow}{documentation} of the underlying JS library:
+#' @title Shadow layer
+#' @description The \code{viz_shadow} function adds a shadow effect to map elements,
+#' typically used to enhance depth perception for shapes, symbols, or extruded visualizations.
+#' The layer is rendered in SVG and can be applied globally or to specific geometries.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param dx numeric. Optional. Horizontal shadow offset (default 0).
+#' @param dy numeric. Optional. Vertical shadow offset (default 0).
+#' @param blur numeric. Optional. Blur intensity of the shadow (default 0).
+#' @param opacity numeric. Optional. Shadow opacity (default 1).
+#' @param fill character or function. Optional. Shadow fill color.
+#' @param stroke character or function. Optional. Shadow stroke color.
+#' @param strokeWidth numeric. Optional. Shadow stroke width.
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in SVG space.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeLinecap},
+#' \code{filter}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
@@ -27,32 +24,49 @@
 #'   viz_shadow(id = "my_shadow_effect", stdDeviation =  2.5, dx = 5, dy = 5) |>
 #'   viz_path(datum = aus, fill =  "#38896F", filter =  "url(#my_shadow_effect)") |>
 #'   viz_render()
-viz_shadow   <- function(map, ...) add_layer(map, "shadow", ...)
+viz_shadow <- function(
+    map,
+    id = NULL,
+    dx = 0,
+    dy = 0,
+    blur = 0,
+    opacity = 1,
+    fill = NULL,
+    stroke = NULL,
+    strokeWidth = NULL,
+    coords = "geo",
+    ...
+) {
+  add_layer(
+    map,
+    "shadow",
+    id = id,
+    dx = dx,
+    dy = dy,
+    blur = blur,
+    opacity = opacity,
+    fill = fill,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    coords = coords,
+    ...
+  )
+}
 
-#' @title Add a radial gradient
-#' @description The \code{viz_radialGradient} function allows to create an SVG radial gradient.
-#'   The function adds a gradient to the defs and returns the identifier,
-#'   e.g. \code{"url(#id)"}.
-#' @name viz_radialGradient
-#' @param id string (optional)
-#'   An identifier for the gradient.
-#' @param color1 character (optional, default = "#63b0af")
-#'   First color of the gradient.
-#' @param color2 character (optional, default = "#428c8b")
-#'   Second color of the gradient.
-#' @param offset1 numeric (optional, default = 50)
-#'   Offset for the first color (percentage).
-#' @param offset2 numeric (optional, default = 100)
-#'   Offset for the second color (percentage).
-#' @param fx numeric (optional, default = 50)
-#'   X-coordinate of the focal point (percentage).
-#' @param fy numeric (optional, default = 50)
-#'   Y-coordinate of the focal point (percentage).
-#'
-#' @return The identifier of the created radial gradient (e.g. \code{"url(#id)"}).
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/radialGradient}{documentation} of the underlying JS library.
+
+#' @title Radial gradient
+#' @description The \code{viz_radialGradient} function creates an SVG radialGradient
+#' definition and adds it to the SVG defs. It returns a reference usable in SVG styling
+#' (e.g. \code{url(#id)}). It is typically used to create smooth radial color transitions.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique gradient id.
+#' @param color1 character. Optional. First color of the gradient (default "#63b0af").
+#' @param color2 character. Optional. Second color of the gradient (default "#428c8b").
+#' @param offset1 numeric. Optional. Offset of the first color stop (default 50).
+#' @param offset2 numeric. Optional. Offset of the second color stop (default 100).
+#' @param fx numeric. Optional. Focal point x-position (default 50).
+#' @param fy numeric. Optional. Focal point y-position (default 50).
 #' @export
-#'
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
@@ -61,20 +75,38 @@ viz_shadow   <- function(map, ...) add_layer(map, "shadow", ...)
 #'   viz_radialGradient(id = "my_gradient", color1 = "#63b0af", color2 = "#428c8b") |>
 #'   viz_path(datum = world, fill = "url(#my_gradient)") |>
 #'   viz_render()
-viz_radialGradient   <- function(map, ...) add_layer(map, "radialGradient", ...)
+viz_radialGradient <- function(
+    map,
+    id = NULL,
+    color1 = "#63b0af",
+    color2 = "#428c8b",
+    offset1 = 50,
+    offset2 = 100,
+    fx = 50,
+    fy = 50
+) {
+  add_layer(
+    map,
+    "radialGradient",
+    id = id,
+    color1 = color1,
+    color2 = color2,
+    offset1 = offset1,
+    offset2 = offset2,
+    fx = fx,
+    fy = fy
+  )
+}
 
-#' @title Add a blur effect
-#' @description The \code{viz_blur} function allows to create an SVG blur filter. It adds a filter to the defs. Then, you can use it with the \code{viz_path} function via the \code{filter} attribute.
-#' @name viz_blur
-#' @param id string (optional)
-#'   An identifier for the filter.
-#' @param stdDeviation number (optional, default = 1.5)
-#'   Standard deviation controlling the intensity of the blur.
-#'
-#' @return The identifier of the created filter (e.g. \code{"url(#id)"}).
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/blur}{documentation} of the underlying JS library:
+
+#' @title Blur filter
+#' @description The \code{viz_blur} function creates an SVG blur filter and adds it
+#' to the map definitions. It returns a reference usable in SVG styling (e.g. \code{url(#id)}).
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique filter id.
+#' @param stdDeviation numeric. Optional. Standard deviation controlling blur intensity (default 1.5).
+#' Higher values produce a stronger blur effect.
 #' @export
-#'
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
@@ -84,22 +116,30 @@ viz_radialGradient   <- function(map, ...) add_layer(map, "radialGradient", ...)
 #'   viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
 #'   viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
 #'   viz_render()
-viz_blur   <- function(map, ...) add_layer(map, "blur", ...)
+viz_blur <- function(
+    map,
+    id = NULL,
+    stdDeviation = 1.5
+) {
+  add_layer(
+    map,
+    "blur",
+    id = id,
+    stdDeviation = stdDeviation
+  )
+}
 
-#' @title Add a clipPath
-#' @name viz_clipPath
-#' @description The clipPath function allows to create a clip layer. The function adds a clip layer to the SVG container
-#' @param id string (optional)
-#'   An identifier for the clip path.
-#' @param datum object (optional, default = \{ type: "Sphere" \})
-#'   The geometry to clip.
-#' @param permanent logical or string (optional, default = FALSE)
-#'   Whether the clip path is permanent (static) or not.
-#'
-#' @return The identifier of the created clip path (e.g. \code{"url(#id)"}).
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/clipPath}{documentation} of the underlying JS library.
+
+
+#' @title ClipPath layer
+#' @description The \code{viz_clipPath} function creates an SVG clipPath definition
+#' and adds it to the SVG defs. It returns a reference usable in SVG styling
+#' (e.g. \code{url(#id)}). WARNING: the clipPath is global to the web page, not only the map.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique clipPath id.
+#' @param datum object. Optional. Geometry used for clipping (default \code{list(type = "Sphere")}).
+#' @param permanent logical or character. Optional. Whether the clipPath is static (default FALSE).
 #' @export
-#'
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
@@ -109,53 +149,51 @@ viz_blur   <- function(map, ...) add_layer(map, "blur", ...)
 #'   viz_clipPath(id = "my_clip", datum = aus) |>
 #'   viz_path(datum = aus, fill = "#38896F", clipPath = "url(#my_clip)") |>
 #'   viz_render()
-viz_clipPath <- function(map, ...) add_layer(map, "clipPath", ...)
+viz_clipPath <- function(
+    map,
+    id = NULL,
+    datum = list(type = "Sphere"),
+    permanent = FALSE
+) {
+  add_layer(
+    map,
+    "clipPath",
+    id = id,
+    datum = datum,
+    permanent = permanent
+  )
+}
 
-
-
-
-#' @title Add a pattern fill
-#' @description The \code{viz_pattern} function allows to create SVG patterns such as hatching or other textures.
-#' @name viz_pattern
-#' @param id string (optional)
-#'   Unique identifier for the pattern.
-#' @param spacing numeric (optional, default = 6)
-#'   Distance between pattern elements in pixels.
-#' @param angle numeric (optional, default = 0)
-#'   Rotation angle of the pattern in degrees.
-#' @param fill character or NULL (optional, default = NULL)
-#'   Fill color of pattern elements.
-#' @param stroke character (optional, default = "#786d6c")
-#'   Stroke color of pattern elements.
-#' @param strokeWidth numeric (optional, default = 2)
-#'   Stroke width of pattern elements.
-#' @param strokeOpacity numeric (optional, default = 0.1)
-#'   Stroke opacity of pattern elements.
-#' @param fillOpacity numeric (optional, default = 1)
-#'   Fill opacity of pattern elements.
-#' @param strokeDasharray character or NULL (optional, default = NULL)
-#'   Stroke dash pattern.
-#' @param strokeLinecap character (optional, default = "butt")
-#'   Line cap style: "butt", "round", "square".
-#' @param strokeLinejoin character (optional, default = "miter")
-#'   Line join style: "miter", "round", "bevel".
-#' @param strokeMiterlimit numeric (optional, default = 4)
-#'   Miter limit for joins.
-#' @param opacity numeric (optional, default = 1)
-#'   Overall opacity of the pattern.
-#' @param visibility character (optional, default = "visible")
-#'   SVG visibility property.
-#' @param display character or NULL (optional, default = NULL)
-#'   SVG display property.
-#' @param pattern character (optional, default = "lines")
-#'   Pattern type: "lines", "cross", "dots", "waves", "triangles", "zigzag".
-#' @param data object or NULL (optional, default = NULL)
-#'   Optional spatial object to clip the pattern.
-#' @param clipOutline logical (optional, default = FALSE)
-#'   Whether to clip the pattern to the Earth outline.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#pattern}{documentation} of the underlying JS library.
+#' @title Pattern layer
+#' @description The \code{viz_pattern} function creates a reusable SVG pattern
+#' for thematic or cartographic styling. Patterns can be applied to any SVG shape
+#' (e.g. paths, rectangles) and support multiple textures such as lines, crosses,
+#' dots, waves, triangles, or zigzags. Patterns can also be clipped to a spatial
+#' data frame geometry or to the Earth outline.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param arg1 object or SVG element. Pattern configuration object, or an existing
+#' SVG container when appending to an existing map.
+#' @param arg2 object. Optional. Additional options when using an existing SVG container.
+#' @param id character. Optional. Unique pattern id (auto-generated if not provided).
+#' @param spacing numeric. Optional. Distance between pattern elements (default 6).
+#' @param angle numeric. Optional. Pattern rotation in degrees (default 0).
+#' @param fill character or NULL. Optional. Fill color of pattern elements.
+#' @param stroke character. Optional. Stroke color (default "#786d6c").
+#' @param strokeWidth numeric. Optional. Stroke width (default 2).
+#' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.1).
+#' @param fillOpacity numeric. Optional. Fill opacity (default 1).
+#' @param strokeDasharray character or NULL. Optional. Stroke dash pattern.
+#' @param strokeLinecap character. Optional. Line cap style (default "butt").
+#' @param strokeLinejoin character. Optional. Line join style (default "miter").
+#' @param strokeMiterlimit numeric. Optional. Miter limit (default 4).
+#' @param opacity numeric. Optional. Overall opacity (default 1).
+#' @param visibility character. Optional. SVG visibility property (default "visible").
+#' @param display character or NULL. Optional. SVG display property.
+#' @param pattern character. Optional. Pattern type (default "lines").
+#' One of: "lines", "cross", "dots", "waves", "triangles", "zigzag".
+#' @param data object or NULL. Optional. Spatial data frame used to clip the pattern.
+#' @param clipOutline logical. Optional. Clip pattern to Earth outline (default FALSE).
 #' @export
-#'
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
@@ -165,47 +203,118 @@ viz_clipPath <- function(map, ...) add_layer(map, "clipPath", ...)
 #'   viz_path(datum = world, fill = "#f1f3f5") |>
 #'   viz_pattern(data = africa, stroke = "#38896F", pattern =  "cross", angle = 45, strokeWidth =  2, strokeOpacity=  0.6) |>
 #'   viz_render()
-viz_pattern <- function(map, ...) add_layer(map, "pattern", ...)
 
-#' @title Add sketch-style geometries to the map
-#' @description The \code{viz_sketch} function generates a hand-drawn (sketchy) SVG representation of GeoJSON geometries.
-#'   It applies SVG filters (\code{feTurbulence} and \code{feDisplacementMap}) to create a pencil-like effect.
-#' @name viz_sketch
-#' @param data object
-#'   A GeoJSON FeatureCollection. Use \code{data} or \code{datum} indifferently to provide the input geometry.
-#' @param id string (optional)
-#'   An identifier for the sketch layer (auto-generated if not provided).
-#' @param fill string (optional, default = "none")
-#'   Fill color.
-#' @param stroke string (optional, default = "#000")
-#'   Stroke color.
-#' @param strokeWidth numeric (optional, default = 1)
-#'   Stroke width.
-#' @param simplify numeric or numeric vector or FALSE (optional)
-#'   Geometry simplification (see \code{tool.simplify}).
-#' @param baseFrequency numeric (optional, default = 0.03)
-#'   Base frequency of the turbulence filter (controls noise density).
-#' @param feDisplacementMap numeric (optional, default = 5)
-#'   Displacement intensity of the sketch effect.
-#' @param fillStyle string (optional, default = "dashed")
-#'   Fill style (reserved for future rough-like fills).
-#' @param roughness numeric (optional, default = 5)
-#'   Roughness level (not fully implemented, reserved for future use).
-#' @param hachureGap numeric (optional, default = 3)
-#'   Gap between hachure lines (reserved).
-#' @param bowing numeric (optional, default = 30)
-#'   Line bowing effect (reserved).
-#' @param fillWeight numeric (optional, default = 0.12)
-#'   Fill stroke weight (reserved).
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#sketch}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/sketch}{live demo} on ObservableHQ.
+viz_pattern <- function(
+    map,
+    id = NULL,
+    spacing = 6,
+    angle = 0,
+    fill = NULL,
+    stroke = "#786d6c",
+    strokeWidth = 2,
+    strokeOpacity = 0.1,
+    fillOpacity = 1,
+    strokeDasharray = NULL,
+    strokeLinecap = "butt",
+    strokeLinejoin = "miter",
+    strokeMiterlimit = 4,
+    opacity = 1,
+    visibility = "visible",
+    display = NULL,
+    pattern = "lines",
+    data = NULL,
+    clipOutline = FALSE,
+    ...
+) {
+  add_layer(
+    map,
+    "pattern",
+    id = id,
+    spacing = spacing,
+    angle = angle,
+    fill = fill,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    strokeOpacity = strokeOpacity,
+    fillOpacity = fillOpacity,
+    strokeDasharray = strokeDasharray,
+    strokeLinecap = strokeLinecap,
+    strokeLinejoin = strokeLinejoin,
+    strokeMiterlimit = strokeMiterlimit,
+    opacity = opacity,
+    visibility = visibility,
+    display = display,
+    pattern = pattern,
+    data = data,
+    clipOutline = clipOutline,
+    ...
+  )
+}
+
+#' @title Sketch layer
+#' @description The \code{viz_sketch} function renders GeoJSON geometries as
+#' hand-drawn (sketchy) SVG shapes. It uses SVG filters (feTurbulence and
+#' feDisplacementMap) to simulate a pencil-like rendering style.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. Optional. A spatial data frame (or equivalent geometry input).
+#' @param id character. Optional. Unique layer id (auto-generated if not provided).
+#' @param fill character. Optional. Fill color (default "none").
+#' @param stroke character. Optional. Stroke color (default "#000").
+#' @param strokeWidth numeric. Optional. Stroke width (default 1).
+#' @param simplify numeric or vector or logical. Optional. Geometry simplification
+#' @param baseFrequency numeric. Optional. Base frequency of the turbulence filter
+#' (default 0.03). Controls noise density.
+#' @param feDisplacementMap numeric. Optional. Displacement intensity of the sketch effect
+#' (default 5).
+#' @param fillStyle character. Optional. Fill style (default "dashed").
+#' @param roughness numeric. Optional. Roughness level (reserved for future use, default 5).
+#' @param hachureGap numeric. Optional. Gap between hachure lines (reserved, default 3).
+#' @param bowing numeric. Optional. Line bowing effect (reserved, default 30).
+#' @param fillWeight numeric. Optional. Fill stroke weight (reserved, default 0.12).
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+#' \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
 #' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
 #'   viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
 #'   viz_render()
-viz_sketch <- function(map, ...) add_layer(map, "sketch", ...)
+
+viz_sketch <- function(
+    map,
+    data = NULL,
+    id = NULL,
+    fill = "none",
+    stroke = "#000",
+    strokeWidth = 1,
+    simplify = NULL,
+    baseFrequency = 0.03,
+    feDisplacementMap = 5,
+    fillStyle = "dashed",
+    roughness = 5,
+    hachureGap = 3,
+    bowing = 30,
+    fillWeight = 0.12,
+    ...
+) {
+  add_layer(
+    map,
+    "sketch",
+    data = data,
+    id = id,
+    fill = fill,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    simplify = simplify,
+    baseFrequency = baseFrequency,
+    feDisplacementMap = feDisplacementMap,
+    fillStyle = fillStyle,
+    roughness = roughness,
+    hachureGap = hachureGap,
+    bowing = bowing,
+    fillWeight = fillWeight,
+    ...
+  )
+}
 

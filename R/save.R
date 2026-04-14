@@ -1,8 +1,9 @@
-#' viz_save
+#' Save the map
 #'
-#' @param map a geoviz object create with the create() function. Use |> to chain instructions.
-#' @param elementId The HTML element ID (id) of the <div> container in which the widget will be rendered.
-#' @return a geoviz html widget
+#' The \code{viz_save} function allows to doawnload the map
+#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @export
+#' @param map a geoviz object create with the \code{viz_create}
 #' @export
 viz_save <- function(map, elementId = NULL) {
   htmlwidgets::createWidget(

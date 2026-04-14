@@ -2,10 +2,56 @@
 % Please edit documentation in R/layers.R
 \name{viz_rhumbs}
 \alias{viz_rhumbs}
-\title{viz_rhumbs}
+\title{Rhumb lines layer}
 \usage{
-viz_rhumbs(map, ...)
+viz_rhumbs(
+  map,
+  id = NULL,
+  nb = 16,
+  pos = c(10, 10),
+  coords = "svg",
+  stroke = "#394a70",
+  strokeWidth = 1,
+  strokeOpacity = 0.3,
+  strokeDasharray = c(3, 2),
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{id}{character. Optional. Unique layer id.}
+
+\item{nb}{numeric. Optional. Number of lines (default 16).}
+
+\item{pos}{numeric vector. Optional. Position of the lines (default c(10, 10)).
+If \code{coords = "svg"}, values are in SVG coordinates. If \code{coords = "geo"},
+values are longitude and latitude.}
+
+\item{coords}{character. Optional. Coordinate system for \code{pos} (default "svg").
+If \code{coords = "geo"} and the map is zoomable, lines follow zoom interactions.}
+
+\item{stroke}{character. Optional. Stroke color (default "#394a70").}
+
+\item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
+
+\item{strokeOpacity}{numeric. Optional. Stroke opacity (default 0.3).}
+
+\item{strokeDasharray}{numeric or vector. Optional. Stroke dash pattern (default c(3, 2)).}
+
+\item{...}{Additional SVG attributes (e.g. \code{opacity}, \code{strokeLinecap}, etc.).}
 }
 \description{
-viz_rhumbs
+The \code{viz_rhumbs} function draws rhumb lines (loxodromes),
+similar to those found on old portolan charts. These lines represent paths of constant bearing.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+viz_create(projection = "EqualEarth", background = "white") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_rhumbs(nb = 32, coords = "geo", pos = c(0, 0), fill = "#38896F") |>
+  viz_render()
 }

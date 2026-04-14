@@ -2,64 +2,77 @@
 % Please edit documentation in R/marks.R
 \name{viz_spike}
 \alias{viz_spike}
-\title{Add spikes to the map}
+\title{Spike layer}
 \usage{
-viz_spike(map, ...)
+viz_spike(
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  height = 10,
+  width = 30,
+  straight = 0,
+  k = 100,
+  fixmax = NULL,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  tip = FALSE,
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A GeoJSON FeatureCollection.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the spike layer.}
+\item{data}{object. Optional. A spatial data frame.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position [x, y] to display a single spike.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{height}{numeric or string (optional, default = 10)
-Height of the spikes, or the name of a property containing numerical values.}
+\item{pos}{numeric vector. Optional. Position of a single spike (default c(0, 0)).}
 
-\item{width}{numeric (optional, default = 30)
-Width of the spikes.}
+\item{height}{numeric or character. Optional. Spike height (default 10).
+Can be a fixed value or the name of a field containing numerical values.}
 
-\item{straight}{numeric (optional, default = 0)
-A number between 0 and 1 defining the shape of the spikes (0 = curved, 1 = straight).}
+\item{width}{numeric. Optional. Spike width (default 30).}
 
-\item{k}{numeric (optional, default = 100)
-Height of the highest spike (or corresponding to the value defined by \code{fixmax}).}
+\item{straight}{numeric. Optional. Controls spike curvature (default 0).
+Value between 0 (curved) and 1 (straight).}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the spike with height \code{k}. Useful to ensure comparability between maps.}
+\item{k}{numeric. Optional. Height of the highest spike (default 100).}
 
-\item{sort}{string or function (optional)
-Field name or function used to sort spikes.}
+\item{fixmax}{numeric. Optional. Value corresponding to the spike of height \code{k}.
+Useful to ensure comparability between maps.}
 
-\item{descending}{logical (optional)
-Sorting order of spikes.}
+\item{sort}{character or function. Optional. Field name or function to sort spikes.}
 
-\item{coords}{string (optional, default = "geo")
-Use "svg" if coordinates are already expressed in the SVG coordinate system.}
+\item{descending}{logical. Optional. Sorting order.}
 
-\item{fill}{string or function (optional)
-Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.}
 
-\item{stroke}{string or function (optional)
-Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{fill}{character or function. Optional. Fill color.}
 
-\item{tip}{logical or function (optional, default = FALSE)
-A function to display the tooltip. Use \code{TRUE} to display all fields.}
+\item{stroke}{character or function. Optional. Stroke color.}
+
+\item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
+Use TRUE to display all fields.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+\code{opacity}, \code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_spike} function allows to add spikes on a map.
+The \code{viz_spike} function draws spikes on the map from a spatial
+data frame or from a single position. It can be used to represent values with
+vertical symbols (e.g. for density or intensity maps).
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_spike(data = world, height = 10, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+                 quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_square(data = world, height = 100, fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#spike}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/spike-mark}{live demo} on ObservableHQ.
 }

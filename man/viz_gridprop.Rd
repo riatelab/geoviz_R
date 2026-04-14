@@ -2,10 +2,84 @@
 % Please edit documentation in R/thematic_advanced.R
 \name{viz_gridprop}
 \alias{viz_gridprop}
-\title{viz_gridprop}
+\title{Grid-based proportional symbols layer}
 \usage{
-viz_gridprop(map, ...)
+viz_gridprop(
+  map,
+  data = NULL,
+  var,
+  grid = "square",
+  step = 15,
+  level = 1,
+  coords = "geo",
+  missing = "white",
+  symbol = "circle",
+  k = 10,
+  width = 30,
+  straight = 0,
+  fixmax = NULL,
+  legend = TRUE,
+  leg_type = "separate",
+  leg_pos = c(10, 10),
+  leg_title = NULL,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+
+\item{var}{character. Name of the numeric variable used for aggregation and symbol scaling.}
+
+\item{grid}{character. Optional. Type of grid used for aggregation (default "square").
+One of: "square", "dot", "diamond", "hexbin", "hex", "triangle",
+"arbitrary", "random", "h3", "h3geo", "hexgeo", "hexbingeo", "square_sph".}
+
+\item{step}{numeric. Optional. Grid resolution (default 15).}
+
+\item{level}{numeric. Optional. Subdivision level for hierarchical grids (default 1).}
+
+\item{coords}{character. Optional. Coordinate system (default "geo").
+One of: "geo", "svg".}
+
+\item{missing}{character. Optional. Color for missing values (default "white").}
+
+\item{symbol}{character. Optional. Symbol type (default "circle").
+One of: "circle", "square", "spike", "halfcircle".}
+
+\item{k}{numeric. Optional. Size of the largest symbol (default 10).}
+
+\item{width}{numeric. Optional. Width of spike symbols (default 30).}
+
+\item{straight}{numeric. Optional. Curvature of spike symbols (default 0).
+Value between 0 (curved) and 1 (straight).}
+
+\item{fixmax}{numeric. Optional. Maximum value for symbol scaling. Useful for map comparability.}
+
+\item{legend}{logical. Optional. Whether to display legend (default TRUE).}
+
+\item{leg_type}{character. Optional. Legend type (default "separate").
+One of: "nested", "separate".}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{leg_title}{character. Optional. Legend title (default \code{var}).}
+
+\item{...}{Additional parameters passed to choropleth rendering (same as \code{viz_choro})}
 }
 \description{
-viz_gridprop
+The \code{viz_gridprop} function builds a proportional symbol map
+aggregated on a spatial grid. It first generates a grid from the input spatial
+data frame, then displays aggregated values within each cell using proportional symbols.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_gridprop(data = cities, var = "population") |>
+  viz_render()
 }

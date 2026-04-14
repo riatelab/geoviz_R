@@ -2,18 +2,13 @@
 % Please edit documentation in R/save.R
 \name{viz_save}
 \alias{viz_save}
-\title{viz_save}
+\title{Save the map}
 \usage{
 viz_save(map, elementId = NULL)
 }
 \arguments{
-\item{map}{a geoviz object create with the create() function. Use |> to chain instructions.}
-
-\item{elementId}{The HTML element ID (id) of the <div> container in which the widget will be rendered.}
-}
-\value{
-a geoviz html widget
+\item{map}{a geoviz object create with the \code{viz_create}}
 }
 \description{
-viz_save
+The \code{viz_save} function allows to doawnload the map
 }

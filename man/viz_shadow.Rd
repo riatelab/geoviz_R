@@ -2,34 +2,51 @@
 % Please edit documentation in R/effects.R
 \name{viz_shadow}
 \alias{viz_shadow}
-\title{Add a shadow effect}
+\title{Shadow layer}
 \usage{
-viz_shadow(map, ...)
+viz_shadow(
+  map,
+  id = NULL,
+  dx = 0,
+  dy = 0,
+  blur = 0,
+  opacity = 1,
+  fill = NULL,
+  stroke = NULL,
+  strokeWidth = NULL,
+  coords = "geo",
+  ...
+)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the element.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{dx}{string (optional, default = "4")
-Horizontal shift in the x-direction.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{dy}{string (optional, default = "4")
-Vertical shift in the y-direction.}
+\item{dx}{numeric. Optional. Horizontal shadow offset (default 0).}
 
-\item{fill}{string (optional, default = "black")
-Fill color for the element.}
+\item{dy}{numeric. Optional. Vertical shadow offset (default 0).}
 
-\item{fillOpacity}{number (optional, default = 0.5)
-Fill opacity of the element (can also use `opacity`).}
+\item{blur}{numeric. Optional. Blur intensity of the shadow (default 0).}
 
-\item{stdDeviation}{number (optional, default = 1.5)
-Standard deviation, typically used for blur or shadow effects.}
+\item{opacity}{numeric. Optional. Shadow opacity (default 1).}
 
-\item{opacity}{number (optional, default = 1)
-Overall opacity of the element.}
+\item{fill}{character or function. Optional. Shadow fill color.}
+
+\item{stroke}{character or function. Optional. Shadow stroke color.}
+
+\item{strokeWidth}{numeric. Optional. Shadow stroke width.}
+
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in SVG space.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeLinecap},
+\code{filter}, etc.).}
 }
 \description{
-The \code{viz_shadow} function allows to create a svg filter. It can be use to add a shadow effect. The function adds a filter to the defs. Then, you can use it with the viz_path function via the filter attribute.
+The \code{viz_shadow} function adds a shadow effect to map elements,
+typically used to enhance depth perception for shapes, symbols, or extruded visualizations.
+The layer is rendered in SVG and can be applied globally or to specific geometries.
 }
 \examples{
 library(sf)
@@ -39,7 +56,4 @@ viz_create(margin = 5, width = 750) |>
   viz_shadow(id = "my_shadow_effect", stdDeviation =  2.5, dx = 5, dy = 5) |>
   viz_path(datum = aus, fill =  "#38896F", filter =  "url(#my_shadow_effect)") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/shadow}{documentation} of the underlying JS library:
 }

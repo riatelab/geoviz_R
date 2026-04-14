@@ -2,10 +2,52 @@
 % Please edit documentation in R/thematic.R
 \name{viz_picto}
 \alias{viz_picto}
-\title{viz_picto}
+\title{Pictogram layer}
 \usage{
-viz_picto(map, ...)
+viz_picto(
+  map,
+  data = NULL,
+  var,
+  symbols = NULL,
+  alphabetical = TRUE,
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+
+\item{var}{character. Name of the categorical variable used for symbol assignment,
+or directly the name of a symbol.}
+
+\item{symbols}{character vector. Optional. Vector of available symbols.}
+
+\item{alphabetical}{logical. Optional. Whether to sort legend items alphabetically
+(default TRUE).}
+
+\item{legend}{logical. Optional. Whether to display a legend (default TRUE).}
+
+\item{leg_type}{character. Optional. Legend orientation (default "vertical").
+One of: "horizontal", "vertical".}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth})}
+
+\item{leg_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg_}
+are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
 }
 \description{
-viz_picto
+The \code{viz_picto} function creates a pictogram (symbol-based)
+map layer from a spatial data frame. It allows mapping qualitative variables
+to custom symbols and supports legend generation and ordering.
+}
+\examples{
+viz_create(projection = "EqualEarth") |>
+  viz_picto(data = world, var = "type") |>
+  viz_render()
 }

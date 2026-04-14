@@ -2,53 +2,64 @@
 % Please edit documentation in R/effects.R
 \name{viz_sketch}
 \alias{viz_sketch}
-\title{Add sketch-style geometries to the map}
+\title{Sketch layer}
 \usage{
-viz_sketch(map, ...)
+viz_sketch(
+  map,
+  data = NULL,
+  id = NULL,
+  fill = "none",
+  stroke = "#000",
+  strokeWidth = 1,
+  simplify = NULL,
+  baseFrequency = 0.03,
+  feDisplacementMap = 5,
+  fillStyle = "dashed",
+  roughness = 5,
+  hachureGap = 3,
+  bowing = 30,
+  fillWeight = 0.12,
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A GeoJSON FeatureCollection. Use \code{data} or \code{datum} indifferently to provide the input geometry.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the sketch layer (auto-generated if not provided).}
+\item{data}{object. Optional. A spatial data frame (or equivalent geometry input).}
 
-\item{fill}{string (optional, default = "none")
-Fill color.}
+\item{id}{character. Optional. Unique layer id (auto-generated if not provided).}
 
-\item{stroke}{string (optional, default = "#000")
-Stroke color.}
+\item{fill}{character. Optional. Fill color (default "none").}
 
-\item{strokeWidth}{numeric (optional, default = 1)
-Stroke width.}
+\item{stroke}{character. Optional. Stroke color (default "#000").}
 
-\item{simplify}{numeric or numeric vector or FALSE (optional)
-Geometry simplification (see \code{tool.simplify}).}
+\item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
 
-\item{baseFrequency}{numeric (optional, default = 0.03)
-Base frequency of the turbulence filter (controls noise density).}
+\item{simplify}{numeric or vector or logical. Optional. Geometry simplification}
 
-\item{feDisplacementMap}{numeric (optional, default = 5)
-Displacement intensity of the sketch effect.}
+\item{baseFrequency}{numeric. Optional. Base frequency of the turbulence filter
+(default 0.03). Controls noise density.}
 
-\item{fillStyle}{string (optional, default = "dashed")
-Fill style (reserved for future rough-like fills).}
+\item{feDisplacementMap}{numeric. Optional. Displacement intensity of the sketch effect
+(default 5).}
 
-\item{roughness}{numeric (optional, default = 5)
-Roughness level (not fully implemented, reserved for future use).}
+\item{fillStyle}{character. Optional. Fill style (default "dashed").}
 
-\item{hachureGap}{numeric (optional, default = 3)
-Gap between hachure lines (reserved).}
+\item{roughness}{numeric. Optional. Roughness level (reserved for future use, default 5).}
 
-\item{bowing}{numeric (optional, default = 30)
-Line bowing effect (reserved).}
+\item{hachureGap}{numeric. Optional. Gap between hachure lines (reserved, default 3).}
 
-\item{fillWeight}{numeric (optional, default = 0.12)
-Fill stroke weight (reserved).}
+\item{bowing}{numeric. Optional. Line bowing effect (reserved, default 30).}
+
+\item{fillWeight}{numeric. Optional. Fill stroke weight (reserved, default 0.12).}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+\code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_sketch} function generates a hand-drawn (sketchy) SVG representation of GeoJSON geometries.
-  It applies SVG filters (\code{feTurbulence} and \code{feDisplacementMap}) to create a pencil-like effect.
+The \code{viz_sketch} function renders GeoJSON geometries as
+hand-drawn (sketchy) SVG shapes. It uses SVG filters (feTurbulence and
+feDisplacementMap) to simulate a pencil-like rendering style.
 }
 \examples{
 library(sf)
@@ -56,7 +67,4 @@ world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRU
 viz_create(width = 750, background = "white", projection = "EqualEarth") |>
   viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#sketch}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/sketch}{live demo} on ObservableHQ.
 }

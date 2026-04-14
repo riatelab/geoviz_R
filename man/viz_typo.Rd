@@ -2,41 +2,58 @@
 % Please edit documentation in R/thematic.R
 \name{viz_typo}
 \alias{viz_typo}
-\title{Add a typology layer to the map}
+\title{Typology layer}
 \usage{
-viz_typo(map, ...)
+viz_typo(
+  map,
+  data = NULL,
+  var,
+  colors = NULL,
+  order = NULL,
+  alphabetical = TRUE,
+  missing = "white",
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A spatial dataframe Use \code{data} to be able to iterate over features.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{var}{string
-Name of the variable in the spatial dataframe to use for the typology. You can also use the \code{fill} or \code{stroke} argument directly.}
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
 
-\item{colors}{string or vector (optional)
-Array of colors or name of a color palette available in \code{dicopal}. Examples: "Antique", "Bold", "Pastel", "Prism", "Safe", "Vivid", "Accent", "Dark2", "Paired", "Pastel1", "Pastel2", "Set1", "Set2", "Set3".}
+\item{var}{character. Name of the categorical variable used for styling.
+You can also use \code{fill} or \code{stroke} directly instead of \code{var}.}
 
-\item{order}{vector (optional)
-Array of qualitative values to define the order in the legend.}
+\item{colors}{character or vector. Optional. Color palette or vector of colors.
+Can use named palettes from the Dicopal library (e.g. "Antique", "Bold", "Pastel",
+"Prism", "Safe", "Vivid", "Accent", "Dark2", "Paired", "Pastel1", "Pastel2",
+"Set1", "Set2", "Set3"). See https://observablehq.com/@neocartocnrs/dicopal-library}
 
-\item{alphabetical}{logical (optional, default = TRUE)
-Whether to order the items in the legend alphabetically.}
+\item{order}{character vector. Optional. Explicit ordering of categories.}
 
-\item{missing}{string or logical (optional, default = "white")
-Color for missing data. Use \code{FALSE} to omit.}
+\item{alphabetical}{logical. Optional. Whether to sort legend items alphabetically
+(default TRUE).}
 
-\item{legend}{logical (optional, default = TRUE)
-Whether to display a legend for the typology.}
+\item{missing}{character or logical. Optional. Color for missing values (default "white").}
 
-\item{leg_type}{string (optional, default = "vertical")
-Legend orientation: "horizontal" or "vertical".}
+\item{legend}{logical. Optional. Whether to display a legend (default TRUE).}
 
-\item{leg_pos}{numeric vector of length 2 (optional, default = c(10, 10))
-Position of the legend [x, y].}
+\item{leg_type}{character. Optional. Legend orientation (default "vertical").
+One of: "horizontal", "vertical".}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to path rendering or typology utilities}
+
+\item{leg_*}{additional legend parameters. Optional. All arguments prefixed with \code{leg_}
+are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
 }
 \description{
-The \code{viz_typo} function allows to create categorical (typology) maps based on a variable in a GeoJSON layer.
-  Colors are assigned to categories, and a legend can be displayed.
+The \code{viz_typo} function creates a typology map from a spatial
+data frame by mapping categorical variables to colors. It supports custom ordering,
+color palettes, and automatic legend generation.
 }
 \examples{
 library(sf)
@@ -44,7 +61,4 @@ world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRU
 viz_create(width = 750, background = "white", projection = "EqualEarth") |>
   viz_typo(data = world, var = "region", colors = "Pastel") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#plot/#plot/typo}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/typo}{live demo} on ObservableHQ.
 }

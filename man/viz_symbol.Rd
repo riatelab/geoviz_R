@@ -2,91 +2,103 @@
 % Please edit documentation in R/marks.R
 \name{viz_symbol}
 \alias{viz_symbol}
-\title{Add symbols to the map}
+\title{Symbol layer}
 \usage{
-viz_symbol(map, ...)
+viz_symbol(
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  fill = NULL,
+  stroke = "white",
+  strokeWidth = 0.2,
+  coords = "geo",
+  r = 12,
+  scale = NULL,
+  symbol = "star",
+  missing = "missing",
+  rotate = 0,
+  skewX = 0,
+  skewY = 0,
+  background = FALSE,
+  tip = FALSE,
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  iteration = 200,
+  sort = NULL,
+  descending = NULL,
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A GeoJSON FeatureCollection.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the symbol layer.}
+\item{data}{object. Optional. A spatial data frame.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position [x, y] to display a single symbol.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{fill}{string or function (optional)
-Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{pos}{numeric vector. Optional. Position of a single symbol (default c(0, 0)).}
 
-\item{stroke}{string or function (optional, default = "white")
-Stroke color.}
+\item{fill}{character or function. Optional. Fill color.}
 
-\item{strokeWidth}{string or function (optional, default = 0.2)
-Stroke width.}
+\item{stroke}{character or function. Optional. Stroke color (default "white").}
 
-\item{coords}{string (optional, default = "geo")
-Use "svg" if coordinates are already expressed in the SVG coordinate system.}
+\item{strokeWidth}{numeric or function. Optional. Stroke width (default 0.2).}
 
-\item{r}{numeric or string (optional, default = 12)
-Radius to set the size of the encompassing circle of the symbol.}
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.}
 
-\item{scale}{numeric (optional)
-Scale factor to change the size of the symbol.}
+\item{r}{numeric or character. Optional. Radius defining symbol size (default 12).}
 
-\item{symbol}{string (optional, default = "star")
-Name of the symbol to display (use \code{viz.tool.symbols()} to get the list of available symbols). If a field is used, a different symbol is assigned to each modality.}
+\item{scale}{numeric. Optional. Global scale factor for symbols.}
 
-\item{missing}{string (optional, default = "missing")
-Name of the symbol for missing values. Use \code{NULL} to remove these symbols.}
+\item{symbol}{character. Optional. Symbol name. "circle", "square", "triangle", "pentagon", "hexagon", "roundsquare", "pillow", "drop", "egg", "star12", "star8", "star", "diamond", "trapzium", "plus", "minus", "arrow", "stop", "vbar", "crescent", "donut", "heart", "clover", "fist", "check", "plane", "rocket", "boat", "pin", "hospital", "flower", "cloud", "human", "tent", "beer", "boom", "nuke", "target", "missing". (default "star").
+different symbols are assigned per category.}
 
-\item{rotate}{numeric (optional, default = 0)
-Rotation angle of symbols.}
+\item{missing}{character. Optional. Symbol used for missing values (default "missing").
+Use \code{NULL} to hide missing values.}
 
-\item{skewX}{numeric (optional, default = 0)
-Horizontal skew of symbols.}
+\item{rotate}{numeric. Optional. Rotation angle (default 0).}
 
-\item{skewY}{numeric (optional, default = 0)
-Vertical skew of symbols.}
+\item{skewX}{numeric. Optional. Horizontal skew (default 0).}
 
-\item{background}{logical (optional, default = FALSE)
-Add a circle behind the symbol.}
+\item{skewY}{numeric. Optional. Vertical skew (default 0).}
 
-\item{background_*}{parameters of the background (optional)
-e.g. \code{background_fill}, \code{background_stroke}, etc.}
+\item{background}{logical. Optional. Add a background circle (default FALSE).}
 
-\item{tip}{logical or function (optional, default = FALSE)
-A function to display the tooltip. Use \code{TRUE} to display all fields.}
+\item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
+Use TRUE to display all fields.}
 
-\item{k}{numeric (optional, default = 50)
-Radius of the largest circle (or corresponding to the value defined by \code{fixmax}).}
+\item{k}{numeric. Optional. Maximum radius scaling value (default 50).}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the circle with radius \code{k}. Useful to ensure comparability between maps.}
+\item{fixmax}{numeric. Optional. Value corresponding to the maximum radius \code{k}.}
 
-\item{dodge}{logical (optional, default = FALSE)
-Avoid overlap between symbols.}
+\item{dodge}{logical. Optional. Avoid symbol overlap (default FALSE).}
 
-\item{iteration}{numeric (optional, default = 200)
-Number of iterations used to dodge symbols.}
+\item{iteration}{numeric. Optional. Number of iterations for dodging (default 200).}
 
-\item{sort}{string or function (optional)
-Field name or function used to sort symbols.}
+\item{sort}{character or function. Optional. Field name or function to sort symbols.}
 
-\item{descending}{logical (optional)
-Sorting order of symbols.}
+\item{descending}{logical. Optional. Sorting order.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+\code{strokeLinecap}, etc.).}
+
+\item{background_*}{additional background parameters (e.g. \code{background_fill},
+\code{background_stroke}, etc.).}
 }
 \description{
-The \code{viz_symbol} function allows to add symbols on a map.
+The \code{viz_symbol} function draws SVG symbols on the map from a spatial
+data frame. It allows the use of predefined symbols, scaling, rotation, and styling,
+and can be used for categorical or proportional symbol maps.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_symbol(data = world, symbol = "star", r = 12, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+                 quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#symbol}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/symbols}{live demo} on ObservableHQ.
 }

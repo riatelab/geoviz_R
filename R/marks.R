@@ -1,246 +1,406 @@
-
-#' @title Add circles to the map
-#' @description The \code{viz_circle} function allows to add circles on a map.
-#' @name viz_circle
-#' @param data object
-#'   A GeoJSON FeatureCollection.
-#' @param id string (optional)
-#'   An identifier for the circle layer.
-#' @param pos numeric vector of length 2 (optional, default = c(0, 0))
-#'   Position [x, y] to display a single circle.
-#' @param r numeric or string (optional, default = 10)
-#'   Radius of the circles, or the name of a property containing numerical values.
-#' @param k numeric (optional, default = 50)
-#'   Radius of the largest circle (or corresponding to the value defined by \code{fixmax}).
-#' @param fixmax numeric (optional)
-#'   Value corresponding to the circle with radius \code{k}. Useful to ensure comparability between maps.
-#' @param dodge logical (optional, default = FALSE)
-#'   Whether to avoid circle overlap.
-#' @param iteration numeric (optional, default = 200)
-#'   Number of iterations used to dodge circles.
-#' @param sort string or function (optional)
-#'   Field name or function used to sort circles.
-#' @param descending logical (optional)
-#'   Sorting order of circles.
-#' @param coords string (optional, default = "geo")
-#'   Use "svg" if coordinates are already expressed in the SVG coordinate system.
-#' @param fill string or function (optional)
-#'   Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param stroke string or function (optional, default = "white")
-#'   Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param tip logical or function (optional, default = FALSE)
-#'   A function to display the tooltip. Use \code{TRUE} to display all fields.
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#circle}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/circle-mark}{live demo} on ObservableHQ.
+#' @title Circle layer
+#' @description The \code{viz_circle} function draws circles on the map from a spatial
+#' data frame or from a single position. It can be used to create proportional symbol maps
+#' with optional collision avoidance.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. Optional. A spatial data frame.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector. Optional. Position of a single circle (default c(0, 0)).
+#' @param r numeric or character. Optional. Circle radius (default 10).
+#' Can be a fixed value or the name of a field containing numerical values.
+#' @param k numeric. Optional. Radius of the largest circle (default 50).
+#' @param fixmax numeric. Optional. Value corresponding to the circle of radius \code{k}.
+#' Useful to ensure comparability between maps.
+#' @param dodge logical. Optional. Avoid circle overlap (default FALSE).
+#' @param iteration numeric. Optional. Number of iterations for dodging (default 200).
+#' @param sort character or function. Optional. Field name or function to sort circles.
+#' @param descending logical. Optional. Sorting order.
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
+#' @param fill character or function. Optional. Fill color.
+#' @param stroke character or function. Optional. Stroke color (default "white").
+#' @param tip logical or function. Optional. Tooltip definition (default FALSE).
+#' Use TRUE to display all fields.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+#' \code{opacity}, \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_circle(data = world, r = 5, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'                  quiet = TRUE)
+#' viz_create(projection = "EqualEarth") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_circle(data = world, r = 30, fill = "#38896F") |>
 #'   viz_render()
-viz_circle   <- function(map, ...) add_layer(map, "circle", ...)
+viz_circle <- function(
+    map,
+    data = NULL,
+    id = NULL,
+    pos = c(0, 0),
+    r = 10,
+    k = 50,
+    fixmax = NULL,
+    dodge = FALSE,
+    iteration = 200,
+    sort = NULL,
+    descending = NULL,
+    coords = "geo",
+    fill = NULL,
+    stroke = "white",
+    tip = FALSE,
+    ...
+) {
+  add_layer(
+    map,
+    "circle",
+    data = data,
+    id = id,
+    pos = pos,
+    r = r,
+    k = k,
+    fixmax = fixmax,
+    dodge = dodge,
+    iteration = iteration,
+    sort = sort,
+    descending = descending,
+    coords = coords,
+    fill = fill,
+    stroke = stroke,
+    tip = tip,
+    ...
+  )
+}
 
-#' @title Add squares to the map
-#' @description The \code{viz_square} function allows to add squares on a map.
-#' @name viz_square
-#' @param data object
-#'   A GeoJSON FeatureCollection.
-#' @param id string (optional)
-#'   An identifier for the square layer.
-#' @param pos numeric vector of length 2 (optional, default = c(0, 0))
-#'   Position [x, y] to display a single square.
-#' @param dx numeric (optional, default = 0)
-#'   Shift in x.
-#' @param dy numeric (optional, default = 0)
-#'   Shift in y.
-#' @param angle numeric (optional, default = 0)
-#'   Rotation angle of the square.
-#' @param side numeric or string (optional, default = 20)
-#'   Size of the squares, or the name of a property containing numerical values.
-#' @param k numeric (optional, default = 100)
-#'   Size of the largest square (or corresponding to the value defined by \code{fixmax}).
-#' @param fixmax numeric (optional)
-#'   Value corresponding to the square with size \code{k}. Useful to ensure comparability between maps.
-#' @param sort string or function (optional)
-#'   Field name or function used to sort squares.
-#' @param descending logical (optional)
-#'   Sorting order of squares.
-#' @param coords string (optional, default = "geo")
-#'   Use "svg" if coordinates are already expressed in the SVG coordinate system.
-#' @param fill string or function (optional)
-#'   Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param stroke string or function (optional)
-#'   Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param tip logical or function (optional, default = FALSE)
-#'   A function to display the tooltip. Use \code{TRUE} to display all fields.
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#square}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/square-mark}{live demo} on ObservableHQ.
+
+#' @title Square layer
+#' @description The \code{viz_square} function draws rotatable squares on the map
+#' from a spatial data frame or from a single position. It can be used to create
+#' proportional symbol maps with square markers.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. Optional. A spatial data frame.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector. Optional. Position of a single square (default c(0, 0)).
+#' @param dx numeric. Optional. Horizontal shift (default 0).
+#' @param dy numeric. Optional. Vertical shift (default 0).
+#' @param angle numeric. Optional. Rotation angle in degrees (default 0).
+#' @param side numeric or character. Optional. Square size (default 20).
+#' Can be a fixed value or the name of a field containing numerical values.
+#' @param k numeric. Optional. Size of the largest square (default 100).
+#' @param fixmax numeric. Optional. Value corresponding to the square of size \code{k}.
+#' Useful to ensure comparability between maps.
+#' @param sort character or function. Optional. Field name or function to sort squares.
+#' @param descending logical. Optional. Sorting order.
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
+#' @param fill character or function. Optional. Fill color.
+#' @param stroke character or function. Optional. Stroke color.
+#' @param tip logical or function. Optional. Tooltip definition (default FALSE).
+#' Use TRUE to display all fields.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+#' \code{opacity}, \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_square(data = world, side = 10, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'                  quiet = TRUE)
+#' viz_create(projection = "EqualEarth") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_square(data = world, side = 60, fill = "#38896F") |>
 #'   viz_render()
-viz_square <- function(map, ...) add_layer(map, "square", ...)
+viz_square <- function(
+    map,
+    data = NULL,
+    id = NULL,
+    pos = c(0, 0),
+    dx = 0,
+    dy = 0,
+    angle = 0,
+    side = 20,
+    k = 100,
+    fixmax = NULL,
+    sort = NULL,
+    descending = NULL,
+    coords = "geo",
+    fill = NULL,
+    stroke = NULL,
+    tip = FALSE,
+    ...
+) {
+  add_layer(
+    map,
+    "square",
+    data = data,
+    id = id,
+    pos = pos,
+    dx = dx,
+    dy = dy,
+    angle = angle,
+    side = side,
+    k = k,
+    fixmax = fixmax,
+    sort = sort,
+    descending = descending,
+    coords = coords,
+    fill = fill,
+    stroke = stroke,
+    tip = tip,
+    ...
+  )
+}
 
-#' @title Add spikes to the map
-#' @description The \code{viz_spike} function allows to add spikes on a map.
-#' @name viz_spike
-#' @param data object
-#'   A GeoJSON FeatureCollection.
-#' @param id string (optional)
-#'   An identifier for the spike layer.
-#' @param pos numeric vector of length 2 (optional, default = c(0, 0))
-#'   Position [x, y] to display a single spike.
-#' @param height numeric or string (optional, default = 10)
-#'   Height of the spikes, or the name of a property containing numerical values.
-#' @param width numeric (optional, default = 30)
-#'   Width of the spikes.
-#' @param straight numeric (optional, default = 0)
-#'   A number between 0 and 1 defining the shape of the spikes (0 = curved, 1 = straight).
-#' @param k numeric (optional, default = 100)
-#'   Height of the highest spike (or corresponding to the value defined by \code{fixmax}).
-#' @param fixmax numeric (optional)
-#'   Value corresponding to the spike with height \code{k}. Useful to ensure comparability between maps.
-#' @param sort string or function (optional)
-#'   Field name or function used to sort spikes.
-#' @param descending logical (optional)
-#'   Sorting order of spikes.
-#' @param coords string (optional, default = "geo")
-#'   Use "svg" if coordinates are already expressed in the SVG coordinate system.
-#' @param fill string or function (optional)
-#'   Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param stroke string or function (optional)
-#'   Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param tip logical or function (optional, default = FALSE)
-#'   A function to display the tooltip. Use \code{TRUE} to display all fields.
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#spike}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/spike-mark}{live demo} on ObservableHQ.
+#' @title Spike layer
+#' @description The \code{viz_spike} function draws spikes on the map from a spatial
+#' data frame or from a single position. It can be used to represent values with
+#' vertical symbols (e.g. for density or intensity maps).
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. Optional. A spatial data frame.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector. Optional. Position of a single spike (default c(0, 0)).
+#' @param height numeric or character. Optional. Spike height (default 10).
+#' Can be a fixed value or the name of a field containing numerical values.
+#' @param width numeric. Optional. Spike width (default 30).
+#' @param straight numeric. Optional. Controls spike curvature (default 0).
+#' Value between 0 (curved) and 1 (straight).
+#' @param k numeric. Optional. Height of the highest spike (default 100).
+#' @param fixmax numeric. Optional. Value corresponding to the spike of height \code{k}.
+#' Useful to ensure comparability between maps.
+#' @param sort character or function. Optional. Field name or function to sort spikes.
+#' @param descending logical. Optional. Sorting order.
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
+#' @param fill character or function. Optional. Fill color.
+#' @param stroke character or function. Optional. Stroke color.
+#' @param tip logical or function. Optional. Tooltip definition (default FALSE).
+#' Use TRUE to display all fields.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+#' \code{opacity}, \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_spike(data = world, height = 10, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'                  quiet = TRUE)
+#' viz_create(projection = "EqualEarth") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_square(data = world, height = 100, fill = "#38896F") |>
 #'   viz_render()
-viz_spike <- function(map, ...) add_layer(map, "spike", ...)
+viz_spike <- function(
+    map,
+    data = NULL,
+    id = NULL,
+    pos = c(0, 0),
+    height = 10,
+    width = 30,
+    straight = 0,
+    k = 100,
+    fixmax = NULL,
+    sort = NULL,
+    descending = NULL,
+    coords = "geo",
+    fill = NULL,
+    stroke = NULL,
+    tip = FALSE,
+    ...
+) {
+  add_layer(
+    map,
+    "spike",
+    data = data,
+    id = id,
+    pos = pos,
+    height = height,
+    width = width,
+    straight = straight,
+    k = k,
+    fixmax = fixmax,
+    sort = sort,
+    descending = descending,
+    coords = coords,
+    fill = fill,
+    stroke = stroke,
+    tip = tip,
+    ...
+  )
+}
 
-#' @title Add half-circles to the map
-#' @description The \code{viz_halfcircle} function allows to add half-circles on a map.
-#' @name viz_halfcircle
-#' @param data object
-#'   A GeoJSON FeatureCollection.
-#' @param id string (optional)
-#'   An identifier for the half-circle layer.
-#' @param pos numeric vector of length 2 (optional, default = c(0, 0))
-#'   Position [x, y] to display a single half-circle.
-#' @param dx numeric (optional, default = 0)
-#'   Shift in x.
-#' @param dy numeric (optional, default = 0)
-#'   Shift in y.
-#' @param angle numeric (optional, default = 0)
-#'   Rotation angle of the half-circle.
-#' @param r numeric or string (optional, default = 10)
-#'   Radius of the half-circles, or the name of a property containing numerical values.
-#' @param innerRadius numeric (optional, default = 10)
-#'   Inner radius.
-#' @param cornerRadius numeric (optional, default = 2)
-#'   Corner radius.
-#' @param k numeric (optional, default = 50)
-#'   Radius of the largest half-circle (or corresponding to the value defined by \code{fixmax}).
-#' @param fixmax numeric (optional)
-#'   Value corresponding to the half-circle with radius \code{k}. Useful to ensure comparability between maps.
-#' @param sort string or function (optional)
-#'   Field name or function used to sort half-circles.
-#' @param descending logical (optional)
-#'   Sorting order of half-circles.
-#' @param coords string (optional, default = "geo")
-#'   Use "svg" if coordinates are already expressed in the SVG coordinate system.
-#' @param fill string or function (optional)
-#'   Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param stroke string or function (optional)
-#'   Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param tip logical or function (optional, default = FALSE)
-#'   A function to display the tooltip. Use \code{TRUE} to display all fields.
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#halfcircle}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/half-circle-mark}{live demo} on ObservableHQ.
+
+
+#' @title Half-circle layer
+#' @description The \code{viz_halfcircle} function draws rotatable half-circles on the map
+#' from a spatial data frame or from a single position. It can be used to represent values
+#' with semi-circular proportional symbols.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. Optional. A spatial data frame.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector. Optional. Position of a single half-circle (default c(0, 0)).
+#' @param dx numeric. Optional. Horizontal shift (default 0).
+#' @param dy numeric. Optional. Vertical shift (default 0).
+#' @param angle numeric. Optional. Rotation angle in degrees (default 0).
+#' @param r numeric or character. Optional. Outer radius (default 10).
+#' Can be a fixed value or the name of a field containing numerical values.
+#' @param innerRadius numeric. Optional. Inner radius (default 10).
+#' @param cornerRadius numeric. Optional. Corner radius (default 2).
+#' @param k numeric. Optional. Radius of the largest half-circle (default 50).
+#' @param fixmax numeric. Optional. Value corresponding to the half-circle of radius \code{k}.
+#' Useful to ensure comparability between maps.
+#' @param sort character or function. Optional. Field name or function to sort half-circles.
+#' @param descending logical. Optional. Sorting order.
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
+#' @param fill character or function. Optional. Fill color.
+#' @param stroke character or function. Optional. Stroke color.
+#' @param tip logical or function. Optional. Tooltip definition (default FALSE).
+#' Use TRUE to display all fields.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+#' \code{opacity}, \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_halfcircle(data = world, r = 10, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'                  quiet = TRUE)
+#' viz_create(projection = "EqualEarth") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
 #'   viz_render()
-viz_halfcircle <- function(map, ...) add_layer(map, "halfcircle", ...)
+viz_halfcircle <- function(
+    map,
+    data = NULL,
+    id = NULL,
+    pos = c(0, 0),
+    dx = 0,
+    dy = 0,
+    angle = 0,
+    r = 10,
+    innerRadius = 10,
+    cornerRadius = 2,
+    k = 50,
+    fixmax = NULL,
+    sort = NULL,
+    descending = NULL,
+    coords = "geo",
+    fill = NULL,
+    stroke = NULL,
+    tip = FALSE,
+    ...
+) {
+  add_layer(
+    map,
+    "halfcircle",
+    data = data,
+    id = id,
+    pos = pos,
+    dx = dx,
+    dy = dy,
+    angle = angle,
+    r = r,
+    innerRadius = innerRadius,
+    cornerRadius = cornerRadius,
+    k = k,
+    fixmax = fixmax,
+    sort = sort,
+    descending = descending,
+    coords = coords,
+    fill = fill,
+    stroke = stroke,
+    tip = tip,
+    ...
+  )
+}
 
-#' @title Add symbols to the map
-#' @description The \code{viz_symbol} function allows to add symbols on a map.
-#' @name viz_symbol
-#' @param data object
-#'   A GeoJSON FeatureCollection.
-#' @param id string (optional)
-#'   An identifier for the symbol layer.
-#' @param pos numeric vector of length 2 (optional, default = c(0, 0))
-#'   Position [x, y] to display a single symbol.
-#' @param fill string or function (optional)
-#'   Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.
-#' @param stroke string or function (optional, default = "white")
-#'   Stroke color.
-#' @param strokeWidth string or function (optional, default = 0.2)
-#'   Stroke width.
-#' @param coords string (optional, default = "geo")
-#'   Use "svg" if coordinates are already expressed in the SVG coordinate system.
-#' @param r numeric or string (optional, default = 12)
-#'   Radius to set the size of the encompassing circle of the symbol.
-#' @param scale numeric (optional)
-#'   Scale factor to change the size of the symbol.
-#' @param symbol string (optional, default = "star")
-#'   Name of the symbol to display (use \code{viz.tool.symbols()} to get the list of available symbols). If a field is used, a different symbol is assigned to each modality.
-#' @param missing string (optional, default = "missing")
-#'   Name of the symbol for missing values. Use \code{NULL} to remove these symbols.
-#' @param rotate numeric (optional, default = 0)
-#'   Rotation angle of symbols.
-#' @param skewX numeric (optional, default = 0)
-#'   Horizontal skew of symbols.
-#' @param skewY numeric (optional, default = 0)
-#'   Vertical skew of symbols.
-#' @param background logical (optional, default = FALSE)
-#'   Add a circle behind the symbol.
-#' @param background_* parameters of the background (optional)
-#'   e.g. \code{background_fill}, \code{background_stroke}, etc.
-#' @param tip logical or function (optional, default = FALSE)
-#'   A function to display the tooltip. Use \code{TRUE} to display all fields.
-#' @param k numeric (optional, default = 50)
-#'   Radius of the largest circle (or corresponding to the value defined by \code{fixmax}).
-#' @param fixmax numeric (optional)
-#'   Value corresponding to the circle with radius \code{k}. Useful to ensure comparability between maps.
-#' @param dodge logical (optional, default = FALSE)
-#'   Avoid overlap between symbols.
-#' @param iteration numeric (optional, default = 200)
-#'   Number of iterations used to dodge symbols.
-#' @param sort string or function (optional)
-#'   Field name or function used to sort symbols.
-#' @param descending logical (optional)
-#'   Sorting order of symbols.
-#'
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#symbol}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/symbols}{live demo} on ObservableHQ.
+#' @title Symbol layer
+#' @description The \code{viz_symbol} function draws SVG symbols on the map from a spatial
+#' data frame. It allows the use of predefined symbols, scaling, rotation, and styling,
+#' and can be used for categorical or proportional symbol maps.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. Optional. A spatial data frame.
+#' @param id character. Optional. Unique layer id.
+#' @param pos numeric vector. Optional. Position of a single symbol (default c(0, 0)).
+#' @param fill character or function. Optional. Fill color.
+#' @param stroke character or function. Optional. Stroke color (default "white").
+#' @param strokeWidth numeric or function. Optional. Stroke width (default 0.2).
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
+#' @param r numeric or character. Optional. Radius defining symbol size (default 12).
+#' @param scale numeric. Optional. Global scale factor for symbols.
+#' @param symbol character. Optional. Symbol name. "circle", "square", "triangle", "pentagon", "hexagon", "roundsquare", "pillow", "drop", "egg", "star12", "star8", "star", "diamond", "trapzium", "plus", "minus", "arrow", "stop", "vbar", "crescent", "donut", "heart", "clover", "fist", "check", "plane", "rocket", "boat", "pin", "hospital", "flower", "cloud", "human", "tent", "beer", "boom", "nuke", "target", "missing". (default "star").
+#' different symbols are assigned per category.
+#' @param missing character. Optional. Symbol used for missing values (default "missing").
+#' Use \code{NULL} to hide missing values.
+#' @param rotate numeric. Optional. Rotation angle (default 0).
+#' @param skewX numeric. Optional. Horizontal skew (default 0).
+#' @param skewY numeric. Optional. Vertical skew (default 0).
+#' @param background logical. Optional. Add a background circle (default FALSE).
+#' @param background_* additional background parameters (e.g. \code{background_fill},
+#' \code{background_stroke}, etc.).
+#' @param tip logical or function. Optional. Tooltip definition (default FALSE).
+#' Use TRUE to display all fields.
+#' @param k numeric. Optional. Maximum radius scaling value (default 50).
+#' @param fixmax numeric. Optional. Value corresponding to the maximum radius \code{k}.
+#' @param dodge logical. Optional. Avoid symbol overlap (default FALSE).
+#' @param iteration numeric. Optional. Number of iterations for dodging (default 200).
+#' @param sort character or function. Optional. Field name or function to sort symbols.
+#' @param descending logical. Optional. Sorting order.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+#' \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_symbol(data = world, symbol = "star", r = 12, fill = "#38896F") |>
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'                  quiet = TRUE)
+#' viz_create(projection = "EqualEarth") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
 #'   viz_render()
-viz_symbol <- function(map, ...) add_layer(map, "symbol", ...)
+viz_symbol <- function(
+    map,
+    data = NULL,
+    id = NULL,
+    pos = c(0, 0),
+    fill = NULL,
+    stroke = "white",
+    strokeWidth = 0.2,
+    coords = "geo",
+    r = 12,
+    scale = NULL,
+    symbol = "star",
+    missing = "missing",
+    rotate = 0,
+    skewX = 0,
+    skewY = 0,
+    background = FALSE,
+    tip = FALSE,
+    k = 50,
+    fixmax = NULL,
+    dodge = FALSE,
+    iteration = 200,
+    sort = NULL,
+    descending = NULL,
+    ...
+) {
+  add_layer(
+    map,
+    "symbol",
+    data = data,
+    id = id,
+    pos = pos,
+    fill = fill,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    coords = coords,
+    r = r,
+    scale = scale,
+    symbol = symbol,
+    missing = missing,
+    rotate = rotate,
+    skewX = skewX,
+    skewY = skewY,
+    background = background,
+    tip = tip,
+    k = k,
+    fixmax = fixmax,
+    dodge = dodge,
+    iteration = iteration,
+    sort = sort,
+    descending = descending,
+    ...
+  )
+}

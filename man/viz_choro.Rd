@@ -2,47 +2,63 @@
 % Please edit documentation in R/thematic.R
 \name{viz_choro}
 \alias{viz_choro}
-\title{Add a choropleth layer to the map}
+\title{Choropleth layer}
 \usage{
-viz_choro(map, ...)
+viz_choro(
+  map,
+  data = NULL,
+  var,
+  method = "quantile",
+  nb = 6,
+  breaks = NULL,
+  colors = NULL,
+  reverse = FALSE,
+  missing = "white",
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A spatial dataframe. Use \code{data} to be able to iterate over features.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{var}{string
-Name of the numeric variable in the spatial dataframe to use for the choropleth. You can also use the \code{fill} or \code{stroke} argument directly.}
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
 
-\item{method}{string (optional, default = "quantile")
-Classification method: 'quantile', 'q6', 'equal', 'jenks', 'msd', 'geometric', 'headtail', 'pretty', 'arithmetic', or 'nestedmeans'.}
+\item{var}{character. Name of the numeric variable used for classification.
+You can also use \code{fill} or \code{stroke} directly instead of \code{var}.}
 
-\item{nb}{numeric (optional, default = 6)
-Number of classes.}
+\item{method}{character. Optional. Classification method (default "quantile").
+One of: "quantile", "q6", "equal", "jenks", "msd", "geometric", "headtail",
+"pretty", "arithmetic", "nestedmeans".}
 
-\item{breaks}{numeric vector (optional)
-Specific class breaks. If provided, \code{nb} and \code{method} are ignored.}
+\item{nb}{numeric. Optional. Number of classes (default 6).}
 
-\item{colors}{string or vector (optional)
-Array of colors or name of a color palette available in \code{dicopal}. Examples: "ArmyRose", "Earth", "Fall", "Geyser", "TealRose", "Temps", "Tropic", "BluGrn", "BluYl", "BrwnYl", "BurgYl", "Burg", "DarkMint", "Emrld", "Magenta", "Mint", "OrYel", "Peach", "PinkYl", "PurpOr".}
+\item{breaks}{numeric vector. Optional. Manual class breaks. Overrides \code{nb} and \code{method}.}
 
-\item{reverse}{logical (optional, default = FALSE)
-Reverse the color palette.}
+\item{colors}{character or vector. Optional. Color palette or vector of colors.
+Can use named palettes from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library}
 
-\item{missing}{string or logical (optional, default = "white")
-Color for missing data. Use \code{FALSE} to omit.}
+\item{reverse}{logical. Optional. Reverse color palette (default FALSE).}
 
-\item{legend}{logical (optional, default = TRUE)
-Whether to display a legend for the choropleth.}
+\item{missing}{character or logical. Optional. Color for missing values (default "white").}
 
-\item{leg_type}{string (optional, default = "vertical")
-Legend orientation: "horizontal" or "vertical".}
+\item{legend}{logical. Optional. Whether to display a legend (default TRUE).}
 
-\item{leg_pos}{numeric vector of length 2 (optional, default = c(10, 10))
-Position of the legend [x, y].}
+\item{leg_type}{character. Optional. Legend orientation (default "vertical").
+One of: "horizontal", "vertical".}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to path rendering.}
+
+\item{leg_*}{additional legend parameters. Optional. All arguments prefixed with \code{leg_}
+are forwarded to choropleth legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
 }
 \description{
-The \code{viz_choro} function allows to create choropleth maps based on a numeric variable in a GeoJSON layer.
-  You can use built-in classification methods or define breaks manually.
+The \code{viz_choro} function creates a choropleth map from a spatial
+data frame by classifying a numeric variable and mapping it to a color palette.
+It supports multiple classification methods and automatic legend generation.
 }
 \examples{
 library(sf)
@@ -50,7 +66,4 @@ world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRU
 viz_create(width = 750, background = "white", projection = "EqualEarth") |>
   viz_choro(data = world, var = "gdppc", method = "quantile", nb = 5, colors = "PinkYl") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#plot/choro}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/choropleth}{live demo} on ObservableHQ.
 }

@@ -2,27 +2,15 @@
 % Please edit documentation in R/render.R
 \name{viz_render}
 \alias{viz_render}
-\title{Add an Earth outline layer}
+\title{Display the map}
 \usage{
 viz_render(map, elementId = NULL)
 }
 \arguments{
 \item{map}{A \code{geoviz} object created with \code{viz_create}.}
-
-\item{id}{character. Optional. ID of the layer.}
-
-\item{stroke}{character. Optional. Stroke color (default "none").}
-
-\item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
-
-\item{fill}{character. Optional. Fill color (default "#B5DFFD").}
-}
-\value{
-The identifier of the created layer.
 }
 \description{
-The \code{viz_outline} function creates a layer representing the Earth outline
-according to the current projection.
+The \code{viz_render} function returns a pretty map in SVG format :-)
 }
 \examples{
 # Create a map
@@ -32,7 +20,4 @@ viz_create() |>
   viz_outline() |>
   viz_path(data = world) |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#outline}{documentation} of the underlying JS library.
 }

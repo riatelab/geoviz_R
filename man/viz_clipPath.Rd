@@ -2,25 +2,23 @@
 % Please edit documentation in R/effects.R
 \name{viz_clipPath}
 \alias{viz_clipPath}
-\title{Add a clipPath}
+\title{ClipPath layer}
 \usage{
-viz_clipPath(map, ...)
+viz_clipPath(map, id = NULL, datum = list(type = "Sphere"), permanent = FALSE)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the clip path.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{datum}{object (optional, default = \{ type: "Sphere" \})
-The geometry to clip.}
+\item{id}{character. Optional. Unique clipPath id.}
 
-\item{permanent}{logical or string (optional, default = FALSE)
-Whether the clip path is permanent (static) or not.}
-}
-\value{
-The identifier of the created clip path (e.g. \code{"url(#id)"}).
+\item{datum}{object. Optional. Geometry used for clipping (default \code{list(type = "Sphere")}).}
+
+\item{permanent}{logical or character. Optional. Whether the clipPath is static (default FALSE).}
 }
 \description{
-The clipPath function allows to create a clip layer. The function adds a clip layer to the SVG container
+The \code{viz_clipPath} function creates an SVG clipPath definition
+and adds it to the SVG defs. It returns a reference usable in SVG styling
+(e.g. \code{url(#id)}). WARNING: the clipPath is global to the web page, not only the map.
 }
 \examples{
 library(sf)
@@ -31,7 +29,4 @@ viz_create(margin = 5, width = 750) |>
   viz_clipPath(id = "my_clip", datum = aus) |>
   viz_path(datum = aus, fill = "#38896F", clipPath = "url(#my_clip)") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/clipPath}{documentation} of the underlying JS library.
 }

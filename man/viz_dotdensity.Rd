@@ -2,10 +2,58 @@
 % Please edit documentation in R/thematic_advanced.R
 \name{viz_dotdensity}
 \alias{viz_dotdensity}
-\title{viz_dotdensity}
+\title{Dot density layer}
 \usage{
-viz_dotdensity(map, ...)
+viz_dotdensity(
+  map,
+  data = NULL,
+  var,
+  stroke = "none",
+  r = 1,
+  dotval = NULL,
+  fill = "black",
+  legend = TRUE,
+  leg_pos = NULL,
+  leg_text = NULL,
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+
+\item{var}{character. Name of the numeric variable used to generate dot density values.}
+
+\item{stroke}{character. Optional. Stroke color for dots (default "none").}
+
+\item{r}{numeric. Optional. Radius of each dot (default 1).}
+
+\item{dotval}{numeric. Optional. Value represented by a single dot. If not provided,
+it is computed automatically.}
+
+\item{fill}{character. Optional. Fill color of dots (default "black").}
+
+\item{legend}{logical. Optional. Whether to display legend (default TRUE).}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, svg.height - 10)).}
+
+\item{leg_text}{character. Optional. Legend text (default dot value).}
+
+\item{...}{Additional parameters passed to rendering or SVG container options.}
 }
 \description{
-viz_dotdensity
+The \code{viz_dotdensity} function creates a dot density map by
+distributing points proportionally to a numeric variable. Each dot represents
+a fixed quantity of the underlying data.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_dotdensity(data = cities, var = "population") |>
+  viz_render()
 }

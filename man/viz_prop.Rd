@@ -2,47 +2,63 @@
 % Please edit documentation in R/thematic.R
 \name{viz_prop}
 \alias{viz_prop}
-\title{Add proportional symbols to the map}
+\title{Proportional symbols layer}
 \usage{
-viz_prop(map, ...)
+viz_prop(
+  map,
+  data = NULL,
+  var,
+  symbol = "circle",
+  k = 50,
+  fixmax = NULL,
+  width = 30,
+  straight = 0,
+  dodge = FALSE,
+  legend = TRUE,
+  leg_type = "nested",
+  leg_pos = c(10, 10),
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A spatial dataframe.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{var}{string
-Name of the numeric variable in the spatial dataframe to use for symbol sizing.}
+\item{data}{object. A spatial data frame.}
 
-\item{symbol}{string (optional, default = "circle")
-Choice of the mark to plot: "circle", "square", "spike", or "halfcircle".}
+\item{var}{character. Variable name containing numeric values used for scaling symbols.}
 
-\item{k}{numeric (optional, default = 50)
-Size of the largest symbol.}
+\item{symbol}{character. Optional. Symbol type (default "circle").
+One of: "circle", "square", "spike", "halfcircle".}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the symbol with size = \code{k}. Useful to ensure comparability between maps.}
+\item{k}{numeric. Optional. Size of the largest symbol (default 50).}
 
-\item{width}{numeric (optional, default = 30)
-Width of the spikes (only relevant if \code{symbol = "spike"}).}
+\item{fixmax}{numeric. Optional. Value corresponding to the symbol of size \code{k}.
+Useful to ensure comparability between maps.}
 
-\item{straight}{numeric (optional, default = 0)
-A number between 0 and 1 defining the curve of the spikes (0 = curved, 1 = straight).}
+\item{width}{numeric. Optional. Width of spike symbols (default 30).}
 
-\item{dodge}{logical (optional, default = FALSE)
-Whether to avoid symbol overlap (relevant only for circles).}
+\item{straight}{numeric. Optional. Curvature of spike symbols (default 0).
+Value between 0 (curved) and 1 (straight).}
 
-\item{legend}{logical (optional, default = TRUE)
-Whether to display a legend for the proportional symbols.}
+\item{dodge}{logical. Optional. Avoid symbol overlap (default FALSE, circle only).}
 
-\item{leg_type}{string (optional, default = "nested")
-Legend style: "nested" or "separate".}
+\item{legend}{logical. Optional. Whether to display a legend (default TRUE).}
 
-\item{leg_pos}{numeric vector of length 2 (optional, default = c(10, 10))
-Position of the legend [x, y].}
+\item{leg_type}{character. Optional. Legend type (default "nested").
+One of: "nested", "separate".}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to symbol rendering (e.g. \code{strokeWidth})}
+
+\item{leg_*}{additional legend parameters. Optional. All arguments prefixed with \code{leg_}
+are forwarded to legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
 }
 \description{
-The \code{viz_prop} function allows to create proportional symbols based on a numeric variable in a GeoJSON layer.
-  It supports multiple mark types such as circles, squares, spikes, and half-circles.
+The \code{viz_prop} function creates a proportional symbol layer
+from a spatial data frame. It can display different symbol types (circle, square,
+spike, half-circle) sized according to a numeric variable, and optionally includes
+a legend.
 }
 \examples{
 library(sf)
@@ -51,7 +67,4 @@ viz_create(width = 750, background = "white", projection = "EqualEarth") |>
   viz_path(data = world, fill = "#f1f3f5") |>
   viz_prop(data = world, var = "pop", symbol = "circle", fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#prop}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/proportional-symbols}{live demo} on ObservableHQ.
 }

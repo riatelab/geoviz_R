@@ -2,78 +2,100 @@
 % Please edit documentation in R/thematic.R
 \name{viz_propchoro}
 \alias{viz_propchoro}
-\title{Add proportional colored symbols to the map}
+\title{Proportional + choropleth combined layer}
 \usage{
-viz_propchoro(map, ...)
+viz_propchoro(
+  map,
+  data = NULL,
+  var1,
+  var2,
+  var = NULL,
+  symbol = "circle",
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  width = 30,
+  straight = 0,
+  method = "quantile",
+  nb = 6,
+  breaks = NULL,
+  colors = NULL,
+  reverse = FALSE,
+  missing = "white",
+  legend = TRUE,
+  leg1_type = "nested",
+  leg2_type = "vertical",
+  leg1_pos = c(10, 10),
+  leg2_pos = c(10, 10),
+  ...
+)
 }
 \arguments{
-\item{...}{additional parameters (optional)
-Additional graphical parameters (e.g. \code{strokeWidth = 0.3}).}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object
-A spatial dataframe. Use \code{data} to be able to iterate over features.}
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
 
-\item{var1}{string
-Name of the variable containing absolute quantitative values (used for symbol size).}
+\item{var1}{character. Name of the numeric variable used for absolute values
+(driving symbol size).}
 
-\item{var2}{string
-Name of the variable containing relative quantitative values (used for color, e.g. percentages).}
+\item{var2}{character. Name of the numeric variable used for relative values
+(driving color classification, e.g. percentages).}
 
-\item{var}{string (optional)
-If set, the same variable is mapped twice (size and color).}
+\item{var}{character. Optional. If provided, the same variable is used for both
+size and color encoding.}
 
-\item{symbol}{string (optional, default = "circle")
-Choice of the mark to plot: "circle", "spike", or "halfcircle".}
+\item{symbol}{character. Optional. Symbol type (default "circle").
+One of: "circle", "spike", "halfcircle".}
 
-\item{k}{numeric (optional, default = 50)
-Size of the largest symbol.}
+\item{k}{numeric. Optional. Size of the largest symbol (default 50).}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the symbol with size = \code{k}. Useful to ensure comparability between maps.}
+\item{fixmax}{numeric. Optional. Value corresponding to the symbol of size \code{k}.
+Useful for ensuring comparability between maps.}
 
-\item{dodge}{logical (optional, default = FALSE)
-Whether to avoid symbol overlap (relevant only for circles).}
+\item{dodge}{logical. Optional. Avoid symbol overlap (default FALSE, circle only).}
 
-\item{width}{numeric (optional, default = 30)
-Width of the spikes (only relevant if \code{symbol = "spike"}).}
+\item{width}{numeric. Optional. Width of spike symbols (default 30).}
 
-\item{straight}{numeric (optional, default = 0)
-A number between 0 and 1 defining the curve of the spikes (0 = curved, 1 = straight).}
+\item{straight}{numeric. Optional. Curvature of spike symbols (default 0).
+Value between 0 (curved) and 1 (straight).}
 
-\item{method}{string (optional, default = "quantile")
-Classification method: 'quantile', 'q6', 'equal', 'jenks', 'msd', 'geometric', 'headtail', 'pretty', 'arithmetic', or 'nestedmeans'.}
+\item{method}{character. Optional. Classification method for choropleth (default "quantile").
+One of: "quantile", "q6", "equal", "jenks", "msd", "geometric", "headtail",
+"pretty", "arithmetic", "nestedmeans".}
 
-\item{nb}{numeric (optional, default = 6)
-Number of classes.}
+\item{nb}{numeric. Optional. Number of classes (default 6).}
 
-\item{breaks}{numeric vector (optional)
-Specific class breaks. If provided, \code{nb} and \code{method} are ignored.}
+\item{breaks}{numeric vector. Optional. Manual class breaks overriding \code{nb} and \code{method}.}
 
-\item{colors}{string or vector (optional)
-Array of colors or name of a color palette available in \code{dicopal}.}
+\item{colors}{character or vector. Optional. Color palette or vector of colors
+from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library}
 
-\item{reverse}{logical (optional, default = FALSE)
-Reverse the color palette.}
+\item{reverse}{logical. Optional. Reverse color palette (default FALSE).}
 
-\item{missing}{string or logical (optional, default = "white")
-Color for missing data. Use \code{FALSE} to omit.}
+\item{missing}{character or logical. Optional. Color for missing values (default "white").}
 
-\item{legend}{logical (optional, default = TRUE)
-Whether to display legends.}
+\item{legend}{logical. Optional. Whether to display legends (default TRUE).}
 
-\item{leg1_type}{string (optional, default = "nested")
-Style of the proportional symbol legend: "nested" or "separate".}
+\item{leg1_type}{character. Optional. Symbol legend type (default "nested").}
 
-\item{leg2_type}{string (optional, default = "vertical")
-Style of the color legend: "vertical" or "horizontal".}
+\item{leg2_type}{character. Optional. Choropleth legend type (default "vertical").}
 
-\item{leg1_pos}{numeric vector of length 2 (optional, default = c(10, 10))
-Position of the proportional symbol legend [x, y].}
+\item{leg1_pos}{numeric vector. Optional. Position of symbol legend (default c(10, 10)).}
+
+\item{leg2_pos}{numeric vector. Optional. Position of choropleth legend (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}).}
+
+\item{leg1_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
+are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).}
+
+\item{leg2_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg2_}
+are forwarded to choropleth legend functions (e.g. \code{leg2_missing_text}, \code{leg2_values_fill}).}
 }
 \description{
-The \code{viz_propchoro} function allows to create maps combining proportional symbols and choropleth coloring.
-  Symbols represent absolute values while colors represent relative values.
-  The input data must be a spatial dataframe.
+The \code{viz_propchoro} function combines proportional symbols and
+choropleth mapping on the same spatial data frame. It allows simultaneous encoding
+of two numeric variables using symbols (size) and colors (classification).
 }
 \examples{
 library(sf)
@@ -83,7 +105,4 @@ viz_create(width = 750, background = "white", projection = "EqualEarth") |>
  viz_propchoro(data = world, var1 = "pop", var2 = "gdppc",
                 symbol = "circle", k = 50, colors = "Temps") |>
  viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#plot/propchoro}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/prop}{live demo} on ObservableHQ.
 }

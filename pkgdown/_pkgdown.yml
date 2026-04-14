@@ -1,7 +1,7 @@
 home:
   title: "geoviz: thematic cartography"
   description: >
-    This package helps...
+    This package is an implementation of the geoviz javascript library. can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3’s many features: proportional symbols, pictograms, typologies, choropleth maps, spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in SVG format, suitable for editorial cartography.
 
 url: https://neocarto.github.io/geoviz_R/
 
@@ -76,12 +76,12 @@ reference:
   - title: "Thematic"
     desc: These functions allow the creation of thematic maps based on statistical data, complete with their associated legends.
     contents:
-    - viz_picto
     - viz_prop
     - viz_choro
     - viz_typo
     - viz_propchoro
     - viz_proptypo
+    - viz_picto
   - title: "Thematic (advanced)"
     desc: These functions allow the creation of advanced thematic maps based on statistical data, complete with their associated legends.
     contents:
@@ -106,7 +106,7 @@ reference:
     - viz_radialGradient
     - viz_pattern
     - viz_sketch
-  - title: "Legends (OK except examples)"
+  - title: "Legends"
     desc: Functions to design map legends
     contents:
     - viz_leg_box

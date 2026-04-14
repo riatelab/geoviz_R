@@ -35,9 +35,10 @@ The \code{viz_tissot} function draws Tissot circles to visualize projection dist
 \examples{
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-  quiet = TRUE)
+  quiet = TRUE
+)
 viz_create(projection = "Polar", background = "white") |>
   viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_tissot(fill = "#38896F", fillOpacity = 1 ) |>
+  viz_tissot(fill = "#38896F") |>
   viz_render()
 }

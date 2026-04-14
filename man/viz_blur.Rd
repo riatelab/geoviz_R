@@ -2,22 +2,21 @@
 % Please edit documentation in R/effects.R
 \name{viz_blur}
 \alias{viz_blur}
-\title{Add a blur effect}
+\title{Blur filter}
 \usage{
-viz_blur(map, ...)
+viz_blur(map, id = NULL, stdDeviation = 1.5)
 }
 \arguments{
-\item{id}{string (optional)
-An identifier for the filter.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{stdDeviation}{number (optional, default = 1.5)
-Standard deviation controlling the intensity of the blur.}
-}
-\value{
-The identifier of the created filter (e.g. \code{"url(#id)"}).
+\item{id}{character. Optional. Unique filter id.}
+
+\item{stdDeviation}{numeric. Optional. Standard deviation controlling blur intensity (default 1.5).
+Higher values produce a stronger blur effect.}
 }
 \description{
-The \code{viz_blur} function allows to create an SVG blur filter. It adds a filter to the defs. Then, you can use it with the \code{viz_path} function via the \code{filter} attribute.
+The \code{viz_blur} function creates an SVG blur filter and adds it
+to the map definitions. It returns a reference usable in SVG styling (e.g. \code{url(#id)}).
 }
 \examples{
 library(sf)
@@ -28,7 +27,4 @@ viz_create(margin = 5, width = 650) |>
   viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
   viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#effect/blur}{documentation} of the underlying JS library:
 }

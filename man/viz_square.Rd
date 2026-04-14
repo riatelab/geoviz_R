@@ -2,67 +2,79 @@
 % Please edit documentation in R/marks.R
 \name{viz_square}
 \alias{viz_square}
-\title{Add squares to the map}
+\title{Square layer}
 \usage{
-viz_square(map, ...)
+viz_square(
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  dx = 0,
+  dy = 0,
+  angle = 0,
+  side = 20,
+  k = 100,
+  fixmax = NULL,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  tip = FALSE,
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A GeoJSON FeatureCollection.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the square layer.}
+\item{data}{object. Optional. A spatial data frame.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position [x, y] to display a single square.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{dx}{numeric (optional, default = 0)
-Shift in x.}
+\item{pos}{numeric vector. Optional. Position of a single square (default c(0, 0)).}
 
-\item{dy}{numeric (optional, default = 0)
-Shift in y.}
+\item{dx}{numeric. Optional. Horizontal shift (default 0).}
 
-\item{angle}{numeric (optional, default = 0)
-Rotation angle of the square.}
+\item{dy}{numeric. Optional. Vertical shift (default 0).}
 
-\item{side}{numeric or string (optional, default = 20)
-Size of the squares, or the name of a property containing numerical values.}
+\item{angle}{numeric. Optional. Rotation angle in degrees (default 0).}
 
-\item{k}{numeric (optional, default = 100)
-Size of the largest square (or corresponding to the value defined by \code{fixmax}).}
+\item{side}{numeric or character. Optional. Square size (default 20).
+Can be a fixed value or the name of a field containing numerical values.}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the square with size \code{k}. Useful to ensure comparability between maps.}
+\item{k}{numeric. Optional. Size of the largest square (default 100).}
 
-\item{sort}{string or function (optional)
-Field name or function used to sort squares.}
+\item{fixmax}{numeric. Optional. Value corresponding to the square of size \code{k}.
+Useful to ensure comparability between maps.}
 
-\item{descending}{logical (optional)
-Sorting order of squares.}
+\item{sort}{character or function. Optional. Field name or function to sort squares.}
 
-\item{coords}{string (optional, default = "geo")
-Use "svg" if coordinates are already expressed in the SVG coordinate system.}
+\item{descending}{logical. Optional. Sorting order.}
 
-\item{fill}{string or function (optional)
-Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.}
 
-\item{stroke}{string or function (optional)
-Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{fill}{character or function. Optional. Fill color.}
 
-\item{tip}{logical or function (optional, default = FALSE)
-A function to display the tooltip. Use \code{TRUE} to display all fields.}
+\item{stroke}{character or function. Optional. Stroke color.}
+
+\item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
+Use TRUE to display all fields.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+\code{opacity}, \code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_square} function allows to add squares on a map.
+The \code{viz_square} function draws rotatable squares on the map
+from a spatial data frame or from a single position. It can be used to create
+proportional symbol maps with square markers.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_square(data = world, side = 10, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+                 quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_square(data = world, side = 60, fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#square}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/square-mark}{live demo} on ObservableHQ.
 }

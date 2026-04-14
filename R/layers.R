@@ -1,54 +1,88 @@
-#' Add a graticule layer
-#'
-#' The \code{viz_graticule} function creates a layer representing latitude and
-#' longitude lines according to the current projection.
-#'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
-#' @param id character. Optional. ID of the layer.
-#' @param step numeric or numeric vector of length 2. Optional. Gap between
-#'   graticules (default 10).
+#' @title Graticule layer
+#' @description The \code{viz_graticule} function draws a graticule (latitude and longitude lines)
+#' on the map. The spacing between lines can be uniform or specified separately for parallels
+#' and meridians.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param step numeric or vector. Optional. Gap between graticules (default 10).
+#' Can be a single value or a vector of two values (e.g. \code{c(10, 20)}).
 #' @param stroke character. Optional. Stroke color (default "#9ad5e6").
 #' @param fill character. Optional. Fill color (default "none").
 #' @param strokeWidth numeric. Optional. Stroke width (default 0.8).
-#' @param strokeLinecap character. Optional. Line cap style (default "square").
-#' @param strokeLinejoin character. Optional. Line join style (default "round").
-#' @param strokeDasharray numeric or numeric vector. Optional. Stroke dash pattern (default 2).
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#graticule}{documentation} of the underlying JS library.
-#'
+#' @param strokeLinecap character. Optional. Stroke line cap (default "square").
+#' @param strokeLinejoin character. Optional. Stroke line join (default "round").
+#' @param strokeDasharray numeric or vector. Optional. Stroke dash pattern (default 2).
+#' @param ... Additional SVG attributes (e.g. \code{opacity}, etc.).
 #' @export
-#'
 #' @examples
-#' viz_create(projection = "EqualEarth", width = 750) |>
-#'   viz_graticule(stroke = "#38896F", strokeDasharray = 4, step = 20) |>
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_graticule(step = c(10, 20), stroke = "#38896F") |>
 #'   viz_render()
-viz_graticule <- function(map, projection = "none", step = 10, stroke = "#9ad5e6", strokeDasharray = 2, ...) {
-  add_layer(map, "graticule", step = step, stroke = stroke, strokeDasharray = strokeDasharray, ...)
+viz_graticule <- function(
+  map,
+  id = NULL,
+  step = 10,
+  stroke = "#9ad5e6",
+  fill = "none",
+  strokeWidth = 0.8,
+  strokeLinecap = "square",
+  strokeLinejoin = "round",
+  strokeDasharray = 2,
+  ...
+) {
+  add_layer(
+    map,
+    "graticule",
+    id = id,
+    step = step,
+    stroke = stroke,
+    fill = fill,
+    strokeWidth = strokeWidth,
+    strokeLinecap = strokeLinecap,
+    strokeLinejoin = strokeLinejoin,
+    strokeDasharray = strokeDasharray,
+    ...
+  )
 }
 
-#' Add an Earth outline layer
-#'
-#' The \code{viz_outline} function creates a layer representing the Earth outline
-#' according to the current projection.
-#'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
-#' @param id character. Optional. ID of the layer.
+#' @title Outline layer
+#' @description The \code{viz_outline} function draws the Earth outline according
+#' to the current map projection. This layer can be used as a background or clipping reference.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
 #' @param stroke character. Optional. Stroke color (default "none").
 #' @param strokeWidth numeric. Optional. Stroke width (default 1).
 #' @param fill character. Optional. Fill color (default "#B5DFFD").
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#outline}{documentation} of the underlying JS library.
-#'
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+#' \code{strokeLinecap}, etc.).
 #' @export
-#'
 #' @examples
-#' viz_create(projection = "EqualEarth", width = 750) |>
-#' viz_outline(stroke = "#38896F") |>
-#' viz_render()
-#'
-viz_outline   <- function(map, ...) add_layer(map, "outline", ...)
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_outline(fill = "#38896F") |>
+#'   viz_render()
+viz_outline <- function(
+  map,
+  id = NULL,
+  stroke = "none",
+  strokeWidth = 1,
+  fill = "#B5DFFD",
+  ...
+) {
+  add_layer(
+    map,
+    "outline",
+    id = id,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    fill = fill,
+    ...
+  )
+}
 
 #' @title Map title
 #' @description The \code{viz_header} function adds a title above a geoviz map.
@@ -75,28 +109,29 @@ viz_outline   <- function(map, ...) add_layer(map, "outline", ...)
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#'   quiet = TRUE
+#' )
 #' viz_create(projection = "EqualEarth", background = "white") |>
 #'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_header(text = "Hello World", fill = "#38896F" ) |>
+#'   viz_header(text = "Hello World", fill = "#38896F") |>
 #'   viz_render()
 viz_header <- function(
-    map,
-    id = NULL,
-    text = "Map title",
-    fill = "#9e9696",
-    background_fill = "white",
-    background_stroke = "white",
-    background_strokeWidth = 1,
-    dominantBaseline = "central",
-    textAnchor = "middle",
-    lineSpacing = 0,
-    margin = 8,
-    fontSize = 26,
-    fontFamily = NULL,
-    dx = 0,
-    dy = 0,
-    ...
+  map,
+  id = NULL,
+  text = "Map title",
+  fill = "#9e9696",
+  background_fill = "white",
+  background_stroke = "white",
+  background_strokeWidth = 1,
+  dominantBaseline = "central",
+  textAnchor = "middle",
+  lineSpacing = 0,
+  margin = 8,
+  fontSize = 26,
+  fontFamily = NULL,
+  dx = 0,
+  dy = 0,
+  ...
 ) {
   add_layer(
     map,
@@ -168,49 +203,93 @@ viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tile
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#'   quiet = TRUE
+#' )
 #' viz_create(projection = "EqualEarth", background = "white") |>
 #'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_footer(text = "Source, author, note, etc.", fill = "#38896F" ) |>
+#'   viz_footer(text = "Source, author, note, etc.", fill = "#38896F") |>
 #'   viz_render()
 viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e9696", background_fill = "white", background_stroke = "white", background_strokeWidth = 1, dominantBaseline = "central", textAnchor = "middle", lineSpacing = 0, margin = 1, fontSize = 10, fontFamily = NULL, dx = 0, dy = 0, ...) {
   add_layer(map, "footer", id = id, text = text, fill = fill, background_fill = background_fill, background_stroke = background_stroke, background_strokeWidth = background_strokeWidth, dominantBaseline = dominantBaseline, textAnchor = textAnchor, lineSpacing = lineSpacing, margin = margin, fontSize = fontSize, fontFamily = fontFamily, dx = dx, dy = dy, ...)
 }
 
-  #' Add a path layer from spatial data
-  #'
-  #' The \code{viz_path} function generates SVG paths from spatial data.
-  #'
-  #' @param map A \code{geoviz} object created with \code{viz_create}.
-  #' @param data sf object. Spatial dataframe. Use \code{data} to iterate over features.
-  #' @param id character. Optional. ID of the layer.
-  #' @param coords character. Optional. Coordinate system to use (default "geo").
-  #'   Use "svg" if coordinates are already in the SVG plane.
-  #' @param clip logical. Optional. Whether to clip paths with the outline (default TRUE).
-  #' @param fill character or function. Optional. Fill color.
-  #' @param stroke character or function. Optional. Stroke color.
-  #' @param strokeWidth numeric or function. Optional. Stroke width (default 1).
-  #' @param tip logical or function. Optional. Tooltip display (default FALSE).
-  #' @param simplify logical, numeric, vector, or FALSE. Optional. Geometry simplification.
-  #'   TRUE = automatic, numeric = fixed tolerance, vector of length 2 = dynamic simplification.
-  #' @param rewind logical. Optional. Rewind polygon rings (default FALSE).
-  #' @param rewindPole logical. Optional. Special rewinding for geometries crossing poles or dateline.
-  #' @param pointRadius numeric. Optional. Radius for point geometries (default 3).
-  #'
-  #' @return The identifier of the created layer.
-  #' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#path}{documentation} of the underlying JS library.
-  #'
-  #' @export
-  #'
-  #' @examples
-  #' library(sf)
-  #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-  #'
-  #' viz_create(projection = "EqualEarth", width = 750, zoomable = TRUE) |>
-  #'   viz_path(data = world, fill = "#38896F") |>
-  #'   viz_render()
-viz_path   <- function(map, ...) add_layer(map, "path", ...)
-
+#' @title Path layer
+#' @description The \code{viz_path} function draws geometries from a spatial data frame
+#' as SVG paths. This function can be used to display polygons, lines, or points,
+#' and supports styling, simplification, and interaction.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param data object. A spatial data frame. Use \code{data} to enable iteration
+#' (e.g. for styling with functions).
+#' @param datum object. A spatial data frame. Use \code{datum} if no iteration is needed.
+#' @param id character. Optional. Unique layer id.
+#' @param coords character. Optional. Coordinate system (default "geo").
+#' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
+#' @param clip logical. Optional. Whether to clip geometries with the outline (default TRUE).
+#' @param fill character or function. Optional. Fill color. Functions can be used
+#' for choropleth maps or typologies.
+#' @param stroke character or function. Optional. Stroke color. Functions can be used
+#' for choropleth maps or typologies.
+#' @param strokeWidth numeric or function. Optional. Stroke width (default 1).
+#' @param tip logical or function. Optional. Tooltip definition (default FALSE).
+#' Use TRUE to display all fields.
+#' @param simplify numeric, vector, or logical. Optional. Geometry simplification (default FALSE).
+#' TRUE for automatic simplification, numeric for fixed tolerance,
+#' or vector \code{c(k1, k2)} for dynamic simplification depending on zoom level.
+#' @param rewind logical. Optional. Rewind polygon rings to correct winding order (default FALSE).
+#' @param rewindPole logical. Optional. Special rewinding for geometries crossing poles
+#' or the dateline (default FALSE).
+#' @param clipOutline numeric or logical. Optional. Clip geometries near the antimeridian
+#' and poles (default 0). If TRUE, uses 0.01 degrees.
+#' @param r numeric. Optional. Radius for point geometries (default 3).
+#' You can also use the shorthand \code{r}.
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+#' \code{strokeLinecap}, etc.).
+#' @export
+#' @examples
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE)
+#' viz_create(projection = "EqualEarth") |>
+#'   viz_path(data = world, fill = "#38896F", stroke = "white") |>
+#'   viz_render()
+viz_path <- function(
+  map,
+  data = NULL,
+  datum = NULL,
+  id = NULL,
+  coords = "geo",
+  clip = TRUE,
+  fill = NULL,
+  stroke = NULL,
+  strokeWidth = 1,
+  tip = FALSE,
+  simplify = FALSE,
+  rewind = FALSE,
+  rewindPole = FALSE,
+  clipOutline = 0,
+  r = 3,
+  ...
+) {
+  add_layer(
+    map,
+    "path",
+    data = data,
+    datum = datum,
+    id = id,
+    coords = coords,
+    clip = clip,
+    fill = fill,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    tip = tip,
+    simplify = simplify,
+    rewind = rewind,
+    rewindPole = rewindPole,
+    clipOutline = clipOutline,
+    r = r,
+    ...
+  )
+}
 
 #' @title Mercator tiles
 #' @description The \code{viz_tile} function adds raster zoomable tiles to a map
@@ -255,20 +334,23 @@ viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1,
 #' @param strokeLinejoin character or function. Optional. Stroke line join (default "round").
 #' @param ... Additional SVG attributes applied to text elements.
 #' @export
-#' @examples
-#' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
-#' # Example 1
-#' viz_create(projection = "EqualEarth", width = 750, background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_text(pos = c(100, 200), coords = "svg", text = "All maps are lies,\nbut some are useful lies", fill = "#38896F") |>
-#'   viz_render()
-#' # Example 2
-#' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_text(data = world, text = "ISO3", fill = "#38896F") |>
-#'   viz_render()
+# @examples
+# library(sf)
+# world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#                  quiet = TRUE)
+# # Example 1
+# viz_create(projection = "EqualEarth", width = 750, background = "white") |>
+#   viz_path(datum = world, fill = "#f1f3f5") |>
+#   viz_text(pos = c(100, 200),
+#            coords = "svg",
+#            text = "All maps are lies,\nbut some are useful lies",
+#            fill = "#38896F") |>
+#   viz_render()
+# # Example 2
+# viz_create(projection = "EqualEarth", background = "white") |>
+#   viz_path(datum = world, fill = "#f1f3f5") |>
+#   viz_text(data = world, text = "ISO3", fill = "#38896F") |>
+#   viz_render()
 viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NULL, dominantBaseline = NULL, fontFamily = NULL, fontSize = 12, lineSpacing = 0, pos = c(0, 0), dx = 0, dy = 0, sort = NULL, descending = FALSE, coords = "geo", fill = NULL, stroke = NULL, strokeWidth = 1, strokeLinejoin = "round", ...) {
   add_layer(map, "text", id = id, data = data, text = text, textAnchor = textAnchor, dominantBaseline = dominantBaseline, fontFamily = fontFamily, fontSize = fontSize, lineSpacing = lineSpacing, pos = pos, dx = dx, dy = dy, sort = sort, descending = descending, coords = coords, fill = fill, stroke = stroke, strokeWidth = strokeWidth, strokeLinejoin = strokeLinejoin, ...)
 }
@@ -288,10 +370,11 @@ viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NU
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#'   quiet = TRUE
+#' )
 #' viz_create(projection = "Mercator", background = "white") |>
-#'   viz_path(datum = world[world$region == "Africa",], fill = "#f1f3f5") |>
-#'   viz_north(fill = "#38896F" ) |>
+#'   viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+#'   viz_north(fill = "#38896F") |>
 #'   viz_render()
 viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill = "black", fillOpacity = 1, ...) {
   add_layer(map, "north", id = id, pos = pos, scale = scale, rotate = rotate, fill = fill, fillOpacity = fillOpacity, ...)
@@ -315,12 +398,13 @@ viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#'   quiet = TRUE
+#' )
 #' viz_create(projection = "Mercator", background = "white") |>
-#'   viz_path(datum = world[world$region == "Africa",], fill = "#f1f3f5") |>
+#'   viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
 #'   viz_scalebar() |>
 #'   viz_render()
-viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km", label = "", tickSize = 0.2, tickPadding = 5, distance = "", tickValues ="", labelAnchor = "start", ...) {
+viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km", label = "", tickSize = 0.2, tickPadding = 5, distance = "", tickValues = "", labelAnchor = "start", ...) {
   add_layer(map, "scalebar", id = id, pos = pos, translate = translate, units = units, label = label, tickSize = tickSize, tickPadding = tickPadding, distance = distance, tickValues = tickValues, labelAnchor = labelAnchor, ...)
 }
 
@@ -338,16 +422,65 @@ viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km
 #' @examples
 #' library(sf)
 #' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#'   quiet = TRUE
+#' )
 #' viz_create(projection = "Polar", background = "white") |>
 #'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_tissot(fill = "#38896F", fillOpacity = 1 ) |>
+#'   viz_tissot(fill = "#38896F") |>
 #'   viz_render()
 viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white", strokeOpacity = 0.5, ...) {
   add_layer(map, "tissot", id = id, step = step, fill = fill, stroke = stroke, strokeOpacity = strokeOpacity, ...)
 }
 
-#' @title viz_rhumbs
+#' @title Rhumb lines layer
+#' @description The \code{viz_rhumbs} function draws rhumb lines (loxodromes),
+#' similar to those found on old portolan charts. These lines represent paths of constant bearing.
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id.
+#' @param nb numeric. Optional. Number of lines (default 16).
+#' @param pos numeric vector. Optional. Position of the lines (default c(10, 10)).
+#' If \code{coords = "svg"}, values are in SVG coordinates. If \code{coords = "geo"},
+#' values are longitude and latitude.
+#' @param coords character. Optional. Coordinate system for \code{pos} (default "svg").
+#' If \code{coords = "geo"} and the map is zoomable, lines follow zoom interactions.
+#' @param stroke character. Optional. Stroke color (default "#394a70").
+#' @param strokeWidth numeric. Optional. Stroke width (default 1).
+#' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.3).
+#' @param strokeDasharray numeric or vector. Optional. Stroke dash pattern (default c(3, 2)).
+#' @param ... Additional SVG attributes (e.g. \code{opacity}, \code{strokeLinecap}, etc.).
 #' @export
-#'
-viz_rhumbs   <- function(map, ...) add_layer(map, "rhumbs", ...)
+#' @examples
+#' library(sf)
+#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_rhumbs(nb = 32, coords = "geo", pos = c(0, 0), fill = "#38896F") |>
+#'   viz_render()
+viz_rhumbs <- function(
+  map,
+  id = NULL,
+  nb = 16,
+  pos = c(10, 10),
+  coords = "svg",
+  stroke = "#394a70",
+  strokeWidth = 1,
+  strokeOpacity = 0.3,
+  strokeDasharray = c(3, 2),
+  ...
+) {
+  add_layer(
+    map,
+    "rhumbs",
+    id = id,
+    nb = nb,
+    pos = pos,
+    coords = coords,
+    stroke = stroke,
+    strokeWidth = strokeWidth,
+    strokeOpacity = strokeOpacity,
+    strokeDasharray = strokeDasharray,
+    ...
+  )
+}

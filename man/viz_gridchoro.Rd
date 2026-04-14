@@ -2,10 +2,71 @@
 % Please edit documentation in R/thematic_advanced.R
 \name{viz_gridchoro}
 \alias{viz_gridchoro}
-\title{viz_gridchoro}
+\title{Grid-based choropleth layer}
 \usage{
-viz_gridchoro(map, ...)
+viz_gridchoro(
+  map,
+  data = NULL,
+  var,
+  grid = "square",
+  step = 15,
+  level = 1,
+  ratio_factor = 1,
+  coords = "geo",
+  missing = "white",
+  fixmax = NULL,
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+
+\item{var}{character or character vector. Variable(s) used for aggregation.
+If two variables are provided, a ratio is computed.}
+
+\item{grid}{character. Optional. Type of grid used for aggregation (default "square").
+One of: "square", "dot", "diamond", "hexbin", "hex", "triangle",
+"arbitrary", "random", "h3", "h3geo", "hexgeo", "hexbingeo", "square_sph".}
+
+\item{step}{numeric. Optional. Grid resolution (default 15).}
+
+\item{level}{numeric. Optional. Subdivision level for hierarchical grids (default 1).}
+
+\item{ratio_factor}{numeric. Optional. Multiplication factor applied to ratio values (default 1).}
+
+\item{coords}{character. Optional. Coordinate system (default "geo").
+One of: "geo", "svg".}
+
+\item{missing}{character. Optional. Fill color for missing values (default "white").}
+
+\item{fixmax}{numeric. Optional. Maximum value for color scaling. Useful for map comparability.}
+
+\item{legend}{logical. Optional. Whether to display legend (default TRUE).}
+
+\item{leg_type}{character. Optional. Legend type (default "vertical").
+One of: "horizontal", "vertical".}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to choropleth rendering (same as \code{viz_choro})}
 }
 \description{
-viz_gridchoro
+The \code{gridchoro} function builds a choropleth map based on a
+spatial grid aggregation. It first generates a grid from the input spatial data frame,
+aggregates values within each cell, and maps them using a color classification.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_gridchoro(data = cities, var = "population") |>
+  viz_render()
 }

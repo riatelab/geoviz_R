@@ -2,64 +2,76 @@
 % Please edit documentation in R/marks.R
 \name{viz_circle}
 \alias{viz_circle}
-\title{Add circles to the map}
+\title{Circle layer}
 \usage{
-viz_circle(map, ...)
+viz_circle(
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  r = 10,
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  iteration = 200,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = "white",
+  tip = FALSE,
+  ...
+)
 }
 \arguments{
-\item{data}{object
-A GeoJSON FeatureCollection.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{string (optional)
-An identifier for the circle layer.}
+\item{data}{object. Optional. A spatial data frame.}
 
-\item{pos}{numeric vector of length 2 (optional, default = c(0, 0))
-Position [x, y] to display a single circle.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{r}{numeric or string (optional, default = 10)
-Radius of the circles, or the name of a property containing numerical values.}
+\item{pos}{numeric vector. Optional. Position of a single circle (default c(0, 0)).}
 
-\item{k}{numeric (optional, default = 50)
-Radius of the largest circle (or corresponding to the value defined by \code{fixmax}).}
+\item{r}{numeric or character. Optional. Circle radius (default 10).
+Can be a fixed value or the name of a field containing numerical values.}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the circle with radius \code{k}. Useful to ensure comparability between maps.}
+\item{k}{numeric. Optional. Radius of the largest circle (default 50).}
 
-\item{dodge}{logical (optional, default = FALSE)
-Whether to avoid circle overlap.}
+\item{fixmax}{numeric. Optional. Value corresponding to the circle of radius \code{k}.
+Useful to ensure comparability between maps.}
 
-\item{iteration}{numeric (optional, default = 200)
-Number of iterations used to dodge circles.}
+\item{dodge}{logical. Optional. Avoid circle overlap (default FALSE).}
 
-\item{sort}{string or function (optional)
-Field name or function used to sort circles.}
+\item{iteration}{numeric. Optional. Number of iterations for dodging (default 200).}
 
-\item{descending}{logical (optional)
-Sorting order of circles.}
+\item{sort}{character or function. Optional. Field name or function to sort circles.}
 
-\item{coords}{string (optional, default = "geo")
-Use "svg" if coordinates are already expressed in the SVG coordinate system.}
+\item{descending}{logical. Optional. Sorting order.}
 
-\item{fill}{string or function (optional)
-Fill color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.}
 
-\item{stroke}{string or function (optional, default = "white")
-Stroke color. For choropleth maps or typologies, see \code{tool.choro} and \code{tool.typo}.}
+\item{fill}{character or function. Optional. Fill color.}
 
-\item{tip}{logical or function (optional, default = FALSE)
-A function to display the tooltip. Use \code{TRUE} to display all fields.}
+\item{stroke}{character or function. Optional. Stroke color (default "white").}
+
+\item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
+Use TRUE to display all fields.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
+\code{opacity}, \code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_circle} function allows to add circles on a map.
+The \code{viz_circle} function draws circles on the map from a spatial
+data frame or from a single position. It can be used to create proportional symbol maps
+with optional collision avoidance.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_circle(data = world, r = 5, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+                 quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_circle(data = world, r = 30, fill = "#38896F") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#circle}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/circle-mark}{live demo} on ObservableHQ.
 }

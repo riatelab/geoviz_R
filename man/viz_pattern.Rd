@@ -2,67 +2,82 @@
 % Please edit documentation in R/effects.R
 \name{viz_pattern}
 \alias{viz_pattern}
-\title{Add a pattern fill}
+\title{Pattern layer}
 \usage{
-viz_pattern(map, ...)
+viz_pattern(
+  map,
+  id = NULL,
+  spacing = 6,
+  angle = 0,
+  fill = NULL,
+  stroke = "#786d6c",
+  strokeWidth = 2,
+  strokeOpacity = 0.1,
+  fillOpacity = 1,
+  strokeDasharray = NULL,
+  strokeLinecap = "butt",
+  strokeLinejoin = "miter",
+  strokeMiterlimit = 4,
+  opacity = 1,
+  visibility = "visible",
+  display = NULL,
+  pattern = "lines",
+  data = NULL,
+  clipOutline = FALSE,
+  ...
+)
 }
 \arguments{
-\item{id}{string (optional)
-Unique identifier for the pattern.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{spacing}{numeric (optional, default = 6)
-Distance between pattern elements in pixels.}
+\item{id}{character. Optional. Unique pattern id (auto-generated if not provided).}
 
-\item{angle}{numeric (optional, default = 0)
-Rotation angle of the pattern in degrees.}
+\item{spacing}{numeric. Optional. Distance between pattern elements (default 6).}
 
-\item{fill}{character or NULL (optional, default = NULL)
-Fill color of pattern elements.}
+\item{angle}{numeric. Optional. Pattern rotation in degrees (default 0).}
 
-\item{stroke}{character (optional, default = "#786d6c")
-Stroke color of pattern elements.}
+\item{fill}{character or NULL. Optional. Fill color of pattern elements.}
 
-\item{strokeWidth}{numeric (optional, default = 2)
-Stroke width of pattern elements.}
+\item{stroke}{character. Optional. Stroke color (default "#786d6c").}
 
-\item{strokeOpacity}{numeric (optional, default = 0.1)
-Stroke opacity of pattern elements.}
+\item{strokeWidth}{numeric. Optional. Stroke width (default 2).}
 
-\item{fillOpacity}{numeric (optional, default = 1)
-Fill opacity of pattern elements.}
+\item{strokeOpacity}{numeric. Optional. Stroke opacity (default 0.1).}
 
-\item{strokeDasharray}{character or NULL (optional, default = NULL)
-Stroke dash pattern.}
+\item{fillOpacity}{numeric. Optional. Fill opacity (default 1).}
 
-\item{strokeLinecap}{character (optional, default = "butt")
-Line cap style: "butt", "round", "square".}
+\item{strokeDasharray}{character or NULL. Optional. Stroke dash pattern.}
 
-\item{strokeLinejoin}{character (optional, default = "miter")
-Line join style: "miter", "round", "bevel".}
+\item{strokeLinecap}{character. Optional. Line cap style (default "butt").}
 
-\item{strokeMiterlimit}{numeric (optional, default = 4)
-Miter limit for joins.}
+\item{strokeLinejoin}{character. Optional. Line join style (default "miter").}
 
-\item{opacity}{numeric (optional, default = 1)
-Overall opacity of the pattern.}
+\item{strokeMiterlimit}{numeric. Optional. Miter limit (default 4).}
 
-\item{visibility}{character (optional, default = "visible")
-SVG visibility property.}
+\item{opacity}{numeric. Optional. Overall opacity (default 1).}
 
-\item{display}{character or NULL (optional, default = NULL)
-SVG display property.}
+\item{visibility}{character. Optional. SVG visibility property (default "visible").}
 
-\item{pattern}{character (optional, default = "lines")
-Pattern type: "lines", "cross", "dots", "waves", "triangles", "zigzag".}
+\item{display}{character or NULL. Optional. SVG display property.}
 
-\item{data}{object or NULL (optional, default = NULL)
-Optional spatial object to clip the pattern.}
+\item{pattern}{character. Optional. Pattern type (default "lines").
+One of: "lines", "cross", "dots", "waves", "triangles", "zigzag".}
 
-\item{clipOutline}{logical (optional, default = FALSE)
-Whether to clip the pattern to the Earth outline.}
+\item{data}{object or NULL. Optional. Spatial data frame used to clip the pattern.}
+
+\item{clipOutline}{logical. Optional. Clip pattern to Earth outline (default FALSE).}
+
+\item{arg1}{object or SVG element. Pattern configuration object, or an existing
+SVG container when appending to an existing map.}
+
+\item{arg2}{object. Optional. Additional options when using an existing SVG container.}
 }
 \description{
-The \code{viz_pattern} function allows to create SVG patterns such as hatching or other textures.
+The \code{viz_pattern} function creates a reusable SVG pattern
+for thematic or cartographic styling. Patterns can be applied to any SVG shape
+(e.g. paths, rectangles) and support multiple textures such as lines, crosses,
+dots, waves, triangles, or zigzags. Patterns can also be clipped to a spatial
+data frame geometry or to the Earth outline.
 }
 \examples{
 library(sf)
@@ -73,7 +88,4 @@ viz_create(projection = "EqualEarth", width = 750, background = "white") |>
   viz_path(datum = world, fill = "#f1f3f5") |>
   viz_pattern(data = africa, stroke = "#38896F", pattern =  "cross", angle = 45, strokeWidth =  2, strokeOpacity=  0.6) |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#pattern}{documentation} of the underlying JS library.
 }

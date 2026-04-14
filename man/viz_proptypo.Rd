@@ -2,72 +2,92 @@
 % Please edit documentation in R/thematic.R
 \name{viz_proptypo}
 \alias{viz_proptypo}
-\title{Add proportional symbols with typology colors to the map}
+\title{Proportional + typology combined layer}
 \usage{
-viz_proptypo(map, ...)
+viz_proptypo(
+  map,
+  data = NULL,
+  var1,
+  var2,
+  var = NULL,
+  symbol = "circle",
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  width = 30,
+  straight = 0,
+  colors = NULL,
+  order = NULL,
+  alphabetical = TRUE,
+  missing = "white",
+  legend = TRUE,
+  leg1_type = "nested",
+  leg2_type = "vertical",
+  leg1_pos = c(10, 10),
+  leg2_pos = c(10, 10),
+  ...
+)
 }
 \arguments{
-\item{...}{additional parameters (optional)
-Additional graphical parameters (e.g. \code{strokeWidth = 0.3}).}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object
-A spatial dataframe. Use \code{data} to be able to iterate over features.}
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
 
-\item{var1}{string
-Name of the variable containing absolute quantitative values (used for symbol size).}
+\item{var1}{character. Name of the numeric variable used for absolute values
+(driving symbol size).}
 
-\item{var2}{string
-Name of the variable containing qualitative values (used for color categories).}
+\item{var2}{character. Name of the numeric variable used for categorical mapping.}
 
-\item{var}{string (optional)
-If set, the same variable is mapped twice (size and color).}
+\item{var}{character. Optional. If provided, the same variable is used for both
+size and color encoding.}
 
-\item{symbol}{string (optional, default = "circle")
-Choice of the mark to plot: "circle", "spike", or "halfcircle".}
+\item{symbol}{character. Optional. Symbol type (default "circle").
+One of: "circle", "spike", "halfcircle".}
 
-\item{k}{numeric (optional, default = 50)
-Size of the largest symbol.}
+\item{k}{numeric. Optional. Size of the largest symbol (default 50).}
 
-\item{fixmax}{numeric (optional)
-Value corresponding to the symbol with size = \code{k}. Useful to ensure comparability between maps.}
+\item{fixmax}{numeric. Optional. Value corresponding to the symbol of size \code{k}.
+Useful for ensuring comparability between maps.}
 
-\item{dodge}{logical (optional, default = FALSE)
-Whether to avoid symbol overlap (relevant only for circles).}
+\item{dodge}{logical. Optional. Avoid symbol overlap (default FALSE).}
 
-\item{width}{numeric (optional, default = 30)
-Width of the spikes (only relevant if \code{symbol = "spike"}).}
+\item{width}{numeric. Optional. Width of spike symbols (default 30).}
 
-\item{straight}{numeric (optional, default = 0)
-A number between 0 and 1 defining the curve of the spikes (0 = curved, 1 = straight).}
+\item{straight}{numeric. Optional. Curvature of spike symbols (default 0).
+Value between 0 (curved) and 1 (straight).}
 
-\item{colors}{string or vector (optional)
-Array of colors or name of a color palette available in \code{dicopal}.}
+\item{colors}{character or vector. Optional. Color palette or vector of colors
+from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library}
 
-\item{order}{vector (optional)
-Array of qualitative values to define the order of categories.}
+\item{order}{character vector. Optional. Explicit order of categorical values.}
 
-\item{alphabetical}{logical (optional, default = TRUE)
-Whether to order categories alphabetically in the legend.}
+\item{alphabetical}{logical. Optional. Whether to sort categories alphabetically
+(default TRUE).}
 
-\item{missing}{string or logical (optional, default = "white")
-Color for missing data. Use \code{FALSE} to omit.}
+\item{missing}{character or logical. Optional. Color for missing values (default "white").}
 
-\item{legend}{logical (optional, default = TRUE)
-Whether to display legends.}
+\item{legend}{logical. Optional. Whether to display legends (default TRUE).}
 
-\item{leg1_type}{string (optional, default = "nested")
-Style of the proportional symbol legend: "nested" or "separate".}
+\item{leg1_type}{character. Optional. Symbol legend type (default "nested").}
 
-\item{leg2_type}{string (optional, default = "vertical")
-Style of the categorical legend: "vertical" or "horizontal".}
+\item{leg2_type}{character. Optional. Typology legend type (default "vertical").}
 
-\item{leg1_pos}{numeric vector of length 2 (optional, default = c(10, 10))
-Position of the proportional symbol legend [x, y].}
+\item{leg1_pos}{numeric vector. Optional. Position of symbol legend (default c(10, 10)).}
+
+\item{leg2_pos}{numeric vector. Optional. Position of typology legend (default c(10, 10)).}
+
+\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth})}
+
+\item{leg1_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
+are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).}
+
+\item{leg2_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg2_}
+are forwarded to typology legend functions (e.g. \code{leg2_missing_text}, \code{leg2_values_fill}).}
 }
 \description{
-The \code{viz_proptypo} function allows to create maps combining proportional symbols and categorical coloring.
-  Symbols represent absolute values while colors represent categories.
-  The input data must be a spatial dataframe.
+The \code{viz_proptypo} function combines proportional symbols and
+typology mapping on the same spatial data frame. It allows simultaneous encoding
+of two variables using symbol size (quantitative) and categorical coloring.
 }
 \examples{
 library(sf)
@@ -76,7 +96,4 @@ viz_create(width = 750, background = "white", projection = "EqualEarth") |>
   viz_proptypo(data = world, var1 = "pop", var2 = "region",
                symbol = "square", k = 50, colors = "Set3") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#plot/proptypo}{documentation} of the underlying JS library and a \href{https://observablehq.com/@neocartocnrs/prop}{live demo} on ObservableHQ.
 }

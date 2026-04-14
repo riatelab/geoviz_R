@@ -2,34 +2,41 @@
 % Please edit documentation in R/layers.R
 \name{viz_outline}
 \alias{viz_outline}
-\title{Add an Earth outline layer}
+\title{Outline layer}
 \usage{
-viz_outline(map, ...)
+viz_outline(
+  map,
+  id = NULL,
+  stroke = "none",
+  strokeWidth = 1,
+  fill = "#B5DFFD",
+  ...
+)
 }
 \arguments{
-\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{id}{character. Optional. ID of the layer.}
+\item{id}{character. Optional. Unique layer id.}
 
 \item{stroke}{character. Optional. Stroke color (default "none").}
 
 \item{strokeWidth}{numeric. Optional. Stroke width (default 1).}
 
 \item{fill}{character. Optional. Fill color (default "#B5DFFD").}
-}
-\value{
-The identifier of the created layer.
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+\code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_outline} function creates a layer representing the Earth outline
-according to the current projection.
+The \code{viz_outline} function draws the Earth outline according
+to the current map projection. This layer can be used as a background or clipping reference.
 }
 \examples{
-viz_create(projection = "EqualEarth", width = 750) |>
-viz_outline(stroke = "#38896F") |>
-viz_render()
-
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#outline}{documentation} of the underlying JS library.
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+viz_create(projection = "EqualEarth", background = "white") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_outline(fill = "#38896F") |>
+  viz_render()
 }

@@ -2,10 +2,96 @@
 % Please edit documentation in R/thematic_advanced.R
 \name{viz_smooth}
 \alias{viz_smooth}
-\title{viz_smooth}
+\title{Smoothed density (isobands) layer}
 \usage{
-viz_smooth(map, ...)
+viz_smooth(
+  map,
+  data = NULL,
+  var = NULL,
+  id = NULL,
+  nb = 1e+05,
+  bandwidth = NULL,
+  fixbandwidth = FALSE,
+  thresholds = NULL,
+  cellSize = NULL,
+  stroke = "white",
+  strokeOpacity = 0.8,
+  strokeWidth = 0.3,
+  shadow = TRUE,
+  fill = NULL,
+  colors = "RdPu",
+  opacity = NULL,
+  fillOpacity = 0.6,
+  tip = NULL,
+  tipstyle = NULL,
+  coords = "geo",
+  legend = TRUE,
+  leg_pos = c(10, 10),
+  ...
+)
+}
+\arguments{
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+
+\item{var}{character or numeric. Optional. Variable used to weight points.}
+
+\item{id}{character. Optional. Layer identifier.}
+
+\item{nb}{numeric. Optional. Number of sampled points used for density estimation (default 100000).}
+
+\item{bandwidth}{numeric. Optional. Bandwidth used for density computation.}
+
+\item{fixbandwidth}{logical. Optional. Whether to scale bandwidth by zoom factor (default FALSE).}
+
+\item{thresholds}{numeric. Optional. Number of contour levels.}
+
+\item{cellSize}{numeric. Optional. Grid cell size for density computation.}
+
+\item{stroke}{character. Optional. Stroke color (default "white").}
+
+\item{strokeOpacity}{numeric. Optional. Stroke opacity (default 0.8).}
+
+\item{strokeWidth}{numeric. Optional. Stroke width (default 0.3).}
+
+\item{shadow}{logical. Optional. Whether to add a shadow filter (default TRUE).}
+
+\item{fill}{character or function. Optional. Single fill color (used if \code{colors} is not defined).}
+
+\item{colors}{character. Optional. Name of a Dicopal sequential palette (default "RdPu").
+See https://observablehq.com/@neocartocnrs/dicopal-library.}
+
+\item{opacity}{numeric. Optional. Global opacity.}
+
+\item{fillOpacity}{numeric. Optional. Fill opacity for polygons (default 0.6).}
+
+\item{tip}{logical or function. Optional. Tooltip function; if TRUE displays all properties.}
+
+\item{tipstyle}{list. Optional. Custom tooltip styling.}
+
+\item{coords}{character. Optional. Coordinate system (default "geo").
+One of: "geo", "svg".}
+
+\item{legend}{logical. Optional. Whether to display legend (default TRUE).}
+
+\item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+\code{strokeLinecap}, etc.).}
 }
 \description{
-viz_smooth
+The \code{viz_smooth} function creates smoothed density contours
+(isobands) from a set of spatial points. It is a wrapper around contour-based
+density estimation, with styling optimized for smooth thematic visualizations.
+}
+\examples{
+library(sf)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_smooth(data = cities, var = "population") |>
+  viz_render()
 }

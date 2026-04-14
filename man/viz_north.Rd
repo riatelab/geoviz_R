@@ -38,9 +38,10 @@ The \code{viz_north} function adds a north arrow a geoviz map.
 \examples{
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-  quiet = TRUE)
+  quiet = TRUE
+)
 viz_create(projection = "Mercator", background = "white") |>
-  viz_path(datum = world[world$region == "Africa",], fill = "#f1f3f5") |>
-  viz_north(fill = "#38896F" ) |>
+  viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+  viz_north(fill = "#38896F") |>
   viz_render()
 }

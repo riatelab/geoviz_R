@@ -2,53 +2,81 @@
 % Please edit documentation in R/layers.R
 \name{viz_path}
 \alias{viz_path}
-\title{Add a path layer from spatial data}
+\title{Path layer}
 \usage{
-viz_path(map, ...)
+viz_path(
+  map,
+  data = NULL,
+  datum = NULL,
+  id = NULL,
+  coords = "geo",
+  clip = TRUE,
+  fill = NULL,
+  stroke = NULL,
+  strokeWidth = 1,
+  tip = FALSE,
+  simplify = FALSE,
+  rewind = FALSE,
+  rewindPole = FALSE,
+  clipOutline = 0,
+  r = 3,
+  ...
+)
 }
 \arguments{
-\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+\item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{sf object. Spatial dataframe. Use \code{data} to iterate over features.}
+\item{data}{object. A spatial data frame. Use \code{data} to enable iteration
+(e.g. for styling with functions).}
 
-\item{id}{character. Optional. ID of the layer.}
+\item{datum}{object. A spatial data frame. Use \code{datum} if no iteration is needed.}
 
-\item{coords}{character. Optional. Coordinate system to use (default "geo").
-Use "svg" if coordinates are already in the SVG plane.}
+\item{id}{character. Optional. Unique layer id.}
 
-\item{clip}{logical. Optional. Whether to clip paths with the outline (default TRUE).}
+\item{coords}{character. Optional. Coordinate system (default "geo").
+Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.}
 
-\item{fill}{character or function. Optional. Fill color.}
+\item{clip}{logical. Optional. Whether to clip geometries with the outline (default TRUE).}
 
-\item{stroke}{character or function. Optional. Stroke color.}
+\item{fill}{character or function. Optional. Fill color. Functions can be used
+for choropleth maps or typologies.}
+
+\item{stroke}{character or function. Optional. Stroke color. Functions can be used
+for choropleth maps or typologies.}
 
 \item{strokeWidth}{numeric or function. Optional. Stroke width (default 1).}
 
-\item{tip}{logical or function. Optional. Tooltip display (default FALSE).}
+\item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
+Use TRUE to display all fields.}
 
-\item{simplify}{logical, numeric, vector, or FALSE. Optional. Geometry simplification.
-TRUE = automatic, numeric = fixed tolerance, vector of length 2 = dynamic simplification.}
+\item{simplify}{numeric, vector, or logical. Optional. Geometry simplification (default FALSE).
+TRUE for automatic simplification, numeric for fixed tolerance,
+or vector \code{c(k1, k2)} for dynamic simplification depending on zoom level.}
 
-\item{rewind}{logical. Optional. Rewind polygon rings (default FALSE).}
+\item{rewind}{logical. Optional. Rewind polygon rings to correct winding order (default FALSE).}
 
-\item{rewindPole}{logical. Optional. Special rewinding for geometries crossing poles or dateline.}
+\item{rewindPole}{logical. Optional. Special rewinding for geometries crossing poles
+or the dateline (default FALSE).}
 
-\item{pointRadius}{numeric. Optional. Radius for point geometries (default 3).}
-}
-\value{
-The identifier of the created layer.
+\item{clipOutline}{numeric or logical. Optional. Clip geometries near the antimeridian
+and poles (default 0). If TRUE, uses 0.01 degrees.}
+
+\item{r}{numeric. Optional. Radius for point geometries (default 3).
+You can also use the shorthand \code{r}.}
+
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+\code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_path} function generates SVG paths from spatial data.
+The \code{viz_path} function draws geometries from a spatial data frame
+as SVG paths. This function can be used to display polygons, lines, or points,
+and supports styling, simplification, and interaction.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-
-viz_create(projection = "EqualEarth", width = 750, zoomable = TRUE) |>
-  viz_path(data = world, fill = "#38896F") |>
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE)
+viz_create(projection = "EqualEarth") |>
+  viz_path(data = world, fill = "#38896F", stroke = "white") |>
   viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#path}{documentation} of the underlying JS library.
 }
