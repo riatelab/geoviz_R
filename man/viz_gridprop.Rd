@@ -28,7 +28,7 @@ viz_gridprop(
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+\item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
 \item{var}{character. Name of the numeric variable used for aggregation and symbol scaling.}
 
@@ -75,11 +75,17 @@ data frame, then displays aggregated values within each cell using proportional 
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-  quiet = TRUE)
-cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+cities <- st_read(
+  system.file("gpkg/cities.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create(projection = "EqualEarth") |>
-  viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_gridprop(data = cities, var = "population") |>
-  viz_render()
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_gridprop(data = cities, var = "population") |>
+viz_render()
 }

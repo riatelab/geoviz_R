@@ -110,20 +110,20 @@ viz_leg_symbol_horizontal(
 
 \item{...}{Additional SVG attributes.}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_symbol_horizontal} function adds a horizontal legend for symbol layers.
 It displays a set of categorized symbols with optional shapes and ordering.
 The function creates a legend layer in the SVG container and returns the layer identifier.
 }
 \examples{
-viz_create() |>
-  viz_leg_symbol_horizontal(
-    types = c("A", "B", "C"),
-    symbols = c("circle", "square", "triangle"),
-    title = "Symbol legend"
-  ) |>
-  viz_render()
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_symbol_horizontal(pos = c(20, 20)) |>
+viz_render()
 }

@@ -11,6 +11,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| include: false
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 The geoviz package is a partial R implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It allows users to create vector-based, interactive, and zoomable thematic maps. The package is therefore built on the web ecosystem, relying on SVG and the [D3.js](https://d3js.org/) library. As a result, some argument names may be slightly confusing for R users. In addition, the package is designed for relatively lightweight basemaps and is not intended for handling large datasets.
 
 Don't hesitate to have a look at the documentation of the JS library to understand what's under the hood. 
@@ -72,21 +77,28 @@ Now, let's build a world map.
 ```{r, message=FALSE}
 # Data Loading
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+cities <- st_read(
+  system.file("gpkg/cities.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
 ```
 
 *⚠️ The geometries must be in latitude and longitude coordinates, not projected. Use WGS84.*
 
 ```{r}
-# A simple map
 viz_create() |>
-  viz_outline() |>
-  viz_graticule() |>
-  viz_path(data = world) |>
-  viz_path(data = cities) |>
-  viz_header(text = "Hello World") |>
-  viz_render()
+viz_outline() |>
+viz_graticule() |>
+viz_path(data = world) |>
+viz_path(data = cities) |>
+viz_header(text = "Hello World") |>
+viz_render()
 ```
 
 # Styling
@@ -110,14 +122,16 @@ All layers have default parameters, but you can modify them. Here is a list of p
 Let’s take the previous map and customize it to our liking.
 
 ```{r}
-# A simple map
 viz_create() |>
-  viz_outline(fill = "#38896F", fillOpacity = 0.3) |>
-  viz_graticule(stroke = "white", step = 20) |>
-  viz_path(data = world, fill = "white", stroke = "none", fillOpacity = 0.3) |>
-  viz_path(data = cities, pointRadius = 2, stroke = "none", fill = "#38896F") |>
-  viz_header(text = "Hello World", fill = "white", background_fill = "#38896F") |>
-  viz_render()
+viz_outline(fill = "#38896F", fillOpacity = 0.3) |>
+viz_graticule(stroke = "white", step = 20) |>
+viz_path(data = world, fill = "white",
+         stroke = "none", fillOpacity = 0.3) |>
+viz_path(data = cities, pointRadius = 2, 
+         stroke = "none", fill = "#38896F") |>
+viz_header(text = "Hello World", fill = "white", 
+           background_fill = "#38896F") |>
+viz_render()
 ```
 
 # Positioning of elements
@@ -132,9 +146,9 @@ By specifying `coords = "geo"`, you can position an element at precise geographi
 # A simple map
 mumbai <- c(72.88, 19.07)
 viz_create(zoomable = T) |>
-  viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
-  viz_circle(pos = mumbai, coords = "geo", fill = "#38896F", r = 10) |>
-  viz_render()
+viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
+viz_circle(pos = mumbai, coords = "geo", fill = "#38896F", r = 10) |>
+viz_render()
 ```
 
 - **SVG coordinates**
@@ -146,9 +160,9 @@ By specifying `coords = "svg"`, you can also position an element statically dire
 ```{r}
 # A simple map
 viz_create(zoomable = T) |>
-  viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
-  viz_circle(pos = c(300, 100), coords = "svg", fill = "#38896F", r = 10) |>
-  viz_render()
+viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
+viz_circle(pos = c(300, 100), coords = "svg", fill = "#38896F", r = 10) |>
+viz_render()
 ```
 
 # Symbology
@@ -165,25 +179,25 @@ Here is a simple example of a proportional symbol map
 
 ```{r}
 viz_create() |>
-  viz_path(datum = world, fill = "#CCC") |>
-  viz_prop(data = world, var = "pop", fill = "#38896F") |>
-  viz_render()
+viz_path(datum = world, fill = "#CCC") |>
+viz_prop(data = world, var = "pop", fill = "#38896F") |>
+viz_render()
 ```
 
 A choropleth map
 
 ```{r}
 viz_create() |>
-  viz_choro(data = world, var = "gdppc", fill = "#38896F") |>
-  viz_render()
+viz_choro(data = world, var = "gdppc", fill = "#38896F") |>
+viz_render()
 ```
 
 And a typology
 
 ```{r}
 viz_create() |>
-  viz_typo(data = world, var = "region") |>
-  viz_render()
+viz_typo(data = world, var = "region") |>
+viz_render()
 ```
 
 For more details, see the “symbology” page.

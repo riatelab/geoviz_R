@@ -21,7 +21,7 @@ viz_typo(
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+\item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
 \item{var}{character. Name of the categorical variable used for styling.
 You can also use \code{fill} or \code{stroke} directly instead of \code{var}.}
@@ -57,8 +57,18 @@ color palettes, and automatic legend generation.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_typo(data = world, var = "region", colors = "Pastel") |>
-  viz_render()
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(
+  projection = "EqualEarth", background = "white",
+  zoomable = TRUE
+) |>
+viz_typo(
+  data = world, var = "region", colors = "Pastel",
+  leg_title = "Continents"
+) |>
+viz_render()
 }

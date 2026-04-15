@@ -26,12 +26,15 @@
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'                  quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_circle(data = world, r = 30, fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_circle(data = world, r = 30, fill = "#38896F") |>
+#' viz_render()
 viz_circle <- function(
     map,
     data = NULL,
@@ -101,12 +104,15 @@ viz_circle <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'                  quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_square(data = world, side = 60, fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_square(data = world, side = 60, fill = "#38896F") |>
+#' viz_render()
 viz_square <- function(
     map,
     data = NULL,
@@ -177,12 +183,15 @@ viz_square <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'                  quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_square(data = world, height = 100, fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_square(data = world, height = 100, fill = "#38896F") |>
+#' viz_render()
 viz_spike <- function(
     map,
     data = NULL,
@@ -222,8 +231,6 @@ viz_spike <- function(
   )
 }
 
-
-
 #' @title Half-circle layer
 #' @description The \code{viz_halfcircle} function draws rotatable half-circles on the map
 #' from a spatial data frame or from a single position. It can be used to represent values
@@ -237,7 +244,7 @@ viz_spike <- function(
 #' @param angle numeric. Optional. Rotation angle in degrees (default 0).
 #' @param r numeric or character. Optional. Outer radius (default 10).
 #' Can be a fixed value or the name of a field containing numerical values.
-#' @param innerRadius numeric. Optional. Inner radius (default 10).
+#' @param innerRadius numeric. Optional. Inner radius (default 0).
 #' @param cornerRadius numeric. Optional. Corner radius (default 2).
 #' @param k numeric. Optional. Radius of the largest half-circle (default 50).
 #' @param fixmax numeric. Optional. Value corresponding to the half-circle of radius \code{k}.
@@ -255,12 +262,15 @@ viz_spike <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'                  quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
+#' viz_render()
 viz_halfcircle <- function(
     map,
     data = NULL,
@@ -270,7 +280,7 @@ viz_halfcircle <- function(
     dy = 0,
     angle = 0,
     r = 10,
-    innerRadius = 10,
+    innerRadius = 0,
     cornerRadius = 2,
     k = 50,
     fixmax = NULL,
@@ -344,12 +354,15 @@ viz_halfcircle <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'                  quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
+#' viz_render()
 viz_symbol <- function(
     map,
     data = NULL,

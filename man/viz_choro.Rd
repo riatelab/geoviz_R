@@ -23,7 +23,7 @@ viz_choro(
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+\item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
 \item{var}{character. Name of the numeric variable used for classification.
 You can also use \code{fill} or \code{stroke} directly instead of \code{var}.}
@@ -62,8 +62,19 @@ It supports multiple classification methods and automatic legend generation.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_choro(data = world, var = "gdppc", method = "quantile", nb = 5, colors = "PinkYl") |>
-  viz_render()
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(
+  projection = "EqualEarth", background = "white",
+  zoomable = TRUE
+) |>
+viz_choro(
+  data = world, var = "gdppc", method = "quantile", nb = 5,
+  leg_values_round = 0, leg_title = "GDP\nper\ncapita",
+  leg_subtitle = "(in $/inh.)", colors = "PinkYl"
+) |>
+viz_render()
 }

@@ -50,10 +50,14 @@ The layer is rendered in SVG and can be applied globally or to specific geometri
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-aus <- world[world$ISO3 == "AUS",]
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+aus <- world[world$ISO3 == "AUS", ]
+
 viz_create(margin = 5, width = 750) |>
-  viz_shadow(id = "my_shadow_effect", stdDeviation =  2.5, dx = 5, dy = 5) |>
-  viz_path(datum = aus, fill =  "#38896F", filter =  "url(#my_shadow_effect)") |>
-  viz_render()
+viz_shadow(id = "my_shadow_effect", stdDeviation = 2.5, dx = 5, dy = 5) |>
+viz_path(datum = aus, fill = "#38896F", filter = "url(#my_shadow_effect)") |>
+viz_render()
 }

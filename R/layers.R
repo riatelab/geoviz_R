@@ -15,10 +15,16 @@
 #' @param ... Additional SVG attributes (e.g. \code{opacity}, etc.).
 #' @export
 #' @examples
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_graticule(step = c(10, 20), stroke = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_graticule(step = c(10, 20), stroke = "#38896F") |>
+#' viz_render()
 viz_graticule <- function(
   map,
   id = NULL,
@@ -59,12 +65,15 @@ viz_graticule <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_outline(fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_outline(fill = "#38896F") |>
+#' viz_render()
 viz_outline <- function(
   map,
   id = NULL,
@@ -108,13 +117,15 @@ viz_outline <- function(
 #'
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#'
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_header(text = "Hello World", fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_header(text = "Hello World", fill = "#38896F") |>
+#' viz_render()
 viz_header <- function(
   map,
   id = NULL,
@@ -170,13 +181,13 @@ viz_header <- function(
 #' @param opacity numeric. Optional. Layer opacity (default 1).
 #' @param dx numeric. Optional. Horizontal shift (default 0).
 #' @param dy numeric. Optional. Vertical shift (default 0).
-#' @param clipPath object. Optional. GeoJSON used to clip the image (default uses map outline).
+#' @param clipPath a spatial dataframe used to clip the image (default uses map outline).
 #' @param max_canvas_size numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).
 #' @export
 #' @examples
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
-#'   viz_render()
+#' viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
+#' viz_render()
 viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tileSize = 1024, opacity = 1, dx = 0, dy = 0, clipPath = NULL, max_canvas_size = NULL) {
   add_layer(map, "earth", id = id, url = url, resolution = resolution, tileSize = tileSize, opacity = opacity, dx = dx, dy = dy, clipPath = clipPath, max_canvas_size = max_canvas_size)
 }
@@ -202,13 +213,15 @@ viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tile
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#'
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_footer(text = "Source, author, note, etc.", fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_footer(text = "Source, author, note, etc.", fill = "#38896F") |>
+#' viz_render()
 viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e9696", background_fill = "white", background_stroke = "white", background_strokeWidth = 1, dominantBaseline = "central", textAnchor = "middle", lineSpacing = 0, margin = 1, fontSize = 10, fontFamily = NULL, dx = 0, dy = 0, ...) {
   add_layer(map, "footer", id = id, text = text, fill = fill, background_fill = background_fill, background_stroke = background_stroke, background_strokeWidth = background_strokeWidth, dominantBaseline = dominantBaseline, textAnchor = textAnchor, lineSpacing = lineSpacing, margin = margin, fontSize = fontSize, fontFamily = fontFamily, dx = dx, dy = dy, ...)
 }
@@ -218,9 +231,9 @@ viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e96
 #' as SVG paths. This function can be used to display polygons, lines, or points,
 #' and supports styling, simplification, and interaction.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration
+#' @param data A spatial dataframe Use \code{data} to enable iteration
 #' (e.g. for styling with functions).
-#' @param datum object. A spatial data frame. Use \code{datum} if no iteration is needed.
+#' @param datum A spatial dataframe Use \code{datum} if no iteration is needed.
 #' @param id character. Optional. Unique layer id.
 #' @param coords character. Optional. Coordinate system (default "geo").
 #' Use \code{"svg"} if coordinates are already expressed in the SVG coordinate space.
@@ -247,11 +260,14 @@ viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e96
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#38896F", stroke = "white") |>
-#'   viz_render()
+#' viz_path(data = world, fill = "#38896F", stroke = "white") |>
+#' viz_render()
 viz_path <- function(
   map,
   data = NULL,
@@ -299,13 +315,13 @@ viz_path <- function(
 #' @param tileSize numeric. Optional. Tile size (default 512).
 #' @param zoomDelta numeric. Optional. Zoom offset (default 1).
 #' @param opacity numeric. Optional. Tile opacity (default 1).
-#' @param url function or character. Optional. Tile source URL or preset ("openstreetmap","opentopomap","worldterrain","worldimagery","worldStreet","worldphysical","shadedrelief","stamenterrain","cartodbvoyager","stamentoner","stamentonerbackground","stamentonerlite","stamenwatercolor","hillshade","worldocean","natgeo").
+#' @param url function or character. Optional. Tile source URL or preset ("openstreetmap", "opentopomap", "worldterrain", "worldimagery", "worldStreet", "worldphysical", "shadedrelief", "stamenterrain", "cartodbvoyager", "stamentoner", "stamentonerbackground", "stamentonerlite", "stamenwatercolor", "hillshade", "worldocean", "natgeo").
 #' @param clipPath character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").
 #' @export
 #' @examples
 #' viz_create(projection = "mercator") |>
-#'   viz_tile(url = "worldphysical") |>
-#'   viz_render()
+#' viz_tile(url = "worldphysical") |>
+#' viz_render()
 viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1, url = "openstreetmap", clipPath = NULL) {
   add_layer(map, "tile", id = id, tileSize = tileSize, zoomDelta = zoomDelta, opacity = opacity, url = url, clipPath = clipPath)
 }
@@ -334,23 +350,28 @@ viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1,
 #' @param strokeLinejoin character or function. Optional. Stroke line join (default "round").
 #' @param ... Additional SVG attributes applied to text elements.
 #' @export
-# @examples
-# library(sf)
-# world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#                  quiet = TRUE)
-# # Example 1
-# viz_create(projection = "EqualEarth", width = 750, background = "white") |>
-#   viz_path(datum = world, fill = "#f1f3f5") |>
-#   viz_text(pos = c(100, 200),
-#            coords = "svg",
-#            text = "All maps are lies,\nbut some are useful lies",
-#            fill = "#38896F") |>
-#   viz_render()
-# # Example 2
-# viz_create(projection = "EqualEarth", background = "white") |>
-#   viz_path(datum = world, fill = "#f1f3f5") |>
-#   viz_text(data = world, text = "ISO3", fill = "#38896F") |>
-#   viz_render()
+#' @examples
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' # Example 1
+#' viz_create(projection = "EqualEarth", width = 750, background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_text(
+#'   pos = c(100, 200), coords = "svg",
+#'   text = "All maps are lies,\nbut some are useful lies",
+#'   fill = "#38896F"
+#' ) |>
+#' viz_render()
+#'
+#' # Example 2
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_text(data = world, text = "ISO3", fill = "#38896F") |>
+#' viz_render()
 viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NULL, dominantBaseline = NULL, fontFamily = NULL, fontSize = 12, lineSpacing = 0, pos = c(0, 0), dx = 0, dy = 0, sort = NULL, descending = FALSE, coords = "geo", fill = NULL, stroke = NULL, strokeWidth = 1, strokeLinejoin = "round", ...) {
   add_layer(map, "text", id = id, data = data, text = text, textAnchor = textAnchor, dominantBaseline = dominantBaseline, fontFamily = fontFamily, fontSize = fontSize, lineSpacing = lineSpacing, pos = pos, dx = dx, dy = dy, sort = sort, descending = descending, coords = coords, fill = fill, stroke = stroke, strokeWidth = strokeWidth, strokeLinejoin = strokeLinejoin, ...)
 }
@@ -369,13 +390,15 @@ viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NU
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#'
 #' viz_create(projection = "Mercator", background = "white") |>
-#'   viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
-#'   viz_north(fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+#' viz_north(fill = "#38896F") |>
+#' viz_render()
 viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill = "black", fillOpacity = 1, ...) {
   add_layer(map, "north", id = id, pos = pos, scale = scale, rotate = rotate, fill = fill, fillOpacity = fillOpacity, ...)
 }
@@ -397,13 +420,15 @@ viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#'
 #' viz_create(projection = "Mercator", background = "white") |>
-#'   viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
-#'   viz_scalebar() |>
-#'   viz_render()
+#' viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+#' viz_scalebar() |>
+#' viz_render()
 viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km", label = "", tickSize = 0.2, tickPadding = 5, distance = "", tickValues = "", labelAnchor = "start", ...) {
   add_layer(map, "scalebar", id = id, pos = pos, translate = translate, units = units, label = label, tickSize = tickSize, tickPadding = tickPadding, distance = distance, tickValues = tickValues, labelAnchor = labelAnchor, ...)
 }
@@ -421,13 +446,15 @@ viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#'
 #' viz_create(projection = "Polar", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_tissot(fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_tissot(fill = "#38896F") |>
+#' viz_render()
 viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white", strokeOpacity = 0.5, ...) {
   add_layer(map, "tissot", id = id, step = step, fill = fill, stroke = stroke, strokeOpacity = strokeOpacity, ...)
 }
@@ -451,13 +478,18 @@ viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white"
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#'
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_rhumbs(nb = 32, coords = "geo", pos = c(0, 0), fill = "#38896F") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_rhumbs(
+#'   nb = 32, coords = "geo", pos = c(0, 0),
+#'   fill = "#38896F"
+#' ) |>
+#' viz_render()
 viz_rhumbs <- function(
   map,
   id = NULL,

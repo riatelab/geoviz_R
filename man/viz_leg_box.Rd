@@ -96,21 +96,19 @@ viz_leg_box(
 \item{...}{Additional SVG attributes passed to elements (e.g. rect_*, label_*,
 title_*, subtitle_*, note_*, frame_*, text_*).}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_box} function creates a box legend. The function adds a
 legend layer to the map.
 }
 \examples{
-viz_create() |>
-  viz_leg_box(
-    label = "My category",
-    rect_fill = "#377eb8"
-  ) |>
-  viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-box}{documentation} of the underlying JS library.
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_box(pos = c(20, 20), label = "Hello") |>
+viz_render()
 }

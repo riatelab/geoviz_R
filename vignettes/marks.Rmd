@@ -11,6 +11,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| include: false
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 ```{r, echo=FALSE, message=FALSE}
 library(geoviz)
 library(sf)
@@ -30,7 +35,7 @@ You can use this mark to add a circle to the map, giving its x,y position with t
 ```{r}
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
-  viz_circle(r = 10, pos = c(300, 100), fill = "#38896F") |>
+  viz_circle(r = 10, pos = c(300, 100), coords = "svg", fill = "#38896F") |>
   viz_render()
 ```
 
@@ -76,7 +81,7 @@ It’s exactly the same principle for text. You can position text using SVG coor
 ```{r}
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
-  viz_text(text = "Hello Geoviz", fontSize = 30, fontWeight = "bold", pos = c(300, 100), fill = "#38896F") |>
+  viz_text(text = "Hello Geoviz", fontSize = 30, fontWeight = "bold", coords = "svg", pos = c(300, 100), fill = "#38896F") |>
   viz_render()
 ```
 
@@ -127,18 +132,6 @@ viz_create(projection = "mercator", zoomable = T) |>
   viz_render()
 ```
 
-With the parameter `angle`, you can rotate de symbols.
-
-
-```{r}
-afr <- world[world$region == "Africa",]
-viz_create(projection = "mercator", zoomable = T) |>
-  viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
-  viz_halfcircle(data = afr, r = "gdp", fill = "#F13C47", fillOpacity = 0.7) |>
-  viz_halfcircle(data = afr, r = "pop", fill = "#319ABF", fillOpacity = 0.7, angle = 180) |>
-    viz_render()
-```
-
 # Symbol
 
 As the name implies, the function `viz_symbol` is used to draw symbols. The r attribute allows to define the size of the symbol (radius of the circle including the symbol).
@@ -149,5 +142,23 @@ afr <- world[world$region == "Africa",]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
   viz_symbol(data = afr, r = "gdp", k = 60, fill = "#38896F", symbol = "fist") |>
+  viz_render()
+```
+
+# It's very powerfull
+
+With marks and legend, yout can custom your maps as you want. Here find a mushroom map.
+
+```{r}
+afr <- world[world$region == "Africa",]
+viz_create(projection = "mercator", zoomable = T) |>
+  viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_halfcircle(data = afr, r = "gdp", fill = "#F13C47", fillOpacity = 0.7, tip = "GDP: $gdp") |>
+  viz_halfcircle(data = afr, r = "pop", fill = "#319ABF", fillOpacity = 0.7, angle = 180, tip = "POP: $pop") |>
+  viz_leg_mushrooms(top_data = afr$gdp, bottom_data = afr$pop, 
+                    title = "Inequalities\nin Africa",
+                    top_title = "Wealth", bottom_title = "Population",
+                    frame = TRUE, pos = c(20, 200)
+                    ) |>
   viz_render()
 ```

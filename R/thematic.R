@@ -4,7 +4,7 @@
 #' spike, half-circle) sized according to a numeric variable, and optionally includes
 #' a legend.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame.
+#' @param data A spatial dataframe
 #' @param var character. Variable name containing numeric values used for scaling symbols.
 #' @param symbol character. Optional. Symbol type (default "circle").
 #' One of: "circle", "square", "spike", "halfcircle".
@@ -25,11 +25,25 @@
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_path(data = world, fill = "#f1f3f5") |>
-#'   viz_prop(data = world, var = "pop", symbol = "circle", fill = "#38896F") |>
-#'   viz_render()
+#'
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(
+#'   projection = "EqualEarth", background = "white",
+#'   zoomable = TRUE
+#' ) |>
+#' viz_path(
+#'   datum = world, fill = "#f1f3f5"
+#' ) |>
+#' viz_prop(
+#'   data = world, var = "pop", symbol = "circle", fill = "#38896F",
+#'   k = 25, leg_values_round = 0, leg_title = "Population",
+#'   leg_subtitle = "(million inh.)", leg_values_factor = 1 / 1000000
+#' ) |>
+#' viz_render()
 viz_prop <- function(
     map,
     data = NULL,
@@ -69,7 +83,7 @@ viz_prop <- function(
 #' data frame by classifying a numeric variable and mapping it to a color palette.
 #' It supports multiple classification methods and automatic legend generation.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the numeric variable used for classification.
 #' You can also use \code{fill} or \code{stroke} directly instead of \code{var}.
 #' @param method character. Optional. Classification method (default "quantile").
@@ -91,10 +105,21 @@ viz_prop <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_choro(data = world, var = "gdppc", method = "quantile", nb = 5, colors = "PinkYl") |>
-#'   viz_render()
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(
+#'   projection = "EqualEarth", background = "white",
+#'   zoomable = TRUE
+#' ) |>
+#' viz_choro(
+#'   data = world, var = "gdppc", method = "quantile", nb = 5,
+#'   leg_values_round = 0, leg_title = "GDP\nper\ncapita",
+#'   leg_subtitle = "(in $/inh.)", colors = "PinkYl"
+#' ) |>
+#' viz_render()
 viz_choro <- function(
     map,
     data = NULL,
@@ -133,7 +158,7 @@ viz_choro <- function(
 #' data frame by mapping categorical variables to colors. It supports custom ordering,
 #' color palettes, and automatic legend generation.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the categorical variable used for styling.
 #' You can also use \code{fill} or \code{stroke} directly instead of \code{var}.
 #' @param colors character or vector. Optional. Color palette or vector of colors.
@@ -154,10 +179,20 @@ viz_choro <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_typo(data = world, var = "region", colors = "Pastel") |>
-#'   viz_render()
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(
+#'   projection = "EqualEarth", background = "white",
+#'   zoomable = TRUE
+#' ) |>
+#' viz_typo(
+#'   data = world, var = "region", colors = "Pastel",
+#'   leg_title = "Continents"
+#' ) |>
+#' viz_render()
 viz_typo <- function(
     map,
     data = NULL,
@@ -192,7 +227,7 @@ viz_typo <- function(
 #' choropleth mapping on the same spatial data frame. It allows simultaneous encoding
 #' of two numeric variables using symbols (size) and colors (classification).
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var1 character. Name of the numeric variable used for absolute values
 #' (driving symbol size).
 #' @param var2 character. Name of the numeric variable used for relative values
@@ -221,7 +256,7 @@ viz_typo <- function(
 #' @param leg1_type character. Optional. Symbol legend type (default "nested").
 #' @param leg2_type character. Optional. Choropleth legend type (default "vertical").
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
-#' @param leg2_pos numeric vector. Optional. Position of choropleth legend (default c(10, 10)).
+#' @param leg2_pos numeric vector. Optional. Position of choropleth legend.
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}).
 #' @param leg1_* additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
 #' are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).
@@ -230,13 +265,29 @@ viz_typo <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'  viz_path(data = world, fill = "#f1f3f5") |>
-#'  viz_propchoro(data = world, var1 = "pop", var2 = "gdppc",
-#'                 symbol = "circle", k = 50, colors = "Temps") |>
-#'  viz_render()
-
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(
+#'   projection = "EqualEarth", background = "white",
+#'   zoomable = TRUE
+#' ) |>
+#' viz_path(
+#'   datum = world, fill = "#f1f3f5"
+#' ) |>
+#' viz_propchoro(
+#'   data = world, var1 = "pop", k = 25,
+#'   leg1_values_round = 0, var2 = "gdppc",
+#'   leg1_title = "Population",
+#'   leg1_subtitle = "(million inh.)",
+#'   leg1_values_factor = 1 / 1000000,
+#'   leg2_values_round = 0,
+#'   leg2_title = "GDP per inh.",
+#'   colors = "Temps"
+#' ) |>
+#' viz_render()
 viz_propchoro <- function(
     map,
     data = NULL,
@@ -259,7 +310,7 @@ viz_propchoro <- function(
     leg1_type = "nested",
     leg2_type = "vertical",
     leg1_pos = c(10, 10),
-    leg2_pos = c(10, 10),
+    leg2_pos = NULL,
     ...
 ) {
   add_layer(
@@ -296,7 +347,7 @@ viz_propchoro <- function(
 #' typology mapping on the same spatial data frame. It allows simultaneous encoding
 #' of two variables using symbol size (quantitative) and categorical coloring.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var1 character. Name of the numeric variable used for absolute values
 #' (driving symbol size).
 #' @param var2 character. Name of the numeric variable used for categorical mapping.
@@ -321,7 +372,7 @@ viz_propchoro <- function(
 #' @param leg1_type character. Optional. Symbol legend type (default "nested").
 #' @param leg2_type character. Optional. Typology legend type (default "vertical").
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
-#' @param leg2_pos numeric vector. Optional. Position of typology legend (default c(10, 10)).
+#' @param leg2_pos numeric vector. Optional. Position of typology legend.
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth})
 #' @param leg1_* additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
 #' are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).
@@ -330,11 +381,29 @@ viz_propchoro <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_proptypo(data = world, var1 = "pop", var2 = "region",
-#'                symbol = "square", k = 50, colors = "Set3") |>
-#'   viz_render()
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(
+#'   projection = "EqualEarth", background = "white",
+#'   zoomable = TRUE
+#' ) |>
+#' viz_path(
+#'   datum = world, fill = "#f1f3f5"
+#' ) |>
+#' viz_proptypo(
+#'   data = world, var1 = "pop", k = 25,
+#'   leg1_values_round = 0, var2 = "region",
+#'   leg1_title = "Population",
+#'   symbol = "square",
+#'   leg1_subtitle = "(million inh.)",
+#'   leg1_values_factor = 1 / 1000000,
+#'   leg2_title = "Continents",
+#'   colors = "Set3"
+#' ) |>
+#' viz_render()
 viz_proptypo <- function(
     map,
     data = NULL,
@@ -355,7 +424,7 @@ viz_proptypo <- function(
     leg1_type = "nested",
     leg2_type = "vertical",
     leg1_pos = c(10, 10),
-    leg2_pos = c(10, 10),
+    leg2_pos = NULL,
     ...
 ) {
   add_layer(
@@ -389,7 +458,7 @@ viz_proptypo <- function(
 #' map layer from a spatial data frame. It allows mapping qualitative variables
 #' to custom symbols and supports legend generation and ordering.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the categorical variable used for symbol assignment,
 #' or directly the name of a symbol.
 #' @param symbols character vector. Optional. Vector of available symbols.
@@ -404,9 +473,27 @@ viz_proptypo <- function(
 #' are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).
 #' @export
 #' @examples
-#' viz_create(projection = "EqualEarth") |>
-#'   viz_picto(data = world, var = "type") |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(
+#'   projection = "EqualEarth", zoomable = TRUE
+#' ) |>
+#' viz_path(
+#'   datum = world, fill = "#f1f3f5"
+#' ) |>
+#' viz_picto(
+#'   data = world, var = "region",
+#'   symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
+#'   leg_type = "horizontal",
+#'   leg_pos = c(400, 350),
+#'   leg_symbol_spacing = 40,
+#'   fill = "#38896F"
+#' ) |>
+#' viz_render()
 viz_picto <- function(
     map,
     data = NULL,

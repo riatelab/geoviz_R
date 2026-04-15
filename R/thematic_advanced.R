@@ -3,7 +3,7 @@
 #' aggregated on a spatial grid. It first generates a grid from the input spatial
 #' data frame, then displays aggregated values within each cell using proportional symbols.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the numeric variable used for aggregation and symbol scaling.
 #' @param grid character. Optional. Type of grid used for aggregation (default "square").
 #' One of: "square", "dot", "diamond", "hexbin", "hex", "triangle",
@@ -29,13 +29,19 @@
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
-#' cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' cities <- st_read(
+#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_gridprop(data = cities, var = "population") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_gridprop(data = cities, var = "population") |>
+#' viz_render()
 viz_gridprop <- function(
     map,
     data = NULL,
@@ -84,7 +90,7 @@ viz_gridprop <- function(
 #' spatial grid aggregation. It first generates a grid from the input spatial data frame,
 #' aggregates values within each cell, and maps them using a color classification.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character or character vector. Variable(s) used for aggregation.
 #' If two variables are provided, a ratio is computed.
 #' @param grid character. Optional. Type of grid used for aggregation (default "square").
@@ -105,13 +111,19 @@ viz_gridprop <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
-#' cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' cities <- st_read(
+#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_gridchoro(data = cities, var = "population") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_gridchoro(data = cities, var = "population") |>
+#' viz_render()
 viz_gridchoro <- function(
     map,
     data = NULL,
@@ -152,7 +164,7 @@ viz_gridchoro <- function(
 #' (isobands) from a set of spatial points. It is a wrapper around contour-based
 #' density estimation, with styling optimized for smooth thematic visualizations.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character or numeric. Optional. Variable used to weight points.
 #' @param id character. Optional. Layer identifier.
 #' @param nb numeric. Optional. Number of sampled points used for density estimation (default 100000).
@@ -180,13 +192,19 @@ viz_gridchoro <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
-#' cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' cities <- st_read(
+#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_smooth(data = cities, var = "population") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_smooth(data = cities, var = "population") |>
+#' viz_render()
 viz_smooth <- function(
     map,
     data = NULL,
@@ -245,7 +263,7 @@ viz_smooth <- function(
 #' distributing points proportionally to a numeric variable. Each dot represents
 #' a fixed quantity of the underlying data.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param data object. A spatial data frame. Use \code{data} to enable iteration over features.
+#' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the numeric variable used to generate dot density values.
 #' @param stroke character. Optional. Stroke color for dots (default "none").
 #' @param r numeric. Optional. Radius of each dot (default 1).
@@ -259,13 +277,19 @@ viz_smooth <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-#'   quiet = TRUE)
-#' cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' cities <- st_read(
+#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(projection = "EqualEarth") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_dotdensity(data = cities, var = "population") |>
-#'   viz_render()
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_dotdensity(data = cities, var = "population") |>
+#' viz_render()
 viz_dotdensity <- function(
     map,
     data = NULL,

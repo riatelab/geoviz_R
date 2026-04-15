@@ -18,12 +18,16 @@
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' aus <- world[world$ISO3 == "AUS",]
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' aus <- world[world$ISO3 == "AUS", ]
+#'
 #' viz_create(margin = 5, width = 750) |>
-#'   viz_shadow(id = "my_shadow_effect", stdDeviation =  2.5, dx = 5, dy = 5) |>
-#'   viz_path(datum = aus, fill =  "#38896F", filter =  "url(#my_shadow_effect)") |>
-#'   viz_render()
+#' viz_shadow(id = "my_shadow_effect", stdDeviation = 2.5, dx = 5, dy = 5) |>
+#' viz_path(datum = aus, fill = "#38896F", filter = "url(#my_shadow_effect)") |>
+#' viz_render()
 viz_shadow <- function(
     map,
     id = NULL,
@@ -69,12 +73,17 @@ viz_shadow <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
 #'
-#' viz_create(margin = 5, width = 750) |>
-#'   viz_radialGradient(id = "my_gradient", color1 = "#63b0af", color2 = "#428c8b") |>
-#'   viz_path(datum = world, fill = "url(#my_gradient)") |>
-#'   viz_render()
+#' viz_radialGradient(
+#'   id = "my_gradient", color1 = "#63b0af",
+#'   color2 = "#428c8b"
+#' ) |>
+#' viz_path(datum = world, fill = "url(#my_gradient)") |>
+#' viz_render()
 viz_radialGradient <- function(
     map,
     id = NULL,
@@ -109,13 +118,16 @@ viz_radialGradient <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' aus <- world[world$ISO3 == "AUS",]
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' aus <- world[world$ISO3 == "AUS", ]
 #'
 #' viz_create(margin = 5, width = 650) |>
-#'   viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
-#'   viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
-#'   viz_render()
+#' viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
+#' viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
+#' viz_render()
 viz_blur <- function(
     map,
     id = NULL,
@@ -142,13 +154,16 @@ viz_blur <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' aus <- world[world$ISO3 == "AUS",]
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' aus <- world[world$ISO3 == "AUS", ]
 #'
 #' viz_create(margin = 5, width = 750) |>
-#'   viz_clipPath(id = "my_clip", datum = aus) |>
-#'   viz_path(datum = aus, fill = "#38896F", clipPath = "url(#my_clip)") |>
-#'   viz_render()
+#' viz_clipPath(id = "my_clip", datum = aus) |>
+#' viz_path(datum = aus, fill = "#38896F", clipPath = "url(#my_clip)") |>
+#' viz_render()
 viz_clipPath <- function(
     map,
     id = NULL,
@@ -196,14 +211,19 @@ viz_clipPath <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-#' africa <- world[world$region =="Africa",]
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#' africa <- world[world$region == "Africa", ]
 #'
 #' viz_create(projection = "EqualEarth", width = 750, background = "white") |>
-#'   viz_path(datum = world, fill = "#f1f3f5") |>
-#'   viz_pattern(data = africa, stroke = "#38896F", pattern =  "cross", angle = 45, strokeWidth =  2, strokeOpacity=  0.6) |>
-#'   viz_render()
-
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_pattern(
+#'   data = africa, stroke = "#38896F", pattern = "cross",
+#'   angle = 45, strokeWidth = 2, strokeOpacity = 0.6
+#' ) |>
+#' viz_render()
 viz_pattern <- function(
     map,
     id = NULL,
@@ -252,7 +272,7 @@ viz_pattern <- function(
 }
 
 #' @title Sketch layer
-#' @description The \code{viz_sketch} function renders GeoJSON geometries as
+#' @description The \code{viz_sketch} function renders a spatial dataframe as
 #' hand-drawn (sketchy) SVG shapes. It uses SVG filters (feTurbulence and
 #' feDisplacementMap) to simulate a pencil-like rendering style.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
@@ -276,11 +296,15 @@ viz_pattern <- function(
 #' @export
 #' @examples
 #' library(sf)
-#' world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+#'
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
 #' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#'   viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
-#'   viz_render()
-
+#' viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
+#' viz_render()
 viz_sketch <- function(
     map,
     data = NULL,

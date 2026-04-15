@@ -116,19 +116,20 @@ viz_leg_spikes(
 
 \item{...}{Additional SVG attributes.}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_spikes} function adds a legend for spike marks.
 It draws a series of spikes with heights proportional to values.
 The function adds a legend layer to the SVG container.
 }
 \examples{
-viz_create() |>
-  viz_leg_spikes(
-    data = c(10, 100, 1000),
-    title = "Population"
-  ) |>
-  viz_render()
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_spikes(pos = c(20, 20)) |>
+viz_render()
 }

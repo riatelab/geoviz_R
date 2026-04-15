@@ -13,11 +13,15 @@ viz_render(map, elementId = NULL)
 The \code{viz_render} function returns a pretty map in SVG format :-)
 }
 \examples{
-# Create a map
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create() |>
-  viz_outline() |>
-  viz_path(data = world) |>
-  viz_render()
+viz_outline() |>
+viz_path(data = world) |>
+viz_render()
 }

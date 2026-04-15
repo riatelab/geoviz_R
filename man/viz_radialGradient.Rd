@@ -39,10 +39,15 @@ definition and adds it to the SVG defs. It returns a reference usable in SVG sty
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
 
-viz_create(margin = 5, width = 750) |>
-  viz_radialGradient(id = "my_gradient", color1 = "#63b0af", color2 = "#428c8b") |>
-  viz_path(datum = world, fill = "url(#my_gradient)") |>
-  viz_render()
+viz_radialGradient(
+  id = "my_gradient", color1 = "#63b0af",
+  color2 = "#428c8b"
+) |>
+viz_path(datum = world, fill = "url(#my_gradient)") |>
+viz_render()
 }

@@ -17,7 +17,7 @@ viz_leg_choro_vertical(
   rect_fill = "#5d6266",
   rect_stroke = "#303030",
   rect_strokeWidth = 0.1,
-  values_textAnchor = "middle",
+  values_textAnchor = "start",
   values_dx = 5,
   values_dy = 0,
   values_fill = "#363636",
@@ -67,7 +67,7 @@ viz_leg_choro_vertical(
 
 \item{rect_strokeWidth}{numeric. Optional. Stroke width (default 0.1).}
 
-\item{values_textAnchor}{character. Optional. Text anchor (default "middle").}
+\item{values_textAnchor}{character. Optional. Text anchor (default "start").}
 
 \item{values_dx}{numeric. Optional. Horizontal shift (default 5).}
 
@@ -114,22 +114,19 @@ viz_leg_choro_vertical(
 \item{...}{Additional SVG attributes passed to elements (e.g. rect_*, values_*,
 title_*, subtitle_*, note_*, frame_*, text_*).}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_choro_vertical} function creates a vertical legend for
 choropleth layers. The function adds a legend layer to the map.
 }
 \examples{
-viz_create() |>
-  viz_leg_choro_vertical(
-    breaks = c(0, 10, 20, 50, 100),
-    colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
-    title = "Population"
-  ) |>
-  viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-choro-vertical}{documentation} of the underlying JS library.
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_choro_vertical(pos = c(20, 20)) |>
+viz_render()
 }

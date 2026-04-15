@@ -28,17 +28,32 @@ cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = T
 #   viz_path(data = world) |>
 #   viz_exportSVG("test.svg")
 
-viz_create(margin=20, zoomable = T, resize = FALSE, responsive = TRUE) |>
-  viz_path(data = world, tip = T) |>
-  viz_path(data = cities, tip = T) |>
-  viz_gridchoro(data = cities, var = "population", grid = "square") |>
+viz_create(projection = "EqualEarth", background = "white", zoomable = T, control = c(10,10)) |>
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_leg_choro_vertical(pos = c(0, 0)) |>
   viz_render()
+
+
 
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC") |>
   viz_path(data = cities, fill = "black",r = 2) |>
   viz_render()
 
+
+ viz_create(
+   projection = "EqualEarth", zoomable = TRUE
+ ) |>
+ viz_path(
+   datum = world, fill = "#f1f3f5"
+ ) |>
+ viz_picto(
+   data = world, var = "region",
+   symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
+   leg_type = "horizontal", leg_pos = c(400, 350),
+   leg_symbol_spacing = 40, fill = "#38896F"
+ ) |>
+ viz_render()
 
 
 library("htmlwidgets")

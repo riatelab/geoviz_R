@@ -122,19 +122,20 @@ viz_leg_squares(
 
 \item{...}{Additional SVG attributes.}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_squares} function adds a legend for proportional squares.
 It displays squares scaled according to input values, optionally comparable via fixmax.
 The function adds a legend layer to the SVG container.
 }
 \examples{
-viz_create() |>
-  viz_leg_squares(
-    data = c(10, 100, 1000),
-    title = "Surface"
-  ) |>
-  viz_render()
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_squares(pos = c(20, 20)) |>
+viz_render()
 }

@@ -63,11 +63,13 @@ The \code{viz_header} function adds a title above a geoviz map.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
   quiet = TRUE
 )
+
 viz_create(projection = "EqualEarth", background = "white") |>
-  viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_header(text = "Hello World", fill = "#38896F") |>
-  viz_render()
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_header(text = "Hello World", fill = "#38896F") |>
+viz_render()
 }

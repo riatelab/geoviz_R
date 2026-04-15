@@ -12,3 +12,16 @@ viz_save(map, elementId = NULL)
 \description{
 The \code{viz_save} function allows to doawnload the map
 }
+\examples{
+#' library(sf)
+
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create() |>
+viz_outline() |>
+viz_path(data = world) |>
+viz_save()
+}

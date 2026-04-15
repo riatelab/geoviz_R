@@ -57,14 +57,19 @@ viz_sketch(
 \code{strokeLinecap}, etc.).}
 }
 \description{
-The \code{viz_sketch} function renders GeoJSON geometries as
+The \code{viz_sketch} function renders a spatial dataframe as
 hand-drawn (sketchy) SVG shapes. It uses SVG filters (feTurbulence and
 feDisplacementMap) to simulate a pencil-like rendering style.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
-  viz_render()
+viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
+viz_render()
 }

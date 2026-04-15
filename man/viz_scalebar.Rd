@@ -49,11 +49,13 @@ The \code{viz_scalebar} function adds a scalebar on the map.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
   quiet = TRUE
 )
+
 viz_create(projection = "Mercator", background = "white") |>
-  viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
-  viz_scalebar() |>
-  viz_render()
+viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+viz_scalebar() |>
+viz_render()
 }

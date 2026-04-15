@@ -26,10 +26,10 @@ viz_path(
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame. Use \code{data} to enable iteration
+\item{data}{A spatial dataframe Use \code{data} to enable iteration
 (e.g. for styling with functions).}
 
-\item{datum}{object. A spatial data frame. Use \code{datum} if no iteration is needed.}
+\item{datum}{A spatial dataframe Use \code{datum} if no iteration is needed.}
 
 \item{id}{character. Optional. Unique layer id.}
 
@@ -74,9 +74,12 @@ and supports styling, simplification, and interaction.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-  quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create(projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#38896F", stroke = "white") |>
-  viz_render()
+viz_path(data = world, fill = "#38896F", stroke = "white") |>
+viz_render()
 }

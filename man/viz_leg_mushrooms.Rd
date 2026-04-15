@@ -20,7 +20,7 @@ viz_leg_mushrooms(
   top_circle_fill = "none",
   top_circle_stroke = "black",
   top_circle_cornerRadius = 5,
-  top_values_textAnchor = "middle",
+  top_values_textAnchor = "start",
   top_values_dx = 5,
   top_values_dy = 0,
   top_values_factor = 1,
@@ -34,7 +34,7 @@ viz_leg_mushrooms(
   bottom_circle_fill = "none",
   bottom_circle_stroke = "black",
   bottom_circle_cornerRadius = 5,
-  bottom_values_textAnchor = "middle",
+  bottom_values_textAnchor = "start",
   bottom_values_dx = 5,
   bottom_values_dy = 0,
   bottom_values_factor = 1,
@@ -89,7 +89,7 @@ viz_leg_mushrooms(
 
 \item{top_circle_cornerRadius}{numeric. Optional. Corner radius (default 5).}
 
-\item{top_values_textAnchor}{character. Optional. Text anchor (default "middle").}
+\item{top_values_textAnchor}{character. Optional. Text anchor (default "start").}
 
 \item{top_values_dx}{numeric. Optional. X shift (default 5).}
 
@@ -117,7 +117,7 @@ viz_leg_mushrooms(
 
 \item{bottom_circle_cornerRadius}{numeric. Optional. Corner radius (default 5).}
 
-\item{bottom_values_textAnchor}{character. Optional. Text anchor (default "middle").}
+\item{bottom_values_textAnchor}{character. Optional. Text anchor (default "start").}
 
 \item{bottom_values_dx}{numeric. Optional. X shift (default 5).}
 
@@ -161,20 +161,20 @@ viz_leg_mushrooms(
 
 \item{...}{Additional SVG attributes.}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_mushrooms} function adds a legend for proportional half-circles.
 It displays two sets of nested half-circles (top and bottom), each scaled according to input values.
 The function adds a legend layer to the SVG container and returns the layer identifier.
 }
 \examples{
-viz_create() |>
-  viz_leg_mushrooms(
-    top_data = c(10, 100, 1000),
-    bottom_data = c(5, 50, 500),
-    title = "Mushroom legend"
-  ) |>
-  viz_render()
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_mushrooms(pos = c(20, 20)) |>
+viz_render()
 }

@@ -108,22 +108,19 @@ viz_leg_typo_vertical(
 \item{...}{Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 subtitle_*, note_*, frame_*, text_*).}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_typo_vertical} function creates a vertical legend for
 typology layers. The function adds a legend layer to the map.
 }
 \examples{
-viz_create() |>
-  viz_leg_typo_vertical(
-    types = c("A", "B", "C"),
-    colors = c("#e41a1c", "#377eb8", "#4daf4a"),
-    title = "My legend"
-  ) |>
-  viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-typo-vertical}{documentation} of the underlying JS library.
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_typo_vertical(pos = c(20, 20)) |>
+viz_render()
 }

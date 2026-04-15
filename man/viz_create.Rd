@@ -15,7 +15,7 @@ viz_create(
   fontFamily = NULL,
   margin = c(0, 0, 0, 0),
   zoomable = NULL,
-  control = FALSE,
+  control = TRUE,
   warning = TRUE,
   ...
 )
@@ -45,8 +45,8 @@ or c(top, right, bottom, left).}
 \item{zoomable}{logical or numeric or character. Optional. Enables zoom interaction.
 Can define zoom extent or use "versor" for spherical zoom.}
 
-\item{control}{logical or numeric vector. Optional. Adds zoom control buttons and optionally
-defines their position.}
+\item{control}{logical or numeric vector. Optional. Adds zoom control panel and optionally
+defines its position by using a vector of 2 values.}
 
 \item{warning}{logical. Optional. Whether to display warnings on the map (default TRUE).}
 }
@@ -57,8 +57,12 @@ margins, and layout). It is the first step in any map construction workflow.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create(projection = "EqualEarth", zoomable = TRUE) |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 }

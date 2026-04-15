@@ -24,14 +24,14 @@ viz_proptypo(
   leg1_type = "nested",
   leg2_type = "vertical",
   leg1_pos = c(10, 10),
-  leg2_pos = c(10, 10),
+  leg2_pos = NULL,
   ...
 )
 }
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+\item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
 \item{var1}{character. Name of the numeric variable used for absolute values
 (driving symbol size).}
@@ -74,7 +74,7 @@ from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-lib
 
 \item{leg1_pos}{numeric vector. Optional. Position of symbol legend (default c(10, 10)).}
 
-\item{leg2_pos}{numeric vector. Optional. Position of typology legend (default c(10, 10)).}
+\item{leg2_pos}{numeric vector. Optional. Position of typology legend.}
 
 \item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth})}
 
@@ -91,9 +91,27 @@ of two variables using symbol size (quantitative) and categorical coloring.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_proptypo(data = world, var1 = "pop", var2 = "region",
-               symbol = "square", k = 50, colors = "Set3") |>
-  viz_render()
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(
+  projection = "EqualEarth", background = "white",
+  zoomable = TRUE
+) |>
+viz_path(
+  datum = world, fill = "#f1f3f5"
+) |>
+viz_proptypo(
+  data = world, var1 = "pop", k = 25,
+  leg1_values_round = 0, var2 = "region",
+  leg1_title = "Population",
+  symbol = "square",
+  leg1_subtitle = "(million inh.)",
+  leg1_values_factor = 1 / 1000000,
+  leg2_title = "Continents",
+  colors = "Set3"
+) |>
+viz_render()
 }

@@ -119,19 +119,20 @@ viz_leg_circles_nested(
 
 \item{...}{Additional SVG attributes.}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_circles_nested} function adds a legend for nested proportional circles.
 It displays circles with hierarchical/nested visual structure for comparative values.
 The function adds a legend layer to the SVG container.
 }
 \examples{
-viz_create() |>
-  viz_leg_circles_nested(
-    data = c(10, 100, 1000),
-    title = "Population (nested)"
-  ) |>
-  viz_render()
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_circles_nested(pos = c(20, 20)) |>
+viz_render()
 }

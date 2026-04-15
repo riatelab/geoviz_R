@@ -11,6 +11,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| include: false
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 # Preliminary remarks
 
 The projections in geoviz are based on the ecosystem of D3.js. More specifically, they rely on the geographic projection functions implemented in D3, which are originally designed to be used in JavaScript.
@@ -33,36 +38,39 @@ You must therefore always provide a basemap in WGS84. The transformation is perf
 
 For example:
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 library(geoviz)
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
 ```
 
 ```{r}
 viz_create(projection = "Bertin1953") |>
-  viz_outline() |>
-  viz_graticule(stroke = "white") |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 ```
 
 There are many possibilities. For example, you can try "Polar", "EqualEarth", "Airocean", "PolyhedralWaterman", "InterruptedHomolosine", "Berghaus", etc.
 
 ```{r}
 viz_create(projection = "PolyhedralWaterman") |>
-  viz_outline() |>
-  viz_graticule(stroke = "white") |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 ```
 
 ```{r}
 viz_create(projection = "Spilhaus") |>
-  viz_outline() |>
-  viz_graticule(stroke = "white") |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 ```
 
 # Custom projection
@@ -71,12 +79,11 @@ Each projection is a function that transforms the sphere onto a plane. However, 
 
 ```{r}
 viz_create(projection = "EqualEarth.rotate([0,90])") |>
-  viz_outline() |>
-  viz_graticule(stroke = "white") |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 ```
-
 
 # Globe view
 
@@ -84,10 +91,10 @@ If you want to display your layers on a globe, simply choose an orthographic pro
 
 ```{r}
 viz_create(projection = "orthographic", zoomable = "versor") |>
-  viz_outline() |>
-  viz_graticule(stroke = "white") |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 ```
 
 Note that `zoomable = "versor"` works alos wiyh other projections 🤩. Actually, it allows to change the center of the projection. 
@@ -95,8 +102,8 @@ Note that `zoomable = "versor"` works alos wiyh other projections 🤩. Actually
 
 ```{r}
 viz_create(projection = "EqualEarth", zoomable = "versor") |>
-  viz_outline() |>
-  viz_graticule(stroke = "white") |>
-  viz_path(data = world, fill = "#38896F") |>
-  viz_render()
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
 ```

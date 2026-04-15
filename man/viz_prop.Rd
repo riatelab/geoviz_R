@@ -23,7 +23,7 @@ viz_prop(
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame.}
+\item{data}{A spatial dataframe}
 
 \item{var}{character. Variable name containing numeric values used for scaling symbols.}
 
@@ -62,9 +62,23 @@ a legend.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-  viz_path(data = world, fill = "#f1f3f5") |>
-  viz_prop(data = world, var = "pop", symbol = "circle", fill = "#38896F") |>
-  viz_render()
+
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(
+  projection = "EqualEarth", background = "white",
+  zoomable = TRUE
+) |>
+viz_path(
+  datum = world, fill = "#f1f3f5"
+) |>
+viz_prop(
+  data = world, var = "pop", symbol = "circle", fill = "#38896F",
+  k = 25, leg_values_round = 0, leg_title = "Population",
+  leg_subtitle = "(million inh.)", leg_values_factor = 1 / 1000000
+) |>
+viz_render()
 }

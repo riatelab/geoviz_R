@@ -20,11 +20,14 @@ to the map definitions. It returns a reference usable in SVG styling (e.g. \code
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-aus <- world[world$ISO3 == "AUS",]
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+aus <- world[world$ISO3 == "AUS", ]
 
 viz_create(margin = 5, width = 650) |>
-  viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
-  viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
-  viz_render()
+viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
+viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
+viz_render()
 }

@@ -11,6 +11,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| include: false
+knitr::opts_chunk$set(out.width = "100%")
+```
+
 ```{r, echo=FALSE, message=FALSE}
 library(geoviz)
 library(sf)

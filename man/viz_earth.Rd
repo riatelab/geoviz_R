@@ -38,7 +38,7 @@ Increase for sharper rendering (e.g. 2 for Retina, 3 for high-quality export).}
 
 \item{dy}{numeric. Optional. Vertical shift (default 0).}
 
-\item{clipPath}{object. Optional. GeoJSON used to clip the image (default uses map outline).}
+\item{clipPath}{a spatial dataframe used to clip the image (default uses map outline).}
 
 \item{max_canvas_size}{numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).}
 }
@@ -49,6 +49,6 @@ This function is only relevant at the world scale.
 }
 \examples{
 viz_create(projection = "EqualEarth", background = "white") |>
-  viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
-  viz_render()
+viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
+viz_render()
 }

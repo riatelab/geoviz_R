@@ -25,7 +25,7 @@ viz_tile(
 
 \item{opacity}{numeric. Optional. Tile opacity (default 1).}
 
-\item{url}{function or character. Optional. Tile source URL or preset ("openstreetmap","opentopomap","worldterrain","worldimagery","worldStreet","worldphysical","shadedrelief","stamenterrain","cartodbvoyager","stamentoner","stamentonerbackground","stamentonerlite","stamenwatercolor","hillshade","worldocean","natgeo").}
+\item{url}{function or character. Optional. Tile source URL or preset ("openstreetmap", "opentopomap", "worldterrain", "worldimagery", "worldStreet", "worldphysical", "shadedrelief", "stamenterrain", "cartodbvoyager", "stamentoner", "stamentonerbackground", "stamentonerlite", "stamenwatercolor", "hillshade", "worldocean", "natgeo").}
 
 \item{clipPath}{character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").}
 }
@@ -35,6 +35,6 @@ It requires a Mercator projection.
 }
 \examples{
 viz_create(projection = "mercator") |>
-  viz_tile(url = "worldphysical") |>
-  viz_render()
+viz_tile(url = "worldphysical") |>
+viz_render()
 }

@@ -33,8 +33,8 @@ navbar:
           href: articles/projections.html
         - text: "Interactivity"
           href: articles/interactivity.html
-        - text: "Layers"
-          href: articles/layers.html
+        - text: "Layout"
+          href: articles/layout.html
         - text: "Symbology"
           href: articles/symbology.html
         - text: "Symbology (advanced)"

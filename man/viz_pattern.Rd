@@ -81,11 +81,17 @@ data frame geometry or to the Earth outline.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-africa <- world[world$region =="Africa",]
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+africa <- world[world$region == "Africa", ]
 
 viz_create(projection = "EqualEarth", width = 750, background = "white") |>
-  viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_pattern(data = africa, stroke = "#38896F", pattern =  "cross", angle = 45, strokeWidth =  2, strokeOpacity=  0.6) |>
-  viz_render()
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_pattern(
+  data = africa, stroke = "#38896F", pattern = "cross",
+  angle = 45, strokeWidth = 2, strokeOpacity = 0.6
+) |>
+viz_render()
 }

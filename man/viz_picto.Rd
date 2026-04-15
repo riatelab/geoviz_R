@@ -19,7 +19,7 @@ viz_picto(
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
 
-\item{data}{object. A spatial data frame. Use \code{data} to enable iteration over features.}
+\item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
 \item{var}{character. Name of the categorical variable used for symbol assignment,
 or directly the name of a symbol.}
@@ -47,7 +47,25 @@ map layer from a spatial data frame. It allows mapping qualitative variables
 to custom symbols and supports legend generation and ordering.
 }
 \examples{
-viz_create(projection = "EqualEarth") |>
-  viz_picto(data = world, var = "type") |>
-  viz_render()
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(
+  projection = "EqualEarth", zoomable = TRUE
+) |>
+viz_path(
+  datum = world, fill = "#f1f3f5"
+) |>
+viz_picto(
+  data = world, var = "region",
+  symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
+  leg_type = "horizontal",
+  leg_pos = c(400, 350),
+  leg_symbol_spacing = 40,
+  fill = "#38896F"
+) |>
+viz_render()
 }

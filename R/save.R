@@ -5,6 +5,18 @@
 #' @export
 #' @param map a geoviz object create with the \code{viz_create}
 #' @export
+#' @examples
+#' #' library(sf)
+#'
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create() |>
+#' viz_outline() |>
+#' viz_path(data = world) |>
+#' viz_save()
 viz_save <- function(map, elementId = NULL) {
   htmlwidgets::createWidget(
     name = "save",

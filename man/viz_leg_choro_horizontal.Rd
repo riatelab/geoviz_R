@@ -114,22 +114,19 @@ viz_leg_choro_horizontal(
 \item{...}{Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 subtitle_*, note_*, frame_*, text_*).}
 }
-\value{
-The identifier of the created layer.
-}
 \description{
 The \code{viz_leg_choro_horizontal} function creates a horizontal legend for
 choropleth layers. The function adds a legend layer to the map.
 }
 \examples{
-viz_create() |>
-  viz_leg_choro_horizontal(
-    breaks = c(0, 10, 20, 50, 100),
-    colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
-    title = "Population"
-  ) |>
-  viz_render()
-}
-\seealso{
-See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-choro-horizontal}{documentation} of the underlying JS library.
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
+viz_create(projection = "EqualEarth", background = "white") |>
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_leg_choro_horizontal(pos = c(20, 20)) |>
+viz_render()
 }

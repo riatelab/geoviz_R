@@ -33,19 +33,18 @@
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, label_*,
 #' title_*, subtitle_*, note_*, frame_*, text_*).
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-box}{documentation} of the underlying JS library.
-#'
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_box(
-#'     label = "My category",
-#'     rect_fill = "#377eb8"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_box(pos = c(20, 20), label = "Hello") |>
+#' viz_render()
 viz_leg_box <- function(
     map,
     id = NULL,
@@ -150,20 +149,18 @@ viz_leg_box <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-typo-vertical}{documentation} of the underlying JS library.
-#'
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_typo_vertical(
-#'     types = c("A", "B", "C"),
-#'     colors = c("#e41a1c", "#377eb8", "#4daf4a"),
-#'     title = "My legend"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_typo_vertical(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_typo_vertical <- function(
     map,
     id = NULL,
@@ -277,20 +274,18 @@ viz_leg_typo_vertical <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-typo-horizontal}{documentation} of the underlying JS library.
-#'
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_typo_horizontal(
-#'     types = c("A", "B", "C"),
-#'     colors = c("#e41a1c", "#377eb8", "#4daf4a"),
-#'     title = "My legend"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_typo_horizontal(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_typo_horizontal <- function(
     map,
     id = NULL,
@@ -364,138 +359,6 @@ viz_leg_typo_horizontal <- function(
   )
 }
 
-#' Add a vertical choropleth legend
-#'
-#' The \code{viz_leg_choro_vertical} function creates a vertical legend for
-#' choropleth layers. The function adds a legend layer to the map.
-#'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
-#' @param id character. Optional. ID of the layer.
-#' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
-#' @param gap numeric. Optional. Gap between elements (default 2).
-#' @param breaks numeric vector. Optional. Break values (default c(1, 2, 3, 4, 5)).
-#' @param colors character vector. Optional. Colors (default c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d")).
-#' @param rect_width numeric. Optional. Width of the boxes (default 25).
-#' @param rect_height numeric. Optional. Height of the boxes (default 17).
-#' @param rect_spacing numeric. Optional. Spacing between boxes (default 0).
-#' @param rect_fill character. Optional. Box fill color (default "#5d6266").
-#' @param rect_stroke character. Optional. Stroke color (default "#303030").
-#' @param rect_strokeWidth numeric. Optional. Stroke width (default 0.1).
-#' @param values_textAnchor character. Optional. Text anchor (default "middle").
-#' @param values_dx numeric. Optional. Horizontal shift (default 5).
-#' @param values_dy numeric. Optional. Vertical shift (default 0).
-#' @param values_fill character. Optional. Text color (default "#363636").
-#' @param values_fontSize numeric. Optional. Font size (default 10).
-#' @param values_factor numeric. Optional. Multiplication factor for displayed values (default 1).
-#' @param values_decimal character. Optional. Decimal separator (default ".").
-#' @param values_thousands character. Optional. Thousands separator (default " ").
-#' @param title character. Optional. Legend title (default "Legend").
-#' @param title_fill character. Optional. Title color (default "#363636").
-#' @param title_fontSize numeric. Optional. Title font size (default 16).
-#' @param subtitle character. Optional. Subtitle of the legend (default "").
-#' @param subtitle_fill character. Optional. Subtitle color (default "#363636").
-#' @param subtitle_fontSize numeric. Optional. Subtitle font size (default 12).
-#' @param note character. Optional. Note displayed above the legend (default "").
-#' @param note_fill character. Optional. Note color (default "#363636").
-#' @param note_fontSize numeric. Optional. Note font size (default 10).
-#' @param frame logical. Optional. Draw a frame around the legend (default FALSE).
-#' @param frame_margin numeric. Optional. Frame margin (default 15).
-#' @param frame_fill character. Optional. Frame fill color (default "white").
-#' @param frame_stroke character. Optional. Frame stroke color (default "black").
-#' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
-#' @param ... Additional SVG attributes passed to elements (e.g. rect_*, values_*,
-#' title_*, subtitle_*, note_*, frame_*, text_*).
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-choro-vertical}{documentation} of the underlying JS library.
-#'
-#' @export
-#'
-#' @examples
-#' viz_create() |>
-#'   viz_leg_choro_vertical(
-#'     breaks = c(0, 10, 20, 50, 100),
-#'     colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
-#'     title = "Population"
-#'   ) |>
-#'   viz_render()
-viz_leg_choro_vertical <- function(
-    map,
-    id = NULL,
-    pos = c(0, 0),
-    gap = 2,
-    breaks = c(1, 2, 3, 4, 5),
-    colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
-    rect_width = 25,
-    rect_height = 17,
-    rect_spacing = 0,
-    rect_fill = "#5d6266",
-    rect_stroke = "#303030",
-    rect_strokeWidth = 0.1,
-    values_textAnchor = "middle",
-    values_dx = 5,
-    values_dy = 0,
-    values_fill = "#363636",
-    values_fontSize = 10,
-    values_factor = 1,
-    values_decimal = ".",
-    values_thousands = " ",
-    title = "Legend",
-    title_fill = "#363636",
-    title_fontSize = 16,
-    subtitle = "",
-    subtitle_fill = "#363636",
-    subtitle_fontSize = 12,
-    note = "",
-    note_fill = "#363636",
-    note_fontSize = 10,
-    frame = FALSE,
-    frame_margin = 15,
-    frame_fill = "white",
-    frame_stroke = "black",
-    frame_fillOpacity = 0.5,
-    ...
-) {
-  add_layer(
-    map,
-    "leg_choro_vertical",
-    id = id,
-    pos = pos,
-    gap = gap,
-    breaks = breaks,
-    colors = colors,
-    rect_width = rect_width,
-    rect_height = rect_height,
-    rect_spacing = rect_spacing,
-    rect_fill = rect_fill,
-    rect_stroke = rect_stroke,
-    rect_strokeWidth = rect_strokeWidth,
-    values_textAnchor = values_textAnchor,
-    values_dx = values_dx,
-    values_dy = values_dy,
-    values_fill = values_fill,
-    values_fontSize = values_fontSize,
-    values_factor = values_factor,
-    values_decimal = values_decimal,
-    values_thousands = values_thousands,
-    title = title,
-    title_fill = title_fill,
-    title_fontSize = title_fontSize,
-    subtitle = subtitle,
-    subtitle_fill = subtitle_fill,
-    subtitle_fontSize = subtitle_fontSize,
-    note = note,
-    note_fill = note_fill,
-    note_fontSize = note_fontSize,
-    frame = frame,
-    frame_margin = frame_margin,
-    frame_fill = frame_fill,
-    frame_stroke = frame_stroke,
-    frame_fillOpacity = frame_fillOpacity,
-    ...
-  )
-}
-
 #' Add a horizontal choropleth legend
 #'
 #' The \code{viz_leg_choro_horizontal} function creates a horizontal legend for
@@ -537,20 +400,18 @@ viz_leg_choro_vertical <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-choro-horizontal}{documentation} of the underlying JS library.
-#'
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_choro_horizontal(
-#'     breaks = c(0, 10, 20, 50, 100),
-#'     colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
-#'     title = "Population"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_choro_horizontal(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_choro_horizontal <- function(
     map,
     id = NULL,
@@ -651,20 +512,18 @@ viz_leg_choro_horizontal <- function(
 #' @param reverse logical. Optional. Reverse the order of colors (default FALSE).
 #' @param frame logical. Optional. Draw a frame around the legend (default FALSE).
 #' @param ... Additional SVG attributes passed to elements.
-#'
-#' @return The identifier of the created layer.
-#' @seealso See all parameters in the \href{https://riatelab.github.io/geoviz/global.html#leg-gradient-vertical}{documentation} of the underlying JS library.
-#'
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_gradient_vertical(
-#'     colors = c("#fee5d9", "#fb6a4a", "#cb181d"),
-#'     text_low = "Low",
-#'     text_high = "High"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_gradient_vertical(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_gradient_vertical <- function(
     map,
     id = NULL,
@@ -748,17 +607,18 @@ viz_leg_gradient_vertical <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_spikes(
-#'     data = c(10, 100, 1000),
-#'     title = "Population"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_spikes(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_spikes <- function(
     map,
     id = NULL,
@@ -882,17 +742,18 @@ viz_leg_spikes <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_circles(
-#'     data = c(10, 100, 1000),
-#'     title = "Population"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_circles(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_circles <- function(
     map,
     id = NULL,
@@ -976,8 +837,6 @@ viz_leg_circles <- function(
   )
 }
 
-
-
 #' Add a nested proportional circles legend
 #'
 #' The \code{viz_leg_circles_nested} function adds a legend for nested proportional circles.
@@ -1021,17 +880,18 @@ viz_leg_circles <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_circles_nested(
-#'     data = c(10, 100, 1000),
-#'     title = "Population (nested)"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_circles_nested(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_circles_nested <- function(
     map,
     id = NULL,
@@ -1157,17 +1017,18 @@ viz_leg_circles_nested <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_squares(
-#'     data = c(10, 100, 1000),
-#'     title = "Surface"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_squares(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_squares <- function(
     map,
     id = NULL,
@@ -1265,16 +1126,13 @@ viz_leg_squares <- function(
 #' @param k numeric. Optional. Side length of largest square (default 50).
 #' @param fixmax numeric. Optional. Value mapped to side k.
 #' @param nb numeric. Optional. Number of squares (default 4).
-#'
 #' @param square_fill character. Optional. Fill color (default "none").
 #' @param square_stroke character. Optional. Stroke color (default "#363636").
 #' @param square_spacing numeric. Optional. Spacing between squares (default 5).
-#'
 #' @param line_stroke character. Optional. Line stroke color (default "#363636").
 #' @param line_strokeDasharray character. Optional. Dash pattern (default "1").
 #' @param line_strokeWidth numeric. Optional. Line width (default 0.7).
 #' @param line_length numeric. Optional. Line length (default 10).
-#'
 #' @param values_textAnchor character. Optional. Text anchor (default "start").
 #' @param values_dx numeric. Optional. X shift (default 5).
 #' @param values_dy numeric. Optional. Y shift (default 0).
@@ -1283,37 +1141,33 @@ viz_leg_squares <- function(
 #' @param values_factor numeric. Optional. Scaling factor (default 1).
 #' @param values_decimal character. Optional. Decimal separator (default ".").
 #' @param values_thousands character. Optional. Thousands separator (default " ").
-#'
 #' @param title character. Optional. Title (default "").
 #' @param title_fill character. Optional. Title color (default "#363636").
 #' @param title_fontSize numeric. Optional. Title size (default 16).
-#'
 #' @param subtitle character. Optional. Subtitle (default "").
 #' @param subtitle_fill character. Optional. Subtitle color (default "#363636").
 #' @param subtitle_fontSize numeric. Optional. Subtitle size (default 12).
-#'
 #' @param note character. Optional. Note (default "").
 #' @param note_fill character. Optional. Note color (default "#363636").
 #' @param note_fontSize numeric. Optional. Note size (default 10).
-#'
 #' @param frame logical. Optional. Draw frame (default FALSE).
 #' @param frame_margin numeric. Optional. Frame margin (default 15).
 #' @param frame_fill character. Optional. Frame fill (default "white").
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
-#'
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_squares_nested(
-#'     data = c(10, 100, 1000),
-#'     title = "Surface"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_squares_nested(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_squares_nested <- function(
     map,
     id = NULL,
@@ -1407,12 +1261,10 @@ viz_leg_squares_nested <- function(
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
-#'
 #' @param line_stroke character. Optional. Line stroke color (default "#363636").
 #' @param line_strokeDasharray character. Optional. Dash pattern (default "1").
 #' @param line_strokeWidth numeric. Optional. Line width (default 0.7).
 #' @param line_length numeric. Optional. Line length (default 10).
-#'
 #' @param top_data numeric vector. Optional. Input values for top half-circles.
 #' @param top_k numeric. Optional. Radius of largest top half-circle (default 50).
 #' @param top_fixmax numeric. Optional. Value mapped to radius k.
@@ -1420,16 +1272,13 @@ viz_leg_squares_nested <- function(
 #' @param top_circle_fill character. Optional. Fill color (default "none").
 #' @param top_circle_stroke character. Optional. Stroke color (default "black").
 #' @param top_circle_cornerRadius numeric. Optional. Corner radius (default 5).
-#'
-#' @param top_values_textAnchor character. Optional. Text anchor (default "middle").
+#' @param top_values_textAnchor character. Optional. Text anchor (default "start").
 #' @param top_values_dx numeric. Optional. X shift (default 5).
 #' @param top_values_dy numeric. Optional. Y shift (default 0).
 #' @param top_values_factor numeric. Optional. Scaling factor (default 1).
 #' @param top_values_decimal character. Optional. Decimal separator (default ".").
 #' @param top_values_thousands character. Optional. Thousands separator (default " ").
-#'
 #' @param top_title character. Optional. Title of top legend part (default "top_title").
-#'
 #' @param bottom_data numeric vector. Optional. Input values for bottom half-circles.
 #' @param bottom_k numeric. Optional. Radius of largest bottom half-circle (default 50).
 #' @param bottom_fixmax numeric. Optional. Value mapped to radius k.
@@ -1437,47 +1286,40 @@ viz_leg_squares_nested <- function(
 #' @param bottom_circle_fill character. Optional. Fill color (default "none").
 #' @param bottom_circle_stroke character. Optional. Stroke color (default "black").
 #' @param bottom_circle_cornerRadius numeric. Optional. Corner radius (default 5).
-#'
-#' @param bottom_values_textAnchor character. Optional. Text anchor (default "middle").
+#' @param bottom_values_textAnchor character. Optional. Text anchor (default "start").
 #' @param bottom_values_dx numeric. Optional. X shift (default 5).
 #' @param bottom_values_dy numeric. Optional. Y shift (default 0).
 #' @param bottom_values_factor numeric. Optional. Scaling factor (default 1).
 #' @param bottom_values_decimal character. Optional. Decimal separator (default ".").
 #' @param bottom_values_thousands character. Optional. Thousands separator (default " ").
-#'
 #' @param bottom_title character. Optional. Title of bottom legend part (default "bottom_title").
-#'
 #' @param title character. Optional. Legend title (default "Legend").
 #' @param title_fill character. Optional. Title color (default "#363636").
 #' @param title_fontSize numeric. Optional. Title size (default 16).
-#'
 #' @param subtitle character. Optional. Subtitle (default "").
 #' @param subtitle_fill character. Optional. Subtitle color (default "#363636").
 #' @param subtitle_fontSize numeric. Optional. Subtitle size (default 12).
-#'
 #' @param note character. Optional. Note (default "").
 #' @param note_fill character. Optional. Note color (default "#363636").
 #' @param note_fontSize numeric. Optional. Note size (default 10).
-#'
 #' @param frame logical. Optional. Draw frame (default FALSE).
 #' @param frame_margin numeric. Optional. Frame margin (default 15).
 #' @param frame_fill character. Optional. Frame fill (default "white").
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
-#'
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_mushrooms(
-#'     top_data = c(10, 100, 1000),
-#'     bottom_data = c(5, 50, 500),
-#'     title = "Mushroom legend"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_mushrooms(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_mushrooms <- function(
     map,
     id = NULL,
@@ -1487,7 +1329,6 @@ viz_leg_mushrooms <- function(
     line_strokeDasharray = "1",
     line_strokeWidth = 0.7,
     line_length = 10,
-
     top_data = NULL,
     top_k = 50,
     top_fixmax = NULL,
@@ -1495,14 +1336,13 @@ viz_leg_mushrooms <- function(
     top_circle_fill = "none",
     top_circle_stroke = "black",
     top_circle_cornerRadius = 5,
-    top_values_textAnchor = "middle",
+    top_values_textAnchor = "start",
     top_values_dx = 5,
     top_values_dy = 0,
     top_values_factor = 1,
     top_values_decimal = ".",
     top_values_thousands = " ",
     top_title = "top_title",
-
     bottom_data = NULL,
     bottom_k = 50,
     bottom_fixmax = NULL,
@@ -1510,14 +1350,13 @@ viz_leg_mushrooms <- function(
     bottom_circle_fill = "none",
     bottom_circle_stroke = "black",
     bottom_circle_cornerRadius = 5,
-    bottom_values_textAnchor = "middle",
+    bottom_values_textAnchor = "start",
     bottom_values_dx = 5,
     bottom_values_dy = 0,
     bottom_values_factor = 1,
     bottom_values_decimal = ".",
     bottom_values_thousands = " ",
     bottom_title = "bottom_title",
-
     title = "Legend",
     title_fill = "#363636",
     title_fontSize = 16,
@@ -1540,12 +1379,10 @@ viz_leg_mushrooms <- function(
     id = id,
     pos = pos,
     gap = gap,
-
     line_stroke = line_stroke,
     line_strokeDasharray = line_strokeDasharray,
     line_strokeWidth = line_strokeWidth,
     line_length = line_length,
-
     top_data = top_data,
     top_k = top_k,
     top_fixmax = top_fixmax,
@@ -1560,7 +1397,6 @@ viz_leg_mushrooms <- function(
     top_values_decimal = top_values_decimal,
     top_values_thousands = top_values_thousands,
     top_title = top_title,
-
     bottom_data = bottom_data,
     bottom_k = bottom_k,
     bottom_fixmax = bottom_fixmax,
@@ -1575,7 +1411,6 @@ viz_leg_mushrooms <- function(
     bottom_values_decimal = bottom_values_decimal,
     bottom_values_thousands = bottom_values_thousands,
     bottom_title = bottom_title,
-
     title = title,
     subtitle = subtitle,
     note = note,
@@ -1604,83 +1439,69 @@ viz_leg_mushrooms <- function(
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
-#'
 #' @param types character vector. Optional. Category labels (default c("A","B","C","D")).
 #' @param symbols character vector. Optional. Symbol shapes (default c("circle","square","triangle","pentagon")).
 #' @param alphabetical logical. Optional. Sort types alphabetically (default TRUE).
-#'
 #' @param symbol_size numeric. Optional. Symbol size (default 10).
 #' @param symbol_rotate numeric. Optional. Rotation angle (default 0).
 #' @param symbol_spacing numeric. Optional. Spacing between symbols (default 4).
-#'
 #' @param symbol_fill character. Optional. Symbol fill color (default "#2e2e2e").
 #' @param symbol_stroke character. Optional. Symbol stroke color (default "#303030").
 #' @param symbol_strokeWidth numeric. Optional. Symbol stroke width (default 0.5).
-#'
 #' @param symbol_background logical. Optional. Add background circle (default FALSE).
-#'
 #' @param values_textAnchor character. Optional. Text anchor (default "middle").
 #' @param values_dx numeric. Optional. X shift (default 5).
 #' @param values_dy numeric. Optional. Y shift (default 0).
 #' @param values_fill character. Optional. Text color (default "#363636").
 #' @param values_fontSize numeric. Optional. Font size (default 10).
-#'
 #' @param title character. Optional. Legend title (default "Legend").
 #' @param title_fill character. Optional. Title color (default "#363636").
 #' @param title_fontSize numeric. Optional. Title size (default 16).
-#'
 #' @param subtitle character. Optional. Subtitle (default "").
 #' @param subtitle_fill character. Optional. Subtitle color (default "#363636").
 #' @param subtitle_fontSize numeric. Optional. Subtitle size (default 12).
-#'
 #' @param note character. Optional. Note (default "").
 #' @param note_fill character. Optional. Note color (default "#363636").
 #' @param note_fontSize numeric. Optional. Note size (default 10).
-#'
 #' @param frame logical. Optional. Draw frame (default FALSE).
 #' @param frame_margin numeric. Optional. Frame margin (default 15).
 #' @param frame_fill character. Optional. Frame fill (default "white").
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
-#'
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_symbol_vertical(
-#'     types = c("A", "B", "C"),
-#'     symbols = c("circle", "square", "triangle"),
-#'     title = "Symbol legend"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#'
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_symbol_vertical(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_symbol_vertical <- function(
     map,
     id = NULL,
     pos = c(0, 0),
     gap = 2,
-
     types = c("A", "B", "C", "D"),
     symbols = c("circle", "square", "triangle", "pentagon"),
     alphabetical = TRUE,
-
     symbol_size = 10,
     symbol_rotate = 0,
     symbol_spacing = 4,
-
     symbol_fill = "#2e2e2e",
     symbol_stroke = "#303030",
     symbol_strokeWidth = 0.5,
     symbol_background = FALSE,
-
     values_textAnchor = "middle",
     values_dx = 5,
     values_dy = 0,
     values_fill = "#363636",
     values_fontSize = 10,
-
     title = "Legend",
     title_fill = "#363636",
     title_fontSize = 16,
@@ -1690,7 +1511,6 @@ viz_leg_symbol_vertical <- function(
     note = "",
     note_fill = "#363636",
     note_fontSize = 10,
-
     frame = FALSE,
     frame_margin = 15,
     frame_fill = "white",
@@ -1704,37 +1524,30 @@ viz_leg_symbol_vertical <- function(
     id = id,
     pos = pos,
     gap = gap,
-
     types = types,
     symbols = symbols,
     alphabetical = alphabetical,
-
     symbol_size = symbol_size,
     symbol_rotate = symbol_rotate,
     symbol_spacing = symbol_spacing,
-
     symbol_fill = symbol_fill,
     symbol_stroke = symbol_stroke,
     symbol_strokeWidth = symbol_strokeWidth,
     symbol_background = symbol_background,
-
     values_textAnchor = values_textAnchor,
     values_dx = values_dx,
     values_dy = values_dy,
     values_fill = values_fill,
     values_fontSize = values_fontSize,
-
     title = title,
     subtitle = subtitle,
     note = note,
-
     title_fill = title_fill,
     title_fontSize = title_fontSize,
     subtitle_fill = subtitle_fill,
     subtitle_fontSize = subtitle_fontSize,
     note_fill = note_fill,
     note_fontSize = note_fontSize,
-
     frame = frame,
     frame_margin = frame_margin,
     frame_fill = frame_fill,
@@ -1754,83 +1567,68 @@ viz_leg_symbol_vertical <- function(
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
-#'
 #' @param types character vector. Optional. Category labels (default c("A","B","C","D")).
 #' @param symbols character vector. Optional. Symbol shapes (default c("circle","square","triangle","pentagon")).
 #' @param alphabetical logical. Optional. Sort types alphabetically (default TRUE).
-#'
 #' @param symbol_size numeric. Optional. Symbol size (default 10).
 #' @param symbol_rotate numeric. Optional. Rotation angle (default 0).
 #' @param symbol_spacing numeric. Optional. Spacing between symbols (default 4).
-#'
 #' @param symbol_fill character. Optional. Symbol fill color (default "#2e2e2e").
 #' @param symbol_stroke character. Optional. Symbol stroke color (default "#303030").
 #' @param symbol_strokeWidth numeric. Optional. Symbol stroke width (default 0.5).
-#'
 #' @param symbol_background logical. Optional. Add background circle (default FALSE).
-#'
 #' @param values_textAnchor character. Optional. Text anchor (default "middle").
 #' @param values_dx numeric. Optional. X shift (default 0).
 #' @param values_dy numeric. Optional. Y shift (default 5).
 #' @param values_fill character. Optional. Text color (default "#363636").
 #' @param values_fontSize numeric. Optional. Font size (default 10).
-#'
 #' @param title character. Optional. Legend title (default "Legend").
 #' @param title_fill character. Optional. Title color (default "#363636").
 #' @param title_fontSize numeric. Optional. Title size (default 16).
-#'
 #' @param subtitle character. Optional. Subtitle (default "").
 #' @param subtitle_fill character. Optional. Subtitle color (default "#363636").
 #' @param subtitle_fontSize numeric. Optional. Subtitle size (default 12).
-#'
 #' @param note character. Optional. Note (default "").
 #' @param note_fill character. Optional. Note color (default "#363636").
 #' @param note_fontSize numeric. Optional. Note size (default 10).
-#'
 #' @param frame logical. Optional. Draw frame (default FALSE).
 #' @param frame_margin numeric. Optional. Frame margin (default 15).
 #' @param frame_fill character. Optional. Frame fill (default "white").
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
-#'
 #' @param ... Additional SVG attributes.
-#'
-#' @return The identifier of the created layer.
 #' @export
-#'
 #' @examples
-#' viz_create() |>
-#'   viz_leg_symbol_horizontal(
-#'     types = c("A", "B", "C"),
-#'     symbols = c("circle", "square", "triangle"),
-#'     title = "Symbol legend"
-#'   ) |>
-#'   viz_render()
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_symbol_horizontal(pos = c(20, 20)) |>
+#' viz_render()
 viz_leg_symbol_horizontal <- function(
     map,
     id = NULL,
     pos = c(0, 0),
     gap = 2,
-
     types = c("A", "B", "C", "D"),
     symbols = c("circle", "square", "triangle", "pentagon"),
     alphabetical = TRUE,
-
     symbol_size = 10,
     symbol_rotate = 0,
     symbol_spacing = 4,
-
     symbol_fill = "#2e2e2e",
     symbol_stroke = "#303030",
     symbol_strokeWidth = 0.5,
     symbol_background = FALSE,
-
     values_textAnchor = "middle",
     values_dx = 0,
     values_dy = 5,
     values_fill = "#363636",
     values_fontSize = 10,
-
     title = "Legend",
     title_fill = "#363636",
     title_fontSize = 16,
@@ -1840,7 +1638,6 @@ viz_leg_symbol_horizontal <- function(
     note = "",
     note_fill = "#363636",
     note_fontSize = 10,
-
     frame = FALSE,
     frame_margin = 15,
     frame_fill = "white",
@@ -1854,37 +1651,160 @@ viz_leg_symbol_horizontal <- function(
     id = id,
     pos = pos,
     gap = gap,
-
     types = types,
     symbols = symbols,
     alphabetical = alphabetical,
-
     symbol_size = symbol_size,
     symbol_rotate = symbol_rotate,
     symbol_spacing = symbol_spacing,
-
     symbol_fill = symbol_fill,
     symbol_stroke = symbol_stroke,
     symbol_strokeWidth = symbol_strokeWidth,
     symbol_background = symbol_background,
-
     values_textAnchor = values_textAnchor,
     values_dx = values_dx,
     values_dy = values_dy,
     values_fill = values_fill,
     values_fontSize = values_fontSize,
-
     title = title,
     subtitle = subtitle,
     note = note,
-
     title_fill = title_fill,
     title_fontSize = title_fontSize,
     subtitle_fill = subtitle_fill,
     subtitle_fontSize = subtitle_fontSize,
     note_fill = note_fill,
     note_fontSize = note_fontSize,
+    frame = frame,
+    frame_margin = frame_margin,
+    frame_fill = frame_fill,
+    frame_stroke = frame_stroke,
+    frame_fillOpacity = frame_fillOpacity,
+    ...
+  )
+}
 
+#' Add a vertical choropleth legend
+#'
+#' The \code{viz_leg_choro_vertical} function creates a vertical legend for
+#' choropleth layers. The function adds a legend layer to the map.
+#'
+#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param id character. Optional. ID of the layer.
+#' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
+#' @param gap numeric. Optional. Gap between elements (default 2).
+#' @param breaks numeric vector. Optional. Break values (default c(1, 2, 3, 4, 5)).
+#' @param colors character vector. Optional. Colors (default c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d")).
+#' @param rect_width numeric. Optional. Width of the boxes (default 25).
+#' @param rect_height numeric. Optional. Height of the boxes (default 17).
+#' @param rect_spacing numeric. Optional. Spacing between boxes (default 0).
+#' @param rect_fill character. Optional. Box fill color (default "#5d6266").
+#' @param rect_stroke character. Optional. Stroke color (default "#303030").
+#' @param rect_strokeWidth numeric. Optional. Stroke width (default 0.1).
+#' @param values_textAnchor character. Optional. Text anchor (default "start").
+#' @param values_dx numeric. Optional. Horizontal shift (default 5).
+#' @param values_dy numeric. Optional. Vertical shift (default 0).
+#' @param values_fill character. Optional. Text color (default "#363636").
+#' @param values_fontSize numeric. Optional. Font size (default 10).
+#' @param values_factor numeric. Optional. Multiplication factor for displayed values (default 1).
+#' @param values_decimal character. Optional. Decimal separator (default ".").
+#' @param values_thousands character. Optional. Thousands separator (default " ").
+#' @param title character. Optional. Legend title (default "Legend").
+#' @param title_fill character. Optional. Title color (default "#363636").
+#' @param title_fontSize numeric. Optional. Title font size (default 16).
+#' @param subtitle character. Optional. Subtitle of the legend (default "").
+#' @param subtitle_fill character. Optional. Subtitle color (default "#363636").
+#' @param subtitle_fontSize numeric. Optional. Subtitle font size (default 12).
+#' @param note character. Optional. Note displayed above the legend (default "").
+#' @param note_fill character. Optional. Note color (default "#363636").
+#' @param note_fontSize numeric. Optional. Note font size (default 10).
+#' @param frame logical. Optional. Draw a frame around the legend (default FALSE).
+#' @param frame_margin numeric. Optional. Frame margin (default 15).
+#' @param frame_fill character. Optional. Frame fill color (default "white").
+#' @param frame_stroke character. Optional. Frame stroke color (default "black").
+#' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
+#' @param ... Additional SVG attributes passed to elements (e.g. rect_*, values_*,
+#' title_*, subtitle_*, note_*, frame_*, text_*).
+#' @export
+#' @examples
+#' library(sf)
+#' world <- st_read(
+#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   quiet = TRUE
+#' )
+#'
+#' viz_create(projection = "EqualEarth", background = "white") |>
+#' viz_path(datum = world, fill = "#f1f3f5") |>
+#' viz_leg_choro_vertical(pos = c(20, 20)) |>
+#' viz_render()
+viz_leg_choro_vertical <- function(
+    map,
+    id = NULL,
+    pos = c(0, 0),
+    gap = 2,
+    breaks = c(1, 2, 3, 4, 5),
+    colors = c("#fee5d9", "#fcae91", "#fb6a4a", "#cb181d"),
+    rect_width = 25,
+    rect_height = 17,
+    rect_spacing = 0,
+    rect_fill = "#5d6266",
+    rect_stroke = "#303030",
+    rect_strokeWidth = 0.1,
+    values_textAnchor = "start",
+    values_dx = 5,
+    values_dy = 0,
+    values_fill = "#363636",
+    values_fontSize = 10,
+    values_factor = 1,
+    values_decimal = ".",
+    values_thousands = " ",
+    title = "Legend",
+    title_fill = "#363636",
+    title_fontSize = 16,
+    subtitle = "",
+    subtitle_fill = "#363636",
+    subtitle_fontSize = 12,
+    note = "",
+    note_fill = "#363636",
+    note_fontSize = 10,
+    frame = FALSE,
+    frame_margin = 15,
+    frame_fill = "white",
+    frame_stroke = "black",
+    frame_fillOpacity = 0.5,
+    ...
+) {
+  add_layer(
+    map,
+    "leg_choro_vertical",
+    id = id,
+    pos = pos,
+    gap = gap,
+    breaks = breaks,
+    colors = colors,
+    rect_width = rect_width,
+    rect_height = rect_height,
+    rect_spacing = rect_spacing,
+    rect_fill = rect_fill,
+    rect_stroke = rect_stroke,
+    rect_strokeWidth = rect_strokeWidth,
+    values_textAnchor = values_textAnchor,
+    values_dx = values_dx,
+    values_dy = values_dy,
+    values_fill = values_fill,
+    values_fontSize = values_fontSize,
+    values_factor = values_factor,
+    values_decimal = values_decimal,
+    values_thousands = values_thousands,
+    title = title,
+    title_fill = title_fill,
+    title_fontSize = title_fontSize,
+    subtitle = subtitle,
+    subtitle_fill = subtitle_fill,
+    subtitle_fontSize = subtitle_fontSize,
+    note = note,
+    note_fill = note_fill,
+    note_fontSize = note_fontSize,
     frame = frame,
     frame_margin = frame_margin,
     frame_fill = frame_fill,

@@ -95,10 +95,13 @@ and can be used for categorical or proportional symbol maps.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-                 quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create(projection = "EqualEarth") |>
-  viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
-  viz_render()
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
+viz_render()
 }

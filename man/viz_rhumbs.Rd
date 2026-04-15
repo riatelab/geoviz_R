@@ -47,11 +47,16 @@ similar to those found on old portolan charts. These lines represent paths of co
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
   quiet = TRUE
 )
+
 viz_create(projection = "EqualEarth", background = "white") |>
-  viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_rhumbs(nb = 32, coords = "geo", pos = c(0, 0), fill = "#38896F") |>
-  viz_render()
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_rhumbs(
+  nb = 32, coords = "geo", pos = c(0, 0),
+  fill = "#38896F"
+) |>
+viz_render()
 }

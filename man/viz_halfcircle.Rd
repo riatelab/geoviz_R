@@ -13,7 +13,7 @@ viz_halfcircle(
   dy = 0,
   angle = 0,
   r = 10,
-  innerRadius = 10,
+  innerRadius = 0,
   cornerRadius = 2,
   k = 50,
   fixmax = NULL,
@@ -44,7 +44,7 @@ viz_halfcircle(
 \item{r}{numeric or character. Optional. Outer radius (default 10).
 Can be a fixed value or the name of a field containing numerical values.}
 
-\item{innerRadius}{numeric. Optional. Inner radius (default 10).}
+\item{innerRadius}{numeric. Optional. Inner radius (default 0).}
 
 \item{cornerRadius}{numeric. Optional. Corner radius (default 2).}
 
@@ -77,10 +77,13 @@ with semi-circular proportional symbols.
 }
 \examples{
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
-                 quiet = TRUE)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+
 viz_create(projection = "EqualEarth") |>
-  viz_path(datum = world, fill = "#f1f3f5") |>
-  viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
-  viz_render()
+viz_path(datum = world, fill = "#f1f3f5") |>
+viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
+viz_render()
 }
