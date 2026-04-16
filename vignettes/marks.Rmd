@@ -1,10 +1,10 @@
 ---
-title: "marks"
+title: "Marks"
 author: "Nicolas Lambert"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{marks}
+  %\VignetteIndexEntry{Marks}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -19,10 +19,11 @@ knitr::opts_chunk$set(out.width = "100%")
 ```{r, echo=FALSE, message=FALSE}
 library(geoviz)
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), 
+                 quiet = TRUE)
 ```
 
-Behind the symbolization functions are marks (circles, squares, etc.). In geoviz, it is possible to call them directly. Let’s start with the circle mark to understand the principle.
+The cartographic representations produced with the geoviz package are based on specific graphical marks defined within the package. These marks are used in the various rendering functions, but they can also be used directly on their own. We have already seen the `viz_path` mark, which allows spatial dataframes to be displayed. But there are other types as well. Let’s start with the `viz_circle` mark to understand the principle.
 
 # Circle
 

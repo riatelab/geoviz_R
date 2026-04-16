@@ -1,21 +1,25 @@
 ---
-title: "About the JS library"
+title: "Geoviz JavaScript library"
 author: "Nicolas Lambert"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{About the JS library}
+  %\VignetteIndexEntry{Geoviz JavaScript library}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
 ---
 
-<img src="../man/figures/js.png" 
-     style="width:170px; margin: 0 auto; border:none;" 
-     alt="Logo">
+# From JS to R
 
-The R package geoviz is a partial implementation of the JavaScript geoviz library. To understand how it works under the hood, we invite you to take a look at this JS library.
+The `geoviz` R package is a partial implementation of the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It is therefore built on the web ecosystem, relying on SVG and the [D3.js](https://d3js.org/) library. 
+
+Don't hesitate to have a look at the documentation of the JS library to understand what's under the hood. 
+
+<img src="../man/figures/jsr.png" 
+     style="width:60%; margin: 0 auto; border:none;" 
+     alt="Logo">
 
 # Source code
 
@@ -61,8 +65,8 @@ new Runtime().module(define, name => {
 </script>
 ```
 
-# The "regard de cartographe"
+# In the Media
 
-This `geoviz` JavaScript library is used to produce an interactive map every month in the French newspaper l'Humanité. The section can be found here:
+This `geoviz` JavaScript library is used to produce an interactive map every month in the French newspaper l'[Humanité](https://www.humanite.fr/). The section can be found here:
 
 👉 https://www.humanite.fr/serie/le-regard-du-cartographe

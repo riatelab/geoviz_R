@@ -52,6 +52,10 @@ One of: "horizontal", "vertical".}
 
 \item{...}{Additional parameters passed to path rendering.}
 
+\item{middle}{logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)}
+
+\item{sd}{number. Only for the MSD method: the number of standard deviations taken into account (default 1)}
+
 \item{leg_*}{additional legend parameters. Optional. All arguments prefixed with \code{leg_}
 are forwarded to choropleth legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
 }

@@ -24,7 +24,7 @@ viz_picto(
 \item{var}{character. Name of the categorical variable used for symbol assignment,
 or directly the name of a symbol.}
 
-\item{symbols}{character vector. Optional. Vector of available symbols.}
+\item{symbols}{character vector. Optional. Vector of available symbols. Symbols available: "circle", "square", "triangle", "pentagon", "hexagon", "roundsquare", "pillow", "drop", "egg", "star12", "star8", "star", "diamond", "trapzium", "plus", "minus", "arrow", "stop", "vbar", "crescent", "donut", "heart", "clover", "fist", "check", "plane", "rocket", "boat", "pin", "hospital", "flower", "cloud", "human", "tent", "beer", "boom", "nuke", "target", "missing"}
 
 \item{alphabetical}{logical. Optional. Whether to sort legend items alphabetically
 (default TRUE).}

@@ -91,6 +91,8 @@ viz_prop <- function(
 #' "pretty", "arithmetic", "nestedmeans".
 #' @param nb numeric. Optional. Number of classes (default 6).
 #' @param breaks numeric vector. Optional. Manual class breaks. Overrides \code{nb} and \code{method}.
+#' @param middle logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)
+#' @param sd number. Only for the MSD method: the number of standard deviations taken into account (default 1)
 #' @param colors character or vector. Optional. Color palette or vector of colors.
 #' Can use named palettes from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library
 #' @param reverse logical. Optional. Reverse color palette (default FALSE).
@@ -247,6 +249,8 @@ viz_typo <- function(
 #' One of: "quantile", "q6", "equal", "jenks", "msd", "geometric", "headtail",
 #' "pretty", "arithmetic", "nestedmeans".
 #' @param nb numeric. Optional. Number of classes (default 6).
+#' @param middle logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)
+#' @param sd number. Only for the MSD method: the number of standard deviations taken into account (default 1)
 #' @param breaks numeric vector. Optional. Manual class breaks overriding \code{nb} and \code{method}.
 #' @param colors character or vector. Optional. Color palette or vector of colors
 #' from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library
@@ -461,7 +465,7 @@ viz_proptypo <- function(
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the categorical variable used for symbol assignment,
 #' or directly the name of a symbol.
-#' @param symbols character vector. Optional. Vector of available symbols.
+#' @param symbols character vector. Optional. Vector of available symbols. Symbols available: "circle", "square", "triangle", "pentagon", "hexagon", "roundsquare", "pillow", "drop", "egg", "star12", "star8", "star", "diamond", "trapzium", "plus", "minus", "arrow", "stop", "vbar", "crescent", "donut", "heart", "clover", "fist", "check", "plane", "rocket", "boat", "pin", "hospital", "flower", "cloud", "human", "tent", "beer", "boom", "nuke", "target", "missing"
 #' @param alphabetical logical. Optional. Whether to sort legend items alphabetically
 #' (default TRUE).
 #' @param legend logical. Optional. Whether to display a legend (default TRUE).

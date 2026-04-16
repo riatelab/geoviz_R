@@ -28,6 +28,37 @@ cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = T
 #   viz_path(data = world) |>
 #   viz_exportSVG("test.svg")
 
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, fill = "#CCC") |>
+  viz_leg_circles_nested(  nb = 6,
+                           gap = 5,
+                           title = "Population\nin inh.",
+                           subtitle = "In inh."
+                           circle_fill = "#38896F",
+                           circle_fillOpacity = 0.5,
+                           circle_stroke = "white",
+                           line_stroke = "#38896F",
+                           line_width = 50,
+                           line_length = 80,
+                           values_dy = -5,
+                           values_round = 0,
+                           values_textAnchor = "end",
+                           values_fill = "#38896F",
+                           note = "Made with Geoviz",
+                           note_dy = -15) |>
+  viz_render()
+
+viz_create(projection = "EqualEarth", zoomable = T, width = 1000) |>
+viz_path(data = world, fill = "#CCC") |>
+  viz_leg_choro_vertical(pos = c(420, 250)) |>
+  viz_render()
+
+
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_typo(data = world, var = "region", colors = "Set1") |>
+  viz_render()
+
+
 viz_create(projection = "EqualEarth", background = "white", zoomable = T, control = c(10,10)) |>
   viz_path(datum = world, fill = "#f1f3f5") |>
   viz_leg_choro_vertical(pos = c(0, 0)) |>
@@ -54,6 +85,14 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
    leg_symbol_spacing = 40, fill = "#38896F"
  ) |>
  viz_render()
+
+ viz_create(projection = "EqualEarth", zoomable = T) |>
+   viz_typo(data = st_centroid(world), var = "region", r = 10,
+            order = c("Antarctica", "Oceania", "Africa",
+                      "America", "Asia", "Europe"),
+            colors = c("#e41a1c", "#377eb8", "#4daf4a",
+                       "#984ea3", "#ff7f00", "#ffff33")) |>
+   viz_render()
 
 
 library("htmlwidgets")
@@ -163,5 +202,23 @@ library("htmlwidgets")
 saveWidget(map0, "ma_carte.html", selfcontained = TRUE)
 
 
+africa <- world[world$region == "Africa",]
+viz_create(projection = "mercator", domain = africa, margin = 20) |>
+  viz_clipPath(id = "my_clip_path", datum =  africa )|>
+  viz_shadow(id = "shadow", stdDeviation =  4,
+             dx = 4, dy = 4, opacity = 0.3) |>
+  viz_outline()|>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_path(data = africa,   filter =  "url(#shadow)") |>
+viz_rhumbs(pos = c(0,-10), coords = "geo", stroke = "white", strokeWidth = 2, strokeDasharray = c(5,3)) |>
+  viz_path(data = africa, fill = "#d6bc47", fillOpacity = 1) |>
+viz_sketch(data = africa, simplify = 1, strokeOpacity = 0.6) |>
+  viz_tile(url = "hillshade", clipPath = "url(#my_clip_path)", opacity = 0.3) |>
+  viz_header(text = "The African continent", background_fill = "black", fill = "white") |>
+  viz_pattern(stroke = "white", angle = 45) |>
+viz_scalebar()|>
+  viz_north()|>
+  viz_render()
 
 
+head(cities)

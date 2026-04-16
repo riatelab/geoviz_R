@@ -1,10 +1,10 @@
 ---
-title: "display geometries"
+title: "Display a basemap"
 author: "Nicolas Lambert"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{display geometries}
+  %\VignetteIndexEntry{Display a basemap}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 

@@ -1,10 +1,10 @@
 ---
-title: "create and render"
+title: "Create and render"
 author: "Nicolas Lambert"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{create and render}
+  %\VignetteIndexEntry{Create and render}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -31,6 +31,8 @@ world <- st_read(
 # Create
 
 Every map starts with the `viz_create` function. It initializes the map and defines a number of general parameters, such as the size (`width`), the margins (`margins`), the projection (`projection`), or the background color (`background`). This is also where you determine whether the map is zoomable or not, using the `zoomable` parameter.
+
+
 
 From a technical perspective, the function produces a list containing the map parameters and an initially empty list of layers to be displayed.
 

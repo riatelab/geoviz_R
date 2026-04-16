@@ -17,18 +17,18 @@ template:
       alt: "geoviz: thematic cartography"
 navbar:
   structure:
-    left: [home, get started, documentation, reference]
+    left: [home, start, documentation, reference, about]
 
   components:
     documentation:
       text: Documentation
       menu:
-        - text: "Let's get started"
-          href: articles/hello_geoviz.html
         - text: "Create and render"
           href: articles/create_render.html
-        - text: "Display geometries"
+        - text: "Display a basemap"
           href: articles/display_geom.html
+        - text: "Marks"
+          href: articles/marks.html
         - text: "Projections"
           href: articles/projections.html
         - text: "Interactivity"
@@ -41,12 +41,12 @@ navbar:
           href: articles/symbology2.html
         - text: "Legends"
           href: articles/legends.html
-        - text: "Marks"
-          href: articles/marks.html
-        - text: "Effects"
-          href: articles/effects.html
-        - text: "About the JS library"
-          href: articles/about.html
+    about:
+      text: About
+      href: articles/about.html
+    start:
+      text: Get started
+      href: articles/hello_geoviz.html
 
 reference:
   - title: "Create & render"
@@ -65,7 +65,7 @@ reference:
     - viz_tissot
     - viz_earth
     - viz_tile
-  - title: "Map Decorations and Annotations (OK)"
+  - title: "Map Decorations and Annotations"
     desc: Functions for styling and annotating the map, such as titles, scale bars, and north arrows.
     contents:
     - viz_header

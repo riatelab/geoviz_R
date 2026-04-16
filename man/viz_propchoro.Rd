@@ -86,6 +86,10 @@ from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-lib
 
 \item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}).}
 
+\item{middle}{logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)}
+
+\item{sd}{number. Only for the MSD method: the number of standard deviations taken into account (default 1)}
+
 \item{leg1_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
 are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).}
 
