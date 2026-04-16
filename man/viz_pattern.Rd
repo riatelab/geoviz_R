@@ -87,7 +87,7 @@ world <- st_read(
 )
 africa <- world[world$region == "Africa", ]
 
-viz_create(projection = "EqualEarth", width = 750, background = "white") |>
+viz_create(projection = "EqualEarth", background = "white") |>
 viz_path(datum = world, fill = "#f1f3f5") |>
 viz_pattern(
   data = africa, stroke = "#38896F", pattern = "cross",

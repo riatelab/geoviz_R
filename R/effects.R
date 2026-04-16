@@ -24,7 +24,7 @@
 #' )
 #' aus <- world[world$ISO3 == "AUS", ]
 #'
-#' viz_create(margin = 5, width = 750) |>
+#' viz_create(margin = 5) |>
 #' viz_shadow(id = "my_shadow_effect", stdDeviation = 2.5, dx = 5, dy = 5) |>
 #' viz_path(datum = aus, fill = "#38896F", filter = "url(#my_shadow_effect)") |>
 #' viz_render()
@@ -77,12 +77,14 @@ viz_shadow <- function(
 #'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE
 #' )
+#' aus <- world[world$ISO3 == "AUS", ]
 #'
+#' viz_create() |>
 #' viz_radialGradient(
 #'   id = "my_gradient", color1 = "#63b0af",
 #'   color2 = "#428c8b"
 #' ) |>
-#' viz_path(datum = world, fill = "url(#my_gradient)") |>
+#' viz_path(datum = aus, fill = "url(#my_gradient)") |>
 #' viz_render()
 viz_radialGradient <- function(
     map,
@@ -141,8 +143,6 @@ viz_blur <- function(
   )
 }
 
-
-
 #' @title ClipPath layer
 #' @description The \code{viz_clipPath} function creates an SVG clipPath definition
 #' and adds it to the SVG defs. It returns a reference usable in SVG styling
@@ -160,10 +160,11 @@ viz_blur <- function(
 #' )
 #' aus <- world[world$ISO3 == "AUS", ]
 #'
-#' viz_create(margin = 5, width = 750) |>
-#' viz_clipPath(id = "my_clip", datum = aus) |>
-#' viz_path(datum = aus, fill = "#38896F", clipPath = "url(#my_clip)") |>
+#' viz_create(margin = 5, projection = "meractor") |>
+#' viz_clipPath(id = "ausclip", datum = aus) |>
+#' viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
 #' viz_render()
+
 viz_clipPath <- function(
     map,
     id = NULL,
@@ -217,7 +218,7 @@ viz_clipPath <- function(
 #' )
 #' africa <- world[world$region == "Africa", ]
 #'
-#' viz_create(projection = "EqualEarth", width = 750, background = "white") |>
+#' viz_create(projection = "EqualEarth", background = "white") |>
 #' viz_path(datum = world, fill = "#f1f3f5") |>
 #' viz_pattern(
 #'   data = africa, stroke = "#38896F", pattern = "cross",

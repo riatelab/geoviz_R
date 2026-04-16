@@ -43,11 +43,13 @@ world <- st_read(
   system.file("gpkg/world.gpkg", package = "geoviz"),
   quiet = TRUE
 )
+aus <- world[world$ISO3 == "AUS", ]
 
+viz_create() |>
 viz_radialGradient(
   id = "my_gradient", color1 = "#63b0af",
   color2 = "#428c8b"
 ) |>
-viz_path(datum = world, fill = "url(#my_gradient)") |>
+viz_path(datum = aus, fill = "url(#my_gradient)") |>
 viz_render()
 }

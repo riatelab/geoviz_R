@@ -28,7 +28,7 @@ world <- st_read(
 )
 aus <- world[world$ISO3 == "AUS", ]
 
-viz_create(margin = 5, width = 750) |>
+viz_create(margin = 5) |>
 viz_clipPath(id = "my_clip", datum = aus) |>
 viz_path(datum = aus, fill = "#38896F", clipPath = "url(#my_clip)") |>
 viz_render()

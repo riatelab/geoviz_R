@@ -11,7 +11,29 @@ devtools::load_all()
 devtools::install()
 devtools::load_all()
 
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
 
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+aus <- world[world$ISO3 == "AUS", ]
+
+viz_create(margin = 5, projection = "meractor") |>
+viz_clipPath(id = "my_clip", datum = aus) |>
+viz_tile(url = "worldterrain", clipPath = "url(#my_clip)") |>
+viz_render()
+
+viz_radialGradient(
+  id = "my_gradient", color1 = "#63b0af",
+  color2 = "#428c8b"
+) |>
+viz_path(datum = world, fill = "url(#my_gradient)") |>
+viz_render()
 
 
 
@@ -28,12 +50,22 @@ cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = T
 #   viz_path(data = world) |>
 #   viz_exportSVG("test.svg")
 
+
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_choro(data = world, var = "gdppc", breaks = bks, colors = cols,
+            opacity = 0.1,
+            leg_pos = c(10,50), leg_title = "Population",
+            leg_subtitle = "in 2020", leg_note = "mad with geoviz",
+            leg_type = "horizontal") |>
+  viz_render()
+
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_leg_circles_nested(  nb = 6,
                            gap = 5,
-                           title = "Population\nin inh.",
-                           subtitle = "In inh."
+                           title = "Population",
+                           subtitle = "In inh.",
                            circle_fill = "#38896F",
                            circle_fillOpacity = 0.5,
                            circle_stroke = "white",
@@ -45,7 +77,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
                            values_textAnchor = "end",
                            values_fill = "#38896F",
                            note = "Made with Geoviz",
-                           note_dy = -15) |>
+                           note_dy = 5) |>
   viz_render()
 
 viz_create(projection = "EqualEarth", zoomable = T, width = 1000) |>

@@ -6,8 +6,7 @@
 #' @param map a geoviz object create with the \code{viz_create}
 #' @export
 #' @examples
-#' #' library(sf)
-#'
+#' library(sf)
 #' world <- st_read(
 #'   system.file("gpkg/world.gpkg", package = "geoviz"),
 #'   quiet = TRUE

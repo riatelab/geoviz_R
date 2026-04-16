@@ -56,7 +56,7 @@ world <- st_read(
 )
 aus <- world[world$ISO3 == "AUS", ]
 
-viz_create(margin = 5, width = 750) |>
+viz_create(margin = 5) |>
 viz_shadow(id = "my_shadow_effect", stdDeviation = 2.5, dx = 5, dy = 5) |>
 viz_path(datum = aus, fill = "#38896F", filter = "url(#my_shadow_effect)") |>
 viz_render()
