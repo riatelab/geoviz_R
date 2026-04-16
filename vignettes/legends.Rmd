@@ -97,6 +97,18 @@ viz_choro(data = world, var = "gdppc", breaks = bks, colors = cols,
 viz_render()
 ```
 
+There is also often a `leg_type` parameter that lets you choose the desired type of legend.
+
+```{r}
+viz_create(projection = "EqualEarth", zoomable = T) |>
+viz_choro(data = world, var = "gdppc", breaks = bks,
+          colors = cols, opacity = 0.1,
+          leg_pos = c(10,50), leg_title = "Population",
+          leg_subtitle = "in 2020", leg_note = "mad with geoviz",
+          leg_type = "horizontal") |>
+viz_render()
+```
+
 # Styling
 
 - **Frame**
@@ -119,7 +131,7 @@ With the `values` or `leg_values prefix`, you can modify everything related to l
 ```{r}
 viz_create(projection = "EqualEarth", zoomable = T) |>
 viz_path(data = world, fill = "#CCC") |>
-viz_prop(data = world, fill = "#4a4a4a", var = "pop",
+viz_prop(data = world, fill = "#4a4a4a", fillOpacity = 0.3, var = "pop",
          leg_values_round = 0,  leg_values_factor = 1/1000000,
          leg_values_dx = 20, leg_values_fill = "red",
          leg_values_fontSize = 30, leg_values_thousands = ",",) |>
