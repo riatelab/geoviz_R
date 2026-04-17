@@ -2,7 +2,7 @@
 
 ## From JS to R
 
-The `geoviz` R package is a partial implementation of the
+The `geoviz` package is a R binding to the
 [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It is
 therefore built on the web ecosystem, relying on SVG and the
 [D3.js](https://d3js.org/) library.

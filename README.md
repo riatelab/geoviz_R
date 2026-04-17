@@ -3,8 +3,7 @@
      alt="Logo">
 
 <h3 style="color: #38896F; text-align: center;">
-  geoviz is an <span style="font-weight: bold; background-color: #38896F; color: white">R package</span> for thematic mapping. As its name suggests, it's an implementation of the 
-  <a href="https://github.com/riatelab/geoviz">geoviz JavaScript library</a>, itself based on the 
+  geoviz is an <span style="font-weight: bold; background-color: #38896F; color: white">R package</span> for thematic mapping. As its name suggests, it's an R wrapper around the <a href="https://github.com/riatelab/geoviz">geoviz JavaScript library</a>, itself based on the 
   <a href="https://d3js.org/">d3.js</a> ecosystem ported by Mike Bostock. 
   Like the original javascript library, the package can be used to create a wide range of <span style="font-weight: bold; background-color: #38896F; color: white">interactive</span>, <span style="font-weight: bold; background-color: #38896F; color: white">zoomable</span> vector maps, 
   taking advantage of d3's many features: proportional symbols, pictograms, typologies, choropleth maps, spikes, tiles, Dorling cartograms, etc. 
@@ -15,7 +14,7 @@
 
 <img src="man/figures/banner.png" style="width:100%; display:block; border:none;" alt="banner geoviz">
 
-- The `geoviz` package is an R <span style="color: #38896F; font-weight: bold; text-decoration: underline;">implementation of the geoviz JavaScript library</span> via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the JavaScript geoviz documentation [here](https://riatelab.github.io/geoviz/).
+- The `geoviz` package is an R <span style="color: #38896F; font-weight: bold; text-decoration: underline;">wrapper around the geoviz JavaScript library</span> via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the JavaScript geoviz documentation [here](https://riatelab.github.io/geoviz/).
 
 - `geoviz` is not intended to compete with other mapping packages in R, such as [mapsf](https://cran.r-project.org/web/packages/mapsf/index.html) or [tmap](https://cran.r-project.org/web/packages/tmap/index.html).
 
