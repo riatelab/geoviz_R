@@ -72,9 +72,6 @@ viz_create(projection = "equalEarth", zoomable = T) |>
   viz_render()
 ```
 
-See all parameters
-[here](https://riatelab.github.io/geoviz/global.html#circle).
-
 ## Text
 
 It’s exactly the same principle for text. You can position text using

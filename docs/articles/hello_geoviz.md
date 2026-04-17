@@ -17,7 +17,7 @@ To install the package, just write:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("neocarto/geoviz_R")
+remotes::install_github("riatelab/geoviz_R")
 ```
 
 then
