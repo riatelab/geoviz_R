@@ -41,10 +41,11 @@ viz_create(zoomable = TRUE, projection = "mercator", domain = africa, margin = 2
 
 # Installation
 
-To install the package, just write
+To install the package, just write:
 
 ```{r, eval = FALSE}
-install.packages(geoviz)
+install.packages("remotes")
+remotes::install_github("neocarto/geoviz_R")
 ```
 
 then
