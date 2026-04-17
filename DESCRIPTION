@@ -6,8 +6,8 @@ Authors@R: person("Nicolas", "Lambert", email = "nicolas.lambert@cnrs.fr", role 
 Maintainer: Nicolas Lambert <nicolas.lambert@cnrs.fr>
 Description: `geoviz` is an implementation of the [geoviz](https://github.com/riatelab/geoviz) javascript library, itself based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
 License: GPL (>= 3)
-URL: https://neocarto.github.io/geoviz_R/
-BugReports: https://github.com/neocarto/geoviz_R/issues/
+URL: https://riatelab.github.io/geoviz_R/
+BugReports: https://github.com/riatelab/geoviz_R/issues/
 Encoding: UTF-8
 RoxygenNote: 7.3.3
 Imports:
