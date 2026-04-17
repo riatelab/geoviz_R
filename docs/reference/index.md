@@ -6,11 +6,11 @@ The functions `viz_create` and `viz_render` are essential for
 initializing a map, visualizing its content, and exporting it. They form
 the core workflow for creating maps with the `geoviz` R package.
 
-- [`viz_create()`](https://neocarto.github.io/geoviz_R/reference/viz_create.md)
+- [`viz_create()`](https://riatelab.github.io/geoviz_R/reference/viz_create.md)
   : Create a geoviz map container
-- [`viz_render()`](https://neocarto.github.io/geoviz_R/reference/viz_render.md)
+- [`viz_render()`](https://riatelab.github.io/geoviz_R/reference/viz_render.md)
   : Display the map
-- [`viz_save()`](https://neocarto.github.io/geoviz_R/reference/viz_save.md)
+- [`viz_save()`](https://riatelab.github.io/geoviz_R/reference/viz_save.md)
   : Save the map
 
 ## Base Map and Structure
@@ -18,19 +18,19 @@ the core workflow for creating maps with the `geoviz` R package.
 Functions that define the map’s geographic content, including outlines,
 tiles, and graticules.
 
-- [`viz_path()`](https://neocarto.github.io/geoviz_R/reference/viz_path.md)
+- [`viz_path()`](https://riatelab.github.io/geoviz_R/reference/viz_path.md)
   : Path layer
-- [`viz_outline()`](https://neocarto.github.io/geoviz_R/reference/viz_outline.md)
+- [`viz_outline()`](https://riatelab.github.io/geoviz_R/reference/viz_outline.md)
   : Outline layer
-- [`viz_graticule()`](https://neocarto.github.io/geoviz_R/reference/viz_graticule.md)
+- [`viz_graticule()`](https://riatelab.github.io/geoviz_R/reference/viz_graticule.md)
   : Graticule layer
-- [`viz_rhumbs()`](https://neocarto.github.io/geoviz_R/reference/viz_rhumbs.md)
+- [`viz_rhumbs()`](https://riatelab.github.io/geoviz_R/reference/viz_rhumbs.md)
   : Rhumb lines layer
-- [`viz_tissot()`](https://neocarto.github.io/geoviz_R/reference/viz_tissot.md)
+- [`viz_tissot()`](https://riatelab.github.io/geoviz_R/reference/viz_tissot.md)
   : Tissot indicatrices
-- [`viz_earth()`](https://neocarto.github.io/geoviz_R/reference/viz_earth.md)
+- [`viz_earth()`](https://riatelab.github.io/geoviz_R/reference/viz_earth.md)
   : Earth raster layer
-- [`viz_tile()`](https://neocarto.github.io/geoviz_R/reference/viz_tile.md)
+- [`viz_tile()`](https://riatelab.github.io/geoviz_R/reference/viz_tile.md)
   : Mercator tiles
 
 ## Map Decorations and Annotations
@@ -38,15 +38,15 @@ tiles, and graticules.
 Functions for styling and annotating the map, such as titles, scale
 bars, and north arrows.
 
-- [`viz_header()`](https://neocarto.github.io/geoviz_R/reference/viz_header.md)
+- [`viz_header()`](https://riatelab.github.io/geoviz_R/reference/viz_header.md)
   : Map title
-- [`viz_footer()`](https://neocarto.github.io/geoviz_R/reference/viz_footer.md)
+- [`viz_footer()`](https://riatelab.github.io/geoviz_R/reference/viz_footer.md)
   : Source of the map
-- [`viz_north()`](https://neocarto.github.io/geoviz_R/reference/viz_north.md)
+- [`viz_north()`](https://riatelab.github.io/geoviz_R/reference/viz_north.md)
   : North arrow
-- [`viz_scalebar()`](https://neocarto.github.io/geoviz_R/reference/viz_scalebar.md)
+- [`viz_scalebar()`](https://riatelab.github.io/geoviz_R/reference/viz_scalebar.md)
   : Scale bar
-- [`viz_text()`](https://neocarto.github.io/geoviz_R/reference/viz_text.md)
+- [`viz_text()`](https://riatelab.github.io/geoviz_R/reference/viz_text.md)
   : Texts and labels
 
 ## Thematic
@@ -54,17 +54,17 @@ bars, and north arrows.
 These functions allow the creation of thematic maps based on statistical
 data, complete with their associated legends.
 
-- [`viz_prop()`](https://neocarto.github.io/geoviz_R/reference/viz_prop.md)
+- [`viz_prop()`](https://riatelab.github.io/geoviz_R/reference/viz_prop.md)
   : Proportional symbols layer
-- [`viz_choro()`](https://neocarto.github.io/geoviz_R/reference/viz_choro.md)
+- [`viz_choro()`](https://riatelab.github.io/geoviz_R/reference/viz_choro.md)
   : Choropleth layer
-- [`viz_typo()`](https://neocarto.github.io/geoviz_R/reference/viz_typo.md)
+- [`viz_typo()`](https://riatelab.github.io/geoviz_R/reference/viz_typo.md)
   : Typology layer
-- [`viz_propchoro()`](https://neocarto.github.io/geoviz_R/reference/viz_propchoro.md)
+- [`viz_propchoro()`](https://riatelab.github.io/geoviz_R/reference/viz_propchoro.md)
   : Proportional + choropleth combined layer
-- [`viz_proptypo()`](https://neocarto.github.io/geoviz_R/reference/viz_proptypo.md)
+- [`viz_proptypo()`](https://riatelab.github.io/geoviz_R/reference/viz_proptypo.md)
   : Proportional + typology combined layer
-- [`viz_picto()`](https://neocarto.github.io/geoviz_R/reference/viz_picto.md)
+- [`viz_picto()`](https://riatelab.github.io/geoviz_R/reference/viz_picto.md)
   : Pictogram layer
 
 ## Thematic (advanced)
@@ -72,13 +72,13 @@ data, complete with their associated legends.
 These functions allow the creation of advanced thematic maps based on
 statistical data, complete with their associated legends.
 
-- [`viz_gridprop()`](https://neocarto.github.io/geoviz_R/reference/viz_gridprop.md)
+- [`viz_gridprop()`](https://riatelab.github.io/geoviz_R/reference/viz_gridprop.md)
   : Grid-based proportional symbols layer
-- [`viz_gridchoro()`](https://neocarto.github.io/geoviz_R/reference/viz_gridchoro.md)
+- [`viz_gridchoro()`](https://riatelab.github.io/geoviz_R/reference/viz_gridchoro.md)
   : Grid-based choropleth layer
-- [`viz_smooth()`](https://neocarto.github.io/geoviz_R/reference/viz_smooth.md)
+- [`viz_smooth()`](https://riatelab.github.io/geoviz_R/reference/viz_smooth.md)
   : Smoothed density (isobands) layer
-- [`viz_dotdensity()`](https://neocarto.github.io/geoviz_R/reference/viz_dotdensity.md)
+- [`viz_dotdensity()`](https://riatelab.github.io/geoviz_R/reference/viz_dotdensity.md)
   : Dot density layer
 
 ## marks
@@ -86,15 +86,15 @@ statistical data, complete with their associated legends.
 Behind the symbolization functions, there are elementary graphical
 marks. In geoviz, it is possible to use them directly.
 
-- [`viz_circle()`](https://neocarto.github.io/geoviz_R/reference/viz_circle.md)
+- [`viz_circle()`](https://riatelab.github.io/geoviz_R/reference/viz_circle.md)
   : Circle layer
-- [`viz_square()`](https://neocarto.github.io/geoviz_R/reference/viz_square.md)
+- [`viz_square()`](https://riatelab.github.io/geoviz_R/reference/viz_square.md)
   : Square layer
-- [`viz_spike()`](https://neocarto.github.io/geoviz_R/reference/viz_spike.md)
+- [`viz_spike()`](https://riatelab.github.io/geoviz_R/reference/viz_spike.md)
   : Spike layer
-- [`viz_halfcircle()`](https://neocarto.github.io/geoviz_R/reference/viz_halfcircle.md)
+- [`viz_halfcircle()`](https://riatelab.github.io/geoviz_R/reference/viz_halfcircle.md)
   : Half-circle layer
-- [`viz_symbol()`](https://neocarto.github.io/geoviz_R/reference/viz_symbol.md)
+- [`viz_symbol()`](https://riatelab.github.io/geoviz_R/reference/viz_symbol.md)
   : Symbol layer
 
 ## effects
@@ -103,48 +103,48 @@ Since the maps created are in SVG format, it is possible to apply
 filters to them. These functions offer four different options for doing
 so.
 
-- [`viz_shadow()`](https://neocarto.github.io/geoviz_R/reference/viz_shadow.md)
+- [`viz_shadow()`](https://riatelab.github.io/geoviz_R/reference/viz_shadow.md)
   : Shadow layer
-- [`viz_blur()`](https://neocarto.github.io/geoviz_R/reference/viz_blur.md)
+- [`viz_blur()`](https://riatelab.github.io/geoviz_R/reference/viz_blur.md)
   : Blur filter
-- [`viz_clipPath()`](https://neocarto.github.io/geoviz_R/reference/viz_clipPath.md)
+- [`viz_clipPath()`](https://riatelab.github.io/geoviz_R/reference/viz_clipPath.md)
   : ClipPath layer
-- [`viz_radialGradient()`](https://neocarto.github.io/geoviz_R/reference/viz_radialGradient.md)
+- [`viz_radialGradient()`](https://riatelab.github.io/geoviz_R/reference/viz_radialGradient.md)
   : Radial gradient
-- [`viz_pattern()`](https://neocarto.github.io/geoviz_R/reference/viz_pattern.md)
+- [`viz_pattern()`](https://riatelab.github.io/geoviz_R/reference/viz_pattern.md)
   : Pattern layer
-- [`viz_sketch()`](https://neocarto.github.io/geoviz_R/reference/viz_sketch.md)
+- [`viz_sketch()`](https://riatelab.github.io/geoviz_R/reference/viz_sketch.md)
   : Sketch layer
 
 ## Legends
 
 Functions to design map legends
 
-- [`viz_leg_box()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_box.md)
+- [`viz_leg_box()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_box.md)
   : Add a box legend
-- [`viz_leg_typo_vertical()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_typo_vertical.md)
+- [`viz_leg_typo_vertical()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_typo_vertical.md)
   : Add a vertical typology legend
-- [`viz_leg_typo_horizontal()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_typo_horizontal.md)
+- [`viz_leg_typo_horizontal()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_typo_horizontal.md)
   : Add a horizontal typology legend
-- [`viz_leg_choro_horizontal()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_choro_horizontal.md)
+- [`viz_leg_choro_horizontal()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_choro_horizontal.md)
   : Add a horizontal choropleth legend
-- [`viz_leg_choro_vertical()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_choro_vertical.md)
+- [`viz_leg_choro_vertical()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_choro_vertical.md)
   : Add a vertical choropleth legend
-- [`viz_leg_gradient_vertical()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_gradient_vertical.md)
+- [`viz_leg_gradient_vertical()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_gradient_vertical.md)
   : Add a vertical gradient legend
-- [`viz_leg_spikes()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_spikes.md)
+- [`viz_leg_spikes()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_spikes.md)
   : Add a spike legend
-- [`viz_leg_circles()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_circles.md)
+- [`viz_leg_circles()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_circles.md)
   : Add a proportional circles legend
-- [`viz_leg_circles_nested()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_circles_nested.md)
+- [`viz_leg_circles_nested()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_circles_nested.md)
   : Add a nested proportional circles legend
-- [`viz_leg_squares()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_squares.md)
+- [`viz_leg_squares()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_squares.md)
   : Add a proportional squares legend
-- [`viz_leg_squares_nested()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_squares_nested.md)
+- [`viz_leg_squares_nested()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_squares_nested.md)
   : Add a proportional nested squares legend
-- [`viz_leg_mushrooms()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_mushrooms.md)
+- [`viz_leg_mushrooms()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_mushrooms.md)
   : Add a proportional half-circles (mushrooms) legend
-- [`viz_leg_symbol_vertical()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_symbol_vertical.md)
+- [`viz_leg_symbol_vertical()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_symbol_vertical.md)
   : Add a vertical symbol legend
-- [`viz_leg_symbol_horizontal()`](https://neocarto.github.io/geoviz_R/reference/viz_leg_symbol_horizontal.md)
+- [`viz_leg_symbol_horizontal()`](https://riatelab.github.io/geoviz_R/reference/viz_leg_symbol_horizontal.md)
   : Add a symbol horizontal legend

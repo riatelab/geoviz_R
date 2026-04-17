@@ -247,7 +247,7 @@ viz_create(margin = 5) |>
 The SVG element defines a clipping path, to be used by the clip-path
 property. A clipping path restricts the region to which paint can be
 applied. In geoviz, you can add a clipPath element with the
-[`viz_clipPath()`](https://neocarto.github.io/geoviz_R/reference/viz_clipPath.md)
+[`viz_clipPath()`](https://riatelab.github.io/geoviz_R/reference/viz_clipPath.md)
 function.
 
 ``` r

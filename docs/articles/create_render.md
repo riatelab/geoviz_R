@@ -239,7 +239,7 @@ the map.
 ## Render
 
 This configuration file will be rendered using the
-[`viz_render()`](https://neocarto.github.io/geoviz_R/reference/viz_render.md)
+[`viz_render()`](https://riatelab.github.io/geoviz_R/reference/viz_render.md)
 function.
 
 ``` r

@@ -3,7 +3,7 @@ home:
   description: >
     This package is an implementation of the geoviz javascript library. can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3’s many features: proportional symbols, pictograms, typologies, choropleth maps, spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in SVG format, suitable for editorial cartography.
 
-url: https://neocarto.github.io/geoviz_R/
+url: https://riatelab.github.io/geoviz_R/
 
 template:
   bootstrap: 5
