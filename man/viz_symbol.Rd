@@ -65,7 +65,7 @@ Use \code{NULL} to hide missing values.}
 
 \item{skewY}{numeric. Optional. Vertical skew (default 0).}
 
-\item{background}{logical. Optional. Add a background circle (default FALSE).}
+\item{background}{logical. Optional. Add a background circle (default FALSE). You can confifure it with the prefix \code{background_} (e.g. \code{background_fill}, \code{background_stroke}, etc.).}
 
 \item{tip}{logical or function. Optional. Tooltip definition (default FALSE).
 Use TRUE to display all fields.}
@@ -84,9 +84,6 @@ Use TRUE to display all fields.}
 
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
-
-\item{background_*}{additional background parameters (e.g. \code{background_fill},
-\code{background_stroke}, etc.).}
 }
 \description{
 The \code{viz_symbol} function draws SVG symbols on the map from a spatial

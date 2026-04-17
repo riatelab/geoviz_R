@@ -40,8 +40,7 @@ viz_shadow(
 \item{coords}{character. Optional. Coordinate system (default "geo").
 Use \code{"svg"} if coordinates are already expressed in SVG space.}
 
-\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeLinecap},
-\code{filter}, etc.).}
+\item{...}{Additional parameters}
 }
 \description{
 The \code{viz_shadow} function adds a shadow effect to map elements,

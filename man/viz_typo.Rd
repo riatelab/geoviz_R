@@ -45,10 +45,7 @@ One of: "horizontal", "vertical".}
 
 \item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
 
-\item{...}{Additional parameters passed to path rendering or typology utilities}
-
-\item{leg_*}{additional legend parameters. Optional. All arguments prefixed with \code{leg_}
-are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
+\item{...}{Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
 \description{
 The \code{viz_typo} function creates a typology map from a spatial

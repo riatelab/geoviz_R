@@ -67,10 +67,8 @@ One of: "lines", "cross", "dots", "waves", "triangles", "zigzag".}
 
 \item{clipOutline}{logical. Optional. Clip pattern to Earth outline (default FALSE).}
 
-\item{arg1}{object or SVG element. Pattern configuration object, or an existing
-SVG container when appending to an existing map.}
-
-\item{arg2}{object. Optional. Additional options when using an existing SVG container.}
+\item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+\code{strokeLinecap}, etc.).}
 }
 \description{
 The \code{viz_pattern} function creates a reusable SVG pattern

@@ -16,8 +16,7 @@ viz_create(
   margin = c(0, 0, 0, 0),
   zoomable = NULL,
   control = TRUE,
-  warning = TRUE,
-  ...
+  warning = TRUE
 )
 }
 \arguments{

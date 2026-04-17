@@ -4,7 +4,7 @@
 \alias{viz_render}
 \title{Display the map}
 \usage{
-viz_render(map, elementId = NULL)
+viz_render(map)
 }
 \arguments{
 \item{map}{A \code{geoviz} object created with \code{viz_create}.}

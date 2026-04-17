@@ -15,6 +15,7 @@
 #' Use \code{"svg"} if coordinates are already expressed in SVG space.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeLinecap},
 #' \code{filter}, etc.).
+#' @param ... Additional parameters
 #' @export
 #' @examples
 #' library(sf)
@@ -70,6 +71,7 @@ viz_shadow <- function(
 #' @param offset2 numeric. Optional. Offset of the second color stop (default 100).
 #' @param fx numeric. Optional. Focal point x-position (default 50).
 #' @param fy numeric. Optional. Focal point y-position (default 50).
+#' @param ... Additional parameters
 #' @export
 #' @examples
 #' library(sf)
@@ -94,7 +96,8 @@ viz_radialGradient <- function(
     offset1 = 50,
     offset2 = 100,
     fx = 50,
-    fy = 50
+    fy = 50,
+    ...
 ) {
   add_layer(
     map,
@@ -105,7 +108,8 @@ viz_radialGradient <- function(
     offset1 = offset1,
     offset2 = offset2,
     fx = fx,
-    fy = fy
+    fy = fy,
+    ...
   )
 }
 
@@ -117,6 +121,7 @@ viz_radialGradient <- function(
 #' @param id character. Optional. Unique filter id.
 #' @param stdDeviation numeric. Optional. Standard deviation controlling blur intensity (default 1.5).
 #' Higher values produce a stronger blur effect.
+#' @param ... Additional parameters
 #' @export
 #' @examples
 #' library(sf)
@@ -133,13 +138,15 @@ viz_radialGradient <- function(
 viz_blur <- function(
     map,
     id = NULL,
-    stdDeviation = 1.5
+    stdDeviation = 1.5,
+    ...
 ) {
   add_layer(
     map,
     "blur",
     id = id,
-    stdDeviation = stdDeviation
+    stdDeviation = stdDeviation,
+    ...
   )
 }
 
@@ -187,9 +194,6 @@ viz_clipPath <- function(
 #' dots, waves, triangles, or zigzags. Patterns can also be clipped to a spatial
 #' data frame geometry or to the Earth outline.
 #' @param map A \code{geoviz} map created with \code{viz_create}.
-#' @param arg1 object or SVG element. Pattern configuration object, or an existing
-#' SVG container when appending to an existing map.
-#' @param arg2 object. Optional. Additional options when using an existing SVG container.
 #' @param id character. Optional. Unique pattern id (auto-generated if not provided).
 #' @param spacing numeric. Optional. Distance between pattern elements (default 6).
 #' @param angle numeric. Optional. Pattern rotation in degrees (default 0).
@@ -209,6 +213,8 @@ viz_clipPath <- function(
 #' One of: "lines", "cross", "dots", "waves", "triangles", "zigzag".
 #' @param data object or NULL. Optional. Spatial data frame used to clip the pattern.
 #' @param clipOutline logical. Optional. Clip pattern to Earth outline (default FALSE).
+#' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
+#' \code{strokeLinecap}, etc.).
 #' @export
 #' @examples
 #' library(sf)

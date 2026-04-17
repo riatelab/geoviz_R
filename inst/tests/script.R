@@ -11,6 +11,8 @@ devtools::load_all()
 devtools::install()
 devtools::load_all()
 
+pkgdown::build_site()
+
 library(sf)
 world <- st_read(
   system.file("gpkg/world.gpkg", package = "geoviz"),
@@ -37,7 +39,7 @@ viz_render()
 
 
 
-pkgdown::build_site()
+
 
 # library(geoviz)
 # devtools::install_github("neocarto/geoviz_R")

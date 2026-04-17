@@ -4,7 +4,7 @@
 \alias{viz_save}
 \title{Save the map}
 \usage{
-viz_save(map, elementId = NULL)
+viz_save(map)
 }
 \arguments{
 \item{map}{a geoviz object create with the \code{viz_create}}

@@ -1,0 +1,113 @@
+# Projections
+
+## Preliminary remarks
+
+The projections in geoviz are based on the ecosystem of D3.js. More
+specifically, they rely on the geographic projection functions
+implemented in D3, which are originally designed to be used in
+JavaScript.
+
+These projection methods assume a spherical model of the Earth, rather
+than an ellipsoidal one. In other words, the Earth is treated as a
+perfect sphere, which simplifies the mathematical transformations
+required to project geographic coordinates (longitude and latitude) onto
+a 2D basemap.
+
+Under the hood, three JavaScript libraries are used. Feel free to visit
+their respective pages to explore the available projections and learn
+their names.
+
+- **d3.geo** <https://d3js.org/d3-geo/projection>
+- **d3-geo-projection** <https://github.com/d3/d3-geo-projection>
+- **d3-geo-polygon** <https://github.com/d3/d3-geo-polygon>
+
+👉 *E.g. `d3.geoBertin1953()` in theses librairies become `"Bertin1953"`
+in `geoviz`!*
+
+## In geoviz
+
+In `geoviz`, the projection is defined in the `viz_create` function
+using the `projection` parameter. You simply need to specify a string
+corresponding to the desired projection.
+
+You must therefore always provide a basemap in WGS84. The transformation
+is performed *on the fly* at display time.
+
+For example:
+
+``` r
+library(geoviz)
+library(sf)
+world <- st_read(
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
+)
+```
+
+``` r
+viz_create(projection = "Bertin1953") |>
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
+```
+
+There are many possibilities. For example, you can try “Polar”,
+“EqualEarth”, “Airocean”, “PolyhedralWaterman”, “InterruptedHomolosine”,
+“Berghaus”, etc.
+
+``` r
+viz_create(projection = "PolyhedralWaterman") |>
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
+```
+
+``` r
+viz_create(projection = "Spilhaus") |>
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
+```
+
+## Custom projection
+
+Each projection is a function that transforms the sphere onto a plane.
+However, it is always possible to configure it to change the projection
+center.
+
+``` r
+viz_create(projection = "EqualEarth.rotate([0,90])") |>
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
+```
+
+## Globe view
+
+If you want to display your layers on a globe, simply choose an
+orthographic projection. If you want the globe to rotate, use
+`zoomable = "versor"` (named after the JavaScript library that enables
+this).
+
+``` r
+viz_create(projection = "orthographic", zoomable = "versor") |>
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
+```
+
+Note that `zoomable = "versor"` works alos wiyh other projections 🤩.
+Actually, it allows to change the center of the projection.
+
+``` r
+viz_create(projection = "EqualEarth", zoomable = "versor") |>
+viz_outline() |>
+viz_graticule(stroke = "white") |>
+viz_path(data = world, fill = "#38896F") |>
+viz_render()
+```

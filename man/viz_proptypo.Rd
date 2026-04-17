@@ -76,13 +76,7 @@ from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-lib
 
 \item{leg2_pos}{numeric vector. Optional. Position of typology legend.}
 
-\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth})}
-
-\item{leg1_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
-are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).}
-
-\item{leg2_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg2_}
-are forwarded to typology legend functions (e.g. \code{leg2_missing_text}, \code{leg2_values_fill}).}
+\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.}
 }
 \description{
 The \code{viz_proptypo} function combines proportional symbols and

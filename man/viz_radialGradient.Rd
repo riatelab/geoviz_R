@@ -12,7 +12,8 @@ viz_radialGradient(
   offset1 = 50,
   offset2 = 100,
   fx = 50,
-  fy = 50
+  fy = 50,
+  ...
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ viz_radialGradient(
 \item{fx}{numeric. Optional. Focal point x-position (default 50).}
 
 \item{fy}{numeric. Optional. Focal point y-position (default 50).}
+
+\item{...}{Additional parameters}
 }
 \description{
 The \code{viz_radialGradient} function creates an SVG radialGradient

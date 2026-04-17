@@ -338,9 +338,7 @@ viz_halfcircle <- function(
 #' @param rotate numeric. Optional. Rotation angle (default 0).
 #' @param skewX numeric. Optional. Horizontal skew (default 0).
 #' @param skewY numeric. Optional. Vertical skew (default 0).
-#' @param background logical. Optional. Add a background circle (default FALSE).
-#' @param background_* additional background parameters (e.g. \code{background_fill},
-#' \code{background_stroke}, etc.).
+#' @param background logical. Optional. Add a background circle (default FALSE). You can confifure it with the prefix \code{background_} (e.g. \code{background_fill}, \code{background_stroke}, etc.).
 #' @param tip logical or function. Optional. Tooltip definition (default FALSE).
 #' Use TRUE to display all fields.
 #' @param k numeric. Optional. Maximum radius scaling value (default 50).

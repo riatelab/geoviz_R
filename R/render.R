@@ -16,12 +16,12 @@
 #' viz_outline() |>
 #' viz_path(data = world) |>
 #' viz_render()
-viz_render <- function(map, elementId = NULL) {
+viz_render <- function(map) {
   htmlwidgets::createWidget(
     name = "render",
     x = r2json(map),
     package = "geoviz",
-    elementId = elementId
+    elementId = NULL
   )
 }
 

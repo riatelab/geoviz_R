@@ -48,7 +48,8 @@ Several parameters allow you to customize the appearance of geometries in an SVG
 ```{r}
 viz_create() |>
 viz_path(data = aus, fill = "#CCC") |>
-viz_path(data = roads, stroke = "#38896F", strokeDasharray = 3, strokeWidth = 2) |>
+viz_path(data = roads, stroke = "#38896F",
+         strokeDasharray = 3, strokeWidth = 2) |>
 viz_path(data = ports, fill = "#CCC", stroke = "#38896F",
          strokeWidth = 3, pointRadius = 6 ) |>
 viz_render()
@@ -119,7 +120,8 @@ The `rewind` parameter automatically corrects the vertex order, making the GeoJS
 
 ```{r}
 viz_create(projection  = "EqualEarth") |>
-viz_path(data = world, simplify = 0.001, rewind = T, rewindPole = T, fill = "#38896F") |>
+viz_path(data = world, simplify = 0.001, rewind = T,
+         rewindPole = T, fill = "#38896F") |>
 viz_render()
 ```
 
@@ -129,7 +131,8 @@ Everything we’ve just seen also applies to all package functions based on `viz
 
 ```{r}
 viz_create(projection  = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", simplify = c(1, 0.05), fill = "#38896F") |>
+viz_choro(data = world, var = "gdppc",
+          simplify = c(1, 0.05), fill = "#38896F") |>
 viz_render()
 ```
 

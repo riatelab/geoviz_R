@@ -12,6 +12,8 @@ viz_choro(
   nb = 6,
   breaks = NULL,
   colors = NULL,
+  middle = FALSE,
+  sd = 1,
   reverse = FALSE,
   missing = "white",
   legend = TRUE,
@@ -39,6 +41,10 @@ One of: "quantile", "q6", "equal", "jenks", "msd", "geometric", "headtail",
 \item{colors}{character or vector. Optional. Color palette or vector of colors.
 Can use named palettes from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library}
 
+\item{middle}{logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)}
+
+\item{sd}{number. Only for the MSD method: the number of standard deviations taken into account (default 1)}
+
 \item{reverse}{logical. Optional. Reverse color palette (default FALSE).}
 
 \item{missing}{character or logical. Optional. Color for missing values (default "white").}
@@ -50,14 +56,7 @@ One of: "horizontal", "vertical".}
 
 \item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
 
-\item{...}{Additional parameters passed to path rendering.}
-
-\item{middle}{logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)}
-
-\item{sd}{number. Only for the MSD method: the number of standard deviations taken into account (default 1)}
-
-\item{leg_*}{additional legend parameters. Optional. All arguments prefixed with \code{leg_}
-are forwarded to choropleth legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
+\item{...}{Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
 \description{
 The \code{viz_choro} function creates a choropleth map from a spatial

@@ -25,7 +25,7 @@
 #' One of: "nested", "separate".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param leg_title character. Optional. Legend title (default \code{var}).
-#' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro})
+#' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
 #' @export
 #' @examples
 #' library(sf)
@@ -107,7 +107,7 @@ viz_gridprop <- function(
 #' @param leg_type character. Optional. Legend type (default "vertical").
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
-#' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro})
+#' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
 #' @export
 #' @examples
 #' library(sf)

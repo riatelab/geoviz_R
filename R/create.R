@@ -42,8 +42,7 @@ viz_create <- function(
     margin = c(0, 0, 0, 0),
     zoomable = NULL,
     control = TRUE,
-    warning = TRUE,
-    ...
+    warning = TRUE
 ) {
   structure(
     list(
@@ -59,8 +58,7 @@ viz_create <- function(
         margin = margin,
         zoomable = zoomable,
         control = control,
-        warning = warning,
-        ...
+        warning = warning
       ),
       layers = list()
     ),

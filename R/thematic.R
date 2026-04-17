@@ -19,9 +19,7 @@
 #' @param leg_type character. Optional. Legend type (default "nested").
 #' One of: "nested", "separate".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
-#' @param ... Additional parameters passed to symbol rendering (e.g. \code{strokeWidth})
-#' @param leg_* additional legend parameters. Optional. All arguments prefixed with \code{leg_}
-#' are forwarded to legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).
+#' @param ... Additional parameters passed to symbol rendering (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
 #' @export
 #' @examples
 #' library(sf)
@@ -101,9 +99,7 @@ viz_prop <- function(
 #' @param leg_type character. Optional. Legend orientation (default "vertical").
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
-#' @param ... Additional parameters passed to path rendering.
-#' @param leg_* additional legend parameters. Optional. All arguments prefixed with \code{leg_}
-#' are forwarded to choropleth legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).
+#' @param ... Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
 #' @export
 #' @examples
 #' library(sf)
@@ -130,6 +126,8 @@ viz_choro <- function(
     nb = 6,
     breaks = NULL,
     colors = NULL,
+    middle = FALSE,
+    sd = 1,
     reverse = FALSE,
     missing = "white",
     legend = TRUE,
@@ -146,6 +144,8 @@ viz_choro <- function(
     nb = nb,
     breaks = breaks,
     colors = colors,
+    middel = middle,
+    sd = sd,
     reverse = reverse,
     missing = missing,
     legend = legend,
@@ -175,9 +175,7 @@ viz_choro <- function(
 #' @param leg_type character. Optional. Legend orientation (default "vertical").
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
-#' @param ... Additional parameters passed to path rendering or typology utilities
-#' @param leg_* additional legend parameters. Optional. All arguments prefixed with \code{leg_}
-#' are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).
+#' @param ... Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
 #' @export
 #' @examples
 #' library(sf)
@@ -261,11 +259,7 @@ viz_typo <- function(
 #' @param leg2_type character. Optional. Choropleth legend type (default "vertical").
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
 #' @param leg2_pos numeric vector. Optional. Position of choropleth legend.
-#' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}).
-#' @param leg1_* additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
-#' are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).
-#' @param leg2_* additional legend parameters. Optional. Arguments prefixed with \code{leg2_}
-#' are forwarded to choropleth legend functions (e.g. \code{leg2_missing_text}, \code{leg2_values_fill}).
+#' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.
 #' @export
 #' @examples
 #' library(sf)
@@ -308,6 +302,8 @@ viz_propchoro <- function(
     nb = 6,
     breaks = NULL,
     colors = NULL,
+    middle = FALSE,
+    sd = 1,
     reverse = FALSE,
     missing = "white",
     legend = TRUE,
@@ -377,11 +373,7 @@ viz_propchoro <- function(
 #' @param leg2_type character. Optional. Typology legend type (default "vertical").
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
 #' @param leg2_pos numeric vector. Optional. Position of typology legend.
-#' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth})
-#' @param leg1_* additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
-#' are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).
-#' @param leg2_* additional legend parameters. Optional. Arguments prefixed with \code{leg2_}
-#' are forwarded to typology legend functions (e.g. \code{leg2_missing_text}, \code{leg2_values_fill}).
+#' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.
 #' @export
 #' @examples
 #' library(sf)
@@ -472,9 +464,7 @@ viz_proptypo <- function(
 #' @param leg_type character. Optional. Legend orientation (default "vertical").
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
-#' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth})
-#' @param leg_* additional legend parameters. Optional. Arguments prefixed with \code{leg_}
-#' are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).
+#' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
 #' @export
 #' @examples
 #' library(sf)

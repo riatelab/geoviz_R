@@ -20,6 +20,8 @@ viz_propchoro(
   nb = 6,
   breaks = NULL,
   colors = NULL,
+  middle = FALSE,
+  sd = 1,
   reverse = FALSE,
   missing = "white",
   legend = TRUE,
@@ -70,6 +72,10 @@ One of: "quantile", "q6", "equal", "jenks", "msd", "geometric", "headtail",
 \item{colors}{character or vector. Optional. Color palette or vector of colors
 from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-library}
 
+\item{middle}{logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)}
+
+\item{sd}{number. Only for the MSD method: the number of standard deviations taken into account (default 1)}
+
 \item{reverse}{logical. Optional. Reverse color palette (default FALSE).}
 
 \item{missing}{character or logical. Optional. Color for missing values (default "white").}
@@ -84,17 +90,7 @@ from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-lib
 
 \item{leg2_pos}{numeric vector. Optional. Position of choropleth legend.}
 
-\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}).}
-
-\item{middle}{logical. Optionnal Only for the MSD method: is the mean in a central class or not? (default FALSE)}
-
-\item{sd}{number. Only for the MSD method: the number of standard deviations taken into account (default 1)}
-
-\item{leg1_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg1_}
-are forwarded to symbol legend functions (e.g. \code{leg1_missing_text}, \code{leg1_values_fill}).}
-
-\item{leg2_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg2_}
-are forwarded to choropleth legend functions (e.g. \code{leg2_missing_text}, \code{leg2_values_fill}).}
+\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.}
 }
 \description{
 The \code{viz_propchoro} function combines proportional symbols and

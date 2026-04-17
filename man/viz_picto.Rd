@@ -36,10 +36,7 @@ One of: "horizontal", "vertical".}
 
 \item{leg_pos}{numeric vector. Optional. Legend position (default c(10, 10)).}
 
-\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth})}
-
-\item{leg_*}{additional legend parameters. Optional. Arguments prefixed with \code{leg_}
-are forwarded to typology legend functions (e.g. \code{leg_missing_text}, \code{leg_values_fill}).}
+\item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
 \description{
 The \code{viz_picto} function creates a pictogram (symbol-based)

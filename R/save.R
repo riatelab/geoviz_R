@@ -16,12 +16,12 @@
 #' viz_outline() |>
 #' viz_path(data = world) |>
 #' viz_save()
-viz_save <- function(map, elementId = NULL) {
+viz_save <- function(map) {
   htmlwidgets::createWidget(
     name = "save",
     x = r2json(map),
     package = "geoviz",
-    elementId = elementId
+    elementId = NULL
   )
 }
 

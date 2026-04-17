@@ -4,7 +4,7 @@
 \alias{viz_blur}
 \title{Blur filter}
 \usage{
-viz_blur(map, id = NULL, stdDeviation = 1.5)
+viz_blur(map, id = NULL, stdDeviation = 1.5, ...)
 }
 \arguments{
 \item{map}{A \code{geoviz} map created with \code{viz_create}.}
@@ -13,6 +13,8 @@ viz_blur(map, id = NULL, stdDeviation = 1.5)
 
 \item{stdDeviation}{numeric. Optional. Standard deviation controlling blur intensity (default 1.5).
 Higher values produce a stronger blur effect.}
+
+\item{...}{Additional parameters}
 }
 \description{
 The \code{viz_blur} function creates an SVG blur filter and adds it
