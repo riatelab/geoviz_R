@@ -48,6 +48,8 @@ bars, and north arrows.
   : Scale bar
 - [`viz_text()`](https://riatelab.github.io/geoviz_R/reference/viz_text.md)
   : Texts and labels
+- [`viz_minimap()`](https://riatelab.github.io/geoviz_R/reference/viz_minimap.md)
+  : Minimap inset layer
 
 ## Thematic
 

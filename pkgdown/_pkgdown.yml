@@ -73,6 +73,7 @@ reference:
     - viz_north
     - viz_scalebar
     - viz_text
+    - viz_minimap
   - title: "Thematic"
     desc: These functions allow the creation of thematic maps based on statistical data, complete with their associated legends.
     contents:

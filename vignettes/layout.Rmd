@@ -140,6 +140,20 @@ viz_scalebar() |>
 viz_render()
 ```
 
+## Location map
+
+The `viz_minimap` function allows to display a location map.
+
+```{r}
+viz_create(projection = "Mercator", domain = africa, zoomable = TRUE) |>
+viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
+viz_minimap(projection = "Polar", location_stroke = "#38896F", 
+            location_fill = "#38896F", location_fillOpacity = 0.3,
+            basemap_fill="#CCC",  basemap_fillOpacity = 1,
+            outline_fill = "white", outline_stroke = "#303030") |>  
+viz_render()
+```
+
 ## Rhumbs
 
 The `viz_rhumbs` function allows to display "rhumb lines" like on old portolan charts

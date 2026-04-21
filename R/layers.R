@@ -516,3 +516,93 @@ viz_rhumbs <- function(
     ...
   )
 }
+
+#' @title Minimap inset layer
+#' @description The \code{viz_minimap} function adds a minimap inset to a geoviz map.
+#' It displays a basemap and optionally highlights a location geometry (polygon or point).
+#' This is useful for showing spatial context in map layouts.
+#' NB: The map’s projection must provide an invert() function.
+#'
+#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param id character. Optional. Unique layer id. If NULL, a random id is generated.
+#' @param basemap_data object. Optional. GeoJSON basemap. Default is \code{land}.
+#' @param basemap_fill character. Optional. Fill color of the basemap (default "white").
+#' @param basemap_fillOpacity numeric. Optional. Fill opacity of the basemap (default 0.5).
+#' @param basemap_stroke character. Optional. Stroke color of the basemap (default "none").
+#' @param width numeric. Optional. Width of the minimap (default 200).
+#' @param projection character. Optional. Projection used for the minimap (default "EqualEarth").
+#' @param precision numeric. Optional. Geometry simplification precision (default 10).
+#' @param pos numeric vector. Optional. Position of the minimap (default c(10, 10)).
+#' @param location_type character. Optional. Type of location geometry: "polygon" or "point" (default "polygon").
+#' @param location_r numeric. Optional. Radius when location_type = "point" (default 5).
+#' @param location_fill character. Optional. Fill color of the location geometry.
+#' @param location_stroke character. Optional. Stroke color of the location geometry.
+#' @param location_strokeWidth numeric. Optional. Stroke width of the location geometry (default 1.2).
+#' @param domain list. Optional. Projection domain.
+#' @param margin list. Optional. Margin configuration.
+#' @param ... Additional styling options passed as prefixed arguments.
+#'        Supported prefixes include:
+#'        \code{outline_*} for outline styling properties,
+#'        \code{basemap_*} for basemap styling properties,
+#'        \code{location_*} for location geometry styling properties.
+#' @export
+#' @examples
+#'library(sf)
+#'world <- st_read(
+#'  system.file("gpkg/world.gpkg", package = "geoviz"),
+#'  quiet = TRUE
+#')
+#'afr <- world[world$region== "Africa",]
+#'viz_create(projection = "Mercator", background = "white", domain =  afr) |>
+#'  viz_path(data = world, fill = "#9e9696") |>
+#'  viz_minimap(
+#'    width = 200,
+#'    projection = "EqualEarth",
+#'    pos = c(20, 20),
+#'    location_stroke = "red"
+#'  ) |>
+#'  viz_render()
+
+viz_minimap <- function(
+    map,
+    id = NULL,
+    basemap_data = NULL,
+    basemap_fill = "white",
+    basemap_fillOpacity = 0.5,
+    basemap_stroke = "none",
+    width = 200,
+    projection = "EqualEarth",
+    precision = 10,
+    pos = c(10, 10),
+    location_type = "polygon",
+    location_r = 5,
+    location_fill = NULL,
+    location_stroke = NULL,
+    location_strokeWidth = 1.2,
+    domain = NULL,
+    margin = NULL,
+    ...
+) {
+
+  add_layer(
+    map,
+    "minimap",
+    id = id,
+    basemap_data = basemap_data,
+    basemap_fill = basemap_fill,
+    basemap_fillOpacity = basemap_fillOpacity,
+    basemap_stroke = basemap_stroke,
+    width = width,
+    projection = projection,
+    precision = precision,
+    pos = pos,
+    location_type = location_type,
+    location_r = location_r,
+    location_fill = location_fill,
+    location_stroke = location_stroke,
+    location_strokeWidth = location_strokeWidth,
+    domain = domain,
+    margin = margin,
+    ...
+  )
+}
