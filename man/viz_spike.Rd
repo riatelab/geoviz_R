@@ -75,7 +75,7 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_square(data = world, height = 100, fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_square(data = world, height = 100, fill = "#38896F") |>
+  viz_render()
 }

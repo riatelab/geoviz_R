@@ -74,10 +74,10 @@ viz_create(
   projection = "EqualEarth", background = "white",
   zoomable = TRUE
 ) |>
-viz_choro(
-  data = world, var = "gdppc", method = "quantile", nb = 5,
-  leg_values_round = 0, leg_title = "GDP\nper\ncapita",
-  leg_subtitle = "(in $/inh.)", colors = "PinkYl"
-) |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc", method = "quantile", nb = 5,
+    leg_values_round = 0, leg_title = "GDP\nper\ncapita",
+    leg_subtitle = "(in $/inh.)", colors = "PinkYl"
+  ) |>
+  viz_render()
 }

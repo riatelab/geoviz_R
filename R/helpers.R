@@ -1,4 +1,3 @@
-
 convert_sf_to_geojson <- function(x) {
   if (inherits(x, "sf") || inherits(x, "sfc")) {
     return(geojsonsf::sf_geojson(x))
@@ -37,11 +36,11 @@ r2json <- function(map) {
     layer <- lapply(layer, convert_sf_to_geojson)
     drop_nulls(layer)
   })
-    map_combined <- list(
+  map_combined <- list(
     params = params_converted,
     layers = layers_converted
   )
-    jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
+  jsonlite::toJSON(map_combined, pretty = TRUE, auto_unbox = TRUE)
 }
 
 
@@ -55,4 +54,3 @@ add_layer <- function(map, type, ...) {
   map$layers <- append(map$layers, list(layer))
   return(map)
 }
-

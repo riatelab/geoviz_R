@@ -49,6 +49,6 @@ This function is only relevant at the world scale.
 }
 \examples{
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
-viz_render()
+  viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
+  viz_render()
 }

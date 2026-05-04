@@ -81,17 +81,17 @@ world <- st_read(
 
 # Example 1
 viz_create(projection = "EqualEarth", width = 750, background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_text(
-  pos = c(100, 200), coords = "svg",
-  text = "All maps are lies,\nbut some are useful lies",
-  fill = "#38896F"
-) |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_text(
+    pos = c(100, 200), coords = "svg",
+    text = "All maps are lies,\nbut some are useful lies",
+    fill = "#38896F"
+  ) |>
+  viz_render()
 
 # Example 2
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_text(data = world, text = "ISO3", fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_text(data = world, text = "ISO3", fill = "#38896F") |>
+  viz_render()
 }

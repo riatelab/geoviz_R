@@ -20,7 +20,7 @@ knitr::opts_chunk$set(out.width = "100%")
 library(geoviz)
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-aus <- world[world$ISO3 == "AUS",]
+aus <- world[world$ISO3 == "AUS", ]
 ```
 
 

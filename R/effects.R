@@ -26,21 +26,21 @@
 #' aus <- world[world$ISO3 == "AUS", ]
 #'
 #' viz_create(margin = 5) |>
-#' viz_shadow(id = "my_shadow_effect", stdDeviation = 2.5, dx = 5, dy = 5) |>
-#' viz_path(datum = aus, fill = "#38896F", filter = "url(#my_shadow_effect)") |>
-#' viz_render()
+#'   viz_shadow(id = "my_shadow_effect", stdDeviation = 2.5, dx = 5, dy = 5) |>
+#'   viz_path(datum = aus, fill = "#38896F", filter = "url(#my_shadow_effect)") |>
+#'   viz_render()
 viz_shadow <- function(
-    map,
-    id = NULL,
-    dx = 0,
-    dy = 0,
-    blur = 0,
-    opacity = 1,
-    fill = NULL,
-    stroke = NULL,
-    strokeWidth = NULL,
-    coords = "geo",
-    ...
+  map,
+  id = NULL,
+  dx = 0,
+  dy = 0,
+  blur = 0,
+  opacity = 1,
+  fill = NULL,
+  stroke = NULL,
+  strokeWidth = NULL,
+  coords = "geo",
+  ...
 ) {
   add_layer(
     map,
@@ -82,22 +82,22 @@ viz_shadow <- function(
 #' aus <- world[world$ISO3 == "AUS", ]
 #'
 #' viz_create() |>
-#' viz_radialGradient(
-#'   id = "my_gradient", color1 = "#63b0af",
-#'   color2 = "#428c8b"
-#' ) |>
-#' viz_path(datum = aus, fill = "url(#my_gradient)") |>
-#' viz_render()
+#'   viz_radialGradient(
+#'     id = "my_gradient", color1 = "#63b0af",
+#'     color2 = "#428c8b"
+#'   ) |>
+#'   viz_path(datum = aus, fill = "url(#my_gradient)") |>
+#'   viz_render()
 viz_radialGradient <- function(
-    map,
-    id = NULL,
-    color1 = "#63b0af",
-    color2 = "#428c8b",
-    offset1 = 50,
-    offset2 = 100,
-    fx = 50,
-    fy = 50,
-    ...
+  map,
+  id = NULL,
+  color1 = "#63b0af",
+  color2 = "#428c8b",
+  offset1 = 50,
+  offset2 = 100,
+  fx = 50,
+  fy = 50,
+  ...
 ) {
   add_layer(
     map,
@@ -132,14 +132,14 @@ viz_radialGradient <- function(
 #' aus <- world[world$ISO3 == "AUS", ]
 #'
 #' viz_create(margin = 5, width = 650) |>
-#' viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
-#' viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
-#' viz_render()
+#'   viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
+#'   viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
+#'   viz_render()
 viz_blur <- function(
-    map,
-    id = NULL,
-    stdDeviation = 1.5,
-    ...
+  map,
+  id = NULL,
+  stdDeviation = 1.5,
+  ...
 ) {
   add_layer(
     map,
@@ -168,15 +168,14 @@ viz_blur <- function(
 #' aus <- world[world$ISO3 == "AUS", ]
 #'
 #' viz_create(margin = 5, projection = "meractor") |>
-#' viz_clipPath(id = "ausclip", datum = aus) |>
-#' viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
-#' viz_render()
-
+#'   viz_clipPath(id = "ausclip", datum = aus) |>
+#'   viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
+#'   viz_render()
 viz_clipPath <- function(
-    map,
-    id = NULL,
-    datum = list(type = "Sphere"),
-    permanent = FALSE
+  map,
+  id = NULL,
+  datum = list(type = "Sphere"),
+  permanent = FALSE
 ) {
   add_layer(
     map,
@@ -225,33 +224,33 @@ viz_clipPath <- function(
 #' africa <- world[world$region == "Africa", ]
 #'
 #' viz_create(projection = "EqualEarth", background = "white") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_pattern(
-#'   data = africa, stroke = "#38896F", pattern = "cross",
-#'   angle = 45, strokeWidth = 2, strokeOpacity = 0.6
-#' ) |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_pattern(
+#'     data = africa, stroke = "#38896F", pattern = "cross",
+#'     angle = 45, strokeWidth = 2, strokeOpacity = 0.6
+#'   ) |>
+#'   viz_render()
 viz_pattern <- function(
-    map,
-    id = NULL,
-    spacing = 6,
-    angle = 0,
-    fill = NULL,
-    stroke = "#786d6c",
-    strokeWidth = 2,
-    strokeOpacity = 0.1,
-    fillOpacity = 1,
-    strokeDasharray = NULL,
-    strokeLinecap = "butt",
-    strokeLinejoin = "miter",
-    strokeMiterlimit = 4,
-    opacity = 1,
-    visibility = "visible",
-    display = NULL,
-    pattern = "lines",
-    data = NULL,
-    clipOutline = FALSE,
-    ...
+  map,
+  id = NULL,
+  spacing = 6,
+  angle = 0,
+  fill = NULL,
+  stroke = "#786d6c",
+  strokeWidth = 2,
+  strokeOpacity = 0.1,
+  fillOpacity = 1,
+  strokeDasharray = NULL,
+  strokeLinecap = "butt",
+  strokeLinejoin = "miter",
+  strokeMiterlimit = 4,
+  opacity = 1,
+  visibility = "visible",
+  display = NULL,
+  pattern = "lines",
+  data = NULL,
+  clipOutline = FALSE,
+  ...
 ) {
   add_layer(
     map,
@@ -310,24 +309,24 @@ viz_pattern <- function(
 #' )
 #'
 #' viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-#' viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
-#' viz_render()
+#'   viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
+#'   viz_render()
 viz_sketch <- function(
-    map,
-    data = NULL,
-    id = NULL,
-    fill = "none",
-    stroke = "#000",
-    strokeWidth = 1,
-    simplify = NULL,
-    baseFrequency = 0.03,
-    feDisplacementMap = 5,
-    fillStyle = "dashed",
-    roughness = 5,
-    hachureGap = 3,
-    bowing = 30,
-    fillWeight = 0.12,
-    ...
+  map,
+  data = NULL,
+  id = NULL,
+  fill = "none",
+  stroke = "#000",
+  strokeWidth = 1,
+  simplify = NULL,
+  baseFrequency = 0.03,
+  feDisplacementMap = 5,
+  fillStyle = "dashed",
+  roughness = 5,
+  hachureGap = 3,
+  bowing = 30,
+  fillWeight = 0.12,
+  ...
 ) {
   add_layer(
     map,
@@ -348,4 +347,3 @@ viz_sketch <- function(
     ...
   )
 }
-

@@ -29,7 +29,7 @@ world <- st_read(
 aus <- world[world$ISO3 == "AUS", ]
 
 viz_create(margin = 5, projection = "meractor") |>
-viz_clipPath(id = "ausclip", datum = aus) |>
-viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
-viz_render()
+  viz_clipPath(id = "ausclip", datum = aus) |>
+  viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
+  viz_render()
 }

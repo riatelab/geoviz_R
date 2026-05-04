@@ -16,7 +16,7 @@
 
 - The `geoviz` package is an R <span style="color: #38896F; font-weight: bold; text-decoration: underline;">wrapper around the geoviz JavaScript library</span> via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the JavaScript geoviz documentation [here](https://riatelab.github.io/geoviz/).
 
-- `geoviz` is not intended to compete with other mapping packages in R, such as [mapsf](https://cran.r-project.org/web/packages/mapsf/index.html) or [tmap](https://cran.r-project.org/web/packages/tmap/index.html).
+- `geoviz` is not intended to compete with other mapping packages in R, such as [mapsf](https://CRAN.R-project.org/package=mapsf) or [tmap](https://CRAN.R-project.org/package=tmap).
 
 - Since it's based on d3.js, the philosophy behind this package is completely different as other R mapping packages. Map parameters <span style="color: #38896F; font-weight: bold; text-decoration: underline;">use svg attributes rather than the usual R parameters</span>. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc.
 

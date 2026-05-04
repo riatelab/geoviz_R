@@ -123,7 +123,7 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_leg_symbol_horizontal(pos = c(20, 20)) |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_leg_symbol_horizontal(pos = c(20, 20)) |>
+  viz_render()
 }

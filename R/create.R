@@ -28,21 +28,21 @@
 #' )
 #'
 #' viz_create(projection = "EqualEarth", zoomable = TRUE) |>
-#' viz_path(data = world, fill = "#38896F") |>
-#' viz_render()
+#'   viz_path(data = world, fill = "#38896F") |>
+#'   viz_render()
 viz_create <- function(
-    id = "map",
-    width = NULL,
-    resize = TRUE,
-    domain = NULL,
-    responsive = TRUE,
-    projection = NULL,
-    background = NULL,
-    fontFamily = NULL,
-    margin = c(0, 0, 0, 0),
-    zoomable = NULL,
-    control = TRUE,
-    warning = TRUE
+  id = "map",
+  width = NULL,
+  resize = TRUE,
+  domain = NULL,
+  responsive = TRUE,
+  projection = NULL,
+  background = NULL,
+  fontFamily = NULL,
+  margin = c(0, 0, 0, 0),
+  zoomable = NULL,
+  control = TRUE,
+  warning = TRUE
 ) {
   structure(
     list(

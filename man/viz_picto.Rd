@@ -53,16 +53,16 @@ world <- st_read(
 viz_create(
   projection = "EqualEarth", zoomable = TRUE
 ) |>
-viz_path(
-  datum = world, fill = "#f1f3f5"
-) |>
-viz_picto(
-  data = world, var = "region",
-  symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
-  leg_type = "horizontal",
-  leg_pos = c(400, 350),
-  leg_symbol_spacing = 40,
-  fill = "#38896F"
-) |>
-viz_render()
+  viz_path(
+    datum = world, fill = "#f1f3f5"
+  ) |>
+  viz_picto(
+    data = world, var = "region",
+    symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
+    leg_type = "horizontal",
+    leg_pos = c(400, 350),
+    leg_symbol_spacing = 40,
+    fill = "#38896F"
+  ) |>
+  viz_render()
 }

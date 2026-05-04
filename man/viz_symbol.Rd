@@ -98,7 +98,7 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
+  viz_render()
 }

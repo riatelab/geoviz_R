@@ -20,7 +20,7 @@ world <- st_read(
 )
 
 viz_create() |>
-viz_outline() |>
-viz_path(data = world) |>
-viz_save()
+  viz_outline() |>
+  viz_path(data = world) |>
+  viz_save()
 }

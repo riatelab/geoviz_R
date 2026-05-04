@@ -1,15 +1,17 @@
 Package: geoviz
 Type: Package
-Title: Geoviz: interactive cartography  
+Title: Interactive Cartography  
 Version: 1.0.0
-Authors@R: person("Nicolas", "Lambert", email = "nicolas.lambert@cnrs.fr", role = c("aut", "cre"))
+Authors@R: person("Nicolas", "Lambert", email = "nicolas.lambert@cnrs.fr", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-4976-6560"))
 Maintainer: Nicolas Lambert <nicolas.lambert@cnrs.fr>
-Description: `geoviz` is an R binding forthe [geoviz](https://github.com/riatelab/geoviz) javascript library, itself based on the [d3.js](https://d3js.org/) ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3's many features: proprtional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Droing cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.  
+Description: Create a wide range of interactive, zoomable vector maps. This package is an R binding for the geoviz javascript library (https://github.com/riatelab/geoviz), itself based on the d3.js ecosystem ported by Mike Bostock (https://d3js.org/). Like the original javascript library, the package takes advantage of d3's many features: proportional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.
 License: GPL (>= 3)
 URL: https://riatelab.github.io/geoviz_R/
 BugReports: https://github.com/riatelab/geoviz_R/issues/
 Encoding: UTF-8
 RoxygenNote: 7.3.3
+Depends: 
+    R (>= 4.1.0)
 Imports:
     htmlwidgets,
     geojsonsf,

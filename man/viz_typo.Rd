@@ -63,9 +63,9 @@ viz_create(
   projection = "EqualEarth", background = "white",
   zoomable = TRUE
 ) |>
-viz_typo(
-  data = world, var = "region", colors = "Pastel",
-  leg_title = "Continents"
-) |>
-viz_render()
+  viz_typo(
+    data = world, var = "region", colors = "Pastel",
+    leg_title = "Continents"
+  ) |>
+  viz_render()
 }

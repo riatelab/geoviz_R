@@ -70,6 +70,6 @@ world <- st_read(
 )
 
 viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
-viz_render()
+  viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
+  viz_render()
 }

@@ -13,9 +13,9 @@
 #' )
 #'
 #' viz_create() |>
-#' viz_outline() |>
-#' viz_path(data = world) |>
-#' viz_save()
+#'   viz_outline() |>
+#'   viz_path(data = world) |>
+#'   viz_save()
 viz_save <- function(map) {
   htmlwidgets::createWidget(
     name = "save",
@@ -24,4 +24,3 @@ viz_save <- function(map) {
     elementId = NULL
   )
 }
-

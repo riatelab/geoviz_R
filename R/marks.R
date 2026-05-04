@@ -32,26 +32,26 @@
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_circle(data = world, r = 30, fill = "#38896F") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_circle(data = world, r = 30, fill = "#38896F") |>
+#'   viz_render()
 viz_circle <- function(
-    map,
-    data = NULL,
-    id = NULL,
-    pos = c(0, 0),
-    r = 10,
-    k = 50,
-    fixmax = NULL,
-    dodge = FALSE,
-    iteration = 200,
-    sort = NULL,
-    descending = NULL,
-    coords = "geo",
-    fill = NULL,
-    stroke = "white",
-    tip = FALSE,
-    ...
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  r = 10,
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  iteration = 200,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = "white",
+  tip = FALSE,
+  ...
 ) {
   add_layer(
     map,
@@ -110,27 +110,27 @@ viz_circle <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_square(data = world, side = 60, fill = "#38896F") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_square(data = world, side = 60, fill = "#38896F") |>
+#'   viz_render()
 viz_square <- function(
-    map,
-    data = NULL,
-    id = NULL,
-    pos = c(0, 0),
-    dx = 0,
-    dy = 0,
-    angle = 0,
-    side = 20,
-    k = 100,
-    fixmax = NULL,
-    sort = NULL,
-    descending = NULL,
-    coords = "geo",
-    fill = NULL,
-    stroke = NULL,
-    tip = FALSE,
-    ...
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  dx = 0,
+  dy = 0,
+  angle = 0,
+  side = 20,
+  k = 100,
+  fixmax = NULL,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  tip = FALSE,
+  ...
 ) {
   add_layer(
     map,
@@ -189,26 +189,26 @@ viz_square <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_square(data = world, height = 100, fill = "#38896F") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_square(data = world, height = 100, fill = "#38896F") |>
+#'   viz_render()
 viz_spike <- function(
-    map,
-    data = NULL,
-    id = NULL,
-    pos = c(0, 0),
-    height = 10,
-    width = 30,
-    straight = 0,
-    k = 100,
-    fixmax = NULL,
-    sort = NULL,
-    descending = NULL,
-    coords = "geo",
-    fill = NULL,
-    stroke = NULL,
-    tip = FALSE,
-    ...
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  height = 10,
+  width = 30,
+  straight = 0,
+  k = 100,
+  fixmax = NULL,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  tip = FALSE,
+  ...
 ) {
   add_layer(
     map,
@@ -268,29 +268,29 @@ viz_spike <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
+#'   viz_render()
 viz_halfcircle <- function(
-    map,
-    data = NULL,
-    id = NULL,
-    pos = c(0, 0),
-    dx = 0,
-    dy = 0,
-    angle = 0,
-    r = 10,
-    innerRadius = 0,
-    cornerRadius = 2,
-    k = 50,
-    fixmax = NULL,
-    sort = NULL,
-    descending = NULL,
-    coords = "geo",
-    fill = NULL,
-    stroke = NULL,
-    tip = FALSE,
-    ...
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  dx = 0,
+  dy = 0,
+  angle = 0,
+  r = 10,
+  innerRadius = 0,
+  cornerRadius = 2,
+  k = 50,
+  fixmax = NULL,
+  sort = NULL,
+  descending = NULL,
+  coords = "geo",
+  fill = NULL,
+  stroke = NULL,
+  tip = FALSE,
+  ...
 ) {
   add_layer(
     map,
@@ -358,34 +358,34 @@ viz_halfcircle <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_symbol(data = world, symbol = "star", fill = "#38896F") |>
+#'   viz_render()
 viz_symbol <- function(
-    map,
-    data = NULL,
-    id = NULL,
-    pos = c(0, 0),
-    fill = NULL,
-    stroke = "white",
-    strokeWidth = 0.2,
-    coords = "geo",
-    r = 12,
-    scale = NULL,
-    symbol = "star",
-    missing = "missing",
-    rotate = 0,
-    skewX = 0,
-    skewY = 0,
-    background = FALSE,
-    tip = FALSE,
-    k = 50,
-    fixmax = NULL,
-    dodge = FALSE,
-    iteration = 200,
-    sort = NULL,
-    descending = NULL,
-    ...
+  map,
+  data = NULL,
+  id = NULL,
+  pos = c(0, 0),
+  fill = NULL,
+  stroke = "white",
+  strokeWidth = 0.2,
+  coords = "geo",
+  r = 12,
+  scale = NULL,
+  symbol = "star",
+  missing = "missing",
+  rotate = 0,
+  skewX = 0,
+  skewY = 0,
+  background = FALSE,
+  tip = FALSE,
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  iteration = 200,
+  sort = NULL,
+  descending = NULL,
+  ...
 ) {
   add_layer(
     map,

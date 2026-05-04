@@ -35,6 +35,6 @@ It requires a Mercator projection.
 }
 \examples{
 viz_create(projection = "mercator") |>
-viz_tile(url = "worldphysical") |>
-viz_render()
+  viz_tile(url = "worldphysical") |>
+  viz_render()
 }

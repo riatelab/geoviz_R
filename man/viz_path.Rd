@@ -80,6 +80,6 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(data = world, fill = "#38896F", stroke = "white") |>
-viz_render()
+  viz_path(data = world, fill = "#38896F", stroke = "white") |>
+  viz_render()
 }

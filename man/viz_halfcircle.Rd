@@ -83,7 +83,7 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_halfcircle(data = world, r = 30, fill = "#38896F") |>
+  viz_render()
 }

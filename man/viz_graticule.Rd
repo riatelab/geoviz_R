@@ -52,7 +52,7 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_graticule(step = c(10, 20), stroke = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_graticule(step = c(10, 20), stroke = "#38896F") |>
+  viz_render()
 }

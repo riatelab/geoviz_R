@@ -39,28 +39,28 @@
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_gridprop(data = cities, var = "population") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_gridprop(data = cities, var = "population") |>
+#'   viz_render()
 viz_gridprop <- function(
-    map,
-    data = NULL,
-    var,
-    grid = "square",
-    step = 15,
-    level = 1,
-    coords = "geo",
-    missing = "white",
-    symbol = "circle",
-    k = 10,
-    width = 30,
-    straight = 0,
-    fixmax = NULL,
-    legend = TRUE,
-    leg_type = "separate",
-    leg_pos = c(10, 10),
-    leg_title = NULL,
-    ...
+  map,
+  data = NULL,
+  var,
+  grid = "square",
+  step = 15,
+  level = 1,
+  coords = "geo",
+  missing = "white",
+  symbol = "circle",
+  k = 10,
+  width = 30,
+  straight = 0,
+  fixmax = NULL,
+  legend = TRUE,
+  leg_type = "separate",
+  leg_pos = c(10, 10),
+  leg_title = NULL,
+  ...
 ) {
   add_layer(
     map,
@@ -121,24 +121,24 @@ viz_gridprop <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_gridchoro(data = cities, var = "population") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_gridchoro(data = cities, var = "population") |>
+#'   viz_render()
 viz_gridchoro <- function(
-    map,
-    data = NULL,
-    var,
-    grid = "square",
-    step = 15,
-    level = 1,
-    ratio_factor = 1,
-    coords = "geo",
-    missing = "white",
-    fixmax = NULL,
-    legend = TRUE,
-    leg_type = "vertical",
-    leg_pos = c(10, 10),
-    ...
+  map,
+  data = NULL,
+  var,
+  grid = "square",
+  step = 15,
+  level = 1,
+  ratio_factor = 1,
+  coords = "geo",
+  missing = "white",
+  fixmax = NULL,
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
 ) {
   add_layer(
     map,
@@ -202,33 +202,33 @@ viz_gridchoro <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_smooth(data = cities, var = "population") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_smooth(data = cities, var = "population") |>
+#'   viz_render()
 viz_smooth <- function(
-    map,
-    data = NULL,
-    var = NULL,
-    id = NULL,
-    nb = 100000,
-    bandwidth = NULL,
-    fixbandwidth = FALSE,
-    thresholds = NULL,
-    cellSize = NULL,
-    stroke = "white",
-    strokeOpacity = 0.8,
-    strokeWidth = 0.3,
-    shadow = TRUE,
-    fill = NULL,
-    colors = "RdPu",
-    opacity = NULL,
-    fillOpacity = 0.6,
-    tip = NULL,
-    tipstyle = NULL,
-    coords = "geo",
-    legend = TRUE,
-    leg_pos = c(10, 10),
-    ...
+  map,
+  data = NULL,
+  var = NULL,
+  id = NULL,
+  nb = 100000,
+  bandwidth = NULL,
+  fixbandwidth = FALSE,
+  thresholds = NULL,
+  cellSize = NULL,
+  stroke = "white",
+  strokeOpacity = 0.8,
+  strokeWidth = 0.3,
+  shadow = TRUE,
+  fill = NULL,
+  colors = "RdPu",
+  opacity = NULL,
+  fillOpacity = 0.6,
+  tip = NULL,
+  tipstyle = NULL,
+  coords = "geo",
+  legend = TRUE,
+  leg_pos = c(10, 10),
+  ...
 ) {
   add_layer(
     map,
@@ -287,21 +287,21 @@ viz_smooth <- function(
 #' )
 #'
 #' viz_create(projection = "EqualEarth") |>
-#' viz_path(datum = world, fill = "#f1f3f5") |>
-#' viz_dotdensity(data = cities, var = "population") |>
-#' viz_render()
+#'   viz_path(datum = world, fill = "#f1f3f5") |>
+#'   viz_dotdensity(data = cities, var = "population") |>
+#'   viz_render()
 viz_dotdensity <- function(
-    map,
-    data = NULL,
-    var,
-    stroke = "none",
-    r = 1,
-    dotval = NULL,
-    fill = "black",
-    legend = TRUE,
-    leg_pos = NULL,
-    leg_text = NULL,
-    ...
+  map,
+  data = NULL,
+  var,
+  stroke = "none",
+  r = 1,
+  dotval = NULL,
+  fill = "black",
+  legend = TRUE,
+  leg_pos = NULL,
+  leg_text = NULL,
+  ...
 ) {
   add_layer(
     map,

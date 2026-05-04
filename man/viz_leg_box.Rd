@@ -108,7 +108,7 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_leg_box(pos = c(20, 20), label = "Hello") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_leg_box(pos = c(20, 20), label = "Hello") |>
+  viz_render()
 }

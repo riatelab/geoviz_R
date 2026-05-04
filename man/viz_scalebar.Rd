@@ -55,7 +55,7 @@ world <- st_read(
 )
 
 viz_create(projection = "Mercator", background = "white") |>
-viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
-viz_scalebar() |>
-viz_render()
+  viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+  viz_scalebar() |>
+  viz_render()
 }

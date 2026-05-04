@@ -33,29 +33,29 @@
 #'   projection = "EqualEarth", background = "white",
 #'   zoomable = TRUE
 #' ) |>
-#' viz_path(
-#'   datum = world, fill = "#f1f3f5"
-#' ) |>
-#' viz_prop(
-#'   data = world, var = "pop", symbol = "circle", fill = "#38896F",
-#'   k = 25, leg_values_round = 0, leg_title = "Population",
-#'   leg_subtitle = "(million inh.)", leg_values_factor = 1 / 1000000
-#' ) |>
-#' viz_render()
+#'   viz_path(
+#'     datum = world, fill = "#f1f3f5"
+#'   ) |>
+#'   viz_prop(
+#'     data = world, var = "pop", symbol = "circle", fill = "#38896F",
+#'     k = 25, leg_values_round = 0, leg_title = "Population",
+#'     leg_subtitle = "(million inh.)", leg_values_factor = 1 / 1000000
+#'   ) |>
+#'   viz_render()
 viz_prop <- function(
-    map,
-    data = NULL,
-    var,
-    symbol = "circle",
-    k = 50,
-    fixmax = NULL,
-    width = 30,
-    straight = 0,
-    dodge = FALSE,
-    legend = TRUE,
-    leg_type = "nested",
-    leg_pos = c(10, 10),
-    ...
+  map,
+  data = NULL,
+  var,
+  symbol = "circle",
+  k = 50,
+  fixmax = NULL,
+  width = 30,
+  straight = 0,
+  dodge = FALSE,
+  legend = TRUE,
+  leg_type = "nested",
+  leg_pos = c(10, 10),
+  ...
 ) {
   add_layer(
     map,
@@ -112,28 +112,28 @@ viz_prop <- function(
 #'   projection = "EqualEarth", background = "white",
 #'   zoomable = TRUE
 #' ) |>
-#' viz_choro(
-#'   data = world, var = "gdppc", method = "quantile", nb = 5,
-#'   leg_values_round = 0, leg_title = "GDP\nper\ncapita",
-#'   leg_subtitle = "(in $/inh.)", colors = "PinkYl"
-#' ) |>
-#' viz_render()
+#'   viz_choro(
+#'     data = world, var = "gdppc", method = "quantile", nb = 5,
+#'     leg_values_round = 0, leg_title = "GDP\nper\ncapita",
+#'     leg_subtitle = "(in $/inh.)", colors = "PinkYl"
+#'   ) |>
+#'   viz_render()
 viz_choro <- function(
-    map,
-    data = NULL,
-    var,
-    method = "quantile",
-    nb = 6,
-    breaks = NULL,
-    colors = NULL,
-    middle = FALSE,
-    sd = 1,
-    reverse = FALSE,
-    missing = "white",
-    legend = TRUE,
-    leg_type = "vertical",
-    leg_pos = c(10, 10),
-    ...
+  map,
+  data = NULL,
+  var,
+  method = "quantile",
+  nb = 6,
+  breaks = NULL,
+  colors = NULL,
+  middle = FALSE,
+  sd = 1,
+  reverse = FALSE,
+  missing = "white",
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
 ) {
   add_layer(
     map,
@@ -188,23 +188,23 @@ viz_choro <- function(
 #'   projection = "EqualEarth", background = "white",
 #'   zoomable = TRUE
 #' ) |>
-#' viz_typo(
-#'   data = world, var = "region", colors = "Pastel",
-#'   leg_title = "Continents"
-#' ) |>
-#' viz_render()
+#'   viz_typo(
+#'     data = world, var = "region", colors = "Pastel",
+#'     leg_title = "Continents"
+#'   ) |>
+#'   viz_render()
 viz_typo <- function(
-    map,
-    data = NULL,
-    var,
-    colors = NULL,
-    order = NULL,
-    alphabetical = TRUE,
-    missing = "white",
-    legend = TRUE,
-    leg_type = "vertical",
-    leg_pos = c(10, 10),
-    ...
+  map,
+  data = NULL,
+  var,
+  colors = NULL,
+  order = NULL,
+  alphabetical = TRUE,
+  missing = "white",
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
 ) {
   add_layer(
     map,
@@ -272,46 +272,46 @@ viz_typo <- function(
 #'   projection = "EqualEarth", background = "white",
 #'   zoomable = TRUE
 #' ) |>
-#' viz_path(
-#'   datum = world, fill = "#f1f3f5"
-#' ) |>
-#' viz_propchoro(
-#'   data = world, var1 = "pop", k = 25,
-#'   leg1_values_round = 0, var2 = "gdppc",
-#'   leg1_title = "Population",
-#'   leg1_subtitle = "(million inh.)",
-#'   leg1_values_factor = 1 / 1000000,
-#'   leg2_values_round = 0,
-#'   leg2_title = "GDP per inh.",
-#'   colors = "Temps"
-#' ) |>
-#' viz_render()
+#'   viz_path(
+#'     datum = world, fill = "#f1f3f5"
+#'   ) |>
+#'   viz_propchoro(
+#'     data = world, var1 = "pop", k = 25,
+#'     leg1_values_round = 0, var2 = "gdppc",
+#'     leg1_title = "Population",
+#'     leg1_subtitle = "(million inh.)",
+#'     leg1_values_factor = 1 / 1000000,
+#'     leg2_values_round = 0,
+#'     leg2_title = "GDP per inh.",
+#'     colors = "Temps"
+#'   ) |>
+#'   viz_render()
 viz_propchoro <- function(
-    map,
-    data = NULL,
-    var1,
-    var2,
-    var = NULL,
-    symbol = "circle",
-    k = 50,
-    fixmax = NULL,
-    dodge = FALSE,
-    width = 30,
-    straight = 0,
-    method = "quantile",
-    nb = 6,
-    breaks = NULL,
-    colors = NULL,
-    middle = FALSE,
-    sd = 1,
-    reverse = FALSE,
-    missing = "white",
-    legend = TRUE,
-    leg1_type = "nested",
-    leg2_type = "vertical",
-    leg1_pos = c(10, 10),
-    leg2_pos = NULL,
-    ...
+  map,
+  data = NULL,
+  var1,
+  var2,
+  var = NULL,
+  symbol = "circle",
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  width = 30,
+  straight = 0,
+  method = "quantile",
+  nb = 6,
+  breaks = NULL,
+  colors = NULL,
+  middle = FALSE,
+  sd = 1,
+  reverse = FALSE,
+  missing = "white",
+  legend = TRUE,
+  leg1_type = "nested",
+  leg2_type = "vertical",
+  leg1_pos = c(10, 10),
+  leg2_pos = NULL,
+  ...
 ) {
   add_layer(
     map,
@@ -386,42 +386,42 @@ viz_propchoro <- function(
 #'   projection = "EqualEarth", background = "white",
 #'   zoomable = TRUE
 #' ) |>
-#' viz_path(
-#'   datum = world, fill = "#f1f3f5"
-#' ) |>
-#' viz_proptypo(
-#'   data = world, var1 = "pop", k = 25,
-#'   leg1_values_round = 0, var2 = "region",
-#'   leg1_title = "Population",
-#'   symbol = "square",
-#'   leg1_subtitle = "(million inh.)",
-#'   leg1_values_factor = 1 / 1000000,
-#'   leg2_title = "Continents",
-#'   colors = "Set3"
-#' ) |>
-#' viz_render()
+#'   viz_path(
+#'     datum = world, fill = "#f1f3f5"
+#'   ) |>
+#'   viz_proptypo(
+#'     data = world, var1 = "pop", k = 25,
+#'     leg1_values_round = 0, var2 = "region",
+#'     leg1_title = "Population",
+#'     symbol = "square",
+#'     leg1_subtitle = "(million inh.)",
+#'     leg1_values_factor = 1 / 1000000,
+#'     leg2_title = "Continents",
+#'     colors = "Set3"
+#'   ) |>
+#'   viz_render()
 viz_proptypo <- function(
-    map,
-    data = NULL,
-    var1,
-    var2,
-    var = NULL,
-    symbol = "circle",
-    k = 50,
-    fixmax = NULL,
-    dodge = FALSE,
-    width = 30,
-    straight = 0,
-    colors = NULL,
-    order = NULL,
-    alphabetical = TRUE,
-    missing = "white",
-    legend = TRUE,
-    leg1_type = "nested",
-    leg2_type = "vertical",
-    leg1_pos = c(10, 10),
-    leg2_pos = NULL,
-    ...
+  map,
+  data = NULL,
+  var1,
+  var2,
+  var = NULL,
+  symbol = "circle",
+  k = 50,
+  fixmax = NULL,
+  dodge = FALSE,
+  width = 30,
+  straight = 0,
+  colors = NULL,
+  order = NULL,
+  alphabetical = TRUE,
+  missing = "white",
+  legend = TRUE,
+  leg1_type = "nested",
+  leg2_type = "vertical",
+  leg1_pos = c(10, 10),
+  leg2_pos = NULL,
+  ...
 ) {
   add_layer(
     map,
@@ -476,28 +476,28 @@ viz_proptypo <- function(
 #' viz_create(
 #'   projection = "EqualEarth", zoomable = TRUE
 #' ) |>
-#' viz_path(
-#'   datum = world, fill = "#f1f3f5"
-#' ) |>
-#' viz_picto(
-#'   data = world, var = "region",
-#'   symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
-#'   leg_type = "horizontal",
-#'   leg_pos = c(400, 350),
-#'   leg_symbol_spacing = 40,
-#'   fill = "#38896F"
-#' ) |>
-#' viz_render()
+#'   viz_path(
+#'     datum = world, fill = "#f1f3f5"
+#'   ) |>
+#'   viz_picto(
+#'     data = world, var = "region",
+#'     symbols = c("human", "heart", "fist", "clover", "rocket", "plane"),
+#'     leg_type = "horizontal",
+#'     leg_pos = c(400, 350),
+#'     leg_symbol_spacing = 40,
+#'     fill = "#38896F"
+#'   ) |>
+#'   viz_render()
 viz_picto <- function(
-    map,
-    data = NULL,
-    var,
-    symbols = NULL,
-    alphabetical = TRUE,
-    legend = TRUE,
-    leg_type = "vertical",
-    leg_pos = c(10, 10),
-    ...
+  map,
+  data = NULL,
+  var,
+  symbols = NULL,
+  alphabetical = TRUE,
+  legend = TRUE,
+  leg_type = "vertical",
+  leg_pos = c(10, 10),
+  ...
 ) {
   add_layer(
     map,

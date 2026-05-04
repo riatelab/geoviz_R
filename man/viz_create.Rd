@@ -62,6 +62,6 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", zoomable = TRUE) |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 }

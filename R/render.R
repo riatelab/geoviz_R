@@ -13,9 +13,9 @@
 #' )
 #'
 #' viz_create() |>
-#' viz_outline() |>
-#' viz_path(data = world) |>
-#' viz_render()
+#'   viz_outline() |>
+#'   viz_path(data = world) |>
+#'   viz_render()
 viz_render <- function(map) {
   htmlwidgets::createWidget(
     name = "render",
@@ -24,4 +24,3 @@ viz_render <- function(map) {
     elementId = NULL
   )
 }
-

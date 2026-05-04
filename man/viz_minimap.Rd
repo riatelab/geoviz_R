@@ -75,17 +75,17 @@ NB: The map’s projection must provide an invert() function.
 \examples{
 library(sf)
 world <- st_read(
- system.file("gpkg/world.gpkg", package = "geoviz"),
- quiet = TRUE
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
 )
-afr <- world[world$region== "Africa",]
-viz_create(projection = "Mercator", background = "white", domain =  afr) |>
- viz_path(data = world, fill = "#9e9696") |>
- viz_minimap(
-   width = 200,
-   projection = "EqualEarth",
-   pos = c(20, 20),
-   location_stroke = "red"
- ) |>
- viz_render()
+afr <- world[world$region == "Africa", ]
+viz_create(projection = "Mercator", background = "white", domain = afr) |>
+  viz_path(data = world, fill = "#9e9696") |>
+  viz_minimap(
+    width = 200,
+    projection = "EqualEarth",
+    pos = c(20, 20),
+    location_stroke = "red"
+  ) |>
+  viz_render()
 }
