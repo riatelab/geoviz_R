@@ -9,6 +9,9 @@ viz_render(map)
 \arguments{
 \item{map}{A \code{geoviz} object created with \code{viz_create}.}
 }
+\value{
+An htmlwidget object representing an interactive map.
+}
 \description{
 The \code{viz_render} function returns a pretty map in SVG format :-)
 }

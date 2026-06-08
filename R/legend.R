@@ -33,6 +33,7 @@
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, label_*,
 #' title_*, subtitle_*, note_*, frame_*, text_*).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -149,6 +150,7 @@ viz_leg_box <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -274,6 +276,7 @@ viz_leg_typo_vertical <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -400,6 +403,7 @@ viz_leg_typo_horizontal <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -512,6 +516,7 @@ viz_leg_choro_horizontal <- function(
 #' @param reverse logical. Optional. Reverse the order of colors (default FALSE).
 #' @param frame logical. Optional. Draw a frame around the legend (default FALSE).
 #' @param ... Additional SVG attributes passed to elements.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -607,6 +612,7 @@ viz_leg_gradient_vertical <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -742,6 +748,7 @@ viz_leg_spikes <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -880,6 +887,7 @@ viz_leg_circles <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -1017,6 +1025,7 @@ viz_leg_circles_nested <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -1156,6 +1165,7 @@ viz_leg_squares <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -1308,6 +1318,7 @@ viz_leg_squares_nested <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -1469,6 +1480,7 @@ viz_leg_mushrooms <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -1597,6 +1609,7 @@ viz_leg_symbol_vertical <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -1725,6 +1738,7 @@ viz_leg_symbol_horizontal <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, values_*,
 #' title_*, subtitle_*, note_*, frame_*, text_*).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)

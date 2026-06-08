@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Projections • geoviz</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Lambert</h4>
             
-            <h4 data-toc-skip class="date">2026-05-04</h4>
+            <h4 data-toc-skip class="date">2026-06-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/geoviz_R/blob/HEAD/vignettes/projections.Rmd" class="external-link"><code>vignettes/projections.Rmd</code></a></small>
       <div class="d-none name"><code>projections.Rmd</code></div>
@@ -127,10 +127,10 @@ transformation is performed <ins>on the fly</ins> at display time.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"Bertin1953"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{
   "params": {
@@ -179,10 +179,10 @@ transformation is performed <ins>on the fly</ins> at display time.</p>
 “Berghaus”, etc.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"PolyhedralWaterman"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{
   "params": {
@@ -228,10 +228,10 @@ transformation is performed <ins>on the fly</ins> at display time.</p>
   ]
 },"evals":[],"jsHooks":[]}</script><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"Spilhaus"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145">{"x":{
   "params": {
@@ -285,10 +285,10 @@ plane. However, it is always possible to configure it to change the
 projection center.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth.rotate([0,90])"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-febe03efa1a2d8d52a86" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86">{"x":{
   "params": {
@@ -343,10 +343,10 @@ orthographic projection. If you want the globe to rotate, use
 that enables this).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"orthographic"</span>, zoomable <span class="op">=</span> <span class="st">"versor"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{
   "params": {
@@ -396,10 +396,10 @@ projections 🤩. Actually, it allows to change the center of the
 projection.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="st">"versor"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-10b3b7155e8045a1b2ad" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-10b3b7155e8045a1b2ad">{"x":{
   "params": {

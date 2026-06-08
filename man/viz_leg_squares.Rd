@@ -122,6 +122,9 @@ viz_leg_squares(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_squares} function adds a legend for proportional squares.
 It displays squares scaled according to input values, optionally comparable via fixmax.

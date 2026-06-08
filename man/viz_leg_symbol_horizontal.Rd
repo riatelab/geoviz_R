@@ -110,6 +110,9 @@ viz_leg_symbol_horizontal(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_symbol_horizontal} function adds a horizontal legend for symbol layers.
 It displays a set of categorized symbols with optional shapes and ordering.

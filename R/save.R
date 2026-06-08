@@ -4,6 +4,7 @@
 #' @param map A \code{geoviz} object created with \code{viz_create}.
 #' @export
 #' @param map a geoviz object create with the \code{viz_create}
+#' @return A file path to the downloaded SVG map.
 #' @export
 #' @examples
 #' library(sf)

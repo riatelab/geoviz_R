@@ -46,10 +46,10 @@ world <- st_read(
 
 ``` r
 viz_create(projection = "Bertin1953") |>
-viz_outline() |>
-viz_graticule(stroke = "white") |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 There are many possibilities. For example, you can try “Polar”,
@@ -58,18 +58,18 @@ There are many possibilities. For example, you can try “Polar”,
 
 ``` r
 viz_create(projection = "PolyhedralWaterman") |>
-viz_outline() |>
-viz_graticule(stroke = "white") |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 ``` r
 viz_create(projection = "Spilhaus") |>
-viz_outline() |>
-viz_graticule(stroke = "white") |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 ## Custom projection
@@ -80,10 +80,10 @@ center.
 
 ``` r
 viz_create(projection = "EqualEarth.rotate([0,90])") |>
-viz_outline() |>
-viz_graticule(stroke = "white") |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 ## Globe view
@@ -95,10 +95,10 @@ this).
 
 ``` r
 viz_create(projection = "orthographic", zoomable = "versor") |>
-viz_outline() |>
-viz_graticule(stroke = "white") |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 Note that `zoomable = "versor"` works alos wiyh other projections 🤩.
@@ -106,8 +106,8 @@ Actually, it allows to change the center of the projection.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = "versor") |>
-viz_outline() |>
-viz_graticule(stroke = "white") |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```

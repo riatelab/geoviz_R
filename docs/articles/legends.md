@@ -19,15 +19,17 @@ You can use legend functions directly.
 
 ``` r
 bks <- c(200, 1000, 5000, 10000, 50000, 200000)
-cols <- c('#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15')
+cols <- c("#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15")
 ```
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_leg_choro_vertical(pos = c(10, 50), breaks = bks,
-                       colors = cols, title = "Population" ) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_leg_choro_vertical(
+    pos = c(10, 50), breaks = bks,
+    colors = cols, title = "Population"
+  ) |>
+  viz_render()
 ```
 
 Or use them directly through the thematic mapping functions, with the
@@ -35,9 +37,11 @@ Or use them directly through the thematic mapping functions, with the
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", breaks = bks, colors = cols,
-          leg_pos = c(10,50), leg_title = "Population") |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc", breaks = bks, colors = cols,
+    leg_pos = c(10, 50), leg_title = "Population"
+  ) |>
+  viz_render()
 ```
 
 ## Positioning
@@ -49,7 +53,7 @@ geographic ones).
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
+  viz_path(data = world, fill = "#CCC") |>
   viz_leg_choro_vertical(pos = c(420, 250)) |>
   viz_render()
 ```
@@ -62,7 +66,7 @@ function). However, it allows you to position the legend accurately.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T, width = 1000) |>
-viz_path(data = world, fill = "#CCC") |>
+  viz_path(data = world, fill = "#CCC") |>
   viz_leg_choro_vertical(pos = c(420, 250)) |>
   viz_render()
 ```
@@ -79,10 +83,12 @@ add a title (`leg_title`), a subtitle (`leg_subtitle`), and a note
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", breaks = bks, colors = cols,
-          leg_pos = c(10,50), leg_title = "Population",
-          leg_subtitle = "in 2020", leg_note = "mad with geoviz") |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc", breaks = bks, colors = cols,
+    leg_pos = c(10, 50), leg_title = "Population",
+    leg_subtitle = "in 2020", leg_note = "mad with geoviz"
+  ) |>
+  viz_render()
 ```
 
 There is also often a `leg_type` parameter that lets you choose the
@@ -90,12 +96,14 @@ desired type of legend.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", breaks = bks,
-          colors = cols, opacity = 0.1,
-          leg_pos = c(10,50), leg_title = "Population",
-          leg_subtitle = "in 2020", leg_note = "mad with geoviz",
-          leg_type = "horizontal") |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc", breaks = bks,
+    colors = cols, opacity = 0.1,
+    leg_pos = c(10, 50), leg_title = "Population",
+    leg_subtitle = "in 2020", leg_note = "mad with geoviz",
+    leg_type = "horizontal"
+  ) |>
+  viz_render()
 ```
 
 ## Styling
@@ -108,11 +116,13 @@ You can change margins, background color, border, and more.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_typo(data = world, var = "region", leg_pos = c(30,30), 
-           leg_frame = TRUE, leg_frame_margin = 20, 
-           leg_frame_fill = "yellow", leg_frame_fillOpacity = 0.3, 
-           leg_frame_stroke = "red", leg_frame_strokeWidth = 2) |>
-viz_render()
+  viz_typo(
+    data = world, var = "region", leg_pos = c(30, 30),
+    leg_frame = TRUE, leg_frame_margin = 20,
+    leg_frame_fill = "yellow", leg_frame_fillOpacity = 0.3,
+    leg_frame_stroke = "red", leg_frame_strokeWidth = 2
+  ) |>
+  viz_render()
 ```
 
 - **Values**
@@ -124,12 +134,14 @@ listed in the documentation.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_prop(data = world, fill = "#4a4a4a", fillOpacity = 0.3, var = "pop",
-         leg_values_round = 0,  leg_values_factor = 1/1000000,
-         leg_values_dx = 20, leg_values_fill = "red",
-         leg_values_fontSize = 30, leg_values_thousands = ",",) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_prop(
+    data = world, fill = "#4a4a4a", fillOpacity = 0.3, var = "pop",
+    leg_values_round = 0, leg_values_factor = 1 / 1000000,
+    leg_values_dx = 20, leg_values_fill = "red",
+    leg_values_fontSize = 30, leg_values_thousands = ",",
+  ) |>
+  viz_render()
 ```
 
 - **Boxes**
@@ -139,10 +151,12 @@ legend boxes.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", leg_rect_width = 10,
-            leg_rect_height = 30, leg_rect_spacing = 10,
-            leg_rect_strokeWidth =1, leg_rect_stroke = "red") |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc", leg_rect_width = 10,
+    leg_rect_height = 30, leg_rect_spacing = 10,
+    leg_rect_strokeWidth = 1, leg_rect_stroke = "red"
+  ) |>
+  viz_render()
 ```
 
 - **Circles, lines, and so on…**
@@ -152,8 +166,10 @@ This logic applies to all legend elements (circles, squares, etc.).
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
-  viz_prop(data = world, fill = "#4a4a4a", fillOpacity = 0.3,  var = "gdp",
-           leg_circle_fill = "#38896F", leg_line_length = 100 ) |>
+  viz_prop(
+    data = world, fill = "#4a4a4a", fillOpacity = 0.3, var = "gdp",
+    leg_circle_fill = "#38896F", leg_line_length = 100
+  ) |>
   viz_render()
 ```
 
@@ -161,15 +177,17 @@ In this way, you can build fully customized legends.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_leg_circles_nested( nb = 6, gap = 5, title = "Population",
-                        subtitle = "In inh.", circle_fill = "#38896F",
-                        circle_fillOpacity = 0.5, circle_stroke = "white",
-                        line_stroke = "#38896F", line_width = 50,
-                        line_length = 80, values_dy = -5, values_round = 0,
-                        values_textAnchor = "end", values_fill = "#38896F",
-                        note = "Made with Geoviz", note_dy = 5) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_leg_circles_nested(
+    nb = 6, gap = 5, title = "Population",
+    subtitle = "In inh.", circle_fill = "#38896F",
+    circle_fillOpacity = 0.5, circle_stroke = "white",
+    line_stroke = "#38896F", line_width = 50,
+    line_length = 80, values_dy = -5, values_round = 0,
+    values_textAnchor = "end", values_fill = "#38896F",
+    note = "Made with Geoviz", note_dy = 5
+  ) |>
+  viz_render()
 ```
 
 Refer to the documentation to see what you can modify.

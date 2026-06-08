@@ -59,6 +59,9 @@ viz_leg_gradient_vertical(
 
 \item{...}{Additional SVG attributes passed to elements.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_gradient_vertical} function creates a vertical gradient legend.
 It draws a series of colored rectangles with three labels aligned at top,

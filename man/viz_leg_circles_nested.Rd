@@ -119,6 +119,9 @@ viz_leg_circles_nested(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_circles_nested} function adds a legend for nested proportional circles.
 It displays circles with hierarchical/nested visual structure for comparative values.

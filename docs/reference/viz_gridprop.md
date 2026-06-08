@@ -116,6 +116,10 @@ viz_gridprop(
   `viz_choro`). With the `leg_` prefix, you can configure the legend.
   For example: `leg_title`, `leg_subtitle`, `leg_note`, etc.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -130,9 +134,9 @@ cities <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_gridprop(data = cities, var = "population") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_gridprop(data = cities, var = "population") |>
+  viz_render()
 
 {"x":{
   "params": {

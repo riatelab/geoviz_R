@@ -68,6 +68,9 @@ One of: "nested", "separate".}
 
 \item{...}{Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_gridprop} function builds a proportional symbol map
 aggregated on a spatial grid. It first generates a grid from the input spatial

@@ -31,6 +31,10 @@ viz_clipPath(map, id = NULL, datum = list(type = "Sphere"), permanent = FALSE)
   logical or character. Optional. Whether the clipPath is static
   (default FALSE).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -42,9 +46,9 @@ world <- st_read(
 aus <- world[world$ISO3 == "AUS", ]
 
 viz_create(margin = 5, projection = "meractor") |>
-viz_clipPath(id = "ausclip", datum = aus) |>
-viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
-viz_render()
+  viz_clipPath(id = "ausclip", datum = aus) |>
+  viz_tile(url = "worldStreet", clipPath = "url(#ausclip)") |>
+  viz_render()
 
 {"x":{
   "params": {

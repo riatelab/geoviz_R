@@ -23,6 +23,7 @@
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -101,6 +102,7 @@ viz_circle <- function(
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -180,6 +182,7 @@ viz_square <- function(
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -259,6 +262,7 @@ viz_spike <- function(
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -349,6 +353,7 @@ viz_halfcircle <- function(
 #' @param descending logical. Optional. Sorting order.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)

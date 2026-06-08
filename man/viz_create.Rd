@@ -49,6 +49,9 @@ defines its position by using a vector of 2 values.}
 
 \item{warning}{logical. Optional. Whether to display warnings on the map (default TRUE).}
 }
+\value{
+list containing the map parameters and an initially empty list of layers to be displayed.
+}
 \description{
 The \code{viz_create} function initializes a geoviz map by creating
 an SVG container and defining its main configuration (projection, domain, size,

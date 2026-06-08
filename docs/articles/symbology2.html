@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Symbology (advanced) • geoviz</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Lambert</h4>
             
-            <h4 data-toc-skip class="date">2026-05-04</h4>
+            <h4 data-toc-skip class="date">2026-06-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/geoviz_R/blob/HEAD/vignettes/symbology2.Rmd" class="external-link"><code>vignettes/symbology2.Rmd</code></a></small>
       <div class="d-none name"><code>symbology2.Rmd</code></div>
@@ -90,7 +90,7 @@ offers more advanced cartographic transformations.</p>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"gpkg/world.gpkg"</span>, package <span class="op">=</span> <span class="st">"geoviz"</span><span class="op">)</span>,</span>
 <span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">afr</span> <span class="op">&lt;-</span> <span class="va">world</span><span class="op">[</span><span class="va">world</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"Africa"</span>,<span class="op">]</span></span>
+<span><span class="va">afr</span> <span class="op">&lt;-</span> <span class="va">world</span><span class="op">[</span><span class="va">world</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"Africa"</span>, <span class="op">]</span></span>
 <span></span>
 <span><span class="va">cities</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">st_read</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"gpkg/cities.gpkg"</span>, package <span class="op">=</span> <span class="st">"geoviz"</span><span class="op">)</span>,</span>
@@ -115,10 +115,10 @@ parameters as in the <code>viz_choro</code> function.</p>
 <p>Here is an example of a regular grid on the plane of the map.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, var <span class="op">=</span> <span class="st">"population"</span>, grid <span class="op">=</span> <span class="st">"square"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, fill <span class="op">=</span> <span class="st">"black"</span>, r <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, var <span class="op">=</span> <span class="st">"population"</span>, grid <span class="op">=</span> <span class="st">"square"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, fill <span class="op">=</span> <span class="st">"black"</span>, r <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{
   "params": {
@@ -177,14 +177,18 @@ parameters as in the <code>viz_choro</code> function.</p>
   ]
 },"evals":[],"jsHooks":[]}</script><p>And here is an example of a regular grid on the globe.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"Orthographic.rotate([30,-30])"</span>,</span>
-<span>           zoomable <span class="op">=</span> <span class="st">"versor"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"white"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, var <span class="op">=</span> <span class="st">"population"</span>, grid <span class="op">=</span> <span class="st">"h3"</span>,</span>
-<span>              level <span class="op">=</span> <span class="fl">1</span>, colors <span class="op">=</span> <span class="st">"Reds"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, fill <span class="op">=</span> <span class="st">"black"</span>, r <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span></span>
+<span>  projection <span class="op">=</span> <span class="st">"Orthographic.rotate([30,-30])"</span>,</span>
+<span>  zoomable <span class="op">=</span> <span class="st">"versor"</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"white"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">cities</span>, var <span class="op">=</span> <span class="st">"population"</span>, grid <span class="op">=</span> <span class="st">"h3"</span>,</span>
+<span>    level <span class="op">=</span> <span class="fl">1</span>, colors <span class="op">=</span> <span class="st">"Reds"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cities</span>, fill <span class="op">=</span> <span class="st">"black"</span>, r <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{
   "params": {
@@ -253,13 +257,17 @@ parameters as in the <code>viz_choro</code> function.</p>
 proportionally to the intersected area. As a result, the computation is
 much slower.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"Mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>           domain <span class="op">=</span> <span class="va">afr</span>, margin <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, var <span class="op">=</span> <span class="st">"pop"</span>, step <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>              grid <span class="op">=</span> <span class="st">"hexbin"</span>, colors <span class="op">=</span> <span class="st">"Oranges"</span>,</span>
-<span>              stroke <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span></span>
+<span>  projection <span class="op">=</span> <span class="st">"Mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  domain <span class="op">=</span> <span class="va">afr</span>, margin <span class="op">=</span> <span class="fl">100</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">afr</span>, var <span class="op">=</span> <span class="st">"pop"</span>, step <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>    grid <span class="op">=</span> <span class="st">"hexbin"</span>, colors <span class="op">=</span> <span class="st">"Oranges"</span>,</span>
+<span>    stroke <span class="op">=</span> <span class="st">"none"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145">{"x":{
   "params": {
@@ -312,13 +320,17 @@ size. However, if you want to map a ratio—for example, GDP per
 capita—you need to specify the numerator and the denominator as
 follows.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"Mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>           domain <span class="op">=</span> <span class="va">afr</span>, margin <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gdp"</span>, <span class="st">"pop"</span><span class="op">)</span>, step <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>              grid <span class="op">=</span> <span class="st">"hexbin"</span>, colors <span class="op">=</span> <span class="st">"Blues"</span>,</span>
-<span>              stroke <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span></span>
+<span>  projection <span class="op">=</span> <span class="st">"Mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  domain <span class="op">=</span> <span class="va">afr</span>, margin <span class="op">=</span> <span class="fl">100</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_gridchoro.html">viz_gridchoro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">afr</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gdp"</span>, <span class="st">"pop"</span><span class="op">)</span>, step <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>    grid <span class="op">=</span> <span class="st">"hexbin"</span>, colors <span class="op">=</span> <span class="st">"Blues"</span>,</span>
+<span>    stroke <span class="op">=</span> <span class="st">"none"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-febe03efa1a2d8d52a86" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86">{"x":{
   "params": {
@@ -385,9 +397,9 @@ can use a palette available in <a href="https://github.com/riatelab/dicopal.js/"
 <code class="sourceCode R"><span><span class="va">CHN_cities</span> <span class="op">&lt;-</span> <span class="va">cities</span><span class="op">[</span><span class="va">cities</span><span class="op">$</span><span class="va">iso3</span> <span class="op">==</span> <span class="st">"CHN"</span>, <span class="op">]</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>domain <span class="op">=</span> <span class="va">CHN_cities</span>, margin <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_tile.html">viz_tile</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"worldimagery"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_smooth.html">viz_smooth</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">CHN_cities</span>, var <span class="op">=</span> <span class="st">"population"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_tile.html">viz_tile</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"worldimagery"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_smooth.html">viz_smooth</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">CHN_cities</span>, var <span class="op">=</span> <span class="st">"population"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{
   "params": {
@@ -436,10 +448,12 @@ them using proportional symbols. This produces a cartographic
 representation similar to Bertin-style dot maps.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"Mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_gridprop.html">viz_gridprop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>, step <span class="op">=</span> <span class="fl">40</span>,</span>
-<span>             grid <span class="op">=</span> <span class="st">"square"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, leg_values_round <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_gridprop.html">viz_gridprop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">afr</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>, step <span class="op">=</span> <span class="fl">40</span>,</span>
+<span>    grid <span class="op">=</span> <span class="st">"square"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, leg_values_round <span class="op">=</span> <span class="fl">0</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-10b3b7155e8045a1b2ad" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-10b3b7155e8045a1b2ad">{"x":{
   "params": {
@@ -500,11 +514,11 @@ the bottom left of the map. However, you can choose a value yourself
 using the <code>dotval</code> parameter.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>step <span class="op">=</span> <span class="fl">30</span>, stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"white"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_dotdensity.html">viz_dotdensity</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>step <span class="op">=</span> <span class="fl">30</span>, stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"white"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_dotdensity.html">viz_dotdensity</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-4018eef1a407a0df6b52" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-4018eef1a407a0df6b52">{"x":{
   "params": {

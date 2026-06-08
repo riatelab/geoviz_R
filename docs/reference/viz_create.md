@@ -88,6 +88,11 @@ viz_create(
   logical. Optional. Whether to display warnings on the map (default
   TRUE).
 
+## Value
+
+list containing the map parameters and an initially empty list of layers
+to be displayed.
+
 ## Examples
 
 ``` r
@@ -98,8 +103,8 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", zoomable = TRUE) |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 
 {"x":{
   "params": {

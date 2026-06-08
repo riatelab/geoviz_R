@@ -9,6 +9,9 @@ viz_save(map)
 \arguments{
 \item{map}{a geoviz object create with the \code{viz_create}}
 }
+\value{
+A file path to the downloaded SVG map.
+}
 \description{
 The \code{viz_save} function allows to doawnload the map
 }

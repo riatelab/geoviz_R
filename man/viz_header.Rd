@@ -58,6 +58,9 @@ One of "start", "middle", "end" (default "middle").}
 
 \item{...}{Additional SVG attributes applied to the text or background elements.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_header} function adds a title above a geoviz map.
 }

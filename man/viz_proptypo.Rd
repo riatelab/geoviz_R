@@ -78,6 +78,9 @@ from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-lib
 
 \item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_proptypo} function combines proportional symbols and
 typology mapping on the same spatial data frame. It allows simultaneous encoding

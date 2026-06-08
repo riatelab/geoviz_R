@@ -41,6 +41,9 @@ If \code{coords = "geo"} and the map is zoomable, lines follow zoom interactions
 
 \item{...}{Additional SVG attributes (e.g. \code{opacity}, \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_rhumbs} function draws rhumb lines (loxodromes),
 similar to those found on old portolan charts. These lines represent paths of constant bearing.

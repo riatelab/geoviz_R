@@ -14,6 +14,10 @@ viz_save(map)
 
   a geoviz object create with the `viz_create`
 
+## Value
+
+A file path to the downloaded SVG map.
+
 ## Examples
 
 ``` r
@@ -24,9 +28,9 @@ world <- st_read(
 )
 
 viz_create() |>
-viz_outline() |>
-viz_path(data = world) |>
-viz_save()
+  viz_outline() |>
+  viz_path(data = world) |>
+  viz_save()
 
 {"x":{
   "params": {

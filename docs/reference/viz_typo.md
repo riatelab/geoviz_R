@@ -78,6 +78,10 @@ viz_typo(
   prefix, you can configure the legend. For example: `leg_title`,
   `leg_subtitle`, `leg_note`, etc.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -91,11 +95,11 @@ viz_create(
   projection = "EqualEarth", background = "white",
   zoomable = TRUE
 ) |>
-viz_typo(
-  data = world, var = "region", colors = "Pastel",
-  leg_title = "Continents"
-) |>
-viz_render()
+  viz_typo(
+    data = world, var = "region", colors = "Pastel",
+    leg_title = "Continents"
+  ) |>
+  viz_render()
 
 {"x":{
   "params": {

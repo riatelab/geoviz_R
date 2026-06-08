@@ -80,6 +80,9 @@ One of: "geo", "svg".}
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_smooth} function creates smoothed density contours
 (isobands) from a set of spatial points. It is a wrapper around contour-based

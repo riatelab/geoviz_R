@@ -15,12 +15,12 @@ Authors@R:
              comment = c(ORCID = "0000-0002-1932-3323")))
 Description: Create a wide range of interactive, zoomable vector maps. This
     package is an 'R' binding for the 'geoviz' JavaScript library
-    <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js' ecosystem.
-    Like the original javascript library, the package takes advantage of
-    d3's many features: proportional symbols, pictograms, typologies, choropleth
-    maps, Spikes, tiles, Dorling cartograms, etc. It can also be used to create
-    pretty static vectorial maps in svg format, suitable for editorial
-    cartography.
+    <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js'
+    ecosystem <doi:10.1109/TVCG.2011.185>. Like the original javascript
+    library, the package takes advantage of d3's many features: proportional
+    symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Dorling
+    cartograms, etc. It can also be used to create pretty static vectorial maps
+    in svg format, suitable for editorial cartography.
 License: GPL (>= 3)
 URL: https://riatelab.github.io/geoviz_R/
 BugReports: https://github.com/riatelab/geoviz_R/issues/

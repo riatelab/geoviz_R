@@ -68,6 +68,9 @@ viz_text(
 
 \item{...}{Additional SVG attributes applied to text elements.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_text} function adds a text on a geoviz map
 and can also generate labels from a spatial dataframe.

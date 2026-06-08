@@ -24,10 +24,10 @@ parameters have default styles. The color is assigned randomly.
 
 ``` r
 viz_create() |>
-viz_path(data = aus) |>
-viz_path(data = roads) |>
-viz_path(data = ports) |>
-viz_render()
+  viz_path(data = aus) |>
+  viz_path(data = roads) |>
+  viz_path(data = ports) |>
+  viz_render()
 ```
 
 Several parameters allow you to customize the appearance of geometries
@@ -41,12 +41,16 @@ appealing maps.
 
 ``` r
 viz_create() |>
-viz_path(data = aus, fill = "#CCC") |>
-viz_path(data = roads, stroke = "#38896F",
-         strokeDasharray = 3, strokeWidth = 2) |>
-viz_path(data = ports, fill = "#CCC", stroke = "#38896F",
-         strokeWidth = 3, pointRadius = 6 ) |>
-viz_render()
+  viz_path(data = aus, fill = "#CCC") |>
+  viz_path(
+    data = roads, stroke = "#38896F",
+    strokeDasharray = 3, strokeWidth = 2
+  ) |>
+  viz_path(
+    data = ports, fill = "#CCC", stroke = "#38896F",
+    strokeWidth = 3, pointRadius = 6
+  ) |>
+  viz_render()
 ```
 
 ## Data or datum?
@@ -69,14 +73,14 @@ allows for shorter code.
 
 ``` r
 viz_create() |>
-viz_path(data = world, fill = "#38896F") |>
-viz_render()
+  viz_path(data = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 ``` r
 viz_create() |>
-viz_path(datum = world, fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#38896F") |>
+  viz_render()
 ```
 
 ## Simplification
@@ -88,9 +92,9 @@ making it lighter without significantly altering its appearance, and
 zooming becomes much faster.
 
 ``` r
-viz_create(projection  = "EqualEarth", zoomable = T) |>
-viz_path(data = world, simplify = T, fill = "#38896F") |>
-viz_render()
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, simplify = T, fill = "#38896F") |>
+  viz_render()
 ```
 
 You can also assign any value between 0 and 1 to control the level of
@@ -98,9 +102,9 @@ simplification: 0 means very simplified, and 1 means no simplification
 at all.
 
 ``` r
-viz_create(projection  = "EqualEarth", zoomable = T) |>
-viz_path(data = world, simplify = 0.05, fill = "#38896F") |>
-viz_render()
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, simplify = 0.05, fill = "#38896F") |>
+  viz_render()
 ```
 
 ## Dynamic simplification 🪄
@@ -115,9 +119,9 @@ base map corresponding to the smallest and largest zoom levels. Between
 these two states, the base map takes on an intermediate appearance.
 
 ``` r
-viz_create(projection  = "EqualEarth", zoomable = T) |>
-viz_path(data = world, simplify = c(1, 0.05), fill = "#38896F") |>
-viz_render()
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_path(data = world, simplify = c(1, 0.05), fill = "#38896F") |>
+  viz_render()
 ```
 
 ## The Winding Order Problem
@@ -131,9 +135,9 @@ direction. If this rule is not followed, some software may render holes
 as solid areas or produce incorrect results in geometric calculations.
 
 ``` r
-viz_create(projection  = "EqualEarth") |>
-viz_path(data = world, simplify = 0.001, fill = "#38896F") |>
-viz_render()
+viz_create(projection = "EqualEarth") |>
+  viz_path(data = world, simplify = 0.001, fill = "#38896F") |>
+  viz_render()
 ```
 
 The `rewind` parameter automatically corrects the vertex order, making
@@ -141,10 +145,12 @@ the GeoJSON compliant and preventing display or processing issues. If
 the problem is not resolved, you can try the `rewindPole` parameter.
 
 ``` r
-viz_create(projection  = "EqualEarth") |>
-viz_path(data = world, simplify = 0.001, rewind = T,
-         rewindPole = T, fill = "#38896F") |>
-viz_render()
+viz_create(projection = "EqualEarth") |>
+  viz_path(
+    data = world, simplify = 0.001, rewind = T,
+    rewindPole = T, fill = "#38896F"
+  ) |>
+  viz_render()
 ```
 
 ## In other functions
@@ -154,8 +160,10 @@ on `viz_path`. You can therefore also use the simplify parameter when
 creating a choropleth map.
 
 ``` r
-viz_create(projection  = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc",
-          simplify = c(1, 0.05), fill = "#38896F") |>
-viz_render()
+viz_create(projection = "EqualEarth", zoomable = T) |>
+  viz_choro(
+    data = world, var = "gdppc",
+    simplify = c(1, 0.05), fill = "#38896F"
+  ) |>
+  viz_render()
 ```

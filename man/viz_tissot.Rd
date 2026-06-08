@@ -29,6 +29,9 @@ viz_tissot(
 
 \item{...}{Additional SVG attributes (strokeDasharray, strokeWidth, opacity, strokeLinecap...).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_tissot} function draws Tissot circles to visualize projection distortions on a map.
 }

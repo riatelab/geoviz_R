@@ -19,6 +19,7 @@
 #' @param control logical or numeric vector. Optional. Adds zoom control panel and optionally
 #' defines its position by using a vector of 2 values.
 #' @param warning logical. Optional. Whether to display warnings on the map (default TRUE).
+#' @return list containing the map parameters and an initially empty list of layers to be displayed.
 #' @export
 #' @examples
 #' library(sf)

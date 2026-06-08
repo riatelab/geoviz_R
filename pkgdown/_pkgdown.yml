@@ -49,6 +49,9 @@ navbar:
       href: articles/hello_geoviz.html
 
 reference:
+  - title: "The package"
+    contents:
+    - geoviz
   - title: "Create & render"
     desc: The functions `viz_create` and `viz_render` are essential for initializing a map, visualizing its content, and exporting it. They form the core workflow for creating maps with the `geoviz` R package.
     contents:

@@ -102,6 +102,10 @@ viz_leg_gradient_vertical(
 
   Additional SVG attributes passed to elements.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -112,9 +116,9 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_leg_gradient_vertical(pos = c(20, 20)) |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_leg_gradient_vertical(pos = c(20, 20)) |>
+  viz_render()
 
 {"x":{
   "params": {

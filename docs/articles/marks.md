@@ -114,7 +114,7 @@ The `viz_spike` function allows to create spikes. You can vary the
 For example:
 
 ``` r
-afr <- world[world$region == "Africa",]
+afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
   viz_spike(data = afr, height = "pop", k = 200, fill = "#38896F", stroke = "#38896F") |>
@@ -127,7 +127,7 @@ The `viz_halfcircle` function is used to draw half-circles. The `r`
 attribute allows to define the radius.
 
 ``` r
-afr <- world[world$region == "Africa",]
+afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
   viz_halfcircle(data = afr, r = 30, fill = "#38896F") |>
@@ -141,7 +141,7 @@ The r attribute allows to define the size of the symbol (radius of the
 circle including the symbol).
 
 ``` r
-afr <- world[world$region == "Africa",]
+afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
   viz_symbol(data = afr, r = "gdp", k = 60, fill = "#38896F", symbol = "fist") |>
@@ -154,15 +154,16 @@ With marks and legend, yout can custom your maps as you want. Here find
 a mushroom map.
 
 ``` r
-afr <- world[world$region == "Africa",]
+afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
   viz_halfcircle(data = afr, r = "gdp", fill = "#F13C47", fillOpacity = 0.7, tip = "GDP: $gdp") |>
   viz_halfcircle(data = afr, r = "pop", fill = "#319ABF", fillOpacity = 0.7, angle = 180, tip = "POP: $pop") |>
-  viz_leg_mushrooms(top_data = afr$gdp, bottom_data = afr$pop, 
-                    title = "Inequalities\nin Africa",
-                    top_title = "Wealth", bottom_title = "Population",
-                    frame = TRUE, pos = c(20, 200)
-                    ) |>
+  viz_leg_mushrooms(
+    top_data = afr$gdp, bottom_data = afr$pop,
+    title = "Inequalities\nin Africa",
+    top_title = "Wealth", bottom_title = "Population",
+    frame = TRUE, pos = c(20, 200)
+  ) |>
   viz_render()
 ```

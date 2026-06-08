@@ -42,6 +42,9 @@ it is computed automatically.}
 
 \item{...}{Additional parameters passed to rendering or SVG container options.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_dotdensity} function creates a dot density map by
 distributing points proportionally to a numeric variable. Each dot represents

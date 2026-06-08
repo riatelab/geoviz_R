@@ -52,12 +52,16 @@ viz_tile(
 
   character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
 viz_create(projection = "mercator") |>
-viz_tile(url = "worldphysical") |>
-viz_render()
+  viz_tile(url = "worldphysical") |>
+  viz_render()
 
 {"x":{
   "params": {

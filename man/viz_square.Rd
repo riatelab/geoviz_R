@@ -64,6 +64,9 @@ Use TRUE to display all fields.}
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 \code{opacity}, \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_square} function draws rotatable squares on the map
 from a spatial data frame or from a single position. It can be used to create

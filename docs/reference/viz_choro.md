@@ -101,6 +101,10 @@ viz_choro(
   prefix, you can configure the legend. For example: `leg_title`,
   `leg_subtitle`, `leg_note`, etc.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -114,12 +118,12 @@ viz_create(
   projection = "EqualEarth", background = "white",
   zoomable = TRUE
 ) |>
-viz_choro(
-  data = world, var = "gdppc", method = "quantile", nb = 5,
-  leg_values_round = 0, leg_title = "GDP\nper\ncapita",
-  leg_subtitle = "(in $/inh.)", colors = "PinkYl"
-) |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc", method = "quantile", nb = 5,
+    leg_values_round = 0, leg_title = "GDP\nper\ncapita",
+    leg_subtitle = "(in $/inh.)", colors = "PinkYl"
+  ) |>
+  viz_render()
 
 {"x":{
   "params": {

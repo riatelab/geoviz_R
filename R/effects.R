@@ -16,6 +16,7 @@
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeLinecap},
 #' \code{filter}, etc.).
 #' @param ... Additional parameters
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -72,6 +73,7 @@ viz_shadow <- function(
 #' @param fx numeric. Optional. Focal point x-position (default 50).
 #' @param fy numeric. Optional. Focal point y-position (default 50).
 #' @param ... Additional parameters
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -122,6 +124,7 @@ viz_radialGradient <- function(
 #' @param stdDeviation numeric. Optional. Standard deviation controlling blur intensity (default 1.5).
 #' Higher values produce a stronger blur effect.
 #' @param ... Additional parameters
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -158,6 +161,7 @@ viz_blur <- function(
 #' @param id character. Optional. Unique clipPath id.
 #' @param datum object. Optional. Geometry used for clipping (default \code{list(type = "Sphere")}).
 #' @param permanent logical or character. Optional. Whether the clipPath is static (default FALSE).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -214,6 +218,7 @@ viz_clipPath <- function(
 #' @param clipOutline logical. Optional. Clip pattern to Earth outline (default FALSE).
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -300,6 +305,7 @@ viz_pattern <- function(
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
 #' @export
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @examples
 #' library(sf)
 #'

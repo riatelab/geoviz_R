@@ -56,6 +56,9 @@ viz_sketch(
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_sketch} function renders a spatial dataframe as
 hand-drawn (sketchy) SVG shapes. It uses SVG filters (feTurbulence and

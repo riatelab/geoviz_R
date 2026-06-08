@@ -15,11 +15,24 @@ pkgdown::build_site()
 
 
 
+library(geoviz)
+
 library(sf)
 world <- st_read(
   system.file("gpkg/world.gpkg", package = "geoviz"),
   quiet = TRUE
 )
+
+viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
+  viz_outline() |>
+  viz_graticule(stroke = "white") |>
+  viz_path(data = world, fill = "#38896F", tip = "$NAMEen") |>
+  viz_header(text = "Hello World") |>
+  viz_render()
+
+
+
+
 afr <- world[world$region== "Africa",]
 viz_create(projection = "Mercator", background = "white", domain =  afr) |>
   viz_path(data = world, fill = "#9e9696") |>
@@ -276,3 +289,13 @@ viz_scalebar()|>
 
 
 head(cities)
+library(rmapshaper)
+sf::st_layers(system.file("gpkg/aus.gpkg", package = "geoviz"))
+
+aus <- st_read("../../Downloads/aus_old.gpkg", layer = "aus") |> ms_simplify(keep = 0.1)
+aus <- st_read("../../Downloads/aus_old.gpkg", layer = "roads")|> ms_simplify(keep = 0.5)
+aus <- st_read("../../Downloads/aus_old.gpkg", layer = "ports")
+st_write(aus, "aus.gpkg", layer = "aus", delete_layer = TRUE)
+st_write(roads, "aus.gpkg", layer = "roads")
+st_write(ports, "aus.gpkg", layer = "ports")
+

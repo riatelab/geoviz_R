@@ -39,6 +39,9 @@ Can be a single value or a vector of two values (e.g. \code{c(10, 20)}).}
 
 \item{...}{Additional SVG attributes (e.g. \code{opacity}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_graticule} function draws a graticule (latitude and longitude lines)
 on the map. The spacing between lines can be uniform or specified separately for parallels

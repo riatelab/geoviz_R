@@ -20,6 +20,7 @@
 #' One of: "nested", "separate".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to symbol rendering (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -100,6 +101,7 @@ viz_prop <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -176,6 +178,7 @@ viz_choro <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -260,6 +263,7 @@ viz_typo <- function(
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
 #' @param leg2_pos numeric vector. Optional. Position of choropleth legend.
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -374,6 +378,7 @@ viz_propchoro <- function(
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
 #' @param leg2_pos numeric vector. Optional. Position of typology legend.
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -465,6 +470,7 @@ viz_proptypo <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)

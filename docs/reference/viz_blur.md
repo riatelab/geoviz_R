@@ -29,6 +29,10 @@ viz_blur(map, id = NULL, stdDeviation = 1.5, ...)
 
   Additional parameters
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -41,9 +45,9 @@ world <- st_read(
 aus <- world[world$ISO3 == "AUS", ]
 
 viz_create(margin = 5, width = 650) |>
-viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
-viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
-viz_render()
+  viz_blur(id = "my_blur_effect", stdDeviation = 2) |>
+  viz_path(datum = aus, fill = "#38896F", filter = "url(#my_blur_effect)") |>
+  viz_render()
 
 {"x":{
   "params": {

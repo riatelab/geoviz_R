@@ -105,6 +105,10 @@ viz_square(
   Additional SVG attributes (e.g. `strokeDasharray`, `strokeWidth`,
   `opacity`, `strokeLinecap`, etc.).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -115,9 +119,9 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_square(data = world, side = 60, fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_square(data = world, side = 60, fill = "#38896F") |>
+  viz_render()
 
 {"x":{
   "params": {

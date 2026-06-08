@@ -29,6 +29,9 @@ viz_tile(
 
 \item{clipPath}{character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_tile} function adds raster zoomable tiles to a map
 It requires a Mercator projection.

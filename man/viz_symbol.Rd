@@ -85,6 +85,9 @@ Use TRUE to display all fields.}
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_symbol} function draws SVG symbols on the map from a spatial
 data frame. It allows the use of predefined symbols, scaling, rotation, and styling,

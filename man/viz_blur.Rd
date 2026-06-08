@@ -16,6 +16,9 @@ Higher values produce a stronger blur effect.}
 
 \item{...}{Additional parameters}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_blur} function creates an SVG blur filter and adds it
 to the map definitions. It returns a reference usable in SVG styling (e.g. \code{url(#id)}).

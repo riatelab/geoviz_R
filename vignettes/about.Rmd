@@ -17,7 +17,7 @@ The `geoviz` package is a R binding to the [geoviz](https://github.com/riatelab/
 
 Don't hesitate to have a look at the documentation of the JS library to understand what's under the hood. 
 
-<img src="../man/figures/jsr.png" 
+<img src="fig/jsr.png" 
      style="width:60%; margin: 0 auto; border:none;" 
      alt="Logo">
 

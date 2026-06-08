@@ -67,6 +67,9 @@ You can also use the shorthand \code{r}.}
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_path} function draws geometries from a spatial data frame
 as SVG paths. This function can be used to display polygons, lines, or points,

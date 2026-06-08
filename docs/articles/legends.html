@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Legends • geoviz</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Lambert</h4>
             
-            <h4 data-toc-skip class="date">2026-05-04</h4>
+            <h4 data-toc-skip class="date">2026-06-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/geoviz_R/blob/HEAD/vignettes/legends.Rmd" class="external-link"><code>vignettes/legends.Rmd</code></a></small>
       <div class="d-none name"><code>legends.Rmd</code></div>
@@ -97,13 +97,15 @@ documentation of the legend functions.</p>
 <p>You can use legend functions directly.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">1000</span>, <span class="fl">5000</span>, <span class="fl">10000</span>, <span class="fl">50000</span>, <span class="fl">200000</span><span class="op">)</span></span>
-<span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'#fee5d9'</span>,<span class="st">'#fcae91'</span>,<span class="st">'#fb6a4a'</span>,<span class="st">'#de2d26'</span>,<span class="st">'#a50f15'</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#fee5d9"</span>, <span class="st">"#fcae91"</span>, <span class="st">"#fb6a4a"</span>, <span class="st">"#de2d26"</span>, <span class="st">"#a50f15"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_leg_choro_vertical.html">viz_leg_choro_vertical</a></span><span class="op">(</span>pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="va">bks</span>,</span>
-<span>                       colors <span class="op">=</span> <span class="va">cols</span>, title <span class="op">=</span> <span class="st">"Population"</span> <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_leg_choro_vertical.html">viz_leg_choro_vertical</a></span><span class="op">(</span></span>
+<span>    pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="va">bks</span>,</span>
+<span>    colors <span class="op">=</span> <span class="va">cols</span>, title <span class="op">=</span> <span class="st">"Population"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{
   "params": {
@@ -171,9 +173,11 @@ documentation of the legend functions.</p>
 <code>leg_</code> prefix.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, breaks <span class="op">=</span> <span class="va">bks</span>, colors <span class="op">=</span> <span class="va">cols</span>,</span>
-<span>          leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">50</span><span class="op">)</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, breaks <span class="op">=</span> <span class="va">bks</span>, colors <span class="op">=</span> <span class="va">cols</span>,</span>
+<span>    leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{
   "params": {
@@ -214,7 +218,7 @@ the pos parameter. The position is always defined in SVG coordinates
 (not geographic ones).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_leg_choro_vertical.html">viz_leg_choro_vertical</a></span><span class="op">(</span>pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">420</span>, <span class="fl">250</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:100%;height:576px;"></div>
@@ -288,7 +292,7 @@ the <code>viz_create</code> function). However, it allows you to
 position the legend accurately.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span>, width <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_leg_choro_vertical.html">viz_leg_choro_vertical</a></span><span class="op">(</span>pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">420</span>, <span class="fl">250</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-febe03efa1a2d8d52a86" style="width:100%;height:576px;"></div>
@@ -367,10 +371,12 @@ legend. Then, you can add a title (<code>leg_title</code>), a subtitle
 (<code>leg_subtitle</code>), and a note (<code>leg_note</code>).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, breaks <span class="op">=</span> <span class="va">bks</span>, colors <span class="op">=</span> <span class="va">cols</span>,</span>
-<span>          leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">50</span><span class="op">)</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span>
-<span>          leg_subtitle <span class="op">=</span> <span class="st">"in 2020"</span>, leg_note <span class="op">=</span> <span class="st">"mad with geoviz"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, breaks <span class="op">=</span> <span class="va">bks</span>, colors <span class="op">=</span> <span class="va">cols</span>,</span>
+<span>    leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span>
+<span>    leg_subtitle <span class="op">=</span> <span class="st">"in 2020"</span>, leg_note <span class="op">=</span> <span class="st">"mad with geoviz"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{
   "params": {
@@ -408,12 +414,14 @@ legend. Then, you can add a title (<code>leg_title</code>), a subtitle
 choose the desired type of legend.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, breaks <span class="op">=</span> <span class="va">bks</span>,</span>
-<span>          colors <span class="op">=</span> <span class="va">cols</span>, opacity <span class="op">=</span> <span class="fl">0.1</span>,</span>
-<span>          leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">50</span><span class="op">)</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span>
-<span>          leg_subtitle <span class="op">=</span> <span class="st">"in 2020"</span>, leg_note <span class="op">=</span> <span class="st">"mad with geoviz"</span>,</span>
-<span>          leg_type <span class="op">=</span> <span class="st">"horizontal"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, breaks <span class="op">=</span> <span class="va">bks</span>,</span>
+<span>    colors <span class="op">=</span> <span class="va">cols</span>, opacity <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>    leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span>
+<span>    leg_subtitle <span class="op">=</span> <span class="st">"in 2020"</span>, leg_note <span class="op">=</span> <span class="st">"mad with geoviz"</span>,</span>
+<span>    leg_type <span class="op">=</span> <span class="st">"horizontal"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-10b3b7155e8045a1b2ad" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-10b3b7155e8045a1b2ad">{"x":{
   "params": {
@@ -462,11 +470,13 @@ is fully customizable. You can change margins, background color, border,
 and more.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>, leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>,<span class="fl">30</span><span class="op">)</span>, </span>
-<span>           leg_frame <span class="op">=</span> <span class="cn">TRUE</span>, leg_frame_margin <span class="op">=</span> <span class="fl">20</span>, </span>
-<span>           leg_frame_fill <span class="op">=</span> <span class="st">"yellow"</span>, leg_frame_fillOpacity <span class="op">=</span> <span class="fl">0.3</span>, </span>
-<span>           leg_frame_stroke <span class="op">=</span> <span class="st">"red"</span>, leg_frame_strokeWidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>, leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">30</span><span class="op">)</span>,</span>
+<span>    leg_frame <span class="op">=</span> <span class="cn">TRUE</span>, leg_frame_margin <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>    leg_frame_fill <span class="op">=</span> <span class="st">"yellow"</span>, leg_frame_fillOpacity <span class="op">=</span> <span class="fl">0.3</span>,</span>
+<span>    leg_frame_stroke <span class="op">=</span> <span class="st">"red"</span>, leg_frame_strokeWidth <span class="op">=</span> <span class="fl">2</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-4018eef1a407a0df6b52" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-4018eef1a407a0df6b52">{"x":{
   "params": {
@@ -506,12 +516,14 @@ repositioning them, or changing their colors. You can use any SVG
 attributes, even those that are not listed in the documentation.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#4a4a4a"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span>, var <span class="op">=</span> <span class="st">"pop"</span>,</span>
-<span>         leg_values_round <span class="op">=</span> <span class="fl">0</span>,  leg_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span>,</span>
-<span>         leg_values_dx <span class="op">=</span> <span class="fl">20</span>, leg_values_fill <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span>         leg_values_fontSize <span class="op">=</span> <span class="fl">30</span>, leg_values_thousands <span class="op">=</span> <span class="st">","</span>,<span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#4a4a4a"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span>, var <span class="op">=</span> <span class="st">"pop"</span>,</span>
+<span>    leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>    leg_values_dx <span class="op">=</span> <span class="fl">20</span>, leg_values_fill <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>    leg_values_fontSize <span class="op">=</span> <span class="fl">30</span>, leg_values_thousands <span class="op">=</span> <span class="st">","</span>,</span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-5b1b2f4ad92281566982" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-5b1b2f4ad92281566982">{"x":{
   "params": {
@@ -568,10 +580,12 @@ attributes, even those that are not listed in the documentation.</p>
 legend boxes.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, leg_rect_width <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>            leg_rect_height <span class="op">=</span> <span class="fl">30</span>, leg_rect_spacing <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>            leg_rect_strokeWidth <span class="op">=</span><span class="fl">1</span>, leg_rect_stroke <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, leg_rect_width <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    leg_rect_height <span class="op">=</span> <span class="fl">30</span>, leg_rect_spacing <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    leg_rect_strokeWidth <span class="op">=</span> <span class="fl">1</span>, leg_rect_stroke <span class="op">=</span> <span class="st">"red"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-25c3e940e6859592f801" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-25c3e940e6859592f801">{"x":{
   "params": {
@@ -613,8 +627,10 @@ etc.).</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#4a4a4a"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span>,  var <span class="op">=</span> <span class="st">"gdp"</span>,</span>
-<span>           leg_circle_fill <span class="op">=</span> <span class="st">"#38896F"</span>, leg_line_length <span class="op">=</span> <span class="fl">100</span> <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#4a4a4a"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.3</span>, var <span class="op">=</span> <span class="st">"gdp"</span>,</span>
+<span>    leg_circle_fill <span class="op">=</span> <span class="st">"#38896F"</span>, leg_line_length <span class="op">=</span> <span class="fl">100</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-3f27c09be0c60bb52829" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-3f27c09be0c60bb52829">{"x":{
@@ -664,15 +680,17 @@ etc.).</p>
 },"evals":[],"jsHooks":[]}</script><p>In this way, you can build fully customized legends.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_leg_circles_nested.html">viz_leg_circles_nested</a></span><span class="op">(</span> nb <span class="op">=</span> <span class="fl">6</span>, gap <span class="op">=</span> <span class="fl">5</span>, title <span class="op">=</span> <span class="st">"Population"</span>,</span>
-<span>                        subtitle <span class="op">=</span> <span class="st">"In inh."</span>, circle_fill <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
-<span>                        circle_fillOpacity <span class="op">=</span> <span class="fl">0.5</span>, circle_stroke <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>                        line_stroke <span class="op">=</span> <span class="st">"#38896F"</span>, line_width <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>                        line_length <span class="op">=</span> <span class="fl">80</span>, values_dy <span class="op">=</span> <span class="op">-</span><span class="fl">5</span>, values_round <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>                        values_textAnchor <span class="op">=</span> <span class="st">"end"</span>, values_fill <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
-<span>                        note <span class="op">=</span> <span class="st">"Made with Geoviz"</span>, note_dy <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_leg_circles_nested.html">viz_leg_circles_nested</a></span><span class="op">(</span></span>
+<span>    nb <span class="op">=</span> <span class="fl">6</span>, gap <span class="op">=</span> <span class="fl">5</span>, title <span class="op">=</span> <span class="st">"Population"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"In inh."</span>, circle_fill <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
+<span>    circle_fillOpacity <span class="op">=</span> <span class="fl">0.5</span>, circle_stroke <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>    line_stroke <span class="op">=</span> <span class="st">"#38896F"</span>, line_width <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>    line_length <span class="op">=</span> <span class="fl">80</span>, values_dy <span class="op">=</span> <span class="op">-</span><span class="fl">5</span>, values_round <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>    values_textAnchor <span class="op">=</span> <span class="st">"end"</span>, values_fill <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
+<span>    note <span class="op">=</span> <span class="st">"Made with Geoviz"</span>, note_dy <span class="op">=</span> <span class="fl">5</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-416566eb193bf50d04e6" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-416566eb193bf50d04e6">{"x":{
   "params": {

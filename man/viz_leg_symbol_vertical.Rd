@@ -110,6 +110,9 @@ viz_leg_symbol_vertical(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_symbol_vertical} function adds a vertical legend for symbol layers.
 It displays categorized symbols arranged vertically with optional shapes and ordering.

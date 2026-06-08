@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Symbology • geoviz</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                         <h4 data-toc-skip class="author">Nicolas
 Lambert</h4>
             
-            <h4 data-toc-skip class="date">2026-05-04</h4>
+            <h4 data-toc-skip class="date">2026-06-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/geoviz_R/blob/HEAD/vignettes/symbology.Rmd" class="external-link"><code>vignettes/symbology.Rmd</code></a></small>
       <div class="d-none name"><code>symbology.Rmd</code></div>
@@ -106,9 +106,9 @@ variable to map). Note that you should use absolute quantitative data
 (stocks) here.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{
   "params": {
@@ -160,10 +160,12 @@ modify all the usual graphical styles (<code>fill</code>,
 <code>stroke</code>, <code>strokeWidth</code>…).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>, </span>
-<span>         fill <span class="op">=</span> <span class="st">"#38896F"</span>, symbol <span class="op">=</span> <span class="st">"square"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"#38896F"</span>, symbol <span class="op">=</span> <span class="st">"square"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{
   "params": {
@@ -216,13 +218,15 @@ documentation of the legend functions and/or to the dedicated
 vignette.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>, </span>
-<span>         fill <span class="op">=</span> <span class="st">"#38896F"</span>, symbol <span class="op">=</span> <span class="st">"circle"</span>, leg_type <span class="op">=</span> <span class="st">"separate"</span>,</span>
-<span>         leg_circle_fill <span class="op">=</span> <span class="st">"#38896F"</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span>
-<span>         leg_subtitle <span class="op">=</span> <span class="st">"in million inh."</span>, leg_note <span class="op">=</span> <span class="st">"made with geoviz"</span>,</span>
-<span>         leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"#38896F"</span>, symbol <span class="op">=</span> <span class="st">"circle"</span>, leg_type <span class="op">=</span> <span class="st">"separate"</span>,</span>
+<span>    leg_circle_fill <span class="op">=</span> <span class="st">"#38896F"</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span>
+<span>    leg_subtitle <span class="op">=</span> <span class="st">"in million inh."</span>, leg_note <span class="op">=</span> <span class="st">"made with geoviz"</span>,</span>
+<span>    leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145">{"x":{
   "params": {
@@ -285,8 +289,8 @@ As previously, you need two parameters: <code>data</code> (a spatial
 data frame) and <code>var</code> (the variable to map).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-febe03efa1a2d8d52a86" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86">{"x":{
   "params": {
@@ -327,8 +331,8 @@ whether the mean is at the center of a class or at a class
 boundary).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, method <span class="op">=</span> <span class="st">"jenks"</span>, nb <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, method <span class="op">=</span> <span class="st">"jenks"</span>, nb <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{
   "params": {
@@ -361,9 +365,11 @@ boundary).</p>
 using the <code>breaks</code> parameter.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
-<span>          breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">1000</span>, <span class="fl">5000</span>, <span class="fl">10000</span>, <span class="fl">50000</span>, <span class="fl">200000</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">1000</span>, <span class="fl">5000</span>, <span class="fl">10000</span>, <span class="fl">50000</span>, <span class="fl">200000</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-10b3b7155e8045a1b2ad" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-10b3b7155e8045a1b2ad">{"x":{
   "params": {
@@ -450,8 +456,8 @@ For example, you can use:</p>
 <code>"Vik"</code></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, colors <span class="op">=</span> <span class="st">"BlueOrangeRed"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>, colors <span class="op">=</span> <span class="st">"BlueOrangeRed"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-4018eef1a407a0df6b52" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-4018eef1a407a0df6b52">{"x":{
   "params": {
@@ -484,10 +490,14 @@ For example, you can use:</p>
 },"evals":[],"jsHooks":[]}</script><p>You can also choose any colors you want by specifying a vector.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
-<span>          colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#ffffcc"</span>, <span class="st">"#c7e9b4"</span>, <span class="st">"#7fcdbb"</span>,</span>
-<span>                     <span class="st">"#41b6c4"</span>, <span class="st">"#2c7fb8"</span>, <span class="st">"#253494"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
+<span>    colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"#ffffcc"</span>, <span class="st">"#c7e9b4"</span>, <span class="st">"#7fcdbb"</span>,</span>
+<span>      <span class="st">"#41b6c4"</span>, <span class="st">"#2c7fb8"</span>, <span class="st">"#253494"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-5b1b2f4ad92281566982" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-5b1b2f4ad92281566982">{"x":{
   "params": {
@@ -528,9 +538,9 @@ function. As before, you need at least two parameters: <code>data</code>
 variable).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-25c3e940e6859592f801" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-25c3e940e6859592f801">{"x":{
   "params": {
@@ -581,8 +591,8 @@ parameter. For example, you can use for example:</p>
 <code>"Moonrise5"</code></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>, colors <span class="op">=</span> <span class="st">"Pastel"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>, colors <span class="op">=</span> <span class="st">"Pastel"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-3f27c09be0c60bb52829" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-3f27c09be0c60bb52829">{"x":{
   "params": {
@@ -613,10 +623,14 @@ a fixed number of classes. Fortunately, you can also directly choose
 your own colors.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
-<span>         colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>,</span>
-<span>                    <span class="st">"#984ea3"</span>, <span class="st">"#ff7f00"</span>, <span class="st">"#ffff33"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
+<span>    colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>,</span>
+<span>      <span class="st">"#984ea3"</span>, <span class="st">"#ff7f00"</span>, <span class="st">"#ffff33"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-416566eb193bf50d04e6" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-416566eb193bf50d04e6">{"x":{
   "params": {
@@ -647,12 +661,18 @@ color corresponds to which category, you can also use the
 <code>order</code> argument.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
-<span>         order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Antarctica"</span>, <span class="st">"Oceania"</span>, <span class="st">"Africa"</span>, </span>
-<span>                   <span class="st">"America"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span><span class="op">)</span>,</span>
-<span>         colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>,</span>
-<span>                    <span class="st">"#984ea3"</span>, <span class="st">"#ff7f00"</span>, <span class="st">"#ffff33"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"Antarctica"</span>, <span class="st">"Oceania"</span>, <span class="st">"Africa"</span>,</span>
+<span>      <span class="st">"America"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>,</span>
+<span>      <span class="st">"#984ea3"</span>, <span class="st">"#ff7f00"</span>, <span class="st">"#ffff33"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-72cbf064100ce560a04c" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-72cbf064100ce560a04c">{"x":{
   "params": {
@@ -682,12 +702,18 @@ color corresponds to which category, you can also use the
 },"evals":[],"jsHooks":[]}</script><p>Obviously, all these functions also work on point objects.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_centroid</a></span><span class="op">(</span><span class="va">world</span><span class="op">)</span>, var <span class="op">=</span> <span class="st">"region"</span>, r <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>         order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Antarctica"</span>, <span class="st">"Oceania"</span>, <span class="st">"Africa"</span>, </span>
-<span>                    <span class="st">"America"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span><span class="op">)</span>,</span>
-<span>         colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>,</span>
-<span>                    <span class="st">"#984ea3"</span>, <span class="st">"#ff7f00"</span>, <span class="st">"#ffff33"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_centroid</a></span><span class="op">(</span><span class="va">world</span><span class="op">)</span>, var <span class="op">=</span> <span class="st">"region"</span>, r <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"Antarctica"</span>, <span class="st">"Oceania"</span>, <span class="st">"Africa"</span>,</span>
+<span>      <span class="st">"America"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>,</span>
+<span>      <span class="st">"#984ea3"</span>, <span class="st">"#ff7f00"</span>, <span class="st">"#ffff33"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Warning: st_centroid assumes attributes are constant over geometries</span></span></code></pre>
 <div class="render html-widget html-fill-item" id="htmlwidget-d11fc4360aa0230696d7" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-d11fc4360aa0230696d7">{"x":{
@@ -726,9 +752,9 @@ this, you can use the <code>viz_picto</code> function with the
 <code>data</code> and <code>var</code> parameters.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_picto.html">viz_picto</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_picto.html">viz_picto</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-21c7483268bafca56cec" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-21c7483268bafca56cec">{"x":{
   "params": {
@@ -788,13 +814,19 @@ want from this list:</p>
 parameters.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_picto.html">viz_picto</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
-<span>          order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Antarctica"</span>, <span class="st">"Oceania"</span>, <span class="st">"Africa"</span>, </span>
-<span>                    <span class="st">"America"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span><span class="op">)</span>,</span>
-<span>          symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hospital"</span>, <span class="st">"flower"</span>, <span class="st">"cloud"</span>,</span>
-<span>                      <span class="st">"beer"</span>, <span class="st">"nuke"</span>, <span class="st">"plane"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_picto.html">viz_picto</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"Antarctica"</span>, <span class="st">"Oceania"</span>, <span class="st">"Africa"</span>,</span>
+<span>      <span class="st">"America"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"hospital"</span>, <span class="st">"flower"</span>, <span class="st">"cloud"</span>,</span>
+<span>      <span class="st">"beer"</span>, <span class="st">"nuke"</span>, <span class="st">"plane"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1834a22cd196f3aa03a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1834a22cd196f3aa03a1">{"x":{
   "params": {
@@ -841,10 +873,12 @@ dodge parameter, you can even spread the symbols apart to avoid
 overlaps.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_picto.html">viz_picto</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>, background <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          r <span class="op">=</span> <span class="fl">8</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, dodge <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_picto.html">viz_picto</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>, background <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    r <span class="op">=</span> <span class="fl">8</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, dodge <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-28515d92cb327f90c9eb" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-28515d92cb327f90c9eb">{"x":{
   "params": {
@@ -896,14 +930,18 @@ modes by overlaying layers. You just need to pay attention to the
 position of the legends so that they do not overlap.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
-<span>         colors <span class="op">=</span> <span class="st">"Pastel"</span>, leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>, </span>
-<span>         leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span>,</span>
-<span>         fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
-<span>         strokeWidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_typo.html">viz_typo</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"region"</span>,</span>
+<span>    colors <span class="op">=</span> <span class="st">"Pastel"</span>, leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>    leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
+<span>    strokeWidth <span class="op">=</span> <span class="fl">1.5</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-0caf26d4e3c00206b0c5" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-0caf26d4e3c00206b0c5">{"x":{
   "params": {
@@ -963,14 +1001,18 @@ position of the legends so that they do not overlap.</p>
   ]
 },"evals":[],"jsHooks":[]}</script><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
-<span>         colors <span class="op">=</span> <span class="st">"OrRd"</span>, leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>, </span>
-<span>         leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span>,</span>
-<span>         fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
-<span>         strokeWidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
+<span>    colors <span class="op">=</span> <span class="st">"OrRd"</span>, leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_prop.html">viz_prop</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>    leg_values_round <span class="op">=</span> <span class="fl">0</span>, leg_values_factor <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"none"</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
+<span>    strokeWidth <span class="op">=</span> <span class="fl">1.5</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-da0b268a2927f570ebf3" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-da0b268a2927f570ebf3">{"x":{
   "params": {
@@ -1041,11 +1083,13 @@ same parameters as in the previous functions.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_proptypo.html">viz_proptypo</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var1 <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
-<span>             leg1_values_round <span class="op">=</span> <span class="fl">0</span>, leg1_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span>,</span>
-<span>             var2 <span class="op">=</span> <span class="st">"region"</span>, colors <span class="op">=</span> <span class="st">"Pastel"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_proptypo.html">viz_proptypo</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var1 <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>    leg1_values_round <span class="op">=</span> <span class="fl">0</span>, leg1_values_factor <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>    var2 <span class="op">=</span> <span class="st">"region"</span>, colors <span class="op">=</span> <span class="st">"Pastel"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-0ed12bb554391c49c2e3" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-0ed12bb554391c49c2e3">{"x":{
   "params": {
@@ -1097,11 +1141,13 @@ same parameters as in the previous functions.</p>
 },"evals":[],"jsHooks":[]}</script><p>Or:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_propchoro.html">viz_propchoro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var1 <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
-<span>             leg1_values_round <span class="op">=</span> <span class="fl">0</span>, leg1_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span>,</span>
-<span>             var2 <span class="op">=</span> <span class="st">"gdppc"</span>, colors <span class="op">=</span> <span class="st">"OrRd"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span><span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_propchoro.html">viz_propchoro</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">world</span>, var1 <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>    leg1_values_round <span class="op">=</span> <span class="fl">0</span>, leg1_values_factor <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span>,</span>
+<span>    var2 <span class="op">=</span> <span class="st">"gdppc"</span>, colors <span class="op">=</span> <span class="st">"OrRd"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-ec658d41f8c4f2d124e9" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-ec658d41f8c4f2d124e9">{"x":{
   "params": {

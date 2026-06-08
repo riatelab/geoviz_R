@@ -136,6 +136,10 @@ viz_smooth(
   Additional SVG attributes (e.g. `strokeDasharray`, `opacity`,
   `strokeLinecap`, etc.).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -150,9 +154,9 @@ cities <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_smooth(data = cities, var = "population") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_smooth(data = cities, var = "population") |>
+  viz_render()
 
 {"x":{
   "params": {

@@ -14,6 +14,10 @@ viz_render(map)
 
   A `geoviz` object created with `viz_create`.
 
+## Value
+
+An htmlwidget object representing an interactive map.
+
 ## Examples
 
 ``` r
@@ -25,9 +29,9 @@ world <- st_read(
 )
 
 viz_create() |>
-viz_outline() |>
-viz_path(data = world) |>
-viz_render()
+  viz_outline() |>
+  viz_path(data = world) |>
+  viz_render()
 
 {"x":{
   "params": {

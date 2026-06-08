@@ -13,7 +13,7 @@ world <- st_read(
   system.file("gpkg/world.gpkg", package = "geoviz"),
   quiet = TRUE
 )
-afr <- world[world$region == "Africa",]
+afr <- world[world$region == "Africa", ]
 
 cities <- st_read(
   system.file("gpkg/cities.gpkg", package = "geoviz"),
@@ -42,23 +42,27 @@ Here is an example of a regular grid on the plane of the map.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(datum = world, fill = "#CCC") |>
-viz_gridchoro(data = cities, var = "population", grid = "square") |>
-viz_path(data = cities, fill = "black", r = 2) |>
-viz_render()
+  viz_path(datum = world, fill = "#CCC") |>
+  viz_gridchoro(data = cities, var = "population", grid = "square") |>
+  viz_path(data = cities, fill = "black", r = 2) |>
+  viz_render()
 ```
 
 And here is an example of a regular grid on the globe.
 
 ``` r
-viz_create(projection = "Orthographic.rotate([30,-30])",
-           zoomable = "versor") |>
-viz_outline() |>
-viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
-viz_gridchoro(data = cities, var = "population", grid = "h3",
-              level = 1, colors = "Reds") |>
-viz_path(data = cities, fill = "black", r = 2) |>
-viz_render()
+viz_create(
+  projection = "Orthographic.rotate([30,-30])",
+  zoomable = "versor"
+) |>
+  viz_outline() |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_gridchoro(
+    data = cities, var = "population", grid = "h3",
+    level = 1, colors = "Reds"
+  ) |>
+  viz_path(data = cities, fill = "black", r = 2) |>
+  viz_render()
 ```
 
 If the data are not points but polygons, the values are distributed
@@ -66,13 +70,17 @@ proportionally to the intersected area. As a result, the computation is
 much slower.
 
 ``` r
-viz_create(projection = "Mercator", zoomable = T,
-           domain = afr, margin = 100) |>
-viz_gridchoro(data = afr, var = "pop", step = 50,
-              grid = "hexbin", colors = "Oranges",
-              stroke = "none") |>
-viz_path(datum = afr, fill = "none", stroke = "white") |>
-viz_render()
+viz_create(
+  projection = "Mercator", zoomable = T,
+  domain = afr, margin = 100
+) |>
+  viz_gridchoro(
+    data = afr, var = "pop", step = 50,
+    grid = "hexbin", colors = "Oranges",
+    stroke = "none"
+  ) |>
+  viz_path(datum = afr, fill = "none", stroke = "white") |>
+  viz_render()
 ```
 
 In the previous maps, a stock variable is represented using a color
@@ -81,13 +89,17 @@ size. However, if you want to map a ratio—for example, GDP per
 capita—you need to specify the numerator and the denominator as follows.
 
 ``` r
-viz_create(projection = "Mercator", zoomable = T,
-           domain = afr, margin = 100) |>
-viz_gridchoro(data = afr, var = c("gdp", "pop"), step = 50,
-              grid = "hexbin", colors = "Blues",
-              stroke = "none") |>
-viz_path(data = afr, fill = "none", stroke = "white") |>
-viz_render()
+viz_create(
+  projection = "Mercator", zoomable = T,
+  domain = afr, margin = 100
+) |>
+  viz_gridchoro(
+    data = afr, var = c("gdp", "pop"), step = 50,
+    grid = "hexbin", colors = "Blues",
+    stroke = "none"
+  ) |>
+  viz_path(data = afr, fill = "none", stroke = "white") |>
+  viz_render()
 ```
 
 ## Heatmaps
@@ -108,9 +120,9 @@ can change the level of generalization of the map. With the parameter
 CHN_cities <- cities[cities$iso3 == "CHN", ]
 
 viz_create(domain = CHN_cities, margin = 50) |>
-viz_tile(url = "worldimagery") |>
-viz_smooth(data = CHN_cities, var = "population") |>
-viz_render()
+  viz_tile(url = "worldimagery") |>
+  viz_smooth(data = CHN_cities, var = "population") |>
+  viz_render()
 ```
 
 ## Bertin dots
@@ -123,10 +135,12 @@ Bertin-style dot maps.
 
 ``` r
 viz_create(projection = "Mercator", zoomable = T) |>
-viz_path(data = afr, fill = "#CCC", fillOpacity = 0.3) |>
-viz_gridprop(data = afr, var = "pop", k = 30, step = 40,
-             grid = "square", fill = "#38896F", leg_values_round = 0) |>
-viz_render()
+  viz_path(data = afr, fill = "#CCC", fillOpacity = 0.3) |>
+  viz_gridprop(
+    data = afr, var = "pop", k = 30, step = 40,
+    grid = "square", fill = "#38896F", leg_values_round = 0
+  ) |>
+  viz_render()
 ```
 
 ## Dot density map
@@ -140,11 +154,11 @@ the `dotval` parameter.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_outline() |>
-viz_graticule(step = 30, stroke = "white") |>
-viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
-viz_dotdensity(data = world, var = "pop", fill = "#38896F") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(step = 30, stroke = "white") |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_dotdensity(data = world, var = "pop", fill = "#38896F") |>
+  viz_render()
 ```
 
 Obviously, this map is not very accurate since the points are randomly

@@ -86,6 +86,10 @@ viz_prop(
   With the `leg_` prefix, you can configure the legend. For example:
   `leg_title`, `leg_subtitle`, `leg_note`, etc.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -100,15 +104,15 @@ viz_create(
   projection = "EqualEarth", background = "white",
   zoomable = TRUE
 ) |>
-viz_path(
-  datum = world, fill = "#f1f3f5"
-) |>
-viz_prop(
-  data = world, var = "pop", symbol = "circle", fill = "#38896F",
-  k = 25, leg_values_round = 0, leg_title = "Population",
-  leg_subtitle = "(million inh.)", leg_values_factor = 1 / 1000000
-) |>
-viz_render()
+  viz_path(
+    datum = world, fill = "#f1f3f5"
+  ) |>
+  viz_prop(
+    data = world, var = "pop", symbol = "circle", fill = "#38896F",
+    k = 25, leg_values_round = 0, leg_title = "Population",
+    leg_subtitle = "(million inh.)", leg_values_factor = 1 / 1000000
+  ) |>
+  viz_render()
 
 {"x":{
   "params": {

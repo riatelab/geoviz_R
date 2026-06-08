@@ -25,9 +25,11 @@ the map parameters and an initially empty list of layers to be
 displayed.
 
 ``` r
-map <- viz_create(projection = "EqualEarth", 
-                  margin = c(20,0,0,0), 
-                  background = "#55bee0")
+map <- viz_create(
+  projection = "EqualEarth",
+  margin = c(20, 0, 0, 0),
+  background = "#55bee0"
+)
 str(map)
 ```
 
@@ -63,7 +65,7 @@ So you can write this
 ``` r
 map <- viz_create(projection = "EqualEarth")
 map <- viz_outline(map)
-map <- viz_graticule(map, stroke = "white", step =20)
+map <- viz_graticule(map, stroke = "white", step = 20)
 map <- viz_path(map, data = world)
 map <- viz_header(map, text = "Hello World")
 str(map)
@@ -149,10 +151,10 @@ Or that (recomended)
 
 ``` r
 map <- viz_create(projection = "EqualEarth") |>
-viz_outline() |>
-viz_graticule(stroke = "white", step =20) |>
-viz_path(data = world) |>
-viz_header(text = "Hello World")
+  viz_outline() |>
+  viz_graticule(stroke = "white", step = 20) |>
+  viz_path(data = world) |>
+  viz_header(text = "Hello World")
 str(map)
 ```
 
@@ -250,11 +252,11 @@ Thus, creating a complete map with geoviz could be written as follows.
 
 ``` r
 map <- viz_create(projection = "EqualEarth") |>
-viz_outline() |>
-viz_graticule(stroke = "white", step =20) |>
-viz_path(data = world) |>
-viz_header(text = "Hello World") |>
-viz_render()
+  viz_outline() |>
+  viz_graticule(stroke = "white", step = 20) |>
+  viz_path(data = world) |>
+  viz_header(text = "Hello World") |>
+  viz_render()
 ```
 
 From a technical perspective, the viz_render function returns an HTML
@@ -271,9 +273,9 @@ library("htmlwidgets")
 
 ``` r
 viz_create(zoomable = T) |>
-viz_path(data = world, tip = T) |>
-viz_render() |>
-saveWidget("mymap.html", selfcontained = TRUE)
+  viz_path(data = world, tip = T) |>
+  viz_render() |>
+  saveWidget("mymap.html", selfcontained = TRUE)
 ```
 
 You can also directly save the map in SVG format to edit it with a
@@ -282,8 +284,8 @@ drawing software like Inkscape. For this, you just need to use the
 
 ``` r
 viz_create() |>
-viz_path(data = world) |>
-viz_save("mymap.svg")
+  viz_path(data = world) |>
+  viz_save("mymap.svg")
 ```
 
 By doing this, the map is returned and a window opens, prompting you to

@@ -96,6 +96,9 @@ viz_leg_box(
 \item{...}{Additional SVG attributes passed to elements (e.g. rect_*, label_*,
 title_*, subtitle_*, note_*, frame_*, text_*).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_box} function creates a box legend. The function adds a
 legend layer to the map.

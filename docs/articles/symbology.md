@@ -30,9 +30,9 @@ should use absolute quantitative data (stocks) here.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_prop(data = world, var = "pop", fill = "#38896F") |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_prop(data = world, var = "pop", fill = "#38896F") |>
+  viz_render()
 ```
 
 With the `k` attribute (and possibily `fixmax`), you can change the size
@@ -43,10 +43,12 @@ Additionally, you can modify all the usual graphical styles (`fill`,
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_prop(data = world, var = "pop", k = 30, 
-         fill = "#38896F", symbol = "square") |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_prop(
+    data = world, var = "pop", k = 30,
+    fill = "#38896F", symbol = "square"
+  ) |>
+  viz_render()
 ```
 
 The legend can be configured using the prefixes `leg_`. With the prefix
@@ -58,13 +60,15 @@ documentation of the legend functions and/or to the dedicated vignette.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_prop(data = world, var = "pop", k = 30, 
-         fill = "#38896F", symbol = "circle", leg_type = "separate",
-         leg_circle_fill = "#38896F", leg_title = "Population",
-         leg_subtitle = "in million inh.", leg_note = "made with geoviz",
-         leg_values_round = 0, leg_values_factor = 1/1000000) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_prop(
+    data = world, var = "pop", k = 30,
+    fill = "#38896F", symbol = "circle", leg_type = "separate",
+    leg_circle_fill = "#38896F", leg_title = "Population",
+    leg_subtitle = "in million inh.", leg_note = "made with geoviz",
+    leg_values_round = 0, leg_values_factor = 1 / 1000000
+  ) |>
+  viz_render()
 ```
 
 ## Choropleth
@@ -79,8 +83,8 @@ previously, you need two parameters: `data` (a spatial data frame) and
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc") |>
-viz_render()
+  viz_choro(data = world, var = "gdppc") |>
+  viz_render()
 ```
 
 To change class boundaries, you have access to several discretization
@@ -96,8 +100,8 @@ at a class boundary).
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", method = "jenks", nb = 4) |>
-viz_render()
+  viz_choro(data = world, var = "gdppc", method = "jenks", nb = 4) |>
+  viz_render()
 ```
 
 If you prefer, you can also directly specify the class boundaries using
@@ -105,9 +109,11 @@ the `breaks` parameter.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc",
-          breaks = c(200, 1000, 5000, 10000, 50000, 200000)) |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc",
+    breaks = c(200, 1000, 5000, 10000, 50000, 200000)
+  ) |>
+  viz_render()
 ```
 
 Regarding colors, you have access to all palettes available in the
@@ -147,18 +153,22 @@ example, you can use:
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc", colors = "BlueOrangeRed") |>
-viz_render()
+  viz_choro(data = world, var = "gdppc", colors = "BlueOrangeRed") |>
+  viz_render()
 ```
 
 You can also choose any colors you want by specifying a vector.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_choro(data = world, var = "gdppc",
-          colors = c("#ffffcc", "#c7e9b4", "#7fcdbb",
-                     "#41b6c4", "#2c7fb8", "#253494")) |>
-viz_render()
+  viz_choro(
+    data = world, var = "gdppc",
+    colors = c(
+      "#ffffcc", "#c7e9b4", "#7fcdbb",
+      "#41b6c4", "#2c7fb8", "#253494"
+    )
+  ) |>
+  viz_render()
 ```
 
 ## Typology
@@ -169,9 +179,9 @@ and `var` (a qualitative variable).
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_typo(data = world, var = "region") |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_typo(data = world, var = "region") |>
+  viz_render()
 ```
 
 Of course, you can change the palette with the `colors` parameter. For
@@ -184,8 +194,8 @@ example, you can use for example:
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_typo(data = world, var = "region", colors = "Pastel") |>
-viz_render()
+  viz_typo(data = world, var = "region", colors = "Pastel") |>
+  viz_render()
 ```
 
 There are other palettes in dicopal, but some are only available for a
@@ -194,10 +204,14 @@ own colors.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_typo(data = world, var = "region",
-         colors = c("#e41a1c", "#377eb8", "#4daf4a",
-                    "#984ea3", "#ff7f00", "#ffff33")) |>
-viz_render()
+  viz_typo(
+    data = world, var = "region",
+    colors = c(
+      "#e41a1c", "#377eb8", "#4daf4a",
+      "#984ea3", "#ff7f00", "#ffff33"
+    )
+  ) |>
+  viz_render()
 ```
 
 To properly determine the order of the types in the legend and which
@@ -206,24 +220,36 @@ argument.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_typo(data = world, var = "region",
-         order = c("Antarctica", "Oceania", "Africa", 
-                   "America", "Asia", "Europe"),
-         colors = c("#e41a1c", "#377eb8", "#4daf4a",
-                    "#984ea3", "#ff7f00", "#ffff33")) |>
-viz_render()
+  viz_typo(
+    data = world, var = "region",
+    order = c(
+      "Antarctica", "Oceania", "Africa",
+      "America", "Asia", "Europe"
+    ),
+    colors = c(
+      "#e41a1c", "#377eb8", "#4daf4a",
+      "#984ea3", "#ff7f00", "#ffff33"
+    )
+  ) |>
+  viz_render()
 ```
 
 Obviously, all these functions also work on point objects.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_typo(data = st_centroid(world), var = "region", r = 10,
-         order = c("Antarctica", "Oceania", "Africa", 
-                    "America", "Asia", "Europe"),
-         colors = c("#e41a1c", "#377eb8", "#4daf4a",
-                    "#984ea3", "#ff7f00", "#ffff33")) |>
-viz_render()
+  viz_typo(
+    data = st_centroid(world), var = "region", r = 10,
+    order = c(
+      "Antarctica", "Oceania", "Africa",
+      "America", "Asia", "Europe"
+    ),
+    colors = c(
+      "#e41a1c", "#377eb8", "#4daf4a",
+      "#984ea3", "#ff7f00", "#ffff33"
+    )
+  ) |>
+  viz_render()
 ```
 
     ## Warning: st_centroid assumes attributes are constant over geometries
@@ -236,9 +262,9 @@ parameters.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_picto(data = world, var = "region") |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_picto(data = world, var = "region") |>
+  viz_render()
 ```
 
 Some symbols are selected by default. But you can choose the ones you
@@ -260,13 +286,19 @@ use the order and `symbols` parameters.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_picto(data = world, var = "region",
-          order = c("Antarctica", "Oceania", "Africa", 
-                    "America", "Asia", "Europe"),
-          symbols = c("hospital", "flower", "cloud",
-                      "beer", "nuke", "plane")) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_picto(
+    data = world, var = "region",
+    order = c(
+      "Antarctica", "Oceania", "Africa",
+      "America", "Asia", "Europe"
+    ),
+    symbols = c(
+      "hospital", "flower", "cloud",
+      "beer", "nuke", "plane"
+    )
+  ) |>
+  viz_render()
 ```
 
 These symbols are configurable. You can change the color (`fill`), the
@@ -276,10 +308,12 @@ symbols apart to avoid overlaps.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_picto(data = world, var = "region", background = TRUE,
-          r = 8, fill = "#38896F", dodge = TRUE) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_picto(
+    data = world, var = "region", background = TRUE,
+    r = 8, fill = "#38896F", dodge = TRUE
+  ) |>
+  viz_render()
 ```
 
 ## Combinaisons
@@ -290,26 +324,34 @@ position of the legends so that they do not overlap.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_typo(data = world, var = "region",
-         colors = "Pastel", leg_pos = c(10, 100)) |>
-viz_prop(data = world, var = "pop", k = 30, 
-         leg_values_round = 0, leg_values_factor = 1/1000000,
-         fill = "none", stroke = "#38896F",
-         strokeWidth = 1.5) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_typo(
+    data = world, var = "region",
+    colors = "Pastel", leg_pos = c(10, 100)
+  ) |>
+  viz_prop(
+    data = world, var = "pop", k = 30,
+    leg_values_round = 0, leg_values_factor = 1 / 1000000,
+    fill = "none", stroke = "#38896F",
+    strokeWidth = 1.5
+  ) |>
+  viz_render()
 ```
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_choro(data = world, var = "gdppc",
-         colors = "OrRd", leg_pos = c(10, 100)) |>
-viz_prop(data = world, var = "pop", k = 30, 
-         leg_values_round = 0, leg_values_factor = 1/1000000,
-         fill = "none", stroke = "#38896F",
-         strokeWidth = 1.5) |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_choro(
+    data = world, var = "gdppc",
+    colors = "OrRd", leg_pos = c(10, 100)
+  ) |>
+  viz_prop(
+    data = world, var = "pop", k = 30,
+    leg_values_round = 0, leg_values_factor = 1 / 1000000,
+    fill = "none", stroke = "#38896F",
+    strokeWidth = 1.5
+  ) |>
+  viz_render()
 ```
 
 With the functions viz_propchoro and viz_proptypo, you can also display
@@ -322,22 +364,26 @@ For example:
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_proptypo(data = world, var1 = "pop", k = 30,
-             leg1_values_round = 0, leg1_values_factor = 1/1000000,
-             var2 = "region", colors = "Pastel") |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_proptypo(
+    data = world, var1 = "pop", k = 30,
+    leg1_values_round = 0, leg1_values_factor = 1 / 1000000,
+    var2 = "region", colors = "Pastel"
+  ) |>
+  viz_render()
 ```
 
 Or:
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
-viz_path(data = world, fill = "#CCC") |>
-viz_propchoro(data = world, var1 = "pop", k = 30,
-             leg1_values_round = 0, leg1_values_factor = 1/1000000,
-             var2 = "gdppc", colors = "OrRd") |>
-viz_render()
+  viz_path(data = world, fill = "#CCC") |>
+  viz_propchoro(
+    data = world, var1 = "pop", k = 30,
+    leg1_values_round = 0, leg1_values_factor = 1 / 1000000,
+    var2 = "gdppc", colors = "OrRd"
+  ) |>
+  viz_render()
 ```
 
 That’s about it for now. To go further, go to the Symbology (advanced)

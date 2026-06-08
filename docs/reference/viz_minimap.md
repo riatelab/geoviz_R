@@ -111,24 +111,28 @@ viz_minimap(
   `basemap_*` for basemap styling properties, `location_*` for location
   geometry styling properties.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
 library(sf)
 world <- st_read(
- system.file("gpkg/world.gpkg", package = "geoviz"),
- quiet = TRUE
+  system.file("gpkg/world.gpkg", package = "geoviz"),
+  quiet = TRUE
 )
-afr <- world[world$region== "Africa",]
-viz_create(projection = "Mercator", background = "white", domain =  afr) |>
- viz_path(data = world, fill = "#9e9696") |>
- viz_minimap(
-   width = 200,
-   projection = "EqualEarth",
-   pos = c(20, 20),
-   location_stroke = "red"
- ) |>
- viz_render()
+afr <- world[world$region == "Africa", ]
+viz_create(projection = "Mercator", background = "white", domain = afr) |>
+  viz_path(data = world, fill = "#9e9696") |>
+  viz_minimap(
+    width = 200,
+    projection = "EqualEarth",
+    pos = c(20, 20),
+    location_stroke = "red"
+  ) |>
+  viz_render()
 
 {"x":{
   "params": {

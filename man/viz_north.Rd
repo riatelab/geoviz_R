@@ -32,6 +32,9 @@ viz_north(
 
 \item{...}{Additional SVG attributes applied to the arrow.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_north} function adds a north arrow a geoviz map.
 }

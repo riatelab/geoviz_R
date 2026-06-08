@@ -10,7 +10,7 @@ therefore built on the web ecosystem, relying on SVG and the
 Don’t hesitate to have a look at the documentation of the JS library to
 understand what’s under the hood.
 
-![Logo](../reference/figures/jsr.png)
+![Logo](fig/jsr.png)
 
 ## Source code
 

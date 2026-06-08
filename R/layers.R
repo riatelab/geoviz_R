@@ -13,6 +13,7 @@
 #' @param strokeLinejoin character. Optional. Stroke line join (default "round").
 #' @param strokeDasharray numeric or vector. Optional. Stroke dash pattern (default 2).
 #' @param ... Additional SVG attributes (e.g. \code{opacity}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -62,6 +63,7 @@ viz_graticule <- function(
 #' @param fill character. Optional. Fill color (default "#B5DFFD").
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -113,6 +115,7 @@ viz_outline <- function(
 #' @param dx numeric. Optional. X offset (default 0).
 #' @param dy numeric. Optional. Y offset (default 0).
 #' @param ... Additional SVG attributes applied to the text or background elements.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #'
 #' @examples
@@ -183,6 +186,7 @@ viz_header <- function(
 #' @param dy numeric. Optional. Vertical shift (default 0).
 #' @param clipPath a spatial dataframe used to clip the image (default uses map outline).
 #' @param max_canvas_size numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' viz_create(projection = "EqualEarth", background = "white") |>
@@ -210,6 +214,7 @@ viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tile
 #' @param dx numeric. Optional. X shift (default 0).
 #' @param dy numeric. Optional. Y shift (default 0).
 #' @param ... Additional SVG attributes applied to text and background elements.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -257,6 +262,7 @@ viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e96
 #' You can also use the shorthand \code{r}.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -317,6 +323,7 @@ viz_path <- function(
 #' @param opacity numeric. Optional. Tile opacity (default 1).
 #' @param url function or character. Optional. Tile source URL or preset ("openstreetmap", "opentopomap", "worldterrain", "worldimagery", "worldStreet", "worldphysical", "shadedrelief", "stamenterrain", "cartodbvoyager", "stamentoner", "stamentonerbackground", "stamentonerlite", "stamenwatercolor", "hillshade", "worldocean", "natgeo").
 #' @param clipPath character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' viz_create(projection = "mercator") |>
@@ -349,6 +356,7 @@ viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1,
 #' @param strokeWidth numeric. Optional. Stroke width (default 1).
 #' @param strokeLinejoin character or function. Optional. Stroke line join (default "round").
 #' @param ... Additional SVG attributes applied to text elements.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -387,6 +395,7 @@ viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NU
 #' @param fill character. Optional. Fill color (default "black").
 #' @param fillOpacity numeric. Optional. Fill opacity (default 1).
 #' @param ... Additional SVG attributes applied to the arrow.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -417,6 +426,7 @@ viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill
 #' @param tickValues numeric vector. Optional. Custom tick values.
 #' @param labelAnchor character. Optional. Label anchor ("start","middle","end") (default "start").
 #' @param ... Additional SVG attributes applied to the scalebar.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -443,6 +453,7 @@ viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km
 #' @param stroke character. Optional. Stroke color (default "white").
 #' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.5).
 #' @param ... Additional SVG attributes (strokeDasharray, strokeWidth, opacity, strokeLinecap...).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -475,6 +486,7 @@ viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white"
 #' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.3).
 #' @param strokeDasharray numeric or vector. Optional. Stroke dash pattern (default c(3, 2)).
 #' @param ... Additional SVG attributes (e.g. \code{opacity}, \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -545,6 +557,7 @@ viz_rhumbs <- function(
 #'        \code{outline_*} for outline styling properties,
 #'        \code{basemap_*} for basemap styling properties,
 #'        \code{location_*} for location geometry styling properties.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)

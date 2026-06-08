@@ -92,6 +92,10 @@ viz_sketch(
   Additional SVG attributes (e.g. `strokeDasharray`, `opacity`,
   `strokeLinecap`, etc.).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -103,8 +107,8 @@ world <- st_read(
 )
 
 viz_create(width = 750, background = "white", projection = "EqualEarth") |>
-viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
-viz_render()
+  viz_sketch(data = world, stroke = "#38896F", strokeWidth = 1) |>
+  viz_render()
 
 {"x":{
   "params": {

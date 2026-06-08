@@ -59,6 +59,10 @@ viz_radialGradient(
 
   Additional parameters
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -70,12 +74,12 @@ world <- st_read(
 aus <- world[world$ISO3 == "AUS", ]
 
 viz_create() |>
-viz_radialGradient(
-  id = "my_gradient", color1 = "#63b0af",
-  color2 = "#428c8b"
-) |>
-viz_path(datum = aus, fill = "url(#my_gradient)") |>
-viz_render()
+  viz_radialGradient(
+    id = "my_gradient", color1 = "#63b0af",
+    color2 = "#428c8b"
+  ) |>
+  viz_path(datum = aus, fill = "url(#my_gradient)") |>
+  viz_render()
 
 {"x":{
   "params": {

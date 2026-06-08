@@ -157,6 +157,10 @@ viz_propchoro(
   the legends. For example: `leg1_title`, `leg2_subtitle`, `leg1_note`,
   etc.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -170,20 +174,20 @@ viz_create(
   projection = "EqualEarth", background = "white",
   zoomable = TRUE
 ) |>
-viz_path(
-  datum = world, fill = "#f1f3f5"
-) |>
-viz_propchoro(
-  data = world, var1 = "pop", k = 25,
-  leg1_values_round = 0, var2 = "gdppc",
-  leg1_title = "Population",
-  leg1_subtitle = "(million inh.)",
-  leg1_values_factor = 1 / 1000000,
-  leg2_values_round = 0,
-  leg2_title = "GDP per inh.",
-  colors = "Temps"
-) |>
-viz_render()
+  viz_path(
+    datum = world, fill = "#f1f3f5"
+  ) |>
+  viz_propchoro(
+    data = world, var1 = "pop", k = 25,
+    leg1_values_round = 0, var2 = "gdppc",
+    leg1_title = "Population",
+    leg1_subtitle = "(million inh.)",
+    leg1_values_factor = 1 / 1000000,
+    leg2_values_round = 0,
+    leg2_title = "GDP per inh.",
+    colors = "Temps"
+  ) |>
+  viz_render()
 
 {"x":{
   "params": {

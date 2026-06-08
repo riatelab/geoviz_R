@@ -118,6 +118,10 @@ viz_pattern(
   Additional SVG attributes (e.g. `strokeDasharray`, `opacity`,
   `strokeLinecap`, etc.).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -129,12 +133,12 @@ world <- st_read(
 africa <- world[world$region == "Africa", ]
 
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_pattern(
-  data = africa, stroke = "#38896F", pattern = "cross",
-  angle = 45, strokeWidth = 2, strokeOpacity = 0.6
-) |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_pattern(
+    data = africa, stroke = "#38896F", pattern = "cross",
+    angle = 45, strokeWidth = 2, strokeOpacity = 0.6
+  ) |>
+  viz_render()
 
 {"x":{
   "params": {

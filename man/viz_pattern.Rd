@@ -70,6 +70,9 @@ One of: "lines", "cross", "dots", "waves", "triangles", "zigzag".}
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_pattern} function creates a reusable SVG pattern
 for thematic or cartographic styling. Patterns can be applied to any SVG shape

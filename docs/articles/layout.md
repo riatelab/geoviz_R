@@ -25,10 +25,12 @@ many others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
-viz_outline(fill = "#38896F") |>
-viz_path(data = world, fill = "white",
-         fillOpacity = 0.2, stroke = "none") |>
-viz_render()
+  viz_outline(fill = "#38896F") |>
+  viz_path(
+    data = world, fill = "white",
+    fillOpacity = 0.2, stroke = "none"
+  ) |>
+  viz_render()
 ```
 
 ### Graticule
@@ -40,11 +42,15 @@ others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
-viz_path(data = world, fill = "#38896F",
-         fillOpacity = 0.2, stroke = "none") |>
-viz_graticule(step = 20, stroke = "#38896F",
-              strokeDasharray = c(5,10)) |>
-viz_render()
+  viz_path(
+    data = world, fill = "#38896F",
+    fillOpacity = 0.2, stroke = "none"
+  ) |>
+  viz_graticule(
+    step = 20, stroke = "#38896F",
+    strokeDasharray = c(5, 10)
+  ) |>
+  viz_render()
 ```
 
 ### Earth
@@ -61,8 +67,8 @@ list: `"GRAY_50M_SR"`, `"GRAY_50M_SR_OB"`, `"GRAY_50M_SR_W"`,
 
 ``` r
 viz_create(projection = "Polar") |>
-viz_earth(url = "HYP_50M_SR_W") |>
-viz_render()
+  viz_earth(url = "HYP_50M_SR_W") |>
+  viz_render()
 ```
 
 ### Tile
@@ -78,8 +84,8 @@ Try `"openstreetmap"`, `"opentopomap"`, `"worldterrain"`,
 
 ``` r
 viz_create() |>
-viz_tile(url = "worldimagery") |>
-viz_render()
+  viz_tile(url = "worldimagery") |>
+  viz_render()
 ```
 
 ## Map Decorations and Annotations
@@ -90,12 +96,14 @@ The `viz_text` function allows to add a text on the map. It allow also
 to create a layer with labels from a spatial dataframe.
 
 ``` r
-africa <- world[world$region == "Africa",]
+africa <- world[world$region == "Africa", ]
 viz_create(projection = "Mercator", domain = africa) |>
-viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
-viz_text(data = africa, text = "name", fill = "#38896F",
-         stroke = "white", strokeWidth = 4) |>
-viz_render()
+  viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_text(
+    data = africa, text = "name", fill = "#38896F",
+    stroke = "white", strokeWidth = 4
+  ) |>
+  viz_render()
 ```
 
 ### Header
@@ -107,11 +115,13 @@ others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
-viz_outline(fill = "#CCCCCC") |>
-viz_path(data = world, fill = "white",
-         fillOpacity = 0.2, stroke = "none") |>
-viz_header(text = "Hello World", fill = "#38896F") |>
-viz_render()
+  viz_outline(fill = "#CCCCCC") |>
+  viz_path(
+    data = world, fill = "white",
+    fillOpacity = 0.2, stroke = "none"
+  ) |>
+  viz_header(text = "Hello World", fill = "#38896F") |>
+  viz_render()
 ```
 
 ### Footer
@@ -123,12 +133,16 @@ others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
-viz_outline(fill = "#CCCCCC") |>
-viz_path(data = world, fill = "white", fillOpacity = 0.2,
-         stroke = "none") |>
-viz_footer(text = "Author, source, date...",
-           fill = "#38896F") |>
-viz_render()
+  viz_outline(fill = "#CCCCCC") |>
+  viz_path(
+    data = world, fill = "white", fillOpacity = 0.2,
+    stroke = "none"
+  ) |>
+  viz_footer(
+    text = "Author, source, date...",
+    fill = "#38896F"
+  ) |>
+  viz_render()
 ```
 
 ### North
@@ -141,11 +155,11 @@ position the arrow using the SVG document coordinates (0,0 is at the
 top-left corner).
 
 ``` r
-africa <- world[world$region == "Africa",]
+africa <- world[world$region == "Africa", ]
 viz_create(projection = "Mercator", domain = africa) |>
-viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
-viz_north(pos = c(50,50), fill = "#38896F") |>  
-viz_render()
+  viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_north(pos = c(50, 50), fill = "#38896F") |>
+  viz_render()
 ```
 
 ### Scalebar
@@ -155,9 +169,9 @@ allows you to position the scalebar.
 
 ``` r
 viz_create(projection = "Mercator", domain = africa) |>
-viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
-viz_scalebar() |>  
-viz_render()
+  viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_scalebar() |>
+  viz_render()
 ```
 
 ### Location map
@@ -166,12 +180,14 @@ The `viz_minimap` function allows to display a location map.
 
 ``` r
 viz_create(projection = "Mercator", domain = africa, zoomable = TRUE) |>
-viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
-viz_minimap(projection = "Polar", location_stroke = "#38896F", 
-            location_fill = "#38896F", location_fillOpacity = 0.3,
-            basemap_fill="#CCC",  basemap_fillOpacity = 1,
-            outline_fill = "white", outline_stroke = "#303030") |>  
-viz_render()
+  viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_minimap(
+    projection = "Polar", location_stroke = "#38896F",
+    location_fill = "#38896F", location_fillOpacity = 0.3,
+    basemap_fill = "#CCC", basemap_fillOpacity = 1,
+    outline_fill = "white", outline_stroke = "#303030"
+  ) |>
+  viz_render()
 ```
 
 ### Rhumbs
@@ -181,9 +197,9 @@ portolan charts
 
 ``` r
 viz_create(projection = "Mercator", domain = africa) |>
-viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
-viz_rhumbs(pos = c(20,20), stroke = "#38896F", nb = 32) |>  
-viz_render()
+  viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
+  viz_rhumbs(pos = c(20, 20), stroke = "#38896F", nb = 32) |>
+  viz_render()
 ```
 
 ### Pattern
@@ -192,10 +208,10 @@ The `viz_pattern` function allows to display a pattern on the map
 
 ``` r
 viz_create(projection = "Equal Earth") |>
-viz_outline(fill = "white") |>
-viz_pattern(clipOutline = TRUE, stroke = "#38896F", pattern = "waves") |>
-viz_path(datum = world, fill = "#CCC") |>
-viz_render()
+  viz_outline(fill = "white") |>
+  viz_pattern(clipOutline = TRUE, stroke = "#38896F", pattern = "waves") |>
+  viz_path(datum = world, fill = "#CCC") |>
+  viz_render()
 ```
 
 ## Effects
@@ -206,7 +222,7 @@ defined. This works in two steps. First, you define an effect by giving
 it an identifier. Then, you apply it to the layer of your choice.
 
 ``` r
-aus <- world[world$ISO3 == "AUS",]
+aus <- world[world$ISO3 == "AUS", ]
 ```
 
 ## blur
@@ -219,10 +235,12 @@ determines the blur range.
 # A simple map
 viz_create() |>
   # 1 - create filter
-  viz_blur(id = "my_blur_effect", stdDeviation =  5) |>
+  viz_blur(id = "my_blur_effect", stdDeviation = 5) |>
   # 2 - add path and apply filter
-  viz_path(datum = aus, fill =  "#38896F",
-           filter = "url(#my_blur_effect)") |>
+  viz_path(
+    datum = aus, fill = "#38896F",
+    filter = "url(#my_blur_effect)"
+  ) |>
   viz_render()
 ```
 
@@ -232,10 +250,14 @@ The `viz_shadow` function can be used to draw a drop shadow
 
 ``` r
 viz_create(margin = 5) |>
-  viz_shadow(id = "my_shadow_effect", stdDeviation =  2.5,
-             dx = 5, dy = 5) |>
-  viz_path(datum = aus, fill =  "#38896F",
-           filter =  "url(#my_shadow_effect)") |>
+  viz_shadow(
+    id = "my_shadow_effect", stdDeviation = 2.5,
+    dx = 5, dy = 5
+  ) |>
+  viz_path(
+    datum = aus, fill = "#38896F",
+    filter = "url(#my_shadow_effect)"
+  ) |>
   viz_render()
 ```
 
@@ -249,9 +271,11 @@ performed. Then, you have to apply it on the `fill` attribute.
 
 ``` r
 viz_create(margin = 5) |>
-  viz_radialGradient(id = "my_radial_gradient",
-  color1 = "#7db054", color2 = "#38896f",
-  offset1 = 50, offset2 = 100, fx = 50, fy = 50) |>
+  viz_radialGradient(
+    id = "my_radial_gradient",
+    color1 = "#7db054", color2 = "#38896f",
+    offset1 = 50, offset2 = 100, fx = 50, fy = 50
+  ) |>
   viz_path(datum = aus, fill = "url(#my_radial_gradient)") |>
   viz_render()
 ```
@@ -266,7 +290,7 @@ function.
 
 ``` r
 viz_create() |>
-  viz_clipPath(id = "my_clip_path", datum =  aus )|>
+  viz_clipPath(id = "my_clip_path", datum = aus) |>
   viz_tile(url = "worldimagery", clipPath = "url(#my_clip_path)") |>
   viz_render()
 ```
@@ -280,10 +304,12 @@ and `"zigzag"`.
 
 ``` r
 viz_create() |>
-viz_pattern(data = aus, pattern = "cross",
-            stroke = "#38896F", strokeOpacity = 2,
-            angle = 45) |>
-viz_render()
+  viz_pattern(
+    data = aus, pattern = "cross",
+    stroke = "#38896F", strokeOpacity = 2,
+    angle = 45
+  ) |>
+  viz_render()
 ```
 
 ## sketch
@@ -294,8 +320,8 @@ representation of a spatial dataframe. It applies SVG filters
 
 ``` r
 viz_create() |>
-viz_sketch(data = aus, stroke = "#38896F") |>
-viz_render()
+  viz_sketch(data = aus, stroke = "#38896F") |>
+  viz_render()
 ```
 
 ## Design nice maps
@@ -304,24 +330,34 @@ With all these highly customizable layers, it is possible to create very
 nice maps with geoviz. Here is an example.
 
 ``` r
-viz_create(projection = "mercator", domain = africa, 
-           margin = 20, zoomable = FALSE) |>
-viz_clipPath(id = "africaclip", datum =  africa )|>
-viz_shadow(id = "africashadow", stdDeviation =  4,
-           dx = 4, dy = 4, opacity = 0.3) |>
-viz_outline()|>
-viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
-viz_path(data = africa,   filter =  "url(#africashadow)") |>
-viz_rhumbs(pos = c(0,-10), coords = "geo", stroke = "white",
-           strokeWidth = 2, strokeDasharray = c(5,3)) |>
-viz_path(data = africa, fill = "#d6bc47", fillOpacity = 1) |>
-viz_tile(url = "hillshade", clipPath = "url(#africaclip)",
-         opacity = 0.3) |>
-viz_sketch(data = africa, simplify = 1, strokeOpacity = 0.6) |>
-viz_header(text = "The African continent", fill = "white",
-           background_fill = "black") |>
-viz_pattern(stroke = "white", angle = 45) |>
-viz_scalebar()|>
-viz_north()|>
-viz_render()
+viz_create(
+  projection = "mercator", domain = africa,
+  margin = 20, zoomable = FALSE
+) |>
+  viz_clipPath(id = "africaclip", datum = africa) |>
+  viz_shadow(
+    id = "africashadow", stdDeviation = 4,
+    dx = 4, dy = 4, opacity = 0.3
+  ) |>
+  viz_outline() |>
+  viz_path(datum = world, fill = "white", fillOpacity = 0.3) |>
+  viz_path(data = africa, filter = "url(#africashadow)") |>
+  viz_rhumbs(
+    pos = c(0, -10), coords = "geo", stroke = "white",
+    strokeWidth = 2, strokeDasharray = c(5, 3)
+  ) |>
+  viz_path(data = africa, fill = "#d6bc47", fillOpacity = 1) |>
+  viz_tile(
+    url = "hillshade", clipPath = "url(#africaclip)",
+    opacity = 0.3
+  ) |>
+  viz_sketch(data = africa, simplify = 1, strokeOpacity = 0.6) |>
+  viz_header(
+    text = "The African continent", fill = "white",
+    background_fill = "black"
+  ) |>
+  viz_pattern(stroke = "white", angle = 45) |>
+  viz_scalebar() |>
+  viz_north() |>
+  viz_render()
 ```

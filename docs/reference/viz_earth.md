@@ -69,12 +69,16 @@ viz_earth(
   numeric. Optional. Maximum raster size (in pixels) before tiling (e.g.
   2048).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
-viz_render()
+  viz_earth(url = "NE2_50M_SR_W", resolution = 2) |>
+  viz_render()
 
 {"x":{
   "params": {

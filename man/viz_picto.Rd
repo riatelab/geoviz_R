@@ -38,6 +38,9 @@ One of: "horizontal", "vertical".}
 
 \item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_picto} function creates a pictogram (symbol-based)
 map layer from a spatial data frame. It allows mapping qualitative variables

@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>geoviz: thematic cartography • geoviz</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Atkinson_Hyperlegible-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -67,22 +67,90 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p><img src="reference/figures/rgeoviz.svg" style="width:170px; display:block; margin: 0 auto; border:none;" alt="Logo"></p>
-<h3 style="color: #38896F; text-align: center;">
-geoviz is an <span style="font-weight: bold; background-color: #38896F; color: white">R package</span> for thematic mapping. As its name suggests, it’s an R wrapper around the <a href="https://github.com/riatelab/geoviz" class="external-link">geoviz JavaScript library</a>, itself based on the <a href="https://d3js.org/" class="external-link">d3.js</a> ecosystem ported by Mike Bostock. Like the original javascript library, the package can be used to create a wide range of <span style="font-weight: bold; background-color: #38896F; color: white">interactive</span>, <span style="font-weight: bold; background-color: #38896F; color: white">zoomable</span> vector maps, taking advantage of d3’s many features: proportional symbols, pictograms, typologies, choropleth maps, spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in <span style="font-weight: bold; background-color: #38896F; color: white">SVG format</span>, suitable for <span style="font-weight: bold; background-color: #38896F; color: white">editorial cartography</span>.
-</h3>
-<p><br></p>
-<p><img src="reference/figures/banner.png" style="width:100%; display:block; border:none;" alt="banner geoviz"></p>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="geoviz-">geoviz <img src="reference/figures/rgeoviz.svg" align="right" width="120"><a class="anchor" aria-label="anchor" href="#geoviz-"></a>
+</h1></div>
+<p><a href="https://riatelab.r-universe.dev/geoviz" class="external-link"><img src="https://riatelab.r-universe.dev/geoviz/badges/version" alt="geoviz status badge"></a> <a href="https://www.repostatus.org/#active" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed."></a></p>
+<p><strong>Interactive Cartography (htmlwidget)</strong></p>
+<p>geoviz is an R package for thematic mapping. It’s an R wrapper around the <a href="https://github.com/riatelab/geoviz" class="external-link">geoviz JavaScript</a> library, itself based on the <a href="https://d3js.org/" class="external-link">d3.js</a> ecosystem. Like the original javascript library, the package can be used to create a wide range of interactive, zoomable vector maps, taking advantage of d3’s many features: proportional symbols, pictograms, typologies, choropleth maps, spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in SVG format, suitable for editorial cartography.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of <code>geoviz</code> from CRAN with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"geoviz"</span><span class="op">)</span></span></code></pre></div>
+<p>Alternatively, you can install the development version of <code>geoviz</code> from <a href="https://riatelab.r-universe.dev/geoviz" class="external-link">r-universe</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"geoviz"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://riatelab.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<p>Creating a map with <code>geoviz</code> requires chaining several functions. The <code>create()</code> function initializes a map with general parameters. Then, functions such as <code>outline()</code>, <code>graticule()</code>, <code>path()</code>, and many others allow you to add and refine layers. Finally, the <code>render()</code> function displays the map. Here are a few examples.</p>
+<p>First, let’s load some data</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
+<span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">st_read</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"gpkg/world.gpkg"</span>, package <span class="op">=</span> <span class="st">"geoviz"</span><span class="op">)</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <ul>
-<li><p>The <code>geoviz</code> package is an R <span style="color: #38896F; font-weight: bold; text-decoration: underline;">wrapper around the geoviz JavaScript library</span> via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the JavaScript geoviz documentation <a href="https://riatelab.github.io/geoviz/" class="external-link">here</a>.</p></li>
-<li><p><code>geoviz</code> is not intended to compete with other mapping packages in R, such as <a href="https://cran.r-project.org/web/packages/mapsf/index.html" class="external-link">mapsf</a> or <a href="https://cran.r-project.org/web/packages/tmap/index.html" class="external-link">tmap</a>.</p></li>
-<li><p>Since it’s based on d3.js, the philosophy behind this package is completely different as other R mapping packages. Map parameters <span style="color: #38896F; font-weight: bold; text-decoration: underline;">use svg attributes rather than the usual R parameters</span>. Thus, <code>strokeWidth</code> is used rather than <code>lwd</code>, <code>fill</code> rather than <code>col</code>, <code>stroke</code> rather than <code>border</code>, etc.</p></li>
-<li><p><code>geoviz</code> is not designed to handle voluminous datasets. It is <span style="color: #38896F; font-weight: bold; text-decoration: underline;">suitable for light, generalized basemaps</span>.</p></li>
-<li><p><code>geoviz</code> is designed to <span style="color: #38896F; font-weight: bold; text-decoration: underline;">work with geographic data in wgs84 (not projected)</span>. Geometries are then projected on the fly using the <code>create()</code> function. Unlike other R packages based on <code>sf</code>, the projections used come from the d3.js ecosystem (d3-geo, d3-geo-projection &amp; d3-geo-polygon).</p></li>
-<li><p>Maps generated by <code>geoviz</code> are <span style="color: #38896F; font-weight: bold; text-decoration: underline;">zoomable</span>. Two types of zoom are available. The classic type (pan and zoom) and the “versor” type for creating interactive globes.</p></li>
-<li><p>Maps created with <code>geoviz</code> are <span style="color: #38896F; font-weight: bold; text-decoration: underline;">interactive</span>. It is therefore possible to create tooltips to access information contained in geographic objects.</p></li>
-<li><p>Many different types of maps are available. The types can be combined with each other and are <span style="color: #38896F; font-weight: bold; text-decoration: underline;">highly customizable</span>.</p></li>
-</ul></main><aside class="col-md-3"><div class="links">
+<li>A simple map</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"InterruptedMollweide"</span>, zoomable <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, tip <span class="op">=</span> <span class="st">"$NAMEen"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/simple.png" width="100%"></p>
+<ul>
+<li>Proportional symbol</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"InterruptedMollweide"</span>, zoomable <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_prop.html">viz_prop</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
+<span>           leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">60</span>, <span class="fl">300</span><span class="op">)</span>,  </span>
+<span>           leg_values_factor <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span>,</span>
+<span>           leg_values_round <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>           leg_title  <span class="op">=</span> <span class="st">"Population"</span>,</span>
+<span>           leg_subtitle <span class="op">=</span> <span class="st">"(million inh.)"</span></span>
+<span>           <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/prop.png" width="100%"></p>
+<ul>
+<li>Choropleth</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"InterruptedMollweide"</span>, zoomable <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_graticule.html">viz_graticule</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_choro.html">viz_choro</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, var <span class="op">=</span> <span class="st">"gdppc"</span>,</span>
+<span>            colors <span class="op">=</span> <span class="st">"Peach"</span>,</span>
+<span>            leg_title  <span class="op">=</span> <span class="st">"GDP per capita"</span>,</span>
+<span>            leg_subtitle <span class="op">=</span> <span class="st">"(in $)"</span>,</span>
+<span>            leg_values_round <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>            leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">60</span>, <span class="fl">300</span><span class="op">)</span></span>
+<span>            <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/choro.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="alternatives">Alternatives<a class="anchor" aria-label="anchor" href="#alternatives"></a>
+</h2>
+<p><code>geoviz</code> is not intended to compete with other mapping packages in R, such as <a href="https://CRAN.R-project.org/package=mapsf" class="external-link">mapsf</a> or <a href="https://CRAN.R-project.org/package=tmap" class="external-link">tmap</a>. It really focuses on the html / interactive geovisualisation.</p>
+</div>
+<div class="section level2">
+<h2 id="community-guidelines">Community Guidelines<a class="anchor" aria-label="anchor" href="#community-guidelines"></a>
+</h2>
+<p>One can contribute to the package through <a href="https://github.com/riatelab/geoviz_R/pulls" class="external-link">pull requests</a> and report issues or ask questions <a href="https://github.com/riatelab/geoviz_R/issues" class="external-link">here</a>.</p>
+</div>
+</div>
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=geoviz" class="external-link">View on CRAN</a></li>
@@ -110,7 +178,8 @@ geoviz is an <span style="font-weight: bold; background-color: #38896F; color: w
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Nicolas Lambert <br><small class="roles"> Author, maintainer </small>   </li>
+<li>Nicolas Lambert <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-4976-6560" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 

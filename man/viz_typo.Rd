@@ -47,6 +47,9 @@ One of: "horizontal", "vertical".}
 
 \item{...}{Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_typo} function creates a typology map from a spatial
 data frame by mapping categorical variables to colors. It supports custom ordering,

@@ -122,6 +122,9 @@ viz_leg_circles(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_circles} function adds a legend for proportional circles.
 It draws circles scaled by values, with optional reference lines and labels.

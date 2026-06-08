@@ -26,6 +26,7 @@
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param leg_title character. Optional. Legend title (default \code{var}).
 #' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -108,6 +109,7 @@ viz_gridprop <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -189,6 +191,7 @@ viz_gridchoro <- function(
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)
@@ -274,6 +277,7 @@ viz_smooth <- function(
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, svg.height - 10)).
 #' @param leg_text character. Optional. Legend text (default dot value).
 #' @param ... Additional parameters passed to rendering or SVG container options.
+#' @return list. A modified `geoviz` map object with a new layer added.
 #' @export
 #' @examples
 #' library(sf)

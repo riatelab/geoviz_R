@@ -107,6 +107,10 @@ viz_path(
   Additional SVG attributes (e.g. `strokeDasharray`, `opacity`,
   `strokeLinecap`, etc.).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -117,8 +121,8 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth") |>
-viz_path(data = world, fill = "#38896F", stroke = "white") |>
-viz_render()
+  viz_path(data = world, fill = "#38896F", stroke = "white") |>
+  viz_render()
 
 {"x":{
   "params": {

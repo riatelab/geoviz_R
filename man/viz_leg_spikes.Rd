@@ -116,6 +116,9 @@ viz_leg_spikes(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_spikes} function adds a legend for spike marks.
 It draws a series of spikes with heights proportional to values.

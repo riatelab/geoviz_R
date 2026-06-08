@@ -108,6 +108,9 @@ viz_leg_typo_horizontal(
 \item{...}{Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 subtitle_*, note_*, frame_*, text_*).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_typo_horizontal} function creates a horizontal legend for
 typology layers. The function adds a legend layer to the map.

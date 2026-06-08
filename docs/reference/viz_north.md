@@ -53,6 +53,10 @@ viz_north(
 
   Additional SVG attributes applied to the arrow.
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -63,9 +67,9 @@ world <- st_read(
 )
 
 viz_create(projection = "Mercator", background = "white") |>
-viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
-viz_north(fill = "#38896F") |>
-viz_render()
+  viz_path(datum = world[world$region == "Africa", ], fill = "#f1f3f5") |>
+  viz_north(fill = "#38896F") |>
+  viz_render()
 
 {"x":{
   "params": {

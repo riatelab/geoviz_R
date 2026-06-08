@@ -35,6 +35,9 @@ viz_radialGradient(
 
 \item{...}{Additional parameters}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_radialGradient} function creates an SVG radialGradient
 definition and adds it to the SVG defs. It returns a reference usable in SVG styling

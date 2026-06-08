@@ -159,6 +159,10 @@ viz_leg_box(
   Additional SVG attributes passed to elements (e.g. rect\_\*,
   label\_\*, title\_\*, subtitle\_\*, note\_\*, frame\_\*, text\_\*).
 
+## Value
+
+list. A modified \`geoviz\` map object with a new layer added.
+
 ## Examples
 
 ``` r
@@ -169,9 +173,9 @@ world <- st_read(
 )
 
 viz_create(projection = "EqualEarth", background = "white") |>
-viz_path(datum = world, fill = "#f1f3f5") |>
-viz_leg_box(pos = c(20, 20), label = "Hello") |>
-viz_render()
+  viz_path(datum = world, fill = "#f1f3f5") |>
+  viz_leg_box(pos = c(20, 20), label = "Hello") |>
+  viz_render()
 
 {"x":{
   "params": {

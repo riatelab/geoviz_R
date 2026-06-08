@@ -42,6 +42,9 @@ Increase for sharper rendering (e.g. 2 for Retina, 3 for high-quality export).}
 
 \item{max_canvas_size}{numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_earth} function displays PNG images representing the Earth's surface
 (Natural Earth dataset or custom source). The image is projected on-the-fly. The images are hosted on GitHub. You will need an internet connection.

@@ -66,6 +66,9 @@ Supported prefixes include:
 \code{basemap_*} for basemap styling properties,
 \code{location_*} for location geometry styling properties.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_minimap} function adds a minimap inset to a geoviz map.
 It displays a basemap and optionally highlights a location geometry (polygon or point).

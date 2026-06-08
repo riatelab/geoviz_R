@@ -44,6 +44,9 @@ viz_scalebar(
 
 \item{...}{Additional SVG attributes applied to the scalebar.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_scalebar} function adds a scalebar on the map.
 }

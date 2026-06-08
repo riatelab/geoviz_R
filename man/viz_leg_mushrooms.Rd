@@ -161,6 +161,9 @@ viz_leg_mushrooms(
 
 \item{...}{Additional SVG attributes.}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_leg_mushrooms} function adds a legend for proportional half-circles.
 It displays two sets of nested half-circles (top and bottom), each scaled according to input values.

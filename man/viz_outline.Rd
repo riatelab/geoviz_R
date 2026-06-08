@@ -27,6 +27,9 @@ viz_outline(
 \item{...}{Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 \code{strokeLinecap}, etc.).}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_outline} function draws the Earth outline according
 to the current map projection. This layer can be used as a background or clipping reference.

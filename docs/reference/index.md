@@ -1,5 +1,11 @@
 # Package index
 
+## The package
+
+- [`geoviz-package`](https://riatelab.github.io/geoviz_R/reference/geoviz.md)
+  [`geoviz`](https://riatelab.github.io/geoviz_R/reference/geoviz.md) :
+  Package description
+
 ## Create & render
 
 The functions `viz_create` and `viz_render` are essential for

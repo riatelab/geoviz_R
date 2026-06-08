@@ -42,6 +42,9 @@ Use \code{"svg"} if coordinates are already expressed in SVG space.}
 
 \item{...}{Additional parameters}
 }
+\value{
+list. A modified `geoviz` map object with a new layer added.
+}
 \description{
 The \code{viz_shadow} function adds a shadow effect to map elements,
 typically used to enhance depth perception for shapes, symbols, or extruded visualizations.
