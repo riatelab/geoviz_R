@@ -14,13 +14,11 @@ Depends:
 Imports:
     htmlwidgets,
     geojsonsf,
-    jsonlite
+    jsonlite, 
+    sf
 Suggests: 
-    sf,
-    knitr,
     rmarkdown
 Language: en-US
-VignetteBuilder: knitr
 Config/roxygen2/version: 8.0.0
 
 
