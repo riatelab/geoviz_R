@@ -7,3 +7,5 @@ LICENSE
 ^docs$
 ^pkgdown$
 vignettes/*
+^CITATION\.cff$
+^codemeta\.json$

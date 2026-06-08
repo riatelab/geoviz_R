@@ -1,0 +1,93 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "geoviz",
+  "description": "Create a wide range of interactive, zoomable vector maps. This package is an 'R' binding for the 'geoviz' JavaScript library <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js' ecosystem. Like the original javascript library, the package takes advantage of d3's many features: proportional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.",
+  "name": "geoviz: Interactive Cartography  ",
+  "codeRepository": "https://riatelab.github.io/geoviz_R/",
+  "issueTracker": "https://github.com/riatelab/geoviz_R/issues/",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "1.0.0",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.6.0 (2026-04-24)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Nicolas",
+      "familyName": "Lambert",
+      "email": "nicolas.lambert@cnrs.fr",
+      "@id": "https://orcid.org/0000-0003-4976-6560"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Nicolas",
+      "familyName": "Lambert",
+      "email": "nicolas.lambert@cnrs.fr",
+      "@id": "https://orcid.org/0000-0003-4976-6560"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 4.1.0"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "htmlwidgets",
+      "name": "htmlwidgets",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=htmlwidgets"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "geojsonsf",
+      "name": "geojsonsf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=geojsonsf"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "7186.482KB"
+}
