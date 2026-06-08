@@ -47,8 +47,8 @@ It really focuses on the html / interactive geovisualisation.
 ## Community Guidelines
 
 One can contribute to the package through [pull
-requests](https://github.com/riatelab/geoviz/pulls) and report issues or
-ask questions [here](https://github.com/geoviz/mapsf/issues).
+requests](https://github.com/riatelab/geoviz_R/pulls) and report issues or
+ask questions [here](https://github.com/riatelab/geoviz_R/issues).
 
 
 
