@@ -2,8 +2,17 @@ Package: geoviz
 Type: Package
 Title: Interactive Cartography  
 Version: 1.0.0
-Authors@R: person("Nicolas", "Lambert", email = "nicolas.lambert@cnrs.fr", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-4976-6560"))
-Maintainer: Nicolas Lambert <nicolas.lambert@cnrs.fr>
+Authors@R: 
+    c(person(given = "Nicolas", 
+             family = "Lambert", 
+             email = "nicolas.lambert@cnrs.fr", 
+             role = c("aut", "cre"), 
+             comment = c(ORCID = "0000-0003-4976-6560")), 
+      person(given = "Timothée",
+             family = "Giraud",
+             email = "timothee.giraud@cnrs.fr",
+             role = c("ctb"),
+             comment = c(ORCID = "0000-0002-1932-3323")))
 Description: Create a wide range of interactive, zoomable vector maps. This
     package is an 'R' binding for the 'geoviz' JavaScript library
     <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js' ecosystem.

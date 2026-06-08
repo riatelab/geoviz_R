@@ -19,7 +19,7 @@ cartography.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://riatelab.github.io/geoviz_R}
+  \item \url{https://riatelab.github.io/geoviz_R/}
   \item Report bugs at \url{https://github.com/riatelab/geoviz_R/issues/}
 }
 
@@ -30,6 +30,11 @@ Useful links:
 Authors:
 \itemize{
   \item Nicolas Lambert \email{nicolas.lambert@cnrs.fr} (\href{https://orcid.org/0000-0003-4976-6560}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Timothée Giraud \email{timothee.giraud@cnrs.fr} (\href{https://orcid.org/0000-0002-1932-3323}{ORCID}) [contributor]
 }
 
 }
