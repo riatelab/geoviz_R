@@ -14,3 +14,7 @@
 #'
 #' @docType package
 "_PACKAGE"
+
+
+
+#' @importFrom sf st_read
