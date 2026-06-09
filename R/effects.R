@@ -21,7 +21,7 @@
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' aus <- world[world$ISO3 == "AUS", ]
@@ -78,7 +78,7 @@ viz_shadow <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' aus <- world[world$ISO3 == "AUS", ]
@@ -129,7 +129,7 @@ viz_radialGradient <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' aus <- world[world$ISO3 == "AUS", ]
@@ -166,7 +166,7 @@ viz_blur <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' aus <- world[world$ISO3 == "AUS", ]
@@ -223,7 +223,7 @@ viz_clipPath <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' africa <- world[world$region == "Africa", ]
@@ -310,7 +310,7 @@ viz_pattern <- function(
 #' library(sf)
 #'
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'

@@ -45,7 +45,7 @@ To install the package, just write:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("riatelab/geoviz_R")
+remotes::install_github("riatelab/geovizr")
 ```
 
 then
@@ -79,12 +79,12 @@ Now, let’s build a world map.
 library(sf)
 
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 
 cities <- st_read(
-  system.file("gpkg/cities.gpkg", package = "geoviz"),
+  system.file("gpkg/cities.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```

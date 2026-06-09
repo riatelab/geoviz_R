@@ -32,17 +32,17 @@ Under the hood, three JavaScript libraries are used. Feel free to visit their re
 
 # In geoviz
 
-In `geoviz`, the projection is defined in the `viz_create` function using the `projection` parameter. You simply need to specify a string corresponding to the desired projection.
+In `geovizr`, the projection is defined in the `viz_create` function using the `projection` parameter. You simply need to specify a string corresponding to the desired projection.
 
 You must therefore always provide a basemap in WGS84. The transformation is performed <ins>on the fly</ins> at display time.
 
 For example:
 
 ```{r, echo=TRUE, message=FALSE}
-library(geoviz)
+library(geovizr)
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```

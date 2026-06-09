@@ -79,11 +79,11 @@ data frame, then displays aggregated values within each cell using proportional 
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 cities <- st_read(
-  system.file("gpkg/cities.gpkg", package = "geoviz"),
+  system.file("gpkg/cities.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 

@@ -11,15 +11,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/riatelab/geoviz_R/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/riatelab/geovizr/blob/HEAD/DESCRIPTION)
 
 Lambert N (2026). *geoviz: Interactive Cartography*. R package version
-1.0.0, <https://riatelab.github.io/geoviz_R/>.
+1.0.0, <https://riatelab.github.io/geovizr/>.
 
     @Manual{,
       title = {geoviz: Interactive Cartography},
       author = {Nicolas Lambert},
       year = {2026},
       note = {R package version 1.0.0},
-      url = {https://riatelab.github.io/geoviz_R/},
+      url = {https://riatelab.github.io/geovizr/},
     }

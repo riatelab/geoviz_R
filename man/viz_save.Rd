@@ -18,7 +18,7 @@ The \code{viz_save} function allows to doawnload the map
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 

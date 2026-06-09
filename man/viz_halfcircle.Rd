@@ -81,7 +81,7 @@ with semi-circular proportional symbols.
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 

@@ -51,7 +51,7 @@ similar to those found on old portolan charts. These lines represent paths of co
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 

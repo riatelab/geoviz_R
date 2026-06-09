@@ -83,7 +83,7 @@ data frame geometry or to the Earth outline.
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 africa <- world[world$region == "Africa", ]

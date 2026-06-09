@@ -13,9 +13,9 @@ static vectorial maps in svg format, suitable for editorial cartography.
 
 Useful links:
 
-- <https://riatelab.github.io/geoviz_R/>
+- <https://riatelab.github.io/geovizr/>
 
-- Report bugs at <https://github.com/riatelab/geoviz_R/issues/>
+- Report bugs at <https://github.com/riatelab/geovizr/issues/>
 
 ## Author
 

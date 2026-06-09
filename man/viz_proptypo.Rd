@@ -89,7 +89,7 @@ of two variables using symbol size (quantitative) and categorical coloring.
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 

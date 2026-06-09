@@ -21,8 +21,8 @@ authors:
   given-names: Nicolas
   email: nicolas.lambert@cnrs.fr
   orcid: https://orcid.org/0000-0003-4976-6560
-repository-code: https://github.com/riatelab/geoviz_R/issues/
-url: https://riatelab.github.io/geoviz_R/
+repository-code: https://github.com/riatelab/geovizr/issues/
+url: https://riatelab.github.io/geovizr/
 contact:
 - family-names: Lambert
   given-names: Nicolas

@@ -9,8 +9,8 @@ You therefore need to load the `sf` package to import geometries.
 
 ``` r
 library(sf)
-australia <- system.file("gpkg/aus.gpkg", package = "geoviz")
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+australia <- system.file("gpkg/aus.gpkg", package = "geovizr")
+world <- st_read(system.file("gpkg/world.gpkg", package = "geovizr"), quiet = TRUE)
 aus <- st_read(dsn = australia, layer = "aus", quiet = TRUE)
 roads <- st_read(dsn = australia, layer = "roads", quiet = TRUE)
 ports <- st_read(dsn = australia, layer = "ports", quiet = TRUE)

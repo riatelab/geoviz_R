@@ -2,7 +2,8 @@
 % Please edit documentation in R/package.R
 \docType{package}
 \name{geoviz}
-\alias{geoviz-package}
+\alias{geovizr}
+\alias{geovizr-package}
 \alias{geoviz}
 \title{Package description}
 \description{
@@ -19,8 +20,8 @@ cartography.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://riatelab.github.io/geoviz_R/}
-  \item Report bugs at \url{https://github.com/riatelab/geoviz_R/issues/}
+  \item \url{https://riatelab.github.io/geovizr/}
+  \item Report bugs at \url{https://github.com/riatelab/geovizr/issues/}
 }
 
 }

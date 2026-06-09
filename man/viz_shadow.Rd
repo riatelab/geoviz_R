@@ -53,7 +53,7 @@ The layer is rendered in SVG and can be applied globally or to specific geometri
 \examples{
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 aus <- world[world$ISO3 == "AUS", ]

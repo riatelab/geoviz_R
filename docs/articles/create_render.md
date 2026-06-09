@@ -7,7 +7,7 @@ library(geoviz)
 library(sf)
 
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```
@@ -241,7 +241,7 @@ the map.
 ## Render
 
 This configuration file will be rendered using the
-[`viz_render()`](https://riatelab.github.io/geoviz_R/reference/viz_render.md)
+[`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md)
 function.
 
 ``` r

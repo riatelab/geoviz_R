@@ -18,7 +18,7 @@
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -68,7 +68,7 @@ viz_graticule <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -121,7 +121,7 @@ viz_outline <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -219,7 +219,7 @@ viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tile
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -267,7 +267,7 @@ viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e96
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -361,7 +361,7 @@ viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1,
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -400,7 +400,7 @@ viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NU
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -431,7 +431,7 @@ viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -458,7 +458,7 @@ viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -491,7 +491,7 @@ viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white"
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -562,7 +562,7 @@ viz_rhumbs <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' afr <- world[world$region == "Africa", ]

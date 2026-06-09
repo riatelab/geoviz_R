@@ -39,7 +39,7 @@ list. A modified \`geoviz\` map object with a new layer added.
 library(sf)
 #> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 aus <- world[world$ISO3 == "AUS", ]

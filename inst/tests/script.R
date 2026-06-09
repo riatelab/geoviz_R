@@ -75,7 +75,7 @@ viz_render()
 
 
 # library(geoviz)
-# devtools::install_github("neocarto/geoviz_R")
+# devtools::install_github("neocarto/geovizr")
 
 library(sf)
 world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)

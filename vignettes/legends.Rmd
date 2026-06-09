@@ -17,11 +17,11 @@ knitr::opts_chunk$set(out.width = "100%")
 ```
 
 ```{r, echo=FALSE, message=FALSE}
-library(geoviz)
+library(geovizr)
 library(sf)
 
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```
@@ -29,7 +29,7 @@ world <- st_read(
 ```{r, echo=FALSE, message=FALSE}
 library(geoviz)
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"),
+world <- st_read(system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```

@@ -1,14 +1,14 @@
-# geoviz <img src="man/figures/rgeoviz.svg" align="right" width="120"/>
+# geovizr <img src="man/figures/rgeoviz.svg" align="right" width="120"/>
 
-[![geoviz status
-badge](https://riatelab.r-universe.dev/geoviz/badges/version)](https://riatelab.r-universe.dev/geoviz)
+[![geovizr status
+badge](https://riatelab.r-universe.dev/geovizr/badges/version)](https://riatelab.r-universe.dev/geovizr)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 **Interactive Cartography (htmlwidget)**
 
-geoviz is an R package for thematic mapping. It's an R wrapper around the 
+geovizr is an R package for thematic mapping. It's an R wrapper around the 
 [geoviz JavaScript](https://github.com/riatelab/geoviz) library, itself based on the [d3.js](https://d3js.org/)
 ecosystem. Like the original javascript library, the package can be used to create a wide range of interactive,
 zoomable vector maps,  taking advantage of d3's many features: proportional symbols, pictograms, typologies,
@@ -18,23 +18,23 @@ suitable for editorial cartography.
 
 ## Installation
 
-You can install the released version of `geoviz` from
+You can install the released version of `geovizr` from
 CRAN with:
 
 ``` r
-install.packages("geoviz")
+install.packages("geovizr")
 ```
 
-Alternatively, you can install the development version of `geoviz` from [r-universe](https://riatelab.r-universe.dev/geoviz)
+Alternatively, you can install the development version of `geovizr` from [r-universe](https://riatelab.r-universe.dev/geoviz)
 with:
 
 ``` r
-install.packages("geoviz", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
+install.packages("geovizr", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 ## Usage
 
-Creating a map with `geoviz` requires chaining several functions.
+Creating a map with `geovizr` requires chaining several functions.
 The `create()` function initializes a map with general parameters.
 Then, functions such as `outline()`, `graticule()`, `path()`, and many others
 allow you to add and refine layers. Finally, the `render()` function displays
@@ -46,7 +46,7 @@ First, let's load some data
 ```r
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```
@@ -103,14 +103,14 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
 
 ## Alternatives
 
-`geoviz` is not intended to compete with other mapping packages in R, such as [mapsf](https://CRAN.R-project.org/package=mapsf) or [tmap](https://CRAN.R-project.org/package=tmap).
+`geovizr` is not intended to compete with other mapping packages in R, such as [mapsf](https://CRAN.R-project.org/package=mapsf) or [tmap](https://CRAN.R-project.org/package=tmap).
 It really focuses on the html / interactive geovisualisation.  
 
 ## Community Guidelines
 
 One can contribute to the package through [pull
-requests](https://github.com/riatelab/geoviz_R/pulls) and report issues or
-ask questions [here](https://github.com/riatelab/geoviz_R/issues).
+requests](https://github.com/riatelab/geovizr/pulls) and report issues or
+ask questions [here](https://github.com/riatelab/geovizr/issues).
 
 
 

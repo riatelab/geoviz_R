@@ -1,4 +1,4 @@
-Package: geoviz
+Package: geovizr
 Type: Package
 Title: Interactive Cartography  
 Version: 1.0.0
@@ -22,8 +22,8 @@ Description: Create a wide range of interactive, zoomable vector maps. This
     cartograms, etc. It can also be used to create pretty static vectorial maps
     in svg format, suitable for editorial cartography.
 License: GPL (>= 3)
-URL: https://riatelab.github.io/geoviz_R/
-BugReports: https://github.com/riatelab/geoviz_R/issues/
+URL: https://riatelab.github.io/geovizr/
+BugReports: https://github.com/riatelab/geovizr/issues/
 Encoding: UTF-8
 Depends: 
     R (>= 4.1.0)

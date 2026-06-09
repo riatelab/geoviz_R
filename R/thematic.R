@@ -26,7 +26,7 @@
 #' library(sf)
 #'
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -106,7 +106,7 @@ viz_prop <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -183,7 +183,7 @@ viz_choro <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -268,7 +268,7 @@ viz_typo <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -383,7 +383,7 @@ viz_propchoro <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -475,7 +475,7 @@ viz_proptypo <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'

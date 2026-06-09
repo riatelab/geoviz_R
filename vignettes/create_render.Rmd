@@ -19,11 +19,11 @@ knitr::opts_chunk$set(out.width = "100%")
 First, let's load packages and some data.
 
 ```{r, echo=TRUE, message=FALSE}
-library(geoviz)
+library(geovizr)
 library(sf)
 
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```

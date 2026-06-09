@@ -46,7 +46,7 @@ First, let’s load some data
 ``` r
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```
@@ -111,5 +111,5 @@ the html / interactive geovisualisation.
 ## Community Guidelines
 
 One can contribute to the package through [pull
-requests](https://github.com/riatelab/geoviz_R/pulls) and report issues
-or ask questions [here](https://github.com/riatelab/geoviz_R/issues).
+requests](https://github.com/riatelab/geovizr/pulls) and report issues
+or ask questions [here](https://github.com/riatelab/geovizr/issues).
