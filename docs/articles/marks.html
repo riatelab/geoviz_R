@@ -79,20 +79,21 @@ Lambert</h4>
 
     
     
-<p>The cartographic representations produced with the geoviz package are
-based on specific graphical marks defined within the package. These
-marks are used in the various rendering functions, but they can also be
-used directly on their own. We have already seen the
-<code>viz_path</code> mark, which allows spatial dataframes to be
-displayed. But there are other types as well. Let’s start with the
-<code>viz_circle</code> mark to understand the principle.</p>
+<p>The cartographic representations produced with the
+<code>geovizr</code> package are based on specific graphical marks
+defined within the package. These marks are used in the various
+rendering functions, but they can also be used directly on their own. We
+have already seen the <code><a href="../reference/viz_path.html">viz_path()</a></code> mark, which allows spatial
+dataframes to be displayed. But there are other types as well. Let’s
+start with the <code><a href="../reference/viz_circle.html">viz_circle()</a></code> mark to understand the
+principle.</p>
 <div class="section level2">
 <h2 id="circle">Circle<a class="anchor" aria-label="anchor" href="#circle"></a>
 </h2>
-<p>As the name implies, the <code>viz_circle</code> function is used to
-draw circles. The <code>r</code> attribute allows to define the radius.
-To customize the style, you can use svg attributes with camelcase
-notation such as <code>stroke</code>, <code>fill</code>,
+<p>As the name implies, the <code><a href="../reference/viz_circle.html">viz_circle()</a></code> function is used
+to draw circles. The <code>r</code> attribute allows to define the
+radius. To customize the style, you can use svg attributes with
+camelcase notation such as <code>stroke</code>, <code>fill</code>,
 <code>strokeWidth</code>, <code>fillOpacity</code>,
 <code>strokeDasharray</code>…</p>
 <p><strong>1 - SVG position</strong></p>
@@ -314,7 +315,8 @@ dataframe.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"equalEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_text.html">viz_text</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Hello Geoviz"</span>, fontSize <span class="op">=</span> <span class="fl">30</span>, fontWeight <span class="op">=</span> <span class="st">"bold"</span>, coords <span class="op">=</span> <span class="st">"svg"</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">300</span>, <span class="fl">100</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_text.html">viz_text</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Hello Geoviz"</span>, fontSize <span class="op">=</span> <span class="fl">30</span>, fontWeight <span class="op">=</span> <span class="st">"bold"</span>, </span>
+<span>           coords <span class="op">=</span> <span class="st">"svg"</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">300</span>, <span class="fl">100</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{
@@ -414,7 +416,7 @@ dataframe.</p>
 <div class="section level2">
 <h2 id="square">Square<a class="anchor" aria-label="anchor" href="#square"></a>
 </h2>
-<p>The <code>viz_square</code> function mark is used to draw squares.
+<p>The <code><a href="../reference/viz_square.html">viz_square()</a></code> function mark is used to draw squares.
 The <code>side</code> attribute allows to define the size of the square
 (instead of r for circles). Otherwise, the function works exactly the
 same.</p>
@@ -471,15 +473,16 @@ same.</p>
 <div class="section level2">
 <h2 id="spike">Spike<a class="anchor" aria-label="anchor" href="#spike"></a>
 </h2>
-<p>The <code>viz_spike</code> function allows to create spikes. You can
-vary the <code>width</code>, <code>height</code> and
+<p>The <code><a href="../reference/viz_spike.html">viz_spike()</a></code> function allows to create spikes. You
+can vary the <code>width</code>, <code>height</code> and
 <code>straight</code> parameters.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">afr</span> <span class="op">&lt;-</span> <span class="va">world</span><span class="op">[</span><span class="va">world</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"Africa"</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_spike.html">viz_spike</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, height <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">200</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_spike.html">viz_spike</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, height <span class="op">=</span> <span class="st">"pop"</span>, k <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>            fill <span class="op">=</span> <span class="st">"#38896F"</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-5b1b2f4ad92281566982" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-5b1b2f4ad92281566982">{"x":{
@@ -528,7 +531,7 @@ vary the <code>width</code>, <code>height</code> and
 <div class="section level2">
 <h2 id="half-circle">Half-circle<a class="anchor" aria-label="anchor" href="#half-circle"></a>
 </h2>
-<p>The <code>viz_halfcircle</code> function is used to draw
+<p>The <code><a href="../reference/viz_halfcircle.html">viz_halfcircle()</a></code> function is used to draw
 half-circles. The <code>r</code> attribute allows to define the
 radius.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -586,14 +589,15 @@ radius.</p>
 <div class="section level2">
 <h2 id="symbol">Symbol<a class="anchor" aria-label="anchor" href="#symbol"></a>
 </h2>
-<p>As the name implies, the function <code>viz_symbol</code> is used to
-draw symbols. The r attribute allows to define the size of the symbol
+<p>As the name implies, the function <code><a href="../reference/viz_symbol.html">viz_symbol()</a></code> is used
+to draw symbols. The r attribute allows to define the size of the symbol
 (radius of the circle including the symbol).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">afr</span> <span class="op">&lt;-</span> <span class="va">world</span><span class="op">[</span><span class="va">world</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"Africa"</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_symbol.html">viz_symbol</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, r <span class="op">=</span> <span class="st">"gdp"</span>, k <span class="op">=</span> <span class="fl">60</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, symbol <span class="op">=</span> <span class="st">"fist"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_symbol.html">viz_symbol</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, r <span class="op">=</span> <span class="st">"gdp"</span>, k <span class="op">=</span> <span class="fl">60</span>,</span>
+<span>             fill <span class="op">=</span> <span class="st">"#38896F"</span>, symbol <span class="op">=</span> <span class="st">"fist"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-3f27c09be0c60bb52829" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-3f27c09be0c60bb52829">{"x":{
@@ -655,8 +659,10 @@ find a mushroom map.</p>
 <code class="sourceCode R"><span><span class="va">afr</span> <span class="op">&lt;-</span> <span class="va">world</span><span class="op">[</span><span class="va">world</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"Africa"</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="va">afr</span>, fill <span class="op">=</span> <span class="st">"#CCC"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_halfcircle.html">viz_halfcircle</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, r <span class="op">=</span> <span class="st">"gdp"</span>, fill <span class="op">=</span> <span class="st">"#F13C47"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.7</span>, tip <span class="op">=</span> <span class="st">"GDP: $gdp"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_halfcircle.html">viz_halfcircle</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, r <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#319ABF"</span>, fillOpacity <span class="op">=</span> <span class="fl">0.7</span>, angle <span class="op">=</span> <span class="fl">180</span>, tip <span class="op">=</span> <span class="st">"POP: $pop"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_halfcircle.html">viz_halfcircle</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, r <span class="op">=</span> <span class="st">"gdp"</span>, fill <span class="op">=</span> <span class="st">"#F13C47"</span>,</span>
+<span>                 fillOpacity <span class="op">=</span> <span class="fl">0.7</span>, tip <span class="op">=</span> <span class="st">"GDP: $gdp"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_halfcircle.html">viz_halfcircle</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">afr</span>, r <span class="op">=</span> <span class="st">"pop"</span>, fill <span class="op">=</span> <span class="st">"#319ABF"</span>,</span>
+<span>                 fillOpacity <span class="op">=</span> <span class="fl">0.7</span>, angle <span class="op">=</span> <span class="fl">180</span>, tip <span class="op">=</span> <span class="st">"POP: $pop"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_leg_mushrooms.html">viz_leg_mushrooms</a></span><span class="op">(</span></span>
 <span>    top_data <span class="op">=</span> <span class="va">afr</span><span class="op">$</span><span class="va">gdp</span>, bottom_data <span class="op">=</span> <span class="va">afr</span><span class="op">$</span><span class="va">pop</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Inequalities\nin Africa"</span>,</span>

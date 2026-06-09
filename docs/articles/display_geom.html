@@ -81,9 +81,9 @@ Lambert</h4>
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/geovizr/">geovizr</a></span><span class="op">)</span></span></code></pre></div>
-<p>As is usual in R, the geoviz package takes spatial data frames as
-input. You therefore need to load the <code>sf</code> package to import
-geometries.</p>
+<p>As is usual in R, the <code>geovizr</code> package takes spatial data
+frames as input. You therefore need to load the <code>sf</code> package
+to import geometries.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
 <span><span class="va">australia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"gpkg/aus.gpkg"</span>, package <span class="op">=</span> <span class="st">"geovizr"</span><span class="op">)</span></span>
@@ -92,9 +92,9 @@ geometries.</p>
 <span><span class="va">roads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">st_read</a></span><span class="op">(</span>dsn <span class="op">=</span> <span class="va">australia</span>, layer <span class="op">=</span> <span class="st">"roads"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">ports</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">st_read</a></span><span class="op">(</span>dsn <span class="op">=</span> <span class="va">australia</span>, layer <span class="op">=</span> <span class="st">"ports"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="the-viz_path-function">The <code>viz_path</code> function<a class="anchor" aria-label="anchor" href="#the-viz_path-function"></a>
+<h2 id="the-viz_path-function">The <code>viz_path()</code> function<a class="anchor" aria-label="anchor" href="#the-viz_path-function"></a>
 </h2>
-<p>The <code>viz_path</code> function is the one that allows you to
+<p>The <code><a href="../reference/viz_path.html">viz_path()</a></code> function is the one that allows you to
 display geometries. It lets you stack layers and is highly configurable.
 All parameters have default styles. The color is assigned randomly.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -237,8 +237,8 @@ clear, visually appealing maps.</p>
 <div class="section level2">
 <h2 id="data-or-datum">Data or datum?<a class="anchor" aria-label="anchor" href="#data-or-datum"></a>
 </h2>
-<p>In the <code>viz_path</code> function (and more generally in
-<code>geoviz</code>), there are two parameters that allow you to add a
+<p>In the <code><a href="../reference/viz_path.html">viz_path()</a></code> function (and more generally in
+<code>geovizr</code>), there are two parameters that allow you to add a
 spatial dataframe.</p>
 <p>The <code>data</code> parameter lets you add geometries and iterate
 over each element. You should use data whenever you want to
@@ -316,11 +316,12 @@ not have strokes by default, which allows for shorter code.</p>
 <div class="section level2">
 <h2 id="simplification">Simplification<a class="anchor" aria-label="anchor" href="#simplification"></a>
 </h2>
-<p>Geoviz renders geometries as SVG. If there are many points, rendering
-can be slow. You can automatically lighten the base map by setting the
-attribute <code>simplify = TRUE</code>. This simplifies automaticaly the
-base map, making it lighter without significantly altering its
-appearance, and zooming becomes much faster.</p>
+<p><code>geovizr</code> renders geometries as SVG. If there are many
+points, rendering can be slow. You can automatically lighten the base
+map by setting the attribute <code>simplify = TRUE</code>. This
+simplifies automaticaly the base map, making it lighter without
+significantly altering its appearance, and zooming becomes much
+faster.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, simplify <span class="op">=</span> <span class="cn">T</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -438,14 +439,14 @@ these two states, the base map takes on an intermediate appearance.</p>
 <div class="section level2">
 <h2 id="the-winding-order-problem">The Winding Order Problem<a class="anchor" aria-label="anchor" href="#the-winding-order-problem"></a>
 </h2>
-<p>The geoviz package converts your geometries to GeoJSON. When applying
-a map projection function, it can sometimes happen that polygons end up
-with their vertices not ordered correctly. The convention is that the
-outer ring of a polygon should be defined in a counter-clockwise
-direction, while inner rings (holes) should be defined in a clockwise
-direction. If this rule is not followed, some software may render holes
-as solid areas or produce incorrect results in geometric
-calculations.</p>
+<p>The <code>geovizr</code> package temporarily converts your geometries
+to GeoJSON during the mapping process. When applying a map projection
+function, it can sometimes happen that polygons end up with their
+vertices not ordered correctly. The convention is that the outer ring of
+a polygon should be defined in a counter-clockwise direction, while
+inner rings (holes) should be defined in a clockwise direction. If this
+rule is not followed, some software may render holes as solid areas or
+produce incorrect results in geometric calculations.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, simplify <span class="op">=</span> <span class="fl">0.001</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -521,8 +522,8 @@ issues. If the problem is not resolved, you can try the
 <h2 id="in-other-functions">In other functions<a class="anchor" aria-label="anchor" href="#in-other-functions"></a>
 </h2>
 <p>Everything we’ve just seen also applies to all package functions
-based on <code>viz_path</code>. You can therefore also use the simplify
-parameter when creating a choropleth map.</p>
+based on <code><a href="../reference/viz_path.html">viz_path()</a></code>. You can therefore also use the
+simplify parameter when creating a choropleth map.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_choro.html">viz_choro</a></span><span class="op">(</span></span>

@@ -10,18 +10,19 @@ world <- st_read(
 )
 ```
 
-The geoviz library offers numerous functions that allow you to display
-specific layers and overlay them to create the map of your choice. This
-gives you plenty of options for laying out your map.
+The `geovizr` library offers numerous functions that allow you to
+display specific layers and overlay them to create the map of your
+choice. This gives you plenty of options for laying out your map.
 
 ## Base Map and Structure
 
 ### Outline
 
-The `viz_outline` function allows to create a layer with Earth outline
-in the projection. You can customize the display using SVG parameters
-such as `fill`, `stroke`, `strokeWidth`, `opacity`, `fillOpacity` and
-many others.
+The
+[`viz_outline()`](https://riatelab.github.io/geovizr/reference/viz_outline.md)
+function allows to create a layer with Earth outline in the projection.
+You can customize the display using SVG parameters such as `fill`,
+`stroke`, `strokeWidth`, `opacity`, `fillOpacity` and many others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
@@ -35,10 +36,11 @@ viz_create(projection = "EqualEarth") |>
 
 ### Graticule
 
-The `viz_graticule` function allows function allows to create a layer
-with lat/long lines. You can customize the display using SVG parameters
-such as `step`, `stroke`, `strokeWidth`, `strokeDasharray`, and many
-others.
+The
+[`viz_graticule()`](https://riatelab.github.io/geovizr/reference/viz_graticule.md)
+function allows function allows to create a layer with lat/long lines.
+You can customize the display using SVG parameters such as `step`,
+`stroke`, `strokeWidth`, `strokeDasharray`, and many others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
@@ -55,15 +57,16 @@ viz_create(projection = "EqualEarth") |>
 
 ### Earth
 
-The `viz_earth` function displays PNG files representing the Earth’s
-surface. The data comes from Natural Earth. Credit as follows: Natural
-Earth. Free vector and raster map data @ naturalearthdata.com. Unlike
-tiles, you can choose whichever projection you want. the `url` parameter
-allows to change the image to display. You can choose one from this
-list: `"GRAY_50M_SR"`, `"GRAY_50M_SR_OB"`, `"GRAY_50M_SR_W"`,
-`"HYP_50M_SR"`, `"HYP_50M_SR_W"`, `"MSR_50M"`, `"NE1_50M_SR_W"`,
-`"NE2_50M_SR"`, `"NE2_50M_SR_W"`, `"OB_50M"`, `"PRIMSA_SR_50M"`,
-`"SR_50M"`.
+The
+[`viz_earth()`](https://riatelab.github.io/geovizr/reference/viz_earth.md)
+function displays PNG files representing the Earth’s surface. The data
+comes from Natural Earth. Credit as follows: Natural Earth. Free vector
+and raster map data @ naturalearthdata.com. Unlike tiles, you can choose
+whichever projection you want. the `url` parameter allows to change the
+image to display. You can choose one from this list: `"GRAY_50M_SR"`,
+`"GRAY_50M_SR_OB"`, `"GRAY_50M_SR_W"`, `"HYP_50M_SR"`, `"HYP_50M_SR_W"`,
+`"MSR_50M"`, `"NE1_50M_SR_W"`, `"NE2_50M_SR"`, `"NE2_50M_SR_W"`,
+`"OB_50M"`, `"PRIMSA_SR_50M"`, `"SR_50M"`.
 
 ``` r
 viz_create(projection = "Polar") |>
@@ -73,14 +76,16 @@ viz_create(projection = "Polar") |>
 
 ### Tile
 
-The `viz_tile` function allows function allows to add zoomable raster
-tiles. When you use this mark, the Mercator projection is automaticaly
-used. With the parmeter `url`, you can choose the style of the tiles.
-Try `"openstreetmap"`, `"opentopomap"`, `"worldterrain"`,
-`"worldimagery"`, `"worldStreet"`, `"worldphysical"`, `"shadedrelief"`,
-`"stamenterrain"`, `"cartodbvoyager"`, `"stamentoner"` ,
-`"stamentonerbackground"` , `"stamentonerlite"`, `"stamenwatercolor"`,
-`"hillshade"`, `"worldocean"`, `"natgeo"` or `"worldterrain"`.
+The
+[`viz_tile()`](https://riatelab.github.io/geovizr/reference/viz_tile.md)
+function allows function allows to add zoomable raster tiles. When you
+use this mark, the Mercator projection is automaticaly used. With the
+parmeter `url`, you can choose the style of the tiles. Try
+`"openstreetmap"`, `"opentopomap"`, `"worldterrain"`, `"worldimagery"`,
+`"worldStreet"`, `"worldphysical"`, `"shadedrelief"`, `"stamenterrain"`,
+`"cartodbvoyager"`, `"stamentoner"` , `"stamentonerbackground"` ,
+`"stamentonerlite"`, `"stamenwatercolor"`, `"hillshade"`,
+`"worldocean"`, `"natgeo"` or `"worldterrain"`.
 
 ``` r
 viz_create() |>
@@ -92,8 +97,10 @@ viz_create() |>
 
 ### Labels
 
-The `viz_text` function allows to add a text on the map. It allow also
-to create a layer with labels from a spatial dataframe.
+The
+[`viz_text()`](https://riatelab.github.io/geovizr/reference/viz_text.md)
+function allows to add a text on the map. It allow also to create a
+layer with labels from a spatial dataframe.
 
 ``` r
 africa <- world[world$region == "Africa", ]
@@ -108,10 +115,11 @@ viz_create(projection = "Mercator", domain = africa) |>
 
 ### Header
 
-The `viz_header` function allows function allows to add a title above
-the map. You can customize the display using parameters such as `text`,
-`fill`, `fill_background`, `textAnchor`, `dominantBaseline` and many
-others.
+The
+[`viz_header()`](https://riatelab.github.io/geovizr/reference/viz_header.md)
+function allows function allows to add a title above the map. You can
+customize the display using parameters such as `text`, `fill`,
+`fill_background`, `textAnchor`, `dominantBaseline` and many others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
@@ -126,10 +134,11 @@ viz_create(projection = "EqualEarth") |>
 
 ### Footer
 
-The `viz_footer` function allows function allows to add a text below the
-map. You can customize the display using parameters such as `text`,
-`fill`, `fill_background`, `textAnchor`, `dominantBaseline` and many
-others.
+The
+[`viz_footer()`](https://riatelab.github.io/geovizr/reference/viz_footer.md)
+function allows function allows to add a text below the map. You can
+customize the display using parameters such as `text`, `fill`,
+`fill_background`, `textAnchor`, `dominantBaseline` and many others.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
@@ -147,12 +156,13 @@ viz_create(projection = "EqualEarth") |>
 
 ### North
 
-The `viz_north` function adds a north arrow. By default, the arrow
-indicates true north at the location where it is placed. Depending on
-the map projection, the arrow may therefore not point in the same
-direction everywhere on the map. The `pos` parameter allows you to
-position the arrow using the SVG document coordinates (0,0 is at the
-top-left corner).
+The
+[`viz_north()`](https://riatelab.github.io/geovizr/reference/viz_north.md)
+function adds a north arrow. By default, the arrow indicates true north
+at the location where it is placed. Depending on the map projection, the
+arrow may therefore not point in the same direction everywhere on the
+map. The `pos` parameter allows you to position the arrow using the SVG
+document coordinates (0,0 is at the top-left corner).
 
 ``` r
 africa <- world[world$region == "Africa", ]
@@ -164,8 +174,10 @@ viz_create(projection = "Mercator", domain = africa) |>
 
 ### Scalebar
 
-The `viz_scalebar` function allows add a scalebar. The `pos` parameter
-allows you to position the scalebar.
+The
+[`viz_scalebar()`](https://riatelab.github.io/geovizr/reference/viz_scalebar.md)
+function allows add a scalebar. The `pos` parameter allows you to
+position the scalebar.
 
 ``` r
 viz_create(projection = "Mercator", domain = africa) |>
@@ -176,7 +188,9 @@ viz_create(projection = "Mercator", domain = africa) |>
 
 ### Location map
 
-The `viz_minimap` function allows to display a location map.
+The
+[`viz_minimap()`](https://riatelab.github.io/geovizr/reference/viz_minimap.md)
+function allows to display a location map.
 
 ``` r
 viz_create(projection = "Mercator", domain = africa, zoomable = TRUE) |>
@@ -192,8 +206,9 @@ viz_create(projection = "Mercator", domain = africa, zoomable = TRUE) |>
 
 ### Rhumbs
 
-The `viz_rhumbs` function allows to display “rhumb lines” like on old
-portolan charts
+The
+[`viz_rhumbs()`](https://riatelab.github.io/geovizr/reference/viz_rhumbs.md)
+function allows to display “rhumb lines” like on old portolan charts
 
 ``` r
 viz_create(projection = "Mercator", domain = africa) |>
@@ -202,21 +217,9 @@ viz_create(projection = "Mercator", domain = africa) |>
   viz_render()
 ```
 
-### Pattern
-
-The `viz_pattern` function allows to display a pattern on the map
-
-``` r
-viz_create(projection = "Equal Earth") |>
-  viz_outline(fill = "white") |>
-  viz_pattern(clipOutline = TRUE, stroke = "#38896F", pattern = "waves") |>
-  viz_path(datum = world, fill = "#CCC") |>
-  viz_render()
-```
-
 ## Effects
 
-The `geoviz` package makes it possible to create publication-quality
+The `geovizr` package makes it possible to create publication-quality
 maps. Since these maps are built in SVG format, SVG filters can be
 defined. This works in two steps. First, you define an effect by giving
 it an identifier. Then, you apply it to the layer of your choice.
@@ -227,9 +230,11 @@ aus <- world[world$ISO3 == "AUS", ]
 
 ## blur
 
-The `viz_blur` function is used to define a blur effect The `id`
-parameter defines the filter identifier. The `stdDeviation` parameter
-determines the blur range.
+The
+[`viz_blur()`](https://riatelab.github.io/geovizr/reference/viz_blur.md)
+function is used to define a blur effect The `id` parameter defines the
+filter identifier. The `stdDeviation` parameter determines the blur
+range.
 
 ``` r
 # A simple map
@@ -246,7 +251,9 @@ viz_create() |>
 
 ## shadow
 
-The `viz_shadow` function can be used to draw a drop shadow
+The
+[`viz_shadow()`](https://riatelab.github.io/geovizr/reference/viz_shadow.md)
+function can be used to draw a drop shadow
 
 ``` r
 viz_create(margin = 5) |>
@@ -263,11 +270,13 @@ viz_create(margin = 5) |>
 
 ## radialGradient
 
-With `viz_radialGradient`, you can create a radial gradient. In addition
-to the filter id, the function takes several parameters as input.
-`color1` and `color2` define the gradient colors. The parameters
-`offset1`, `offset2`, `fx` and `fy` define how the gradation is
-performed. Then, you have to apply it on the `fill` attribute.
+With
+[`viz_radialGradient()`](https://riatelab.github.io/geovizr/reference/viz_radialGradient.md),
+you can create a radial gradient. In addition to the filter id, the
+function takes several parameters as input. `color1` and `color2` define
+the gradient colors. The parameters `offset1`, `offset2`, `fx` and `fy`
+define how the gradation is performed. Then, you have to apply it on the
+`fill` attribute.
 
 ``` r
 viz_create(margin = 5) |>
@@ -297,10 +306,12 @@ viz_create() |>
 
 ## pattern
 
-The `viz_pattern` function (which we have already discussed) allows you
-to create patterns and apply them to any geometry. It supports multiple
-textures: `"lines"`, `"crosshatch"`, `"dots"`, `"waves"`, `"triangles"`,
-and `"zigzag"`.
+The
+[`viz_pattern()`](https://riatelab.github.io/geovizr/reference/viz_pattern.md)
+function (which we have already discussed) allows you to create patterns
+and apply them to any geometry. It supports multiple textures:
+`"lines"`, `"crosshatch"`, `"dots"`, `"waves"`, `"triangles"`, and
+`"zigzag"`.
 
 ``` r
 viz_create() |>
@@ -314,9 +325,11 @@ viz_create() |>
 
 ## sketch
 
-The `viz_sketch` function generates a hand-drawn (sketchy) SVG
-representation of a spatial dataframe. It applies SVG filters
-(*feTurbulence* and *feDisplacementMap*) to create a pencil-like effect.
+The
+[`viz_sketch()`](https://riatelab.github.io/geovizr/reference/viz_sketch.md)
+function generates a hand-drawn (sketchy) SVG representation of a
+spatial dataframe. It applies SVG filters (*feTurbulence* and
+*feDisplacementMap*) to create a pencil-like effect.
 
 ``` r
 viz_create() |>
@@ -327,7 +340,7 @@ viz_create() |>
 ## Design nice maps
 
 With all these highly customizable layers, it is possible to create very
-nice maps with geoviz. Here is an example.
+nice maps with `geovizr`. Here is an example.
 
 ``` r
 viz_create(

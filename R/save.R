@@ -1,7 +1,7 @@
 #' Save the map
 #'
-#' The \code{viz_save} function allows to doawnload the map
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' The \code{viz_save} function allows to download the map
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @export
 #' @param map a geoviz object create with the \code{viz_create}
 #' @return A file path to the downloaded SVG map.

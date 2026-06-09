@@ -2,7 +2,7 @@
 #' @description The \code{viz_circle} function draws circles on the map from a spatial
 #' data frame or from a single position. It can be used to create proportional symbol maps
 #' with optional collision avoidance.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data object. Optional. A spatial data frame.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector. Optional. Position of a single circle (default c(0, 0)).
@@ -23,7 +23,8 @@
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -80,7 +81,7 @@ viz_circle <- function(
 #' @description The \code{viz_square} function draws rotatable squares on the map
 #' from a spatial data frame or from a single position. It can be used to create
 #' proportional symbol maps with square markers.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data object. Optional. A spatial data frame.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector. Optional. Position of a single square (default c(0, 0)).
@@ -102,7 +103,8 @@ viz_circle <- function(
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -160,7 +162,7 @@ viz_square <- function(
 #' @description The \code{viz_spike} function draws spikes on the map from a spatial
 #' data frame or from a single position. It can be used to represent values with
 #' vertical symbols (e.g. for density or intensity maps).
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data object. Optional. A spatial data frame.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector. Optional. Position of a single spike (default c(0, 0)).
@@ -182,7 +184,8 @@ viz_square <- function(
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -238,7 +241,7 @@ viz_spike <- function(
 #' @description The \code{viz_halfcircle} function draws rotatable half-circles on the map
 #' from a spatial data frame or from a single position. It can be used to represent values
 #' with semi-circular proportional symbols.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data object. Optional. A spatial data frame.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector. Optional. Position of a single half-circle (default c(0, 0)).
@@ -262,7 +265,8 @@ viz_spike <- function(
 #' Use TRUE to display all fields.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeWidth},
 #' \code{opacity}, \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -324,7 +328,7 @@ viz_halfcircle <- function(
 #' @description The \code{viz_symbol} function draws SVG symbols on the map from a spatial
 #' data frame. It allows the use of predefined symbols, scaling, rotation, and styling,
 #' and can be used for categorical or proportional symbol maps.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data object. Optional. A spatial data frame.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector. Optional. Position of a single symbol (default c(0, 0)).
@@ -353,7 +357,8 @@ viz_halfcircle <- function(
 #' @param descending logical. Optional. Sorting order.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)

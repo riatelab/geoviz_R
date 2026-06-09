@@ -87,9 +87,10 @@ Lambert</h4>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"gpkg/world.gpkg"</span>, package <span class="op">=</span> <span class="st">"geovizr"</span><span class="op">)</span>,</span>
 <span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Geoviz is a package based on htmlwidgets. The maps are therefore SVG
-maps displayed in a web page, which makes them interactive. The package
-offers two types of interaction: tooltips and zoom.</p>
+<p><code>geovizr</code> is a package based on <code>htmlwidgets</code>.
+The maps are therefore SVG maps displayed in a web page, which makes
+them interactive. The package offers two types of interaction: tooltips
+and zoom.</p>
 <div class="section level2">
 <h2 id="tooltips">Tooltips<a class="anchor" aria-label="anchor" href="#tooltips"></a>
 </h2>
@@ -126,8 +127,8 @@ parameter and provide a character string.</p>
     }
   ]
 },"evals":[],"jsHooks":[]}</script><p>In most cases, tooltips are used to display information related to
-the elements hovered over. To do this, use the $ prefix with the field
-name.</p>
+the elements hovered over. To do this, use the <code>$</code> prefix
+with the field name.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, fill <span class="op">=</span> <span class="st">"#38896F"</span>, tip <span class="op">=</span> <span class="st">"$name"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -236,7 +237,8 @@ of your choice (line breaks are preserved).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_tile.html">viz_tile</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"cartodbvoyager"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span>, strokeWidth <span class="op">=</span> <span class="fl">1.5</span>, fill <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/viz_path.html">viz_path</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">world</span>, stroke <span class="op">=</span> <span class="st">"#38896F"</span>,</span>
+<span>           strokeWidth <span class="op">=</span> <span class="fl">1.5</span>, fill <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_render.html">viz_render</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="render html-widget html-fill-item" id="htmlwidget-1fb4450895fe099f74a1" style="width:100%;height:576px;"></div>
 <script type="application/json" data-for="htmlwidget-1fb4450895fe099f74a1">{"x":{
@@ -274,7 +276,7 @@ of your choice (line breaks are preserved).</p>
   ]
 },"evals":[],"jsHooks":[]}</script><p>If you just want to display one or more layers in the projection of
 your choice, you can also simply use the <code>zoomable</code> parameter
-of the <code>viz_create</code> function.</p>
+of the <code><a href="../reference/viz_create.html">viz_create()</a></code> function.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>

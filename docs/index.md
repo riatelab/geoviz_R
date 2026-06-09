@@ -1,4 +1,4 @@
-# geovizr ![](reference/figures/geovizr.svg)
+# geovizr ![geovizr logo](reference/figures/geovizr.svg)
 
 [![geovizr status
 badge](https://riatelab.r-universe.dev/geovizr/badges/version)](https://riatelab.r-universe.dev/geovizr)
@@ -11,7 +11,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 geovizr is an R package for thematic mapping. It’s an R wrapper around
 the [geoviz JavaScript](https://github.com/riatelab/geoviz) library,
 itself based on the [d3.js](https://d3js.org/) ecosystem. Like the
-original javascript library, the package can be used to create a wide
+original JavaScript library, the package can be used to create a wide
 range of interactive, zoomable vector maps, taking advantage of d3’s
 many features: proportional symbols, pictograms, typologies, choropleth
 maps, spikes, tiles, Dorling cartograms, etc. It can also be used to
@@ -27,7 +27,7 @@ install.packages("geovizr")
 ```
 
 Alternatively, you can install the development version of `geovizr` from
-[r-universe](https://riatelab.r-universe.dev/geoviz) with:
+[r-universe](https://riatelab.r-universe.dev/geovizr) with:
 
 ``` r
 install.packages("geovizr", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
@@ -61,7 +61,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_render()
 ```
 
-![](reference/figures/simple.png)
+![simple map](reference/figures/simple.png)
 
 - Proportional symbol
 
@@ -80,7 +80,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_render()
 ```
 
-![](reference/figures/prop.png)
+![prop map](reference/figures/prop.png)
 
 - Choropleth
 
@@ -99,7 +99,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_render()
 ```
 
-![](reference/figures/choro.png)
+![choro map](reference/figures/choro.png)
 
 ## Alternatives
 

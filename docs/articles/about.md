@@ -7,10 +7,10 @@ The `geovizr` package is a R binding to the
 therefore built on the web ecosystem, relying on SVG and the
 [D3.js](https://d3js.org/) library.
 
+![Logo](fig/jsr.png)
+
 Don’t hesitate to have a look at the documentation of the JS library to
 understand what’s under the hood.
-
-![Logo](fig/jsr.png)
 
 ## Source code
 

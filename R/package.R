@@ -1,5 +1,5 @@
 #' @title Package description
-#' @name geoviz
+#' @name geovizr
 #' @description
 #' Create a wide range of interactive, zoomable vector maps.
 #' This package is an R binding for the geoviz javascript library

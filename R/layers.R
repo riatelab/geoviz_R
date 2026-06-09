@@ -2,7 +2,7 @@
 #' @description The \code{viz_graticule} function draws a graticule (latitude and longitude lines)
 #' on the map. The spacing between lines can be uniform or specified separately for parallels
 #' and meridians.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param step numeric or vector. Optional. Gap between graticules (default 10).
 #' Can be a single value or a vector of two values (e.g. \code{c(10, 20)}).
@@ -13,7 +13,8 @@
 #' @param strokeLinejoin character. Optional. Stroke line join (default "round").
 #' @param strokeDasharray numeric or vector. Optional. Stroke dash pattern (default 2).
 #' @param ... Additional SVG attributes (e.g. \code{opacity}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -56,14 +57,15 @@ viz_graticule <- function(
 #' @title Outline layer
 #' @description The \code{viz_outline} function draws the Earth outline according
 #' to the current map projection. This layer can be used as a background or clipping reference.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param stroke character. Optional. Stroke color (default "none").
 #' @param strokeWidth numeric. Optional. Stroke width (default 1).
 #' @param fill character. Optional. Fill color (default "#B5DFFD").
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -97,7 +99,7 @@ viz_outline <- function(
 
 #' @title Map title
 #' @description The \code{viz_header} function adds a title above a geoviz map.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param text character. Optional. Title text to display (default "Map title").
 #' @param fill character. Optional. Text color (default "#9e9696").
@@ -115,7 +117,8 @@ viz_outline <- function(
 #' @param dx numeric. Optional. X offset (default 0).
 #' @param dy numeric. Optional. Y offset (default 0).
 #' @param ... Additional SVG attributes applied to the text or background elements.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #'
 #' @examples
@@ -172,7 +175,7 @@ viz_header <- function(
 #' @description The \code{viz_earth} function displays PNG images representing the Earth's surface
 #' (Natural Earth dataset or custom source). The image is projected on-the-fly. The images are hosted on GitHub. You will need an internet connection.
 #' This function is only relevant at the world scale.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param url character. Optional. Image source. Can be one of
 #' ("GRAY_50M_SR","GRAY_50M_SR_OB","GRAY_50M_SR_W","HYP_50M_SR","HYP_50M_SR_W","MSR_50M",
@@ -186,7 +189,8 @@ viz_header <- function(
 #' @param dy numeric. Optional. Vertical shift (default 0).
 #' @param clipPath a spatial dataframe used to clip the image (default uses map outline).
 #' @param max_canvas_size numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' viz_create(projection = "EqualEarth", background = "white") |>
@@ -198,7 +202,7 @@ viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tile
 
 #' @title Source of the map
 #' @description The \code{viz_footer} function adds a text below a geoviz map.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param text character. Optional. Footer text to display (default "Author, source...").
 #' @param fill character. Optional. Text color (default "#9e9696").
@@ -214,7 +218,8 @@ viz_earth <- function(map, id = NULL, url = "NE2_50M_SR_W", resolution = 1, tile
 #' @param dx numeric. Optional. X shift (default 0).
 #' @param dy numeric. Optional. Y shift (default 0).
 #' @param ... Additional SVG attributes applied to text and background elements.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -235,7 +240,7 @@ viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e96
 #' @description The \code{viz_path} function draws geometries from a spatial data frame
 #' as SVG paths. This function can be used to display polygons, lines, or points,
 #' and supports styling, simplification, and interaction.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration
 #' (e.g. for styling with functions).
 #' @param datum A spatial dataframe Use \code{datum} if no iteration is needed.
@@ -262,7 +267,8 @@ viz_footer <- function(map, id = NULL, text = "Author, source...", fill = "#9e96
 #' You can also use the shorthand \code{r}.
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -316,14 +322,15 @@ viz_path <- function(
 #' @title Mercator tiles
 #' @description The \code{viz_tile} function adds raster zoomable tiles to a map
 #' It requires a Mercator projection.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param tileSize numeric. Optional. Tile size (default 512).
 #' @param zoomDelta numeric. Optional. Zoom offset (default 1).
 #' @param opacity numeric. Optional. Tile opacity (default 1).
 #' @param url function or character. Optional. Tile source URL or preset ("openstreetmap", "opentopomap", "worldterrain", "worldimagery", "worldStreet", "worldphysical", "shadedrelief", "stamenterrain", "cartodbvoyager", "stamentoner", "stamentonerbackground", "stamentonerlite", "stamenwatercolor", "hillshade", "worldocean", "natgeo").
 #' @param clipPath character. Optional. SVG clip-path definition (e.g. "url(#myclipid)").
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' viz_create(projection = "mercator") |>
@@ -336,7 +343,7 @@ viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1,
 #' @title Texts and labels
 #' @description The \code{viz_text} function adds a text on a geoviz map
 #' and can also generate labels from a spatial dataframe.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data a spatial dataframe.
 #' @param id character. Optional. Unique layer id.
 #' @param text character or function. Optional. Text to display (default "text").
@@ -356,7 +363,8 @@ viz_tile <- function(map, id = NULL, tileSize = 512, zoomDelta = 1, opacity = 1,
 #' @param strokeWidth numeric. Optional. Stroke width (default 1).
 #' @param strokeLinejoin character or function. Optional. Stroke line join (default "round").
 #' @param ... Additional SVG attributes applied to text elements.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -387,7 +395,7 @@ viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NU
 
 #' @title North arrow
 #' @description The \code{viz_north} function adds a north arrow a geoviz map.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Position [x, y] on the page (default c(svg.width - 30, 30)).
 #' @param scale numeric. Optional. Scaling factor for the arrow (default 1).
@@ -395,7 +403,8 @@ viz_text <- function(map, id = NULL, data = NULL, text = "text", textAnchor = NU
 #' @param fill character. Optional. Fill color (default "black").
 #' @param fillOpacity numeric. Optional. Fill opacity (default 1).
 #' @param ... Additional SVG attributes applied to the arrow.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -414,7 +423,7 @@ viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill
 
 #' @title Scale bar
 #' @description The \code{viz_scalebar} function adds a scalebar on the map.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Position [x, y] (default c(10, svg.height - 20)).
 #' @param translate numeric vector of length 2. Optional. Translation without changing size (default NA).
@@ -426,7 +435,8 @@ viz_north <- function(map, id = NULL, pos = NULL, scale = 1, rotate = NULL, fill
 #' @param tickValues numeric vector. Optional. Custom tick values.
 #' @param labelAnchor character. Optional. Label anchor ("start","middle","end") (default "start").
 #' @param ... Additional SVG attributes applied to the scalebar.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -446,14 +456,15 @@ viz_scalebar <- function(map, id = NULL, pos = NULL, translate = "", units = "km
 
 #' @title Tissot indicatrices
 #' @description The \code{viz_tissot} function draws Tissot circles to visualize projection distortions on a map.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param step numeric. Optional. Step between circles (default 20).
 #' @param fill character. Optional. Fill color (default "red").
 #' @param stroke character. Optional. Stroke color (default "white").
 #' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.5).
 #' @param ... Additional SVG attributes (strokeDasharray, strokeWidth, opacity, strokeLinecap...).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -473,7 +484,7 @@ viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white"
 #' @title Rhumb lines layer
 #' @description The \code{viz_rhumbs} function draws rhumb lines (loxodromes),
 #' similar to those found on old portolan charts. These lines represent paths of constant bearing.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param nb numeric. Optional. Number of lines (default 16).
 #' @param pos numeric vector. Optional. Position of the lines (default c(10, 10)).
@@ -486,7 +497,8 @@ viz_tissot <- function(map, id = NULL, step = 20, fill = "red", stroke = "white"
 #' @param strokeOpacity numeric. Optional. Stroke opacity (default 0.3).
 #' @param strokeDasharray numeric or vector. Optional. Stroke dash pattern (default c(3, 2)).
 #' @param ... Additional SVG attributes (e.g. \code{opacity}, \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -535,7 +547,7 @@ viz_rhumbs <- function(
 #' This is useful for showing spatial context in map layouts.
 #' NB: The map’s projection must provide an invert() function.
 #'
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id. If NULL, a random id is generated.
 #' @param basemap_data object. Optional. GeoJSON basemap. Default is \code{land}.
 #' @param basemap_fill character. Optional. Fill color of the basemap (default "white").
@@ -557,7 +569,8 @@ viz_rhumbs <- function(
 #'        \code{outline_*} for outline styling properties,
 #'        \code{basemap_*} for basemap styling properties,
 #'        \code{location_*} for location geometry styling properties.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)

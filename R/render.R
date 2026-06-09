@@ -1,8 +1,8 @@
 #' Display the map
 #'
-#' The \code{viz_render} function returns a pretty map in SVG format :-)
+#' The \code{viz_render} function allows to display the map
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @return An htmlwidget object representing an interactive map.
 #' @export
 #' @examples

@@ -10,9 +10,9 @@ world <- st_read(
 )
 ```
 
-Geoviz is a package based on htmlwidgets. The maps are therefore SVG
-maps displayed in a web page, which makes them interactive. The package
-offers two types of interaction: tooltips and zoom.
+`geovizr` is a package based on `htmlwidgets`. The maps are therefore
+SVG maps displayed in a web page, which makes them interactive. The
+package offers two types of interaction: tooltips and zoom.
 
 ## Tooltips
 
@@ -26,7 +26,7 @@ viz_create() |>
 ```
 
 In most cases, tooltips are used to display information related to the
-elements hovered over. To do this, use the \$ prefix with the field
+elements hovered over. To do this, use the `$` prefix with the field
 name.
 
 ``` r
@@ -64,13 +64,15 @@ The first way to make a map zoomable is to add a tile layer.
 ``` r
 viz_create() |>
   viz_tile(url = "cartodbvoyager") |>
-  viz_path(data = world, stroke = "#38896F", strokeWidth = 1.5, fill = "none") |>
+  viz_path(data = world, stroke = "#38896F",
+           strokeWidth = 1.5, fill = "none") |>
   viz_render()
 ```
 
 If you just want to display one or more layers in the projection of your
 choice, you can also simply use the `zoomable` parameter of the
-`viz_create` function.
+[`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md)
+function.
 
 ``` r
 viz_create(zoomable = T) |>

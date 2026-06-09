@@ -1,6 +1,6 @@
 # Symbology
 
-The strength of the geoviz package lies in its ability to create
+The strength of the `geovizr` package lies in its ability to create
 thematic maps from statistical data. To achieve this, many functions are
 available.
 
@@ -23,10 +23,12 @@ cities <- st_read(
 
 ## Proportional symbols
 
-With the `viz_prop` function, you can quickly draw a map with
-proportionnal symbols. At a minimum, you need two parameters: `data` (a
-spatial data frame) and `var` (the variable to map). Note that you
-should use absolute quantitative data (stocks) here.
+With the
+[`viz_prop()`](https://riatelab.github.io/geovizr/reference/viz_prop.md)
+function, you can quickly draw a map with proportionnal symbols. At a
+minimum, you need two parameters: `data` (a spatial data frame) and
+`var` (the variable to map). Note that you should use absolute
+quantitative data (stocks) here.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
@@ -77,9 +79,10 @@ In thematic cartography, according to the rules of graphic semiology,
 relative quantitative data (percentages, indices, ratios) must be
 represented using visual order variables. The most classic
 representation is the choropleth map. The simplest way to create a
-chropleth map with the geoviz library is to use `viz_choro`. As
-previously, you need two parameters: `data` (a spatial data frame) and
-`var` (the variable to map).
+chropleth map with the geoviz library is to use
+[`viz_choro()`](https://riatelab.github.io/geovizr/reference/viz_choro.md).
+As previously, you need two parameters: `data` (a spatial data frame)
+and `var` (the variable to map).
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
@@ -173,9 +176,10 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 
 ## Typology
 
-To create a typology map, you can use the `viz_typo` function. As
-before, you need at least two parameters: `data` (a spatial data frame)
-and `var` (a qualitative variable).
+To create a typology map, you can use the
+[`viz_typo()`](https://riatelab.github.io/geovizr/reference/viz_typo.md)
+function. As before, you need at least two parameters: `data` (a spatial
+data frame) and `var` (a qualitative variable).
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
@@ -257,8 +261,9 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 ## pictograms
 
 Another way to represent qualitative data is to use pictograms. For
-this, you can use the `viz_picto` function with the `data` and `var`
-parameters.
+this, you can use the
+[`viz_picto()`](https://riatelab.github.io/geovizr/reference/viz_picto.md)
+function with the `data` and `var` parameters.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>
@@ -279,7 +284,7 @@ want from this list:
 `"boom"`, `"nuke"`, `"target"`, `"missing"`
 
 To see what they look like, you can click
-\|here\](<https://observablehq.com/embed/@neocartocnrs/symbols@826?cells=symbols>).
+[here](https://observablehq.com/embed/@neocartocnrs/symbols@826?cells=symbols).
 
 To choose the symbols you want and define their display `order`, you can
 use the order and `symbols` parameters.
@@ -318,7 +323,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 
 ## Combinaisons
 
-With geoviz, it is of course possible to combine these representation
+With `geovizr`, it is of course possible to combine these representation
 modes by overlaying layers. You just need to pay attention to the
 position of the legends so that they do not overlap.
 
@@ -354,11 +359,15 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_render()
 ```
 
-With the functions viz_propchoro and viz_proptypo, you can also display
-two variables simultaneously by coloring the circles. In this case, you
-must use `var1` (for symbols) and `var2` (for colors). The legends can
-be configured using the prefixes `leg1` and `leg2`. Then, you can use
-exactly the same parameters as in the previous functions.
+With the functions
+[`viz_propchoro()`](https://riatelab.github.io/geovizr/reference/viz_propchoro.md)
+and
+[`viz_proptypo()`](https://riatelab.github.io/geovizr/reference/viz_proptypo.md),
+you can also display two variables simultaneously by coloring the
+circles. In this case, you must use `var1` (for symbols) and `var2` (for
+colors). The legends can be configured using the prefixes `leg1` and
+`leg2`. Then, you can use exactly the same parameters as in the previous
+functions.
 
 For example:
 

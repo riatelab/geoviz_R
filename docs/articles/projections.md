@@ -2,9 +2,9 @@
 
 ## Preliminary remarks
 
-The projections in geoviz are based on the ecosystem of D3.js. More
+The projections in `geovizr` are based on the ecosystem of `D3.js`. More
 specifically, they rely on the geographic projection functions
-implemented in D3, which are originally designed to be used in
+implemented in `D3`, which are originally designed to be used in
 JavaScript.
 
 These projection methods assume a spherical model of the Earth, rather
@@ -26,9 +26,10 @@ in `geoviz`!*
 
 ## In geoviz
 
-In `geovizr`, the projection is defined in the `viz_create` function
-using the `projection` parameter. You simply need to specify a string
-corresponding to the desired projection.
+In `geovizr`, the projection is defined in the
+[`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md)
+function using the `projection` parameter. You simply need to specify a
+string corresponding to the desired projection.
 
 You must therefore always provide a basemap in WGS84. The transformation
 is performed *on the fly* at display time.
@@ -52,9 +53,9 @@ viz_create(projection = "Bertin1953") |>
   viz_render()
 ```
 
-There are many possibilities. For example, you can try “Polar”,
-“EqualEarth”, “Airocean”, “PolyhedralWaterman”, “InterruptedHomolosine”,
-“Berghaus”, etc.
+There are many possibilities. For example, you can try `"Polar"`,
+`"EqualEarth"`, `"Airocean"`, `"PolyhedralWaterman"`,
+`"InterruptedHomolosine"`, `"Berghaus"`, etc.
 
 ``` r
 viz_create(projection = "PolyhedralWaterman") |>

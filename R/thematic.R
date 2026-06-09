@@ -3,7 +3,7 @@
 #' from a spatial data frame. It can display different symbol types (circle, square,
 #' spike, half-circle) sized according to a numeric variable, and optionally includes
 #' a legend.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.#' @param map A \code{geoviz} map created with \code{viz_create}.
 #' @param data A spatial dataframe
 #' @param var character. Variable name containing numeric values used for scaling symbols.
 #' @param symbol character. Optional. Symbol type (default "circle").
@@ -20,7 +20,8 @@
 #' One of: "nested", "separate".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to symbol rendering (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -81,7 +82,7 @@ viz_prop <- function(
 #' @description The \code{viz_choro} function creates a choropleth map from a spatial
 #' data frame by classifying a numeric variable and mapping it to a color palette.
 #' It supports multiple classification methods and automatic legend generation.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the numeric variable used for classification.
 #' You can also use \code{fill} or \code{stroke} directly instead of \code{var}.
@@ -101,7 +102,8 @@ viz_prop <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -161,7 +163,7 @@ viz_choro <- function(
 #' @description The \code{viz_typo} function creates a typology map from a spatial
 #' data frame by mapping categorical variables to colors. It supports custom ordering,
 #' color palettes, and automatic legend generation.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the categorical variable used for styling.
 #' You can also use \code{fill} or \code{stroke} directly instead of \code{var}.
@@ -178,7 +180,8 @@ viz_choro <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -229,7 +232,7 @@ viz_typo <- function(
 #' @description The \code{viz_propchoro} function combines proportional symbols and
 #' choropleth mapping on the same spatial data frame. It allows simultaneous encoding
 #' of two numeric variables using symbols (size) and colors (classification).
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var1 character. Name of the numeric variable used for absolute values
 #' (driving symbol size).
@@ -263,7 +266,8 @@ viz_typo <- function(
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
 #' @param leg2_pos numeric vector. Optional. Position of choropleth legend.
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -350,7 +354,7 @@ viz_propchoro <- function(
 #' @description The \code{viz_proptypo} function combines proportional symbols and
 #' typology mapping on the same spatial data frame. It allows simultaneous encoding
 #' of two variables using symbol size (quantitative) and categorical coloring.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var1 character. Name of the numeric variable used for absolute values
 #' (driving symbol size).
@@ -378,7 +382,8 @@ viz_propchoro <- function(
 #' @param leg1_pos numeric vector. Optional. Position of symbol legend (default c(10, 10)).
 #' @param leg2_pos numeric vector. Optional. Position of typology legend.
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -458,7 +463,7 @@ viz_proptypo <- function(
 #' @description The \code{viz_picto} function creates a pictogram (symbol-based)
 #' map layer from a spatial data frame. It allows mapping qualitative variables
 #' to custom symbols and supports legend generation and ordering.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the categorical variable used for symbol assignment,
 #' or directly the name of a symbol.
@@ -470,7 +475,8 @@ viz_proptypo <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)

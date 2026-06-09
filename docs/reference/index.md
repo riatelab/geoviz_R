@@ -9,9 +9,13 @@
 
 ## Create & render
 
-The functions `viz_create` and `viz_render` are essential for
-initializing a map, visualizing its content, and exporting it. They form
-the core workflow for creating maps with the `geoviz` R package.
+The functions
+[`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md)
+and
+[`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md)
+are essential for initializing a map, visualizing its content, and
+exporting it. They form the core workflow for creating maps with the
+`geovizr` package.
 
 - [`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md)
   : Create a geoviz map container

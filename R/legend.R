@@ -3,7 +3,7 @@
 #' The \code{viz_leg_box} function creates a box legend. The function adds a
 #' legend layer to the map.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -33,7 +33,8 @@
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, label_*,
 #' title_*, subtitle_*, note_*, frame_*, text_*).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -116,7 +117,7 @@ viz_leg_box <- function(
 #' The \code{viz_leg_typo_vertical} function creates a vertical legend for
 #' typology layers. The function adds a legend layer to the map.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -150,7 +151,8 @@ viz_leg_box <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -242,7 +244,7 @@ viz_leg_typo_vertical <- function(
 #' The \code{viz_leg_typo_horizontal} function creates a horizontal legend for
 #' typology layers. The function adds a legend layer to the map.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -276,7 +278,8 @@ viz_leg_typo_vertical <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -367,7 +370,7 @@ viz_leg_typo_horizontal <- function(
 #' The \code{viz_leg_choro_horizontal} function creates a horizontal legend for
 #' choropleth layers. The function adds a legend layer to the map.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -403,7 +406,8 @@ viz_leg_typo_horizontal <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, title_*,
 #' subtitle_*, note_*, frame_*, text_*).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -499,7 +503,7 @@ viz_leg_choro_horizontal <- function(
 #' It draws a series of colored rectangles with three labels aligned at top,
 #' middle, and bottom. The function adds a legend layer to the map.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Position of the legend (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between title/subtitle and rectangles (default 5).
@@ -516,7 +520,8 @@ viz_leg_choro_horizontal <- function(
 #' @param reverse logical. Optional. Reverse the order of colors (default FALSE).
 #' @param frame logical. Optional. Draw a frame around the legend (default FALSE).
 #' @param ... Additional SVG attributes passed to elements.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -576,7 +581,7 @@ viz_leg_gradient_vertical <- function(
 #' It draws a series of spikes with heights proportional to values.
 #' The function adds a legend layer to the SVG container.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -612,7 +617,8 @@ viz_leg_gradient_vertical <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -710,7 +716,7 @@ viz_leg_spikes <- function(
 #' It draws circles scaled by values, with optional reference lines and labels.
 #' The function adds a legend layer to the SVG container.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -748,7 +754,8 @@ viz_leg_spikes <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -850,7 +857,7 @@ viz_leg_circles <- function(
 #' It displays circles with hierarchical/nested visual structure for comparative values.
 #' The function adds a legend layer to the SVG container.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 5)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -887,7 +894,8 @@ viz_leg_circles <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -987,7 +995,7 @@ viz_leg_circles_nested <- function(
 #' It displays squares scaled according to input values, optionally comparable via fixmax.
 #' The function adds a legend layer to the SVG container.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -1025,7 +1033,8 @@ viz_leg_circles_nested <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -1127,7 +1136,7 @@ viz_leg_squares <- function(
 #' It displays squares scaled according to input values, optionally comparable via fixmax.
 #' The function adds a legend layer to the SVG container.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 5)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -1165,7 +1174,8 @@ viz_leg_squares <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -1267,7 +1277,7 @@ viz_leg_squares_nested <- function(
 #' It displays two sets of nested half-circles (top and bottom), each scaled according to input values.
 #' The function adds a legend layer to the SVG container and returns the layer identifier.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -1318,7 +1328,8 @@ viz_leg_squares_nested <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -1446,7 +1457,7 @@ viz_leg_mushrooms <- function(
 #' It displays categorized symbols arranged vertically with optional shapes and ordering.
 #' The function creates a legend layer in the SVG container and returns the layer identifier.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -1480,7 +1491,8 @@ viz_leg_mushrooms <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -1575,7 +1587,7 @@ viz_leg_symbol_vertical <- function(
 #' It displays a set of categorized symbols with optional shapes and ordering.
 #' The function creates a legend layer in the SVG container and returns the layer identifier.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique layer id.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -1609,7 +1621,8 @@ viz_leg_symbol_vertical <- function(
 #' @param frame_stroke character. Optional. Frame stroke (default "black").
 #' @param frame_fillOpacity numeric. Optional. Frame opacity (default 0.5).
 #' @param ... Additional SVG attributes.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -1702,7 +1715,7 @@ viz_leg_symbol_horizontal <- function(
 #' The \code{viz_leg_choro_vertical} function creates a vertical legend for
 #' choropleth layers. The function adds a legend layer to the map.
 #'
-#' @param map A \code{geoviz} object created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. ID of the layer.
 #' @param pos numeric vector of length 2. Optional. Legend position (default c(0, 0)).
 #' @param gap numeric. Optional. Gap between elements (default 2).
@@ -1738,7 +1751,8 @@ viz_leg_symbol_horizontal <- function(
 #' @param frame_fillOpacity numeric. Optional. Frame fill opacity (default 0.5).
 #' @param ... Additional SVG attributes passed to elements (e.g. rect_*, values_*,
 #' title_*, subtitle_*, note_*, frame_*, text_*).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)

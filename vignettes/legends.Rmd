@@ -34,9 +34,9 @@ world <- st_read(system.file("gpkg/world.gpkg", package = "geovizr"),
 )
 ```
 
-In geoviz, a legend is automatically displayed as soon as you use tthe following thematic mapping functions: `"viz_prop"`, `"viz_choro"`, `"viz_typo"`, `"viz_propchoro"`, `"viz_proptypo"`, `"viz_picto"`, `"viz_gridprop"`, `"viz_gridchoro"`, `"viz_smooth"` and `"viz_dotdensity"`.
+In `geovizr`, a legend is automatically displayed as soon as you use tthe following thematic mapping functions: `viz_prop()`, `viz_choro()`, `viz_typo()`, `viz_propchoro()`, `viz_proptypo()`, `viz_picto()`, `viz_gridprop()`, `viz_gridchoro()`, `viz_smooth()` and `viz_dotdensity()`.
 
-Under the hood, these functions actually call legend functions that can also be used separately. For example, the `viz_prop` function calls `viz_leg_circles`. The `viz_choro` function calls `viz_leg_choro_vertical`. The `viz_typo` function calls `viz_leg_typo_vertical`, and so on.
+Under the hood, these functions actually call legend functions that can also be used separately. For example, the `viz_prop()` function calls `viz_leg_circles()`. The `viz_choro()` function calls `viz_leg_choro_vertical()`. The `viz_typo()` function calls `viz_leg_typo_vertical()`, and so on.
 
 Consequently, to understand how to configure legends, refer to the documentation of the legend functions.
 

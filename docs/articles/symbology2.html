@@ -79,8 +79,9 @@ Lambert</h4>
 
     
     
-<p>Beyond traditional cartographic representation functions, geoviz also
-offers more advanced cartographic transformations.</p>
+<p>Beyond traditional cartographic representation functions,
+<code>geovizr</code> also offers more advanced cartographic
+transformations.</p>
 <p>First, let’s load packages and data.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/geovizr/">geovizr</a></span><span class="op">)</span></span>
@@ -99,7 +100,7 @@ offers more advanced cartographic transformations.</p>
 <div class="section level2">
 <h2 id="grids">Grids<a class="anchor" aria-label="anchor" href="#grids"></a>
 </h2>
-<p>With the <code>viz_gridchoro</code> function, it is possible to
+<p>With the <code><a href="../reference/viz_gridchoro.html">viz_gridchoro()</a></code> function, it is possible to
 aggregate points into regular grids. Several grid types are available
 and can be selected using the grid parameter. First, there are regular
 grids in the plane: <code>"square"</code>, <code>"diamond"</code>,
@@ -111,7 +112,7 @@ globe: <code>"h3"</code> and <code>"square_sph"</code>.</p>
 values and assigns them to the grid cells. If <code>var</code> is not
 specified, the function simply counts the number of points.</p>
 <p>Then, to create the choropleth map, you can use exactly the same
-parameters as in the <code>viz_choro</code> function.</p>
+parameters as in the <code><a href="../reference/viz_choro.html">viz_choro()</a></code> function.</p>
 <p>Here is an example of a regular grid on the plane of the map.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"EqualEarth"</span>, zoomable <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -316,9 +317,8 @@ much slower.</p>
   ]
 },"evals":[],"jsHooks":[]}</script><p>In the previous maps, a stock variable is represented using a color
 gradient. This is not a major issue since all grid cells have the same
-size. However, if you want to map a ratio—for example, GDP per
-capita—you need to specify the numerator and the denominator as
-follows.</p>
+size. However, if you want to map a ratio (for example, GDP per capita)
+you need to specify the numerator and the denominator as follows.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span></span>
 <span>  projection <span class="op">=</span> <span class="st">"Mercator"</span>, zoomable <span class="op">=</span> <span class="cn">T</span>,</span>
@@ -384,8 +384,8 @@ follows.</p>
 </h2>
 <p>Thanks to <a href="https://d3js.org/d3-contour/density" class="external-link"><code>d3.contourDensity</code></a>,
 it is also possible to create smoothed maps in geoviz with the
-<code>viz_smooth</code> function. <code>d3.contourDensity()</code> is a
-function from the <code>d3-contour</code> module that computes density
+<code><a href="../reference/viz_smooth.html">viz_smooth()</a></code> function. <code>d3.contourDensity()</code> is
+a function from the <code>d3-contour</code> module that computes density
 contours (isodensity lines) from a set of points. It is the equivalent
 of a 2D kernel density estimation (KDE). It returns polygons
 representing areas of equal density.</p>
@@ -441,8 +441,8 @@ can use a palette available in <a href="https://github.com/riatelab/dicopal.js/"
 <div class="section level2">
 <h2 id="bertin-dots">Bertin dots<a class="anchor" aria-label="anchor" href="#bertin-dots"></a>
 </h2>
-<p>With the <code>viz_gridprop</code> function, and following exactly
-the same principles as the <code>viz_gridchoro</code> function, it is
+<p>With the <code><a href="../reference/viz_gridprop.html">viz_gridprop()</a></code> function, and following exactly
+the same principles as the <code><a href="../reference/viz_gridchoro.html">viz_gridchoro()</a></code> function, it is
 possible to aggregate data into regular grid cells and then represent
 them using proportional symbols. This produces a cartographic
 representation similar to Bertin-style dot maps.</p>
@@ -507,8 +507,8 @@ representation similar to Bertin-style dot maps.</p>
 <div class="section level2">
 <h2 id="dot-density-map">Dot density map<a class="anchor" aria-label="anchor" href="#dot-density-map"></a>
 </h2>
-<p>The viz_dotdensity function allows you to create dot maps in the
-style of Armand Joseph Frère de Montizon (1830).</p>
+<p>The <code><a href="../reference/viz_dotdensity.html">viz_dotdensity()</a></code> function allows you to create dot
+maps in the style of Armand Joseph Frère de Montizon (1830).</p>
 <p>The value of the point is calculated automatically and displayed at
 the bottom left of the map. However, you can choose a value yourself
 using the <code>dotval</code> parameter.</p>

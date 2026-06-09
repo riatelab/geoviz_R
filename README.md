@@ -1,4 +1,4 @@
-# geovizr <img src="man/figures/geovizr.svg" align="right" width="120"/>
+# geovizr <img src="man/figures/geovizr.svg" align="right" width="120" alt = "geovizr logo"/>
 
 [![geovizr status
 badge](https://riatelab.r-universe.dev/geovizr/badges/version)](https://riatelab.r-universe.dev/geovizr)
@@ -10,7 +10,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 geovizr is an R package for thematic mapping. It's an R wrapper around the 
 [geoviz JavaScript](https://github.com/riatelab/geoviz) library, itself based on the [d3.js](https://d3js.org/)
-ecosystem. Like the original javascript library, the package can be used to create a wide range of interactive,
+ecosystem. Like the original JavaScript library, the package can be used to create a wide range of interactive,
 zoomable vector maps,  taking advantage of d3's many features: proportional symbols, pictograms, typologies,
 choropleth maps, spikes,  tiles, Dorling cartograms, etc. 
 It can also be used to create pretty static vectorial maps in SVG format, 
@@ -25,7 +25,7 @@ CRAN with:
 install.packages("geovizr")
 ```
 
-Alternatively, you can install the development version of `geovizr` from [r-universe](https://riatelab.r-universe.dev/geoviz)
+Alternatively, you can install the development version of `geovizr` from [r-universe](https://riatelab.r-universe.dev/geovizr)
 with:
 
 ``` r
@@ -61,7 +61,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_render()
 ```
 
-<img src="man/figures/simple.png" width="100%"/>
+<img src="man/figures/simple.png" width="100%" alt = "simple map"/>
 
 - Proportional symbol
 
@@ -80,7 +80,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_render()
 ```
 
-<img src="man/figures/prop.png" width="100%"/>
+<img src="man/figures/prop.png" width="100%" alt = "prop map"/>
 
 - Choropleth
 
@@ -99,7 +99,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_render()
 ```
 
-<img src="man/figures/choro.png" width="100%"/>
+<img src="man/figures/choro.png" width="100%" alt = "choro map"/>
 
 ## Alternatives
 

@@ -1,5 +1,5 @@
 #' @title Create a geoviz map container
-#' @description The \code{viz_create} function initializes a geoviz map by creating
+#' @description The \code{viz_create} function initializes a geovizr map by creating
 #' an SVG container and defining its main configuration (projection, domain, size,
 #' margins, and layout). It is the first step in any map construction workflow.
 #' @param width numeric. Optional. It allows you to manually set the width of the map. (default size of the device). Note that if responsive = TRUE, the SVG always has the size defined by the width in map coordinates, which does not correspond to the actual displayed size of the map. Similarly, if resize = TRUE, the size of the map is updated every time the window is resized.
@@ -19,7 +19,7 @@
 #' @param control logical or numeric vector. Optional. Adds zoom control panel and optionally
 #' defines its position by using a vector of 2 values.
 #' @param warning logical. Optional. Whether to display warnings on the map (default TRUE).
-#' @return list containing the map parameters and an initially empty list of layers to be displayed.
+#' @return A list containing map parameters and an initially empty list of layers to be displayed.
 #' @export
 #' @examples
 #' library(sf)

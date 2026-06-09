@@ -2,7 +2,7 @@
 #' @description The \code{viz_gridprop} function builds a proportional symbol map
 #' aggregated on a spatial grid. It first generates a grid from the input spatial
 #' data frame, then displays aggregated values within each cell using proportional symbols.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the numeric variable used for aggregation and symbol scaling.
 #' @param grid character. Optional. Type of grid used for aggregation (default "square").
@@ -26,7 +26,8 @@
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param leg_title character. Optional. Legend title (default \code{var}).
 #' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -90,7 +91,7 @@ viz_gridprop <- function(
 #' @description The \code{gridchoro} function builds a choropleth map based on a
 #' spatial grid aggregation. It first generates a grid from the input spatial data frame,
 #' aggregates values within each cell, and maps them using a color classification.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character or character vector. Variable(s) used for aggregation.
 #' If two variables are provided, a ratio is computed.
@@ -109,7 +110,8 @@ viz_gridprop <- function(
 #' One of: "horizontal", "vertical".
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional parameters passed to choropleth rendering (same as \code{viz_choro}). With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -165,7 +167,7 @@ viz_gridchoro <- function(
 #' @description The \code{viz_smooth} function creates smoothed density contours
 #' (isobands) from a set of spatial points. It is a wrapper around contour-based
 #' density estimation, with styling optimized for smooth thematic visualizations.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character or numeric. Optional. Variable used to weight points.
 #' @param id character. Optional. Layer identifier.
@@ -191,7 +193,8 @@ viz_gridchoro <- function(
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, 10)).
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -265,7 +268,7 @@ viz_smooth <- function(
 #' @description The \code{viz_dotdensity} function creates a dot density map by
 #' distributing points proportionally to a numeric variable. Each dot represents
 #' a fixed quantity of the underlying data.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data A spatial dataframe Use \code{data} to enable iteration over features.
 #' @param var character. Name of the numeric variable used to generate dot density values.
 #' @param stroke character. Optional. Stroke color for dots (default "none").
@@ -277,7 +280,8 @@ viz_smooth <- function(
 #' @param leg_pos numeric vector. Optional. Legend position (default c(10, svg.height - 10)).
 #' @param leg_text character. Optional. Legend text (default dot value).
 #' @param ... Additional parameters passed to rendering or SVG container options.
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new layer added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)

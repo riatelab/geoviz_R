@@ -1,16 +1,33 @@
 # Legends
 
-In geoviz, a legend is automatically displayed as soon as you use tthe
-following thematic mapping functions: `"viz_prop"`, `"viz_choro"`,
-`"viz_typo"`, `"viz_propchoro"`, `"viz_proptypo"`, `"viz_picto"`,
-`"viz_gridprop"`, `"viz_gridchoro"`, `"viz_smooth"` and
-`"viz_dotdensity"`.
+In `geovizr`, a legend is automatically displayed as soon as you use
+tthe following thematic mapping functions:
+[`viz_prop()`](https://riatelab.github.io/geovizr/reference/viz_prop.md),
+[`viz_choro()`](https://riatelab.github.io/geovizr/reference/viz_choro.md),
+[`viz_typo()`](https://riatelab.github.io/geovizr/reference/viz_typo.md),
+[`viz_propchoro()`](https://riatelab.github.io/geovizr/reference/viz_propchoro.md),
+[`viz_proptypo()`](https://riatelab.github.io/geovizr/reference/viz_proptypo.md),
+[`viz_picto()`](https://riatelab.github.io/geovizr/reference/viz_picto.md),
+[`viz_gridprop()`](https://riatelab.github.io/geovizr/reference/viz_gridprop.md),
+[`viz_gridchoro()`](https://riatelab.github.io/geovizr/reference/viz_gridchoro.md),
+[`viz_smooth()`](https://riatelab.github.io/geovizr/reference/viz_smooth.md)
+and
+[`viz_dotdensity()`](https://riatelab.github.io/geovizr/reference/viz_dotdensity.md).
 
 Under the hood, these functions actually call legend functions that can
-also be used separately. For example, the `viz_prop` function calls
-`viz_leg_circles`. The `viz_choro` function calls
-`viz_leg_choro_vertical`. The `viz_typo` function calls
-`viz_leg_typo_vertical`, and so on.
+also be used separately. For example, the
+[`viz_prop()`](https://riatelab.github.io/geovizr/reference/viz_prop.md)
+function calls
+[`viz_leg_circles()`](https://riatelab.github.io/geovizr/reference/viz_leg_circles.md).
+The
+[`viz_choro()`](https://riatelab.github.io/geovizr/reference/viz_choro.md)
+function calls
+[`viz_leg_choro_vertical()`](https://riatelab.github.io/geovizr/reference/viz_leg_choro_vertical.md).
+The
+[`viz_typo()`](https://riatelab.github.io/geovizr/reference/viz_typo.md)
+function calls
+[`viz_leg_typo_vertical()`](https://riatelab.github.io/geovizr/reference/viz_leg_typo_vertical.md),
+and so on.
 
 Consequently, to understand how to configure legends, refer to the
 documentation of the legend functions.

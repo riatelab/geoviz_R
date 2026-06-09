@@ -4,8 +4,8 @@
 library(geovizr)
 ```
 
-As is usual in R, the geoviz package takes spatial data frames as input.
-You therefore need to load the `sf` package to import geometries.
+As is usual in R, the `geovizr` package takes spatial data frames as
+input. You therefore need to load the `sf` package to import geometries.
 
 ``` r
 library(sf)
@@ -16,11 +16,13 @@ roads <- st_read(dsn = australia, layer = "roads", quiet = TRUE)
 ports <- st_read(dsn = australia, layer = "ports", quiet = TRUE)
 ```
 
-## The `viz_path` function
+## The `viz_path()` function
 
-The `viz_path` function is the one that allows you to display
-geometries. It lets you stack layers and is highly configurable. All
-parameters have default styles. The color is assigned randomly.
+The
+[`viz_path()`](https://riatelab.github.io/geovizr/reference/viz_path.md)
+function is the one that allows you to display geometries. It lets you
+stack layers and is highly configurable. All parameters have default
+styles. The color is assigned randomly.
 
 ``` r
 viz_create() |>
@@ -55,8 +57,10 @@ viz_create() |>
 
 ## Data or datum?
 
-In the `viz_path` function (and more generally in `geoviz`), there are
-two parameters that allow you to add a spatial dataframe.
+In the
+[`viz_path()`](https://riatelab.github.io/geovizr/reference/viz_path.md)
+function (and more generally in `geovizr`), there are two parameters
+that allow you to add a spatial dataframe.
 
 The `data` parameter lets you add geometries and iterate over each
 element. You should use data whenever you want to differentiate between
@@ -85,7 +89,7 @@ viz_create() |>
 
 ## Simplification
 
-Geoviz renders geometries as SVG. If there are many points, rendering
+`geovizr` renders geometries as SVG. If there are many points, rendering
 can be slow. You can automatically lighten the base map by setting the
 attribute `simplify = TRUE`. This simplifies automaticaly the base map,
 making it lighter without significantly altering its appearance, and
@@ -126,13 +130,14 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 
 ## The Winding Order Problem
 
-The geoviz package converts your geometries to GeoJSON. When applying a
-map projection function, it can sometimes happen that polygons end up
-with their vertices not ordered correctly. The convention is that the
-outer ring of a polygon should be defined in a counter-clockwise
-direction, while inner rings (holes) should be defined in a clockwise
-direction. If this rule is not followed, some software may render holes
-as solid areas or produce incorrect results in geometric calculations.
+The `geovizr` package temporarily converts your geometries to GeoJSON
+during the mapping process. When applying a map projection function, it
+can sometimes happen that polygons end up with their vertices not
+ordered correctly. The convention is that the outer ring of a polygon
+should be defined in a counter-clockwise direction, while inner rings
+(holes) should be defined in a clockwise direction. If this rule is not
+followed, some software may render holes as solid areas or produce
+incorrect results in geometric calculations.
 
 ``` r
 viz_create(projection = "EqualEarth") |>
@@ -156,8 +161,10 @@ viz_create(projection = "EqualEarth") |>
 ## In other functions
 
 Everything we’ve just seen also applies to all package functions based
-on `viz_path`. You can therefore also use the simplify parameter when
-creating a choropleth map.
+on
+[`viz_path()`](https://riatelab.github.io/geovizr/reference/viz_path.md).
+You can therefore also use the simplify parameter when creating a
+choropleth map.
 
 ``` r
 viz_create(projection = "EqualEarth", zoomable = T) |>

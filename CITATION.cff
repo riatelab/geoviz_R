@@ -4,10 +4,10 @@
 # --------------------------------------------
  
 cff-version: 1.2.0
-message: 'To cite package "geoviz" in publications use:'
+message: 'To cite package "geovizr" in publications use:'
 type: software
 license: GPL-3.0-or-later
-title: 'geoviz: Interactive Cartography'
+title: 'geovizr: Interactive Cartography'
 version: 1.0.0
 abstract: 'Create a wide range of interactive, zoomable vector maps. This package
   is an ''R'' binding for the ''geoviz'' JavaScript library <https://github.com/riatelab/geoviz/>,

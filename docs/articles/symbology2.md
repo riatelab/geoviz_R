@@ -1,6 +1,6 @@
 # Symbology (advanced)
 
-Beyond traditional cartographic representation functions, geoviz also
+Beyond traditional cartographic representation functions, `geovizr` also
 offers more advanced cartographic transformations.
 
 First, let’s load packages and data.
@@ -23,12 +23,13 @@ cities <- st_read(
 
 ## Grids
 
-With the `viz_gridchoro` function, it is possible to aggregate points
-into regular grids. Several grid types are available and can be selected
-using the grid parameter. First, there are regular grids in the plane:
-`"square"`, `"diamond"`, `"hexbin"`, `"triangle"`, and `"random"`. It is
-also possible to use regular grids on the globe: `"h3"` and
-`"square_sph"`.
+With the
+[`viz_gridchoro()`](https://riatelab.github.io/geovizr/reference/viz_gridchoro.md)
+function, it is possible to aggregate points into regular grids. Several
+grid types are available and can be selected using the grid parameter.
+First, there are regular grids in the plane: `"square"`, `"diamond"`,
+`"hexbin"`, `"triangle"`, and `"random"`. It is also possible to use
+regular grids on the globe: `"h3"` and `"square_sph"`.
 
 If the `var` parameter is specified with an **absolute quantitative
 variable**, the function sums the values and assigns them to the grid
@@ -36,7 +37,9 @@ cells. If `var` is not specified, the function simply counts the number
 of points.
 
 Then, to create the choropleth map, you can use exactly the same
-parameters as in the `viz_choro` function.
+parameters as in the
+[`viz_choro()`](https://riatelab.github.io/geovizr/reference/viz_choro.md)
+function.
 
 Here is an example of a regular grid on the plane of the map.
 
@@ -85,8 +88,8 @@ viz_create(
 
 In the previous maps, a stock variable is represented using a color
 gradient. This is not a major issue since all grid cells have the same
-size. However, if you want to map a ratio—for example, GDP per
-capita—you need to specify the numerator and the denominator as follows.
+size. However, if you want to map a ratio (for example, GDP per capita)
+you need to specify the numerator and the denominator as follows.
 
 ``` r
 viz_create(
@@ -105,7 +108,8 @@ viz_create(
 ## Heatmaps
 
 Thanks to [`d3.contourDensity`](https://d3js.org/d3-contour/density), it
-is also possible to create smoothed maps in geoviz with the `viz_smooth`
+is also possible to create smoothed maps in geoviz with the
+[`viz_smooth()`](https://riatelab.github.io/geovizr/reference/viz_smooth.md)
 function. `d3.contourDensity()` is a function from the `d3-contour`
 module that computes density contours (isodensity lines) from a set of
 points. It is the equivalent of a 2D kernel density estimation (KDE). It
@@ -127,11 +131,13 @@ viz_create(domain = CHN_cities, margin = 50) |>
 
 ## Bertin dots
 
-With the `viz_gridprop` function, and following exactly the same
-principles as the `viz_gridchoro` function, it is possible to aggregate
-data into regular grid cells and then represent them using proportional
-symbols. This produces a cartographic representation similar to
-Bertin-style dot maps.
+With the
+[`viz_gridprop()`](https://riatelab.github.io/geovizr/reference/viz_gridprop.md)
+function, and following exactly the same principles as the
+[`viz_gridchoro()`](https://riatelab.github.io/geovizr/reference/viz_gridchoro.md)
+function, it is possible to aggregate data into regular grid cells and
+then represent them using proportional symbols. This produces a
+cartographic representation similar to Bertin-style dot maps.
 
 ``` r
 viz_create(projection = "Mercator", zoomable = T) |>
@@ -145,8 +151,10 @@ viz_create(projection = "Mercator", zoomable = T) |>
 
 ## Dot density map
 
-The viz_dotdensity function allows you to create dot maps in the style
-of Armand Joseph Frère de Montizon (1830).
+The
+[`viz_dotdensity()`](https://riatelab.github.io/geovizr/reference/viz_dotdensity.md)
+function allows you to create dot maps in the style of Armand Joseph
+Frère de Montizon (1830).
 
 The value of the point is calculated automatically and displayed at the
 bottom left of the map. However, you can choose a value yourself using

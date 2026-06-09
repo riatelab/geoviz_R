@@ -82,10 +82,10 @@ Lambert</h4>
 <div class="section level2">
 <h2 id="preliminary-remarks">Preliminary remarks<a class="anchor" aria-label="anchor" href="#preliminary-remarks"></a>
 </h2>
-<p>The projections in geoviz are based on the ecosystem of D3.js. More
-specifically, they rely on the geographic projection functions
-implemented in D3, which are originally designed to be used in
-JavaScript.</p>
+<p>The projections in <code>geovizr</code> are based on the ecosystem of
+<code>D3.js</code>. More specifically, they rely on the geographic
+projection functions implemented in <code>D3</code>, which are
+originally designed to be used in JavaScript.</p>
 <p>These projection methods assume a spherical model of the Earth,
 rather than an ellipsoidal one. In other words, the Earth is treated as
 a perfect sphere, which simplifies the mathematical transformations
@@ -112,7 +112,7 @@ become <code>"Bertin1953"</code> in <code>geoviz</code>!</em></p>
 <h2 id="in-geoviz">In geoviz<a class="anchor" aria-label="anchor" href="#in-geoviz"></a>
 </h2>
 <p>In <code>geovizr</code>, the projection is defined in the
-<code>viz_create</code> function using the <code>projection</code>
+<code><a href="../reference/viz_create.html">viz_create()</a></code> function using the <code>projection</code>
 parameter. You simply need to specify a string corresponding to the
 desired projection.</p>
 <p>You must therefore always provide a basemap in WGS84. The
@@ -174,9 +174,10 @@ transformation is performed <ins>on the fly</ins> at display time.</p>
       "r": 3
     }
   ]
-},"evals":[],"jsHooks":[]}</script><p>There are many possibilities. For example, you can try “Polar”,
-“EqualEarth”, “Airocean”, “PolyhedralWaterman”, “InterruptedHomolosine”,
-“Berghaus”, etc.</p>
+},"evals":[],"jsHooks":[]}</script><p>There are many possibilities. For example, you can try
+<code>"Polar"</code>, <code>"EqualEarth"</code>,
+<code>"Airocean"</code>, <code>"PolyhedralWaterman"</code>,
+<code>"InterruptedHomolosine"</code>, <code>"Berghaus"</code>, etc.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/viz_create.html">viz_create</a></span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"PolyhedralWaterman"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/viz_outline.html">viz_outline</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>

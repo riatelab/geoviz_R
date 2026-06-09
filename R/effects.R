@@ -2,7 +2,7 @@
 #' @description The \code{viz_shadow} function adds a shadow effect to map elements,
 #' typically used to enhance depth perception for shapes, symbols, or extruded visualizations.
 #' The layer is rendered in SVG and can be applied globally or to specific geometries.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create}.
 #' @param id character. Optional. Unique layer id.
 #' @param dx numeric. Optional. Horizontal shadow offset (default 0).
 #' @param dy numeric. Optional. Vertical shadow offset (default 0).
@@ -16,7 +16,8 @@
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{strokeLinecap},
 #' \code{filter}, etc.).
 #' @param ... Additional parameters
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new effect added.
+#' Rendering is performed using \code{viz_render()}.
 #' @export
 #' @examples
 #' library(sf)
@@ -64,7 +65,7 @@ viz_shadow <- function(
 #' @description The \code{viz_radialGradient} function creates an SVG radialGradient
 #' definition and adds it to the SVG defs. It returns a reference usable in SVG styling
 #' (e.g. \code{url(#id)}). It is typically used to create smooth radial color transitions.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique gradient id.
 #' @param color1 character. Optional. First color of the gradient (default "#63b0af").
 #' @param color2 character. Optional. Second color of the gradient (default "#428c8b").
@@ -73,7 +74,8 @@ viz_shadow <- function(
 #' @param fx numeric. Optional. Focal point x-position (default 50).
 #' @param fy numeric. Optional. Focal point y-position (default 50).
 #' @param ... Additional parameters
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new effect added.
+#' Rendering is performed using \code{viz_render()}
 #' @export
 #' @examples
 #' library(sf)
@@ -119,12 +121,13 @@ viz_radialGradient <- function(
 #' @title Blur filter
 #' @description The \code{viz_blur} function creates an SVG blur filter and adds it
 #' to the map definitions. It returns a reference usable in SVG styling (e.g. \code{url(#id)}).
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique filter id.
 #' @param stdDeviation numeric. Optional. Standard deviation controlling blur intensity (default 1.5).
 #' Higher values produce a stronger blur effect.
 #' @param ... Additional parameters
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new effect added.
+#' Rendering is performed using \code{viz_render()}
 #' @export
 #' @examples
 #' library(sf)
@@ -157,11 +160,12 @@ viz_blur <- function(
 #' @description The \code{viz_clipPath} function creates an SVG clipPath definition
 #' and adds it to the SVG defs. It returns a reference usable in SVG styling
 #' (e.g. \code{url(#id)}). WARNING: the clipPath is global to the web page, not only the map.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique clipPath id.
 #' @param datum object. Optional. Geometry used for clipping (default \code{list(type = "Sphere")}).
 #' @param permanent logical or character. Optional. Whether the clipPath is static (default FALSE).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new effect added.
+#' Rendering is performed using \code{viz_render()}
 #' @export
 #' @examples
 #' library(sf)
@@ -196,7 +200,7 @@ viz_clipPath <- function(
 #' (e.g. paths, rectangles) and support multiple textures such as lines, crosses,
 #' dots, waves, triangles, or zigzags. Patterns can also be clipped to a spatial
 #' data frame geometry or to the Earth outline.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param id character. Optional. Unique pattern id (auto-generated if not provided).
 #' @param spacing numeric. Optional. Distance between pattern elements (default 6).
 #' @param angle numeric. Optional. Pattern rotation in degrees (default 0).
@@ -218,7 +222,8 @@ viz_clipPath <- function(
 #' @param clipOutline logical. Optional. Clip pattern to Earth outline (default FALSE).
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new effect added.
+#' Rendering is performed using \code{viz_render()}
 #' @export
 #' @examples
 #' library(sf)
@@ -286,7 +291,7 @@ viz_pattern <- function(
 #' @description The \code{viz_sketch} function renders a spatial dataframe as
 #' hand-drawn (sketchy) SVG shapes. It uses SVG filters (feTurbulence and
 #' feDisplacementMap) to simulate a pencil-like rendering style.
-#' @param map A \code{geoviz} map created with \code{viz_create}.
+#' @param map A \code{geovizr} map object created using \code{viz_create()}.
 #' @param data object. Optional. A spatial data frame (or equivalent geometry input).
 #' @param id character. Optional. Unique layer id (auto-generated if not provided).
 #' @param fill character. Optional. Fill color (default "none").
@@ -305,7 +310,8 @@ viz_pattern <- function(
 #' @param ... Additional SVG attributes (e.g. \code{strokeDasharray}, \code{opacity},
 #' \code{strokeLinecap}, etc.).
 #' @export
-#' @return list. A modified `geoviz` map object with a new layer added.
+#' @return A modified `geoviz` map object with a new effect added.
+#' Rendering is performed using \code{viz_render()}
 #' @examples
 #' library(sf)
 #'

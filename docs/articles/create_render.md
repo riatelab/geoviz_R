@@ -14,11 +14,13 @@ world <- st_read(
 
 ## Create
 
-Every map starts with the `viz_create` function. It initializes the map
-and defines a number of general parameters, such as the size (`width`),
-the margins (`margins`), the projection (`projection`), or the
-background color (`background`). This is also where you determine
-whether the map is zoomable or not, using the `zoomable` parameter.
+Every map starts with the
+[`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md)
+function. It initializes the map and defines a number of general
+parameters, such as the size (`width`), the margins (`margins`), the
+projection (`projection`), or the background color (`background`). This
+is also where you determine whether the map is zoomable or not, using
+the `zoomable` parameter.
 
 From a technical perspective, the function produces a list containing
 the map parameters and an initially empty list of layers to be
@@ -54,11 +56,17 @@ At this stage, the function does not draw anything.
 
 ## Add layers
 
-Once the map has been initialized with the `viz_create` function, the
-geoviz package provides many functions to display layers. Each function
-has its own specific parameters and is designed to display a particular
-type of layer. For example, you can use `viz_path` to add gemeotries,
-`viz_graticule` to add graticules, or `viz_header` to add a title, etc.
+Once the map has been initialized with the
+[`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md)
+function, the `geovizr` package provides many functions to display
+layers. Each function has its own specific parameters and is designed to
+display a particular type of layer. For example, you can use
+[`viz_path()`](https://riatelab.github.io/geovizr/reference/viz_path.md)
+to add gemeotries,
+[`viz_graticule()`](https://riatelab.github.io/geovizr/reference/viz_graticule.md)
+to add graticules, or
+[`viz_header()`](https://riatelab.github.io/geovizr/reference/viz_header.md)
+to add a title, etc.
 
 So you can write this
 
@@ -248,7 +256,8 @@ function.
 viz_render(map)
 ```
 
-Thus, creating a complete map with geoviz could be written as follows.
+Thus, creating a complete map with `geovizr` could be written as
+follows.
 
 ``` r
 map <- viz_create(projection = "EqualEarth") |>
@@ -259,8 +268,10 @@ map <- viz_create(projection = "EqualEarth") |>
   viz_render()
 ```
 
-From a technical perspective, the viz_render function returns an HTML
-block (+ JavaScript for interactivity) containing a map in SVG format.
+From a technical perspective, the
+[`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md)
+function returns an HTML block (+ JavaScript for interactivity)
+containing a map in SVG format.
 
 ## Save maps
 
@@ -280,7 +291,9 @@ viz_create(zoomable = T) |>
 
 You can also directly save the map in SVG format to edit it with a
 drawing software like Inkscape. For this, you just need to use the
-`viz_save` command instead of `viz_render`.
+[`viz_save()`](https://riatelab.github.io/geovizr/reference/viz_save.md)
+command instead of
+[`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md).
 
 ``` r
 viz_create() |>
@@ -289,5 +302,5 @@ viz_create() |>
 ```
 
 By doing this, the map is returned and a window opens, prompting you to
-download it. Thus, the geoviz package can be a way to create draft maps
-before refining them in a CAD environment.
+download it. Thus, the `geovizr` package can be a way to create draft
+maps before refining them in a CAD environment.

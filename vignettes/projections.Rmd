@@ -18,7 +18,7 @@ knitr::opts_chunk$set(out.width = "100%")
 
 # Preliminary remarks
 
-The projections in geoviz are based on the ecosystem of D3.js. More specifically, they rely on the geographic projection functions implemented in D3, which are originally designed to be used in JavaScript.
+The projections in `geovizr` are based on the ecosystem of `D3.js`. More specifically, they rely on the geographic projection functions implemented in `D3`, which are originally designed to be used in JavaScript.
 
 These projection methods assume a spherical model of the Earth, rather than an ellipsoidal one. In other words, the Earth is treated as a perfect sphere, which simplifies the mathematical transformations required to project geographic coordinates (longitude and latitude) onto a 2D basemap.
 
@@ -32,7 +32,7 @@ Under the hood, three JavaScript libraries are used. Feel free to visit their re
 
 # In geoviz
 
-In `geovizr`, the projection is defined in the `viz_create` function using the `projection` parameter. You simply need to specify a string corresponding to the desired projection.
+In `geovizr`, the projection is defined in the `viz_create()` function using the `projection` parameter. You simply need to specify a string corresponding to the desired projection.
 
 You must therefore always provide a basemap in WGS84. The transformation is performed <ins>on the fly</ins> at display time.
 
@@ -55,7 +55,7 @@ viz_create(projection = "Bertin1953") |>
   viz_render()
 ```
 
-There are many possibilities. For example, you can try "Polar", "EqualEarth", "Airocean", "PolyhedralWaterman", "InterruptedHomolosine", "Berghaus", etc.
+There are many possibilities. For example, you can try `"Polar"`, `"EqualEarth"`, `"Airocean"`, `"PolyhedralWaterman"`, `"InterruptedHomolosine"`, `"Berghaus"`, etc.
 
 ```{r}
 viz_create(projection = "PolyhedralWaterman") |>
