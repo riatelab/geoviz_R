@@ -10,7 +10,7 @@
   basemap](https://riatelab.github.io/geovizr/articles/display_geom.md):
 - [effects](https://riatelab.github.io/geovizr/articles/effects.md):
 - [Hello
-  geoviz](https://riatelab.github.io/geovizr/articles/hello_geovizr.md):
+  geovizr](https://riatelab.github.io/geovizr/articles/hello_geovizr.md):
 - [Interactivity](https://riatelab.github.io/geovizr/articles/interactivity.md):
 - [Layout](https://riatelab.github.io/geovizr/articles/layout.md):
 - [Legends](https://riatelab.github.io/geovizr/articles/legends.md):

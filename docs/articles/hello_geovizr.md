@@ -1,11 +1,11 @@
-# Hello geoviz
+# Hello geovizr
+
+![banner geoviz](fig/banner.png)
 
 **The `geovizr` package is a (partial) R interface to the
 [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It
 allows users to create vector-based, interactive, and zoomable thematic
 maps.**
-
-![banner geoviz](fig/banner.png)
 
 - The `geovizr` package is an R wrapper around the geoviz JavaScript
   library via a htmlwidget. Its development follows the evolution of the

@@ -1,10 +1,10 @@
 ---
-title: "Hello geoviz"
+title: "Hello geovizr"
 author: "Nicolas Lambert"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Hello geoviz}
+  %\VignetteIndexEntry{Hello geovizr}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -16,9 +16,9 @@ editor_options:
 knitr::opts_chunk$set(out.width = "100%")
 ```
 
-**The `geovizr` package is a (partial) R interface to the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It allows users to create vector-based, interactive, and zoomable thematic maps.**
-
 <img src="fig/banner.png" style="width:100%; display:block; border:none;" alt="banner geoviz">
+
+**The `geovizr` package is a (partial) R interface to the [geoviz](https://github.com/riatelab/geoviz) JavaScript library. It allows users to create vector-based, interactive, and zoomable thematic maps.**
 
 - The `geovizr` package is an R <span style="color: #38896F; font-weight: bold; text-decoration: underline;">wrapper around the geoviz JavaScript library</span> via a htmlwidget. Its development follows the evolution of the library. The parameter names are the same. You can therefore refer to the JavaScript `geoviz` documentation [here](https://riatelab.github.io/geoviz/).
 - Since it's based on `d3.js`, the philosophy behind this package is completely different as other R mapping packages. Map parameters <span style="color: #38896F; font-weight: bold; text-decoration: underline;">use svg attributes rather than the usual R parameters</span>. Thus, `strokeWidth` is used rather than `lwd`, `fill` rather than `col`, `stroke` rather than `border`, etc.
