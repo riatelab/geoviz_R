@@ -19,7 +19,7 @@ viz_typo(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
@@ -48,7 +48,8 @@ One of: "horizontal", "vertical".}
 \item{...}{Additional parameters passed to path rendering. With the \code{leg_} prefix, you can configure the legend. For example: \code{leg_title}, \code{leg_subtitle}, \code{leg_note}, etc.}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_typo} function creates a typology map from a spatial

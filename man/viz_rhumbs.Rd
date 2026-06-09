@@ -18,7 +18,7 @@ viz_rhumbs(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. Unique layer id.}
 
@@ -42,7 +42,8 @@ If \code{coords = "geo"} and the map is zoomable, lines follow zoom interactions
 \item{...}{Additional SVG attributes (e.g. \code{opacity}, \code{strokeLinecap}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_rhumbs} function draws rhumb lines (loxodromes),

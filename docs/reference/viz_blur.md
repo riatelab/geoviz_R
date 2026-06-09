@@ -14,7 +14,8 @@ viz_blur(map, id = NULL, stdDeviation = 1.5, ...)
 
 - map:
 
-  A `geoviz` map created with `viz_create`.
+  A `geovizr` map object created using
+  [`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md).
 
 - id:
 
@@ -31,7 +32,9 @@ viz_blur(map, id = NULL, stdDeviation = 1.5, ...)
 
 ## Value
 
-list. A modified \`geoviz\` map object with a new layer added.
+A modified \`geoviz\` map object with a new effect added. Rendering is
+performed using
+[`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md)
 
 ## Examples
 

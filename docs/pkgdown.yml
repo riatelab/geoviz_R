@@ -6,7 +6,7 @@ articles:
   create_render: create_render.html
   display_geom: display_geom.html
   effects: effects.html
-  hello_geoviz: hello_geoviz.html
+  hello_geovizr: hello_geovizr.html
   interactivity: interactivity.html
   layout: layout.html
   legends: legends.html
@@ -14,7 +14,7 @@ articles:
   projections: projections.html
   symbology: symbology.html
   symbology2: symbology2.html
-last_built: 2026-06-09T14:56Z
+last_built: 2026-06-09T15:13Z
 urls:
   reference: https://riatelab.github.io/geovizr/reference
   article: https://riatelab.github.io/geovizr/articles

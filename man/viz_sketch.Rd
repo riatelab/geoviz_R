@@ -23,7 +23,7 @@ viz_sketch(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{object. Optional. A spatial data frame (or equivalent geometry input).}
 
@@ -57,7 +57,8 @@ viz_sketch(
 \code{strokeLinecap}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new effect added.
+Rendering is performed using \code{viz_render()}
 }
 \description{
 The \code{viz_sketch} function renders a spatial dataframe as

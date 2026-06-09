@@ -18,7 +18,7 @@ viz_graticule(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. Unique layer id.}
 
@@ -40,7 +40,8 @@ Can be a single value or a vector of two values (e.g. \code{c(10, 20)}).}
 \item{...}{Additional SVG attributes (e.g. \code{opacity}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_graticule} function draws a graticule (latitude and longitude lines)

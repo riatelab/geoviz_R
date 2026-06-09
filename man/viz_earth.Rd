@@ -18,7 +18,7 @@ viz_earth(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. Unique layer id.}
 
@@ -43,7 +43,8 @@ Increase for sharper rendering (e.g. 2 for Retina, 3 for high-quality export).}
 \item{max_canvas_size}{numeric. Optional. Maximum raster size (in pixels) before tiling (e.g. 2048).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_earth} function displays PNG images representing the Earth's surface

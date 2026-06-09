@@ -1,6 +1,6 @@
 # Display the map
 
-The `viz_render` function returns a pretty map in SVG format :-)
+The `viz_render` function allows to display the map
 
 ## Usage
 
@@ -12,7 +12,8 @@ viz_render(map)
 
 - map:
 
-  A `geoviz` object created with `viz_create`.
+  A `geovizr` map object created using
+  [`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md).
 
 ## Value
 

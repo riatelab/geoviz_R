@@ -1,6 +1,6 @@
 # Create a geoviz map container
 
-The `viz_create` function initializes a geoviz map by creating an SVG
+The `viz_create` function initializes a geovizr map by creating an SVG
 container and defining its main configuration (projection, domain, size,
 margins, and layout). It is the first step in any map construction
 workflow.
@@ -90,7 +90,7 @@ viz_create(
 
 ## Value
 
-list containing the map parameters and an initially empty list of layers
+A list containing map parameters and an initially empty list of layers
 to be displayed.
 
 ## Examples

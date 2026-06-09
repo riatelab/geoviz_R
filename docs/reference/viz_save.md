@@ -1,6 +1,6 @@
 # Save the map
 
-The `viz_save` function allows to doawnload the map
+The `viz_save` function allows to download the map
 
 ## Usage
 

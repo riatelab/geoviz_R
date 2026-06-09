@@ -19,7 +19,7 @@ viz_dotdensity(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
@@ -43,7 +43,8 @@ it is computed automatically.}
 \item{...}{Additional parameters passed to rendering or SVG container options.}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_dotdensity} function creates a dot density map by

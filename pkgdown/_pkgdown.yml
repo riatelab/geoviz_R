@@ -46,12 +46,12 @@ navbar:
       href: articles/about.html
     start:
       text: Get started
-      href: articles/hello_geoviz.html
+      href: articles/hello_geovizr.html
 
 reference:
   - title: "The package"
     contents:
-    - geoviz
+    - geovizr
   - title: "Create & render"
     desc: The functions `viz_create()` and `viz_render()` are essential for initializing a map, visualizing its content, and exporting it. They form the core workflow for creating maps with the `geovizr` package.
     contents:

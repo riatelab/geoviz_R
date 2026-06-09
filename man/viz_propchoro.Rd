@@ -33,7 +33,7 @@ viz_propchoro(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
@@ -93,7 +93,8 @@ from the Dicopal library. See https://observablehq.com/@neocartocnrs/dicopal-lib
 \item{...}{Additional parameters passed to rendering functions (e.g. \code{strokeWidth}). With \code{leg1_} and \code{leg2_} prefixes, you can configure the legends. For example: \code{leg1_title}, \code{leg2_subtitle}, \code{leg1_note}, etc.}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_propchoro} function combines proportional symbols and

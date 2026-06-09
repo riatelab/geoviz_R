@@ -37,7 +37,7 @@ viz_leg_box(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. ID of the layer.}
 
@@ -97,7 +97,8 @@ viz_leg_box(
 title_*, subtitle_*, note_*, frame_*, text_*).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_leg_box} function creates a box legend. The function adds a

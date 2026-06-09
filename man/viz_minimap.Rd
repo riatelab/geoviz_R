@@ -26,7 +26,7 @@ viz_minimap(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. Unique layer id. If NULL, a random id is generated.}
 
@@ -67,7 +67,8 @@ Supported prefixes include:
 \code{location_*} for location geometry styling properties.}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_minimap} function adds a minimap inset to a geoviz map.

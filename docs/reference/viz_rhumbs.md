@@ -25,7 +25,8 @@ viz_rhumbs(
 
 - map:
 
-  A `geoviz` map created with `viz_create`.
+  A `geovizr` map object created using
+  [`viz_create()`](https://riatelab.github.io/geovizr/reference/viz_create.md).
 
 - id:
 
@@ -69,7 +70,9 @@ viz_rhumbs(
 
 ## Value
 
-list. A modified \`geoviz\` map object with a new layer added.
+A modified \`geoviz\` map object with a new layer added. Rendering is
+performed using
+[`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md).
 
 ## Examples
 

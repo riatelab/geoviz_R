@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "identifier": "geovizr",
   "description": "Create a wide range of interactive, zoomable vector maps. This package is an 'R' binding for the 'geoviz' JavaScript library <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js' ecosystem. Like the original javascript library, the package takes advantage of d3's many features: proportional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.",
-  "name": "geoviz: Interactive Cartography  ",
+  "name": "geovizr: Interactive Cartography  ",
   "codeRepository": "https://riatelab.github.io/geovizr/",
   "issueTracker": "https://github.com/riatelab/geovizr/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",

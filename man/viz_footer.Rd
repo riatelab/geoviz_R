@@ -24,7 +24,7 @@ viz_footer(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. Unique layer id.}
 
@@ -57,7 +57,8 @@ viz_footer(
 \item{...}{Additional SVG attributes applied to text and background elements.}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_footer} function adds a text below a geoviz map.

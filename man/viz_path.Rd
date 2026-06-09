@@ -24,7 +24,7 @@ viz_path(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{A spatial dataframe Use \code{data} to enable iteration
 (e.g. for styling with functions).}
@@ -68,7 +68,8 @@ You can also use the shorthand \code{r}.}
 \code{strokeLinecap}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_path} function draws geometries from a spatial data frame

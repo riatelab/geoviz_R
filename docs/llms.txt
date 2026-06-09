@@ -118,9 +118,8 @@ or ask questions [here](https://github.com/riatelab/geovizr/issues).
 
 ## The package
 
-- [`geovizr`](https://riatelab.github.io/geovizr/reference/geoviz.md)
-  [`geovizr-package`](https://riatelab.github.io/geovizr/reference/geoviz.md)
-  [`geoviz`](https://riatelab.github.io/geovizr/reference/geoviz.md) :
+- [`geovizr-package`](https://riatelab.github.io/geovizr/reference/geovizr.md)
+  [`geovizr`](https://riatelab.github.io/geovizr/reference/geovizr.md) :
   Package description
 
 ## Create & render
@@ -290,7 +289,7 @@ Functions to design map legends
   basemap](https://riatelab.github.io/geovizr/articles/display_geom.md):
 - [effects](https://riatelab.github.io/geovizr/articles/effects.md):
 - [Hello
-  geoviz](https://riatelab.github.io/geovizr/articles/hello_geoviz.md):
+  geoviz](https://riatelab.github.io/geovizr/articles/hello_geovizr.md):
 - [Interactivity](https://riatelab.github.io/geovizr/articles/interactivity.md):
 - [Layout](https://riatelab.github.io/geovizr/articles/layout.md):
 - [Legends](https://riatelab.github.io/geovizr/articles/legends.md):

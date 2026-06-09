@@ -13,7 +13,7 @@ viz_save(map)
 A file path to the downloaded SVG map.
 }
 \description{
-The \code{viz_save} function allows to doawnload the map
+The \code{viz_save} function allows to download the map
 }
 \examples{
 library(sf)

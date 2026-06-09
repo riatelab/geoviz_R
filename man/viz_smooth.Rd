@@ -31,7 +31,7 @@ viz_smooth(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{A spatial dataframe Use \code{data} to enable iteration over features.}
 
@@ -81,7 +81,8 @@ One of: "geo", "svg".}
 \code{strokeLinecap}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_smooth} function creates smoothed density contours

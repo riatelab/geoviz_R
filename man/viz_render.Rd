@@ -7,13 +7,13 @@
 viz_render(map)
 }
 \arguments{
-\item{map}{A \code{geoviz} object created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 }
 \value{
 An htmlwidget object representing an interactive map.
 }
 \description{
-The \code{viz_render} function returns a pretty map in SVG format :-)
+The \code{viz_render} function allows to display the map
 }
 \examples{
 library(sf)

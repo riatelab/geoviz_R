@@ -2,9 +2,8 @@
 
 ## The package
 
-- [`geovizr`](https://riatelab.github.io/geovizr/reference/geoviz.md)
-  [`geovizr-package`](https://riatelab.github.io/geovizr/reference/geoviz.md)
-  [`geoviz`](https://riatelab.github.io/geovizr/reference/geoviz.md) :
+- [`geovizr-package`](https://riatelab.github.io/geovizr/reference/geovizr.md)
+  [`geovizr`](https://riatelab.github.io/geovizr/reference/geovizr.md) :
   Package description
 
 ## Create & render

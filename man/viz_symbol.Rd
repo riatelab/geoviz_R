@@ -32,7 +32,7 @@ viz_symbol(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{data}{object. Optional. A spatial data frame.}
 
@@ -86,7 +86,8 @@ Use TRUE to display all fields.}
 \code{strokeLinecap}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new layer added.
+Rendering is performed using \code{viz_render()}.
 }
 \description{
 The \code{viz_symbol} function draws SVG symbols on the map from a spatial

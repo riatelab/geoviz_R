@@ -28,7 +28,7 @@ viz_pattern(
 )
 }
 \arguments{
-\item{map}{A \code{geoviz} map created with \code{viz_create}.}
+\item{map}{A \code{geovizr} map object created using \code{viz_create()}.}
 
 \item{id}{character. Optional. Unique pattern id (auto-generated if not provided).}
 
@@ -71,7 +71,8 @@ One of: "lines", "cross", "dots", "waves", "triangles", "zigzag".}
 \code{strokeLinecap}, etc.).}
 }
 \value{
-list. A modified `geoviz` map object with a new layer added.
+A modified `geoviz` map object with a new effect added.
+Rendering is performed using \code{viz_render()}
 }
 \description{
 The \code{viz_pattern} function creates a reusable SVG pattern

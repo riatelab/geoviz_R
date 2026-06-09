@@ -19,7 +19,7 @@ data frame, then displays aggregated values within each cell using proportional 
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/hello_geoviz.html">Get started</a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/hello_geovizr.html">Get started</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-documentation" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Documentation</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-documentation"><li><a class="dropdown-item" href="../articles/create_render.html">Create and render</a></li>
@@ -85,7 +85,7 @@ data frame, then displays aggregated values within each cell using proportional 
 
 
 <dl><dt id="arg-map">map<a class="anchor" aria-label="anchor" href="#arg-map"></a></dt>
-<dd><p>A <code>geoviz</code> map created with <code>viz_create</code>.</p></dd>
+<dd><p>A <code>geovizr</code> map object created using <code><a href="viz_create.html">viz_create()</a></code>.</p></dd>
 
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
@@ -164,7 +164,8 @@ One of: "nested", "separate".</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>list. A modified `geoviz` map object with a new layer added.</p>
+    <p>A modified `geoviz` map object with a new layer added.
+Rendering is performed using <code><a href="viz_render.html">viz_render()</a></code>.</p>
     </div>
 
     <div class="section level2">
