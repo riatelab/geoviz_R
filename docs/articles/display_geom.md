@@ -1,7 +1,7 @@
 # Display a basemap
 
 ``` r
-library(geoviz)
+library(geovizr)
 ```
 
 As is usual in R, the geoviz package takes spatial data frames as input.

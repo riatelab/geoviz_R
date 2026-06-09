@@ -6,7 +6,7 @@ offers more advanced cartographic transformations.
 First, let’s load packages and data.
 
 ``` r
-library(geoviz)
+library(geovizr)
 library(sf)
 
 world <- st_read(

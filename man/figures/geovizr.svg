@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 346.4 400">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        opacity: .4;
+      }
+
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9 {
+        isolation: isolate;
+      }
+
+      .st0, .st3, .st10, .st5, .st6 {
+        fill: #f9f9f9;
+      }
+
+      .st1, .st2, .st11, .st12, .st7, .st9 {
+        fill: #9bece1;
+      }
+
+      .st1, .st2, .st9 {
+        font-family: ArialMT, Arial;
+      }
+
+      .st2, .st13 {
+        font-size: 54.7px;
+      }
+
+      .st14 {
+        fill: #9aece1;
+        fill-opacity: .4;
+      }
+
+      .st15, .st16, .st17 {
+        fill: none;
+      }
+
+      .st3, .st7 {
+        opacity: .6;
+      }
+
+      .st16 {
+        stroke: #fff;
+        stroke-dasharray: 5.2;
+        stroke-width: .8px;
+      }
+
+      .st18 {
+        filter: url(#filter6);
+      }
+
+      .st11 {
+        stroke: #000;
+        stroke-width: 1.3px;
+      }
+
+      .st5 {
+        opacity: .8;
+      }
+
+      .st6 {
+        opacity: .2;
+      }
+
+      .st17 {
+        stroke: #9bece1;
+        stroke-width: 5.2px;
+      }
+
+      .st19 {
+        font-size: 20px;
+      }
+
+      .st20 {
+        fill: #02886f;
+      }
+
+      .st8 {
+        fill: url(#pattern24);
+        opacity: .2;
+      }
+
+      .st9 {
+        font-size: 12.9px;
+      }
+    </style>
+    <filter id="filter6" x="-0.19690692" y="-0.17052632" width="1.3938138" height="1.3410526">
+      <feComposite in2="SourceGraphic" k4="1" operator="arithmetic" result="result1"/>
+      <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="17"/>
+      <feComposite in="blur" in2="blur" operator="in" result="composite3"/>
+      <feBlend in2="result1" mode="multiply" result="fbSourceGraphic"/>
+      <feComponentTransfer in="fbSourceGraphic" result="component1">
+        <feFuncR tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1" type="discrete"/>
+        <feFuncG tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1" type="discrete"/>
+        <feFuncB tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1" type="discrete"/>
+      </feComponentTransfer>
+      <feGaussianBlur in="SourceGraphic" result="result2" stdDeviation="10"/>
+      <feComponentTransfer in="result3" result="component1">
+        <feFuncR tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1" type="discrete"/>
+        <feFuncG tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1" type="discrete"/>
+        <feFuncB tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1" type="discrete"/>
+      </feComponentTransfer>
+      <feComposite in2="colormatrix" operator="in"/>
+    </filter>
+    <pattern id="pattern24" x="0" y="0" width="346.4" height="400" patternTransform="translate(-3519.3 -11116) scale(.5 -.5)" patternUnits="userSpaceOnUse" viewBox="0 0 346.4 400">
+      <rect class="st15" width="346.4" height="400"/>
+    </pattern>
+  </defs>
+  <g id="svg10" inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)">
+    <sodipodi:namedview id="namedview10" bordercolor="#999999" borderopacity="1" inkscape:current-layer="layer1" inkscape:cx="134.12266" inkscape:cy="194.95262" inkscape:deskcolor="#d1d1d1" inkscape:pagecheckerboard="0" inkscape:pageopacity="0" inkscape:showpageshadow="0" inkscape:window-height="1011" inkscape:window-maximized="1" inkscape:window-width="1866" inkscape:window-x="54" inkscape:window-y="1112" inkscape:zoom="1.6850248" pagecolor="#ffffff" showguides="false"/>
+    <g id="_x3C_defs">
+      <inkscape:path-effect id="path-effect12" apply_no_radius="true" apply_with_radius="true" chamfer_steps="1" effect="fillet_chamfer" flexible="false" hide_knots="false" is_visible="true" lpeversion="1" method="auto" mode="F" nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1" only_selected="false" radius="0" unit="px" use_knot_distance="true"/>
+    </g>
+    <rect id="rect7" class="st11" x="-1284" y="355.3" height=".5"/>
+    <g id="layer3" inkscape:groupmode="layer" inkscape:label="fond clair">
+      <path id="path1" class="st14" d="M346.4,100v200l-173.2,100L0,300V100L173.2,0l173.2,100Z"/>
+    </g>
+    <g id="layer2" inkscape:groupmode="layer" inkscape:label="fond">
+      <path id="path2" class="st20" d="M337.7,105v190l-164.5,95L8.7,295V105L173.2,10l164.5,95Z"/>
+      <g id="path2-7" class="st18">
+        <polygon class="st20" points="314.1 123.5 314.1 286.1 173.2 367.4 32.4 286.1 32.4 123.5 173.2 42.1 314.1 123.5"/>
+      </g>
+    </g>
+    <g id="layer4" inkscape:groupmode="layer" inkscape:label="hex">
+      <path id="path2-9" class="st8" d="M337.7,105v190l-164.5,95L8.7,295V105L173.2,10l164.5,95Z"/>
+    </g>
+    <g id="layer5" inkscape:groupmode="layer" inkscape:label="gobe">
+      <g id="text1" class="st4">
+        <text class="st9" transform="translate(134.4 320.6)"><tspan x="0" y="0">Htmlwidget</tspan></text>
+      </g>
+    </g>
+    <path id="path10" class="st12" d="M141.4,210.5l5.9-5.9-3.1-3.1c-1.7-1.7-3.2-3.3-3.3-3.5-.1-.2-.2-.6-.2-.8,0-.9.3-1.1,5.5-3.1,6.1-2.4,22.9-9.1,27.7-11,2.2-.9,3.8-1.4,4.1-1.4.6,0,1.3.7,1.3,1.3s-2.3,6.1-5.9,15.4c-3.3,8.2-6.5,16.4-7.2,18.1-1.4,3.4-1.6,3.8-2.5,3.8s-.6,0-.8-.2c-.2-.1-1.8-1.6-3.5-3.3l-3.1-3.1-5.9,5.9-5.9,5.9h-1.3l-3.9-3.9-3.9-3.9v-1.3l5.9-5.9ZM149.8,216l5.9-5.9h1.3l3.1,3.1,3.1,3.1.6-1.4c.3-.8,1.9-4.8,3.6-9s4.1-10.4,5.5-13.8c1.3-3.4,2.4-6.2,2.4-6.2,0,0-2.8,1-6.2,2.4-3.4,1.3-9.1,3.6-12.8,5.1-3.7,1.4-7.7,3.1-9,3.6l-2.4.9,3.1,3.1,3.1,3.1v1.3l-5.9,5.9-5.9,5.9,2.4,2.4,2.4,2.4,5.9-5.9ZM162.4,174.1c.2-.5.8-.8,1.4-.8h.6l2.7,2.7c1.9,1.9,2.7,2.8,2.8,3.1.3,1.2-.9,2.3-2,1.7-.4-.2-5.3-5.1-5.5-5.5-.2-.3-.2-.8,0-1.2h0ZM173.8,169.2c.6-.7,1.5-.8,2.1-.2l.4.4v4s0,4,0,4l-.4.5c-.2.2-.5.5-.7.5-.5,0-1.2-.1-1.5-.5-.3-.3-.3-.5-.3-4.3,0-3.6,0-4,.2-4.3h0ZM182.8,176.2l2.9-2.9h.6c.5,0,.7,0,1,.4.3.3.4.5.4,1v.6l-2.9,2.9-2.9,2.9h-.6c-.8-.2-1.2-.6-1.3-1.4v-.6c0,0,2.8-2.9,2.8-2.9ZM180.2,191.7c.5-.7,1.1-.9,1.8-.6.2,0,1.6,1.4,3.1,2.8l2.6,2.7v.6c0,1-.9,1.7-1.8,1.5-.4-.1-5.4-5-5.7-5.6-.2-.5-.2-1,0-1.4h0ZM182.7,185.6c0-.2.3-.5.5-.7l.5-.4h4s4,0,4,0l.4.4c.6.7.5,1.6-.2,2.1-.2.2-.7.2-4.3.2h-4l-.4-.4c-.2-.2-.4-.5-.4-.6s0-.3,0-.4c0,0,0-.3,0-.5h0Z"/>
+    <text class="st2" transform="translate(36.5 218.3)"><tspan x="0" y="0">GE </tspan></text>
+    <text class="st1" transform="translate(212.2 218.1)"><tspan class="st13" x="0" y="0">VIZ</tspan><tspan class="st19" x="85.2" y="0">R</tspan></text>
+    <circle id="path19588-6" class="st17" cx="162.2" cy="200" r="44.7"/>
+    <path id="path4" class="st16" d="M314.1,281.3c-11.7,20.3-117.4,81.3-140.8,81.3s-129.1-61-140.8-81.3c-11.7-20.3-11.7-142.3,0-162.6,11.7-20.3,117.4-81.3,140.8-81.3s129.1,61,140.8,81.3c11.7,20.3,11.7,142.3,0,162.6"/>
+    <path id="path241995" class="st7" d="M145.2,131.3l-.2-.2v-11.6h3.1c3.9,0,5.8-.4,8.6-1.8l2.2-1.1,1.8-2,1.8-2,.9-1.9c.5-1.1,1.1-2.8,1.3-3.8l.4-1.9-.2-2c-.4-4-2-7.3-4.9-10.1l-1.6-1.5-2-1-2-1-1.8-.3c-1-.2-3.1-.3-4.7-.3h-2.9v-12.2l4.6.2,4.6.2,2.2.6c2.8.7,5.6,1.9,7.8,3.2l1.8,1,3.1,3.1,3.1,3.1,1.3,2.3c.7,1.3,1.7,3.6,2.2,5.1l.9,2.8.3,2.9.3,2.9-.2,2.2c-.4,4.7-1.9,8.9-4.4,12.8l-1.8,2.7-2.1,2c-3.7,3.5-7.4,5.6-12.2,6.8l-2.5.6-4.2.2-4.2.2-.2-.2ZM167.8,130.8c.4-.4,1.7-1.4,2.9-2.4,2.2-1.8,4.6-4.7,6.4-7.4l1-1.6h4.8c0,0,4.8-.2,4.8-.2l.9-.6c.5-.4,1.1-1,1.5-1.5l.6-.8v-1.5s0-1.5,0-1.5l-.6-.9c-.4-.5-1.1-1.2-1.7-1.6l-1-.7h-2.8s-2.8,0-2.8,0v-12.1h2.8s2.8,0,2.8,0l1.3-.8,1.3-.8.5-1.3.5-1.3-.2-1c-.1-.5-.6-1.5-1-2l-.8-1.1-1-.4-1-.4h-8.6l-1.5-2.2c-1.8-2.7-5.8-6.9-8.1-8.5l-1.7-1.2h10.2c0,0,10.2-.2,10.2-.2l2.2.5,2.2.5,2.1,1,2.1,1,1.9,1.9,1.9,1.9.9,1.8c.5,1,1.2,2.6,1.5,3.6l.5,1.8v2.8s0,2.8,0,2.8l-.6,2c-.3,1.1-1.1,2.8-1.7,3.8-.6,1-1.1,1.9-1.1,2,0,.1.5,1,1.1,1.9,1.3,2,2.1,4.6,2.4,7.4l.2,2-.5,2.3c-1.3,6.3-5.1,10.5-11.3,12.7l-2,.7h-11c0,0-11,.2-11,.2l.8-.6Z"/>
+    <rect id="rect190" class="st10" x="250" y="266.4" width="40.2" height="21.9"/>
+    <rect id="rect190-2" class="st5" x="201.6" y="266.7" width="40.2" height="21.7"/>
+    <rect id="rect190-2-2" class="st3" x="153.1" y="266.7" width="40.2" height="21.7"/>
+    <rect id="rect190-2-2-3" class="st0" x="104.7" y="266.7" width="40.2" height="21.7"/>
+    <rect id="rect190-2-2-3-3" class="st6" x="56.3" y="266.7" width="40.2" height="21.7"/>
+  </g>
+</svg>

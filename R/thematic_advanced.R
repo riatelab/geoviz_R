@@ -31,11 +31,11 @@
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' cities <- st_read(
-#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   system.file("gpkg/cities.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -114,11 +114,11 @@ viz_gridprop <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' cities <- st_read(
-#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   system.file("gpkg/cities.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -196,11 +196,11 @@ viz_gridchoro <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' cities <- st_read(
-#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   system.file("gpkg/cities.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -282,11 +282,11 @@ viz_smooth <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #' cities <- st_read(
-#'   system.file("gpkg/cities.gpkg", package = "geoviz"),
+#'   system.file("gpkg/cities.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'

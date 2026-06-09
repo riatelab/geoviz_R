@@ -13,11 +13,11 @@
 Source:
 [`DESCRIPTION`](https://github.com/riatelab/geovizr/blob/HEAD/DESCRIPTION)
 
-Lambert N (2026). *geoviz: Interactive Cartography*. R package version
+Lambert N (2026). *geovizr: Interactive Cartography*. R package version
 1.0.0, <https://riatelab.github.io/geovizr/>.
 
     @Manual{,
-      title = {geoviz: Interactive Cartography},
+      title = {geovizr: Interactive Cartography},
       author = {Nicolas Lambert},
       year = {2026},
       note = {R package version 1.0.0},

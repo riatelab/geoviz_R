@@ -38,7 +38,7 @@
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -155,7 +155,7 @@ viz_leg_box <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -281,7 +281,7 @@ viz_leg_typo_vertical <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -408,7 +408,7 @@ viz_leg_typo_horizontal <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -521,7 +521,7 @@ viz_leg_choro_horizontal <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -617,7 +617,7 @@ viz_leg_gradient_vertical <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -753,7 +753,7 @@ viz_leg_spikes <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -892,7 +892,7 @@ viz_leg_circles <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -1030,7 +1030,7 @@ viz_leg_circles_nested <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -1170,7 +1170,7 @@ viz_leg_squares <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -1323,7 +1323,7 @@ viz_leg_squares_nested <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -1486,7 +1486,7 @@ viz_leg_mushrooms <- function(
 #' library(sf)
 #'
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -1614,7 +1614,7 @@ viz_leg_symbol_vertical <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -1743,7 +1743,7 @@ viz_leg_symbol_horizontal <- function(
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'

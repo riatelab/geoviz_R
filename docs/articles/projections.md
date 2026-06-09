@@ -26,7 +26,7 @@ in `geoviz`!*
 
 ## In geoviz
 
-In `geoviz`, the projection is defined in the `viz_create` function
+In `geovizr`, the projection is defined in the `viz_create` function
 using the `projection` parameter. You simply need to specify a string
 corresponding to the desired projection.
 
@@ -36,7 +36,7 @@ is performed *on the fly* at display time.
 For example:
 
 ``` r
-library(geoviz)
+library(geovizr)
 library(sf)
 world <- st_read(
   system.file("gpkg/world.gpkg", package = "geovizr"),

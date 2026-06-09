@@ -19,7 +19,7 @@ library(geoviz)
 
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 
@@ -48,12 +48,12 @@ viz_create(projection = "Mercator", background = "white", domain =  afr) |>
 
 library(sf)
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 aus <- world[world$ISO3 == "AUS", ]
@@ -78,8 +78,8 @@ viz_render()
 # devtools::install_github("neocarto/geovizr")
 
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
-cities <- st_read(system.file("gpkg/cities.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geovizr"), quiet = TRUE)
+cities <- st_read(system.file("gpkg/cities.gpkg", package = "geovizr"), quiet = TRUE)
 # getwd()
 # viz_create(projection = "EqualEarth", zoomable = T) |>
 #   viz_path(data = world) |>
@@ -290,7 +290,7 @@ viz_scalebar()|>
 
 head(cities)
 library(rmapshaper)
-sf::st_layers(system.file("gpkg/aus.gpkg", package = "geoviz"))
+sf::st_layers(system.file("gpkg/aus.gpkg", package = "geovizr"))
 
 aus <- st_read("../../Downloads/aus_old.gpkg", layer = "aus") |> ms_simplify(keep = 0.1)
 aus <- st_read("../../Downloads/aus_old.gpkg", layer = "roads")|> ms_simplify(keep = 0.5)

@@ -34,7 +34,7 @@ Here an example of a map designed with the package:
 ```{r, message=FALSE, echo=FALSE}
 library(geovizr)
 library(sf)
-world <- st_read(system.file("gpkg/world.gpkg", package = "geoviz"), quiet = TRUE)
+world <- st_read(system.file("gpkg/world.gpkg", package = "geovizr"), quiet = TRUE)
 africa <- world[world$region == "Africa", ]
 viz_create(zoomable = TRUE, projection = "mercator", domain = africa, margin = 20) |>
   viz_shadow(id = "ombre") |>
@@ -84,12 +84,12 @@ Now, let's build a world map.
 library(sf)
 
 world <- st_read(
-  system.file("gpkg/world.gpkg", package = "geoviz"),
+  system.file("gpkg/world.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 
 cities <- st_read(
-  system.file("gpkg/cities.gpkg", package = "geoviz"),
+  system.file("gpkg/cities.gpkg", package = "geovizr"),
   quiet = TRUE
 )
 ```

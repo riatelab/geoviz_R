@@ -3,7 +3,7 @@
 First, let’s load packages and some data.
 
 ``` r
-library(geoviz)
+library(geovizr)
 library(sf)
 
 world <- st_read(

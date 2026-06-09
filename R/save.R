@@ -9,7 +9,7 @@
 #' @examples
 #' library(sf)
 #' world <- st_read(
-#'   system.file("gpkg/world.gpkg", package = "geoviz"),
+#'   system.file("gpkg/world.gpkg", package = "geovizr"),
 #'   quiet = TRUE
 #' )
 #'
@@ -21,7 +21,7 @@ viz_save <- function(map) {
   htmlwidgets::createWidget(
     name = "save",
     x = r2json(map),
-    package = "geoviz",
+    package = "geovizr",
     elementId = NULL
   )
 }

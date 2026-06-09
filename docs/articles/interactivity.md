@@ -1,7 +1,7 @@
 # Interactivity
 
 ``` r
-library(geoviz)
+library(geovizr)
 library(sf)
 
 world <- st_read(

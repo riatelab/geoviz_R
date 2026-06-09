@@ -7,7 +7,7 @@ available.
 First, let’s load the packages and some data.
 
 ``` r
-library(geoviz)
+library(geovizr)
 library(sf)
 
 world <- st_read(
