@@ -1,4 +1,4 @@
-# geovizr <img src="man/figures/geovizr.svg" align="right" width="120" alt = "geovizr logo"/>
+# geovizr <img src="man/figures/geovizr.png" align="right" width="120" alt = "geovizr logo"/>
 
 [![geovizr status
 badge](https://riatelab.r-universe.dev/geovizr/badges/version)](https://riatelab.r-universe.dev/geovizr)

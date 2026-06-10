@@ -1,4 +1,4 @@
-# geovizr ![geovizr logo](reference/figures/geovizr.svg)
+# geovizr ![geovizr logo](reference/figures/geovizr.png)
 
 [![geovizr status
 badge](https://riatelab.r-universe.dev/geovizr/badges/version)](https://riatelab.r-universe.dev/geovizr)
