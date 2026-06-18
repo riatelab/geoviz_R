@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "geovizr",
-  "description": "Create a wide range of interactive, zoomable vector maps. This package is an 'R' binding for the 'geoviz' JavaScript library <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js' ecosystem. Like the original javascript library, the package takes advantage of d3's many features: proportional symbols, pictograms, typologies, choropleth maps, Spikes, tiles, Dorling cartograms, etc. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.",
+  "description": "Create a wide range of interactive, zoomable vector maps. This package is an 'R' binding for the 'geoviz' 'JavaScript' library <https://github.com/riatelab/geoviz/>, itself based on the 'd3.js' ecosystem <doi:10.1109/TVCG.2011.185>. Like the original 'JavaScript' library, the package takes advantage of the many features provided by 'd3.js': proportional symbols, pictograms, typologies, choropleth maps, spikes, tiles, Dorling cartograms, and more. It can also be used to create pretty static vectorial maps in svg format, suitable for editorial cartography.",
   "name": "geovizr: Interactive Cartography  ",
   "codeRepository": "https://riatelab.github.io/geovizr/",
   "issueTracker": "https://github.com/riatelab/geovizr/issues/",
@@ -13,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.6.0 (2026-04-24)",
+  "runtimePlatform": "R version 4.5.3 (2026-03-11)",
   "author": [
     {
       "@type": "Person",
@@ -21,6 +21,15 @@
       "familyName": "Lambert",
       "email": "nicolas.lambert@cnrs.fr",
       "@id": "https://orcid.org/0000-0003-4976-6560"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Timothée",
+      "familyName": "Giraud",
+      "email": "timothee.giraud@cnrs.fr",
+      "@id": "https://orcid.org/0000-0002-1932-3323"
     }
   ],
   "maintainer": [
@@ -89,5 +98,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "7186.482KB"
+  "fileSize": "6020.885KB"
 }
