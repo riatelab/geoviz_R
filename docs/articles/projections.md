@@ -37,6 +37,7 @@ is performed *on the fly* at display time.
 For example:
 
 ``` r
+
 library(geovizr)
 library(sf)
 world <- st_read(
@@ -46,6 +47,7 @@ world <- st_read(
 ```
 
 ``` r
+
 viz_create(projection = "Bertin1953") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -58,6 +60,7 @@ There are many possibilities. For example, you can try `"Polar"`,
 `"InterruptedHomolosine"`, `"Berghaus"`, etc.
 
 ``` r
+
 viz_create(projection = "PolyhedralWaterman") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -66,6 +69,7 @@ viz_create(projection = "PolyhedralWaterman") |>
 ```
 
 ``` r
+
 viz_create(projection = "Spilhaus") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -80,6 +84,7 @@ However, it is always possible to configure it to change the projection
 center.
 
 ``` r
+
 viz_create(projection = "EqualEarth.rotate([0,90])") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -95,6 +100,7 @@ orthographic projection. If you want the globe to rotate, use
 this).
 
 ``` r
+
 viz_create(projection = "orthographic", zoomable = "versor") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -106,6 +112,7 @@ Note that `zoomable = "versor"` works alos wiyh other projections 🤩.
 Actually, it allows to change the center of the projection.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = "versor") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>

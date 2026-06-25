@@ -1,6 +1,7 @@
 # Display a basemap
 
 ``` r
+
 library(geovizr)
 ```
 
@@ -8,6 +9,7 @@ As is usual in R, the `geovizr` package takes spatial data frames as
 input. You therefore need to load the `sf` package to import geometries.
 
 ``` r
+
 library(sf)
 australia <- system.file("gpkg/aus.gpkg", package = "geovizr")
 world <- st_read(system.file("gpkg/world.gpkg", package = "geovizr"), quiet = TRUE)
@@ -25,6 +27,7 @@ stack layers and is highly configurable. All parameters have default
 styles. The color is assigned randomly.
 
 ``` r
+
 viz_create() |>
   viz_path(data = aus) |>
   viz_path(data = roads) |>
@@ -42,6 +45,7 @@ less transparent, and combine these settings to create clear, visually
 appealing maps.
 
 ``` r
+
 viz_create() |>
   viz_path(data = aus, fill = "#CCC") |>
   viz_path(
@@ -76,12 +80,14 @@ example, with `datum`, polygons do not have strokes by default, which
 allows for shorter code.
 
 ``` r
+
 viz_create() |>
   viz_path(data = world, fill = "#38896F") |>
   viz_render()
 ```
 
 ``` r
+
 viz_create() |>
   viz_path(datum = world, fill = "#38896F") |>
   viz_render()
@@ -96,6 +102,7 @@ making it lighter without significantly altering its appearance, and
 zooming becomes much faster.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, simplify = T, fill = "#38896F") |>
   viz_render()
@@ -106,6 +113,7 @@ simplification: 0 means very simplified, and 1 means no simplification
 at all.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, simplify = 0.05, fill = "#38896F") |>
   viz_render()
@@ -123,6 +131,7 @@ base map corresponding to the smallest and largest zoom levels. Between
 these two states, the base map takes on an intermediate appearance.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, simplify = c(1, 0.05), fill = "#38896F") |>
   viz_render()
@@ -140,6 +149,7 @@ followed, some software may render holes as solid areas or produce
 incorrect results in geometric calculations.
 
 ``` r
+
 viz_create(projection = "EqualEarth") |>
   viz_path(data = world, simplify = 0.001, fill = "#38896F") |>
   viz_render()
@@ -150,6 +160,7 @@ the GeoJSON compliant and preventing display or processing issues. If
 the problem is not resolved, you can try the `rewindPole` parameter.
 
 ``` r
+
 viz_create(projection = "EqualEarth") |>
   viz_path(
     data = world, simplify = 0.001, rewind = T,
@@ -167,6 +178,7 @@ You can therefore also use the simplify parameter when creating a
 choropleth map.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc",

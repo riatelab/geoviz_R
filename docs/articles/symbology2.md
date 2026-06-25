@@ -6,6 +6,7 @@ offers more advanced cartographic transformations.
 First, let’s load packages and data.
 
 ``` r
+
 library(geovizr)
 library(sf)
 
@@ -44,6 +45,7 @@ function.
 Here is an example of a regular grid on the plane of the map.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC") |>
   viz_gridchoro(data = cities, var = "population", grid = "square") |>
@@ -54,6 +56,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 And here is an example of a regular grid on the globe.
 
 ``` r
+
 viz_create(
   projection = "Orthographic.rotate([30,-30])",
   zoomable = "versor"
@@ -73,6 +76,7 @@ proportionally to the intersected area. As a result, the computation is
 much slower.
 
 ``` r
+
 viz_create(
   projection = "Mercator", zoomable = T,
   domain = afr, margin = 100
@@ -92,6 +96,7 @@ size. However, if you want to map a ratio (for example, GDP per capita)
 you need to specify the numerator and the denominator as follows.
 
 ``` r
+
 viz_create(
   projection = "Mercator", zoomable = T,
   domain = afr, margin = 100
@@ -121,6 +126,7 @@ can change the level of generalization of the map. With the parameter
 [dicopal](https://github.com/riatelab/dicopal.js/).
 
 ``` r
+
 CHN_cities <- cities[cities$iso3 == "CHN", ]
 
 viz_create(domain = CHN_cities, margin = 50) |>
@@ -140,6 +146,7 @@ then represent them using proportional symbols. This produces a
 cartographic representation similar to Bertin-style dot maps.
 
 ``` r
+
 viz_create(projection = "Mercator", zoomable = T) |>
   viz_path(data = afr, fill = "#CCC", fillOpacity = 0.3) |>
   viz_gridprop(
@@ -161,6 +168,7 @@ bottom left of the map. However, you can choose a value yourself using
 the `dotval` parameter.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_outline() |>
   viz_graticule(step = 30, stroke = "white") |>

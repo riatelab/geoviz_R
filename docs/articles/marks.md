@@ -26,6 +26,7 @@ position with the pos attribute. In this case, the circle is static, it
 doesn’t move when you zoom in on the map.
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_circle(r = 10, pos = c(300, 100), coords = "svg", fill = "#38896F") |>
@@ -39,6 +40,7 @@ this case, set `coords` to `"geo"`. In this case, the circle move when
 you zoom in on the map.
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_circle(r = 10, pos = c(72.88, 19.07), coords = "geo", fill = "#38896F") |>
@@ -54,6 +56,7 @@ points. In the case of polygons or multipolygons, the circle is drawn at
 the center of the largest polygon.
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_circle(r = 5, data = world, fill = "#38896F") |>
@@ -70,6 +73,7 @@ this radius to a specific value. This one is very useful for comparing
 different maps or for time evolution.
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_circle(r = "pop", k = 30, data = world, fill = "#38896F") |>
@@ -82,6 +86,7 @@ It’s exactly the same principle for text. You can position text using
 SVG coordinates, geographic coordinates, or from a spatial dataframe.
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_text(text = "Hello Geoviz", fontSize = 30, fontWeight = "bold", 
@@ -90,6 +95,7 @@ viz_create(projection = "equalEarth", zoomable = T) |>
 ```
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_text(data = world, text = "ISO3", fill = "#38896F") |>
@@ -107,6 +113,7 @@ function works exactly the same.
 For example:
 
 ``` r
+
 viz_create(projection = "equalEarth", zoomable = T) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_square(data = world, side = 5, angle = 45, fill = "#38896F") |>
@@ -123,6 +130,7 @@ function allows to create spikes. You can vary the `width`, `height` and
 For example:
 
 ``` r
+
 afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
@@ -139,6 +147,7 @@ function is used to draw half-circles. The `r` attribute allows to
 define the radius.
 
 ``` r
+
 afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
@@ -154,6 +163,7 @@ is used to draw symbols. The r attribute allows to define the size of
 the symbol (radius of the circle including the symbol).
 
 ``` r
+
 afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>
@@ -168,6 +178,7 @@ With marks and legend, yout can custom your maps as you want. Here find
 a mushroom map.
 
 ``` r
+
 afr <- world[world$region == "Africa", ]
 viz_create(projection = "mercator", zoomable = T) |>
   viz_path(datum = afr, fill = "#CCC", fillOpacity = 0.5) |>

@@ -7,6 +7,7 @@ available.
 First, let’s load the packages and some data.
 
 ``` r
+
 library(geovizr)
 library(sf)
 
@@ -31,6 +32,7 @@ minimum, you need two parameters: `data` (a spatial data frame) and
 quantitative data (stocks) here.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_prop(data = world, var = "pop", fill = "#38896F") |>
@@ -44,6 +46,7 @@ Additionally, you can modify all the usual graphical styles (`fill`,
 `stroke`, `strokeWidth`…).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_prop(
@@ -61,6 +64,7 @@ Everything is configurable. To better understand, you can refer to the
 documentation of the legend functions and/or to the dedicated vignette.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_prop(
@@ -85,6 +89,7 @@ As previously, you need two parameters: `data` (a spatial data frame)
 and `var` (the variable to map).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(data = world, var = "gdppc") |>
   viz_render()
@@ -102,6 +107,7 @@ and `middle` (to define whether the mean is at the center of a class or
 at a class boundary).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(data = world, var = "gdppc", method = "jenks", nb = 4) |>
   viz_render()
@@ -111,6 +117,7 @@ If you prefer, you can also directly specify the class boundaries using
 the `breaks` parameter.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc",
@@ -155,6 +162,7 @@ example, you can use:
 `"Tofino"`, `"Vik"`
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(data = world, var = "gdppc", colors = "BlueOrangeRed") |>
   viz_render()
@@ -163,6 +171,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 You can also choose any colors you want by specifying a vector.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc",
@@ -182,6 +191,7 @@ function. As before, you need at least two parameters: `data` (a spatial
 data frame) and `var` (a qualitative variable).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_typo(data = world, var = "region") |>
@@ -197,6 +207,7 @@ example, you can use for example:
 `"GrandBudapest3"`, `"IsleOfDogs2"`, `"Moonrise5"`
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_typo(data = world, var = "region", colors = "Pastel") |>
   viz_render()
@@ -207,6 +218,7 @@ fixed number of classes. Fortunately, you can also directly choose your
 own colors.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_typo(
     data = world, var = "region",
@@ -223,6 +235,7 @@ color corresponds to which category, you can also use the `order`
 argument.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_typo(
     data = world, var = "region",
@@ -241,6 +254,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 Obviously, all these functions also work on point objects.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_typo(
     data = st_centroid(world), var = "region", r = 10,
@@ -266,6 +280,7 @@ this, you can use the
 function with the `data` and `var` parameters.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_picto(data = world, var = "region") |>
@@ -290,6 +305,7 @@ To choose the symbols you want and define their display `order`, you can
 use the order and `symbols` parameters.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_picto(
@@ -312,6 +328,7 @@ size (`r`), and even add a bounding circle, which is also customizable
 symbols apart to avoid overlaps.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_picto(
@@ -328,6 +345,7 @@ modes by overlaying layers. You just need to pay attention to the
 position of the legends so that they do not overlap.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_typo(
@@ -344,6 +362,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 ```
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_choro(
@@ -372,6 +391,7 @@ functions.
 For example:
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_proptypo(
@@ -385,6 +405,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 Or:
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_propchoro(

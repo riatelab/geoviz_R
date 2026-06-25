@@ -35,11 +35,13 @@ documentation of the legend functions.
 You can use legend functions directly.
 
 ``` r
+
 bks <- c(200, 1000, 5000, 10000, 50000, 200000)
 cols <- c("#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15")
 ```
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_leg_choro_vertical(
@@ -53,6 +55,7 @@ Or use them directly through the thematic mapping functions, with the
 `leg_` prefix.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc", breaks = bks, colors = cols,
@@ -69,6 +72,7 @@ pos parameter. The position is always defined in SVG coordinates (not
 geographic ones).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_leg_choro_vertical(pos = c(420, 250)) |>
@@ -82,6 +86,7 @@ size (because the param `responsive` is `TRUE` in the `viz_create`
 function). However, it allows you to position the legend accurately.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T, width = 1000) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_leg_choro_vertical(pos = c(420, 250)) |>
@@ -99,6 +104,7 @@ add a title (`leg_title`), a subtitle (`leg_subtitle`), and a note
 (`leg_note`).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc", breaks = bks, colors = cols,
@@ -112,6 +118,7 @@ There is also often a `leg_type` parameter that lets you choose the
 desired type of legend.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc", breaks = bks,
@@ -132,6 +139,7 @@ You can add a frame around the legend, including a background, using the
 You can change margins, background color, border, and more.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_typo(
     data = world, var = "region", leg_pos = c(30, 30),
@@ -150,6 +158,7 @@ their colors. You can use any SVG attributes, even those that are not
 listed in the documentation.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_prop(
@@ -167,6 +176,7 @@ Following the same logic, you can modify the appearance and size of
 legend boxes.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_choro(
     data = world, var = "gdppc", leg_rect_width = 10,
@@ -181,6 +191,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 This logic applies to all legend elements (circles, squares, etc.).
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_prop(
@@ -193,6 +204,7 @@ viz_create(projection = "EqualEarth", zoomable = T) |>
 In this way, you can build fully customized legends.
 
 ``` r
+
 viz_create(projection = "EqualEarth", zoomable = T) |>
   viz_path(data = world, fill = "#CCC") |>
   viz_leg_circles_nested(

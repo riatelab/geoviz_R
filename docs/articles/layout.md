@@ -1,6 +1,7 @@
 # Layout
 
 ``` r
+
 library(geovizr)
 library(sf)
 
@@ -25,6 +26,7 @@ You can customize the display using SVG parameters such as `fill`,
 `stroke`, `strokeWidth`, `opacity`, `fillOpacity` and many others.
 
 ``` r
+
 viz_create(projection = "EqualEarth") |>
   viz_outline(fill = "#38896F") |>
   viz_path(
@@ -43,6 +45,7 @@ You can customize the display using SVG parameters such as `step`,
 `stroke`, `strokeWidth`, `strokeDasharray`, and many others.
 
 ``` r
+
 viz_create(projection = "EqualEarth") |>
   viz_path(
     data = world, fill = "#38896F",
@@ -69,6 +72,7 @@ image to display. You can choose one from this list: `"GRAY_50M_SR"`,
 `"OB_50M"`, `"PRIMSA_SR_50M"`, `"SR_50M"`.
 
 ``` r
+
 viz_create(projection = "Polar") |>
   viz_earth(url = "HYP_50M_SR_W") |>
   viz_render()
@@ -88,6 +92,7 @@ parmeter `url`, you can choose the style of the tiles. Try
 `"worldocean"`, `"natgeo"` or `"worldterrain"`.
 
 ``` r
+
 viz_create() |>
   viz_tile(url = "worldimagery") |>
   viz_render()
@@ -103,6 +108,7 @@ function allows to add a text on the map. It allow also to create a
 layer with labels from a spatial dataframe.
 
 ``` r
+
 africa <- world[world$region == "Africa", ]
 viz_create(projection = "Mercator", domain = africa) |>
   viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
@@ -122,6 +128,7 @@ customize the display using parameters such as `text`, `fill`,
 `fill_background`, `textAnchor`, `dominantBaseline` and many others.
 
 ``` r
+
 viz_create(projection = "EqualEarth") |>
   viz_outline(fill = "#CCCCCC") |>
   viz_path(
@@ -141,6 +148,7 @@ customize the display using parameters such as `text`, `fill`,
 `fill_background`, `textAnchor`, `dominantBaseline` and many others.
 
 ``` r
+
 viz_create(projection = "EqualEarth") |>
   viz_outline(fill = "#CCCCCC") |>
   viz_path(
@@ -165,6 +173,7 @@ map. The `pos` parameter allows you to position the arrow using the SVG
 document coordinates (0,0 is at the top-left corner).
 
 ``` r
+
 africa <- world[world$region == "Africa", ]
 viz_create(projection = "Mercator", domain = africa) |>
   viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
@@ -180,6 +189,7 @@ function allows add a scalebar. The `pos` parameter allows you to
 position the scalebar.
 
 ``` r
+
 viz_create(projection = "Mercator", domain = africa) |>
   viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
   viz_scalebar() |>
@@ -193,6 +203,7 @@ The
 function allows to display a location map.
 
 ``` r
+
 viz_create(projection = "Mercator", domain = africa, zoomable = TRUE) |>
   viz_path(datum = world, fill = "#CCC", fillOpacity = 0.5) |>
   viz_minimap(
@@ -211,6 +222,7 @@ The
 function allows to display “rhumb lines” like on old portolan charts
 
 ``` r
+
 viz_create(projection = "Mercator", domain = africa) |>
   viz_path(datum = africa, fill = "#CCC", fillOpacity = 0.5) |>
   viz_rhumbs(pos = c(20, 20), stroke = "#38896F", nb = 32) |>
@@ -225,6 +237,7 @@ defined. This works in two steps. First, you define an effect by giving
 it an identifier. Then, you apply it to the layer of your choice.
 
 ``` r
+
 aus <- world[world$ISO3 == "AUS", ]
 ```
 
@@ -237,6 +250,7 @@ filter identifier. The `stdDeviation` parameter determines the blur
 range.
 
 ``` r
+
 # A simple map
 viz_create() |>
   # 1 - create filter
@@ -256,6 +270,7 @@ The
 function can be used to draw a drop shadow
 
 ``` r
+
 viz_create(margin = 5) |>
   viz_shadow(
     id = "my_shadow_effect", stdDeviation = 2.5,
@@ -279,6 +294,7 @@ define how the gradation is performed. Then, you have to apply it on the
 `fill` attribute.
 
 ``` r
+
 viz_create(margin = 5) |>
   viz_radialGradient(
     id = "my_radial_gradient",
@@ -298,6 +314,7 @@ applied. In geoviz, you can add a clipPath element with the
 function.
 
 ``` r
+
 viz_create() |>
   viz_clipPath(id = "my_clip_path", datum = aus) |>
   viz_tile(url = "worldimagery", clipPath = "url(#my_clip_path)") |>
@@ -314,6 +331,7 @@ and apply them to any geometry. It supports multiple textures:
 `"zigzag"`.
 
 ``` r
+
 viz_create() |>
   viz_pattern(
     data = aus, pattern = "cross",
@@ -332,6 +350,7 @@ spatial dataframe. It applies SVG filters (*feTurbulence* and
 *feDisplacementMap*) to create a pencil-like effect.
 
 ``` r
+
 viz_create() |>
   viz_sketch(data = aus, stroke = "#38896F") |>
   viz_render()
@@ -343,6 +362,7 @@ With all these highly customizable layers, it is possible to create very
 nice maps with `geovizr`. Here is an example.
 
 ``` r
+
 viz_create(
   projection = "mercator", domain = africa,
   margin = 20, zoomable = FALSE

@@ -23,6 +23,7 @@ editorial cartography.
 You can install the released version of `geovizr` from CRAN with:
 
 ``` r
+
 install.packages("geovizr")
 ```
 
@@ -30,6 +31,7 @@ Alternatively, you can install the development version of `geovizr` from
 [r-universe](https://riatelab.r-universe.dev/geovizr) with:
 
 ``` r
+
 install.packages("geovizr", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
@@ -44,6 +46,7 @@ displays the map. Here are a few examples.
 First, let’s load some data
 
 ``` r
+
 library(sf)
 world <- st_read(
   system.file("gpkg/world.gpkg", package = "geovizr"),
@@ -54,6 +57,7 @@ world <- st_read(
 - A simple map
 
 ``` r
+
 viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -66,6 +70,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
 - Proportional symbol
 
 ``` r
+
 viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -85,6 +90,7 @@ viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
 - Choropleth
 
 ``` r
+
 viz_create(projection = "InterruptedMollweide", zoomable = TRUE) |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>

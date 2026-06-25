@@ -3,6 +3,7 @@
 First, let’s load packages and some data.
 
 ``` r
+
 library(geovizr)
 library(sf)
 
@@ -27,6 +28,7 @@ the map parameters and an initially empty list of layers to be
 displayed.
 
 ``` r
+
 map <- viz_create(
   projection = "EqualEarth",
   margin = c(20, 0, 0, 0),
@@ -71,6 +73,7 @@ to add a title, etc.
 So you can write this
 
 ``` r
+
 map <- viz_create(projection = "EqualEarth")
 map <- viz_outline(map)
 map <- viz_graticule(map, stroke = "white", step = 20)
@@ -158,6 +161,7 @@ str(map)
 Or that (recomended)
 
 ``` r
+
 map <- viz_create(projection = "EqualEarth") |>
   viz_outline() |>
   viz_graticule(stroke = "white", step = 20) |>
@@ -253,6 +257,7 @@ This configuration file will be rendered using the
 function.
 
 ``` r
+
 viz_render(map)
 ```
 
@@ -260,6 +265,7 @@ Thus, creating a complete map with `geovizr` could be written as
 follows.
 
 ``` r
+
 map <- viz_create(projection = "EqualEarth") |>
   viz_outline() |>
   viz_graticule(stroke = "white", step = 20) |>
@@ -279,10 +285,12 @@ The maps created with the geoviz package thus generate a web page. You
 can save this web page with the `htmlwidgets` package:
 
 ``` r
+
 library("htmlwidgets")
 ```
 
 ``` r
+
 viz_create(zoomable = T) |>
   viz_path(data = world, tip = T) |>
   viz_render() |>
@@ -296,9 +304,10 @@ command instead of
 [`viz_render()`](https://riatelab.github.io/geovizr/reference/viz_render.md).
 
 ``` r
+
 viz_create() |>
   viz_path(data = world) |>
-  viz_save("mymap.svg")
+  viz_save()
 ```
 
 By doing this, the map is returned and a window opens, prompting you to

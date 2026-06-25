@@ -40,6 +40,7 @@ Here an example of a map designed with the package:
 You can install the released version of `geovizr` from CRAN with:
 
 ``` r
+
 install.packages("geovizr")
 ```
 
@@ -47,12 +48,14 @@ Alternatively, you can install the development version of `geovizr` from
 [r-universe](https://riatelab.r-universe.dev/geovizr) with:
 
 ``` r
+
 install.packages("geovizr", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 then
 
 ``` r
+
 library(geovizr)
 ```
 
@@ -83,6 +86,7 @@ The various functions can be chained together with a pipe (**`|>`**).
 Now, let’s build a world map.
 
 ``` r
+
 # Data Loading
 library(sf)
 
@@ -101,6 +105,7 @@ cities <- st_read(
 projected. Use WGS84.*
 
 ``` r
+
 viz_create() |>
   viz_outline() |>
   viz_graticule() |>
@@ -143,6 +148,7 @@ list of parameters you can use on most layers:
 Let’s take the previous map and customize it to our liking.
 
 ``` r
+
 viz_create() |>
   viz_outline(fill = "#38896F", fillOpacity = 0.3) |>
   viz_graticule(stroke = "white", step = 20) |>
@@ -175,6 +181,7 @@ geographic coordinates. The object is then linked to the map and stays
 in the correct location according to the zoom level.
 
 ``` r
+
 # A simple map
 mumbai <- c(72.88, 19.07)
 viz_create(zoomable = T) |>
@@ -193,6 +200,7 @@ elements, such as the legend or text labels.
 an SVG document is located at the top left.***
 
 ``` r
+
 # A simple map
 viz_create(zoomable = T) |>
   viz_path(data = world, fill = "#CCC", stroke = "none", fillOpacity = 0.3) |>
@@ -219,6 +227,7 @@ fine customization of both the map and its legend.
 Here is a simple example of a proportional symbol map
 
 ``` r
+
 viz_create() |>
   viz_path(datum = world, fill = "#CCC") |>
   viz_prop(data = world, var = "pop", fill = "#38896F") |>
@@ -228,6 +237,7 @@ viz_create() |>
 A choropleth map
 
 ``` r
+
 viz_create() |>
   viz_choro(data = world, var = "gdppc", fill = "#38896F") |>
   viz_render()
@@ -236,6 +246,7 @@ viz_create() |>
 And a typology
 
 ``` r
+
 viz_create() |>
   viz_typo(data = world, var = "region") |>
   viz_render()

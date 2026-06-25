@@ -1,6 +1,7 @@
 # Interactivity
 
 ``` r
+
 library(geovizr)
 library(sf)
 
@@ -20,6 +21,7 @@ To add a tooltip, you simply need to use the `tip` parameter and provide
 a character string.
 
 ``` r
+
 viz_create() |>
   viz_path(data = world, fill = "#38896F", tip = "Hello World") |>
   viz_render()
@@ -30,6 +32,7 @@ elements hovered over. To do this, use the `$` prefix with the field
 name.
 
 ``` r
+
 viz_create() |>
   viz_path(data = world, fill = "#38896F", tip = "$name") |>
   viz_render()
@@ -38,6 +41,7 @@ viz_create() |>
 Setting the value to `TRUE` displays all available fields.
 
 ``` r
+
 viz_create() |>
   viz_path(data = world, fill = "#38896F", tip = TRUE) |>
   viz_render()
@@ -47,6 +51,7 @@ You can also combine plain text with variables to compose the tooltip of
 your choice (line breaks are preserved).
 
 ``` r
+
 viz_create() |>
   viz_path(
     data = world, fill = "#38896F",
@@ -62,6 +67,7 @@ Its population is $pop"
 The first way to make a map zoomable is to add a tile layer.
 
 ``` r
+
 viz_create() |>
   viz_tile(url = "cartodbvoyager") |>
   viz_path(data = world, stroke = "#38896F",
@@ -75,6 +81,7 @@ choice, you can also simply use the `zoomable` parameter of the
 function.
 
 ``` r
+
 viz_create(zoomable = T) |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -86,6 +93,7 @@ A second zoom mode is available. It allows not just simple panning, but
 also changing the projection center.
 
 ``` r
+
 viz_create(zoomable = "versor") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
@@ -96,6 +104,7 @@ viz_create(zoomable = "versor") |>
 This mode is particularly suited for creating interactive globes.
 
 ``` r
+
 viz_create(zoomable = "versor", projection = "orthographic") |>
   viz_outline() |>
   viz_graticule(stroke = "white") |>
