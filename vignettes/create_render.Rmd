@@ -116,7 +116,7 @@ You can also directly save the map in SVG format to edit it with a drawing softw
 ```{r, eval = FALSE}
 viz_create() |>
   viz_path(data = world) |>
-  viz_save("mymap.svg")
+  viz_save()
 ```
 
 By doing this, the map is returned and a window opens, prompting you to download it. Thus, the `geovizr` package can be a way to create draft maps before refining them in a CAD environment.
