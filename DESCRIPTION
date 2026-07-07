@@ -1,7 +1,7 @@
 Package: geovizr
 Type: Package
 Title: Interactive Cartography  
-Version: 1.0.0
+Version: 1.0.7
 Authors@R: 
     c(person(given = "Nicolas", 
              family = "Lambert", 
